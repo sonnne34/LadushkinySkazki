@@ -4,7 +4,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/blackTrans"
-    android:scrollbarThumbVertical="@color/whiteTrans">
+    android:fadeScrollbars="false"
+    android:scrollbarStyle="insideInset"
+    android:scrollbarThumbVertical="@drawable/scrollview_thumb"
+    android:scrollbarTrackVertical="@drawable/vertical_scrollview_traack">
 
     <LinearLayout
         android:layout_width="match_parent"

@@ -3,6 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Alexander/GitHub/ladushkinnySkazki/app/src/main/res/drawable/scrollview_thumb.xml" value="0.1" />
+        <entry key="..\:/Alexander/GitHub/ladushkinnySkazki/app/src/main/res/drawable/vertical_scrollview_traack.xml" value="0.1" />
         <entry key="..\:/Alexander/GitHub/ladushkinnySkazki/app/src/main/res/layout/fragment_skazka_body.xml" value="0.16" />
         <entry key="..\:/Alexander/GitHub/ladushkinnySkazki/app/src/main/res/layout/fragment_skazka_fullscreen.xml" value="0.1" />
         <entry key="..\:/Alexander/GitHub/ladushkinnySkazki/app/src/main/res/layout/item_category_list_skazki.xml" value="0.18" />
