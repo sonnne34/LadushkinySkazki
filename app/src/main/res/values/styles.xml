@@ -1,0 +1,19 @@
+<resources>
+    <style name="Widget.Theme.LadushkinnySkazki.ButtonBar.Fullscreen" parent="">
+        <item name="android:background">@color/black_overlay</item>
+        <item name="android:buttonBarStyle">?android:attr/buttonBarStyle</item>
+    </style>
+
+    \\стиль диалогового окна (текст сказки)
+    <style name="CustomDialogBodySkazka" parent="@android:style/Theme.Dialog">
+        <item name="android:windowAnimationStyle">@style/CustomDialogAnimationBodySkazka</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@drawable/backgr_activity_main</item>
+    </style>
+
+    \\подстиль диалогового окна (текст сказки)
+    <style name="CustomDialogAnimationBodySkazka">
+        <item name="android:windowEnterAnimation">@anim/slide_in_right</item>
+        <item name="android:windowExitAnimation">@anim/slide_out_left</item>
+    </style>
+</resources>

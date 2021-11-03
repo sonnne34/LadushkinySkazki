@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="2dp">
+
+    <ImageView
+        android:id="@+id/img_name_skazka"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:background="@drawable/bacground"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:padding="7dp"
+        android:orientation="vertical"
+        android:background="@color/blackTrans">
+
+    <TextView
+        android:id="@+id/txt_name_skazka"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="7dp"
+        android:fontFamily="@font/font_first_time_writing"
+        android:textStyle="bold"
+        android:text="@string/name_skazka"
+        android:textColor="@color/yellow"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/txt_deskription_skazka"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/yellowLight"
+        android:fontFamily="@font/font_first_time_writing"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="5dp"
+        android:text="@string/description_skazka"/>
+
+    </LinearLayout>
+
+</RelativeLayout>
