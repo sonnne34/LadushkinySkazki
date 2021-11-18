@@ -1,6 +1,7 @@
 package com.example.ladushkinnyskazki.loaders
 
 import android.content.Context
+import android.util.Log
 import com.example.ladushkinnyskazki.adapters.SkazkiAdapter
 import com.example.ladushkinnyskazki.models.CategorySkazkiModel
 import com.google.firebase.database.DataSnapshot
@@ -21,6 +22,9 @@ class LoadFireBase(context: Context) {
 
                 for (ds in dataSnapshot.children) {
                     val value = ds.getValue(CategorySkazkiModel::class.java)!!
+
+                    Log.d("RRR", "ff = " + value.Items)
+
                     skazkiCatModel.add(value)
                 }
                 updateAdapter(skazkiCatModel, skazkiAdapter)
