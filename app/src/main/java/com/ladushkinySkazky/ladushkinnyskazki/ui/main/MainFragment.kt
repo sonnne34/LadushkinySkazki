@@ -15,6 +15,7 @@ import com.ladushkinySkazky.ladushkinnyskazki.loaders.LoadFireBase
 import com.ladushkinySkazky.ladushkinnyskazki.models.CategorySkazkiModel
 import com.ladushkinySkazky.ladushkinnyskazki.models.SkazkiCatModel
 import com.sushi.Sushi.listener.RecyclerItemClickListenr
+import kotlinx.android.synthetic.main.main_fragment.*
 
 class MainFragment : Fragment() {
 
@@ -34,16 +35,20 @@ class MainFragment : Fragment() {
     ): View {
         binding = MainFragmentBinding.inflate(layoutInflater)
 
+        val progress = binding.progress
+
         skazkiAdapter = SkazkiAdapter(inflater.context)
 
-        binding.rvListSkazki.adapter = skazkiAdapter
-        binding.rvListSkazki.layoutManager = LinearLayoutManager(binding.root.context,
-            RecyclerView.VERTICAL,false)
-        binding.rvListSkazki.setHasFixedSize(true)
-        binding.rvListSkazki.recycledViewPool.setMaxRecycledViews(50, 50)
-        binding.rvListSkazki.setItemViewCacheSize(50)
+        val rvListSkazki = binding.rvListSkazki
 
-        LoadFireBase(inflater.context).loadSkazki(categorySkazkiList, skazkiAdapter)
+        rvListSkazki.adapter = skazkiAdapter
+        rvListSkazki.layoutManager = LinearLayoutManager(binding.root.context,
+            RecyclerView.VERTICAL,false)
+        rvListSkazki.setHasFixedSize(true)
+        rvListSkazki.recycledViewPool.setMaxRecycledViews(50, 50)
+        rvListSkazki.setItemViewCacheSize(50)
+
+        LoadFireBase(inflater.context).loadSkazki(categorySkazkiList, skazkiAdapter, progress)
 
         return binding.root
     }

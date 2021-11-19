@@ -97,6 +97,13 @@ class SkazkiAdapter(context: Context): RecyclerView.Adapter<RecyclerView.ViewHol
         var imgSkazka = itemView?.findViewById<ImageView>(R.id.img_name_skazka)
 
         fun bindSkazki(skazkiCatModel: SkazkiCatModel, context: Context) {
+
+            val tb = "${skazkiCatModel.Items?.BodySkazka}"
+            val oldValue = "\\n"
+            val newValue = "\n"
+            val replace = tb.replace(oldValue, newValue)
+            skazkiCatModel.Items?.BodySkazka = replace
+
             nameSkazka.text = "${skazkiCatModel.Items?.NameSkazka}"
             descriptionSkazka.text = "${skazkiCatModel.Items?.DescriptionSkazka}"
 

@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="285dp"
+    android:layout_height="wrap_content"
+    android:padding="20dp"
+    android:layout_gravity="end"
+    android:gravity="end"
+    android:background="@drawable/okrugl_menu">
+
+    <ImageView
+        android:id="@+id/image_dish_dialog"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="end"
+        android:layout_marginStart="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="15dp"
+        android:background="@drawable/ic_logo_trans"
+        android:gravity="center" />
+
+    <TextView
+        android:id="@+id/txt_avtor_dialog"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/image_dish_dialog"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="end"
+        android:layout_marginStart="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="5dp"
+        android:fontFamily="@font/font_lobster"
+        android:gravity="end"
+        android:text="Автор сказок: Лада Светочева\nЛоготип: https://www.freepik.com"
+        android:textColor="@color/yellowLight"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/txt2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txt_avtor_dialog"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="end"
+        android:layout_marginEnd="5dp"
+        android:layout_marginRight="5dp"
+        android:fontFamily="@font/font_lobster"
+        android:gravity="end"
+        android:text="Будем рады Вашим отзывам!\nАвтор сказок так-же на связи 😊"
+        android:textColor="@color/yellowLight"
+        android:textSize="14sp" />
+
+    <LinearLayout
+        android:id="@+id/layout_email_dialog"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/txt2"
+        android:orientation="horizontal">
+
+    <TextView
+        android:id="@+id/txt4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txt2"
+        android:layout_marginEnd="5dp"
+        android:layout_marginRight="5dp"
+        android:fontFamily="@font/font_lobster"
+        android:textSize="14sp"
+        android:gravity="end"
+        android:text="Наш e-mail:"
+        android:textColor="@color/yellowLight" />
+
+    <TextView
+        android:id="@+id/txt3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:layout_marginEnd="5dp"
+        android:layout_marginRight="5dp"
+        android:fontFamily="@font/font_lobster"
+        android:gravity="end"
+        android:text="sonne-34@yandex.ru"
+        android:textColor="@color/yellowLight"
+        android:textIsSelectable="true"
+        android:textSize="14sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_send_dialog"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/layout_email_dialog"
+        android:layout_centerHorizontal="true"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/edttxt_menu"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="7dp"
+            android:fontFamily="@font/font_first_time_writing"
+            android:gravity="center"
+            android:hint="или напишите нам\nпрямо здесь!"
+            android:maxHeight="200dp"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <ImageButton
+            android:id="@+id/img_btn_send_menu"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_gravity="center"
+            android:layout_margin="5dp"
+            android:background="@drawable/ic_send" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/btn_close_dialog_options"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/layout_send_dialog"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="15dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/okrugl_button"
+        android:fontFamily="@font/font_lobster"
+        android:padding="10dp"
+        android:text="Закрыть"
+        android:textColor="@color/yellowLight" />
+
+
+
+</RelativeLayout>

@@ -16,4 +16,18 @@
         <item name="android:windowEnterAnimation">@anim/slide_in_right</item>
         <item name="android:windowExitAnimation">@anim/slide_out_left</item>
     </style>
+
+    \\стиль диалогового окна (меню)
+    <style name="CustomDialogMenu" parent="@android:style/Theme.Dialog">
+        <item name="android:windowAnimationStyle">@style/CustomDialogAnimationMenu</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@drawable/okrugl_menu</item>
+    </style>
+
+    \\подстиль диалогового окна (меню)
+    <style name="CustomDialogAnimationMenu">
+        <item name="android:windowEnterAnimation">@anim/translate_left_side</item>
+        <item name="android:windowExitAnimation">@anim/translate_right_side</item>
+    </style>
+
 </resources>
