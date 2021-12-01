@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="2dp">
+
+    <ImageView
+        android:id="@+id/img_category_skazka"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:background="@drawable/bacground"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:padding="7dp"
+        android:background="@color/blackTrans">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical"
+        android:background="@color/blackTrans">
+
+    <TextView
+        android:id="@+id/txt_name_category_skazka"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="7dp"
+        android:fontFamily="@font/font_first_time_writing"
+        android:textStyle="bold"
+        android:layout_gravity="center"
+        android:gravity="end"
+        android:text="Название категории"
+        android:textColor="@color/yellow"
+        android:textSize="22sp" />
+
+    <TextView
+        android:id="@+id/txt_deskription_category"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/yellowLight"
+        android:fontFamily="@font/font_first_time_writing"
+        android:textStyle="bold"
+        android:gravity="end"
+        android:layout_gravity="center"
+        android:textSize="16sp"
+        android:padding="10dp"
+        android:text="Описание категории"/>
+
+    </LinearLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>

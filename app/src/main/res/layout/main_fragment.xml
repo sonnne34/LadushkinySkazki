@@ -7,10 +7,11 @@
     android:layout_height="match_parent"
     android:layout_margin="2dp"
     android:background="@color/blackTrans"
-    tools:context=".ui.main.MainFragment">
+    tools:context=".ui.main.SkazkyFragment">
 
     <ProgressBar
         android:id="@+id/progress"
+        android:indeterminateDrawable="@drawable/progress_icon"
         android:layout_centerInParent="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>

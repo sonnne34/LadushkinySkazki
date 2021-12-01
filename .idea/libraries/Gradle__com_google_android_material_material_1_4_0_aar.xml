@@ -1,12 +1,12 @@
 <component name="libraryTable">
   <library name="Gradle: com.google.android.material:material:1.4.0@aar">
     <ANNOTATIONS>
-      <root url="jar://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/164ff0234a7cb732427a39fb52be9023/transformed/material-1.4.0/annotations.zip!/" />
+      <root url="jar://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/c852a51bdd14fc53175ab6a37d6fe95e/transformed/material-1.4.0/annotations.zip!/" />
     </ANNOTATIONS>
     <CLASSES>
-      <root url="file://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/164ff0234a7cb732427a39fb52be9023/transformed/material-1.4.0/AndroidManifest.xml" />
-      <root url="jar://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/164ff0234a7cb732427a39fb52be9023/transformed/material-1.4.0/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/164ff0234a7cb732427a39fb52be9023/transformed/material-1.4.0/res" />
+      <root url="jar://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/c852a51bdd14fc53175ab6a37d6fe95e/transformed/material-1.4.0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/c852a51bdd14fc53175ab6a37d6fe95e/transformed/material-1.4.0/res" />
+      <root url="file://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/c852a51bdd14fc53175ab6a37d6fe95e/transformed/material-1.4.0/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

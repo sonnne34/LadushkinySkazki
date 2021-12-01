@@ -32,16 +32,9 @@ class SkazkaBodyDialog {
             val txtName = dialog.findViewById<TextView>(R.id.txt_name_body_skazka)
             val txtBody = dialog.findViewById<TextView>(R.id.txt_body_skazka)
 
-            val tb = catModel.Items?.BodySkazka.toString()
-//            val oldValue = 'a'
-//            val newValue = 'D'
-//
-//            val replace = tb.replace(oldValue, newValue)
-
             txtName.text = catModel.Items?.NameSkazka
-            txtBody.text = tb
+            txtBody.text = catModel.Items?.BodySkazka.toString()
             LoadImage().loadImageNameSkazka(context, catModel, img)
-
 
             dialog.show()
         }

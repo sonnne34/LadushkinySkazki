@@ -13,23 +13,24 @@ import com.ladushkinySkazky.ladushkinnyskazki.dialog.SkazkaBodyDialog
 import com.ladushkinySkazky.ladushkinnyskazki.loaders.LoadImage
 import com.ladushkinySkazky.ladushkinnyskazki.models.CategorySkazkiModel
 import com.ladushkinySkazky.ladushkinnyskazki.models.SkazkiCatModel
+import kotlin.collections.ArrayList
 
 class SkazkiAdapter(context: Context): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     private var mContext = context
-
     private var categorySkazkiModel: ArrayList<CategorySkazkiModel>? = null
     private var skazkiCatModelList: ArrayList<SkazkiCatModel> = ArrayList()
-
     private val LAYOUT_HEADER = 0
     private val LAYOUT_CHILD = 1
 
     @SuppressLint("NotifyDataSetChanged")
-    fun setupSkazkiAdapter(skazkiList: ArrayList<CategorySkazkiModel>) {
+    fun setupSkazkiAdapter(skazkiList: ArrayList<CategorySkazkiModel>, position: Int) {
         skazkiCatModelList.clear()
+
         if (categorySkazkiModel == null) {
             categorySkazkiModel = skazkiList
         }
+
         for(categoryModel in skazkiList) {
             val model = SkazkiCatModel()
             model.CategoryName = categoryModel.CategoryName
@@ -38,22 +39,23 @@ class SkazkiAdapter(context: Context): RecyclerView.Adapter<RecyclerView.ViewHol
 
             for (i in categoryModel.Items) {
                 skazkiCatModelList.add(SkazkiCatModel(i.value))
+                skazkiCatModelList.sortBy { it.Items?.ID }
             }
         }
         notifyDataSetChanged()
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-        if (viewType == LAYOUT_HEADER) {
-            var layoutInflater = LayoutInflater.from(parent.context)
-            var itemView = layoutInflater.inflate(R.layout.item_category_list_skazki, parent, false)
-            return HeaderViewHolder(itemView = itemView)
+        return if(viewType == LAYOUT_HEADER) {
+            val layoutInflater = LayoutInflater.from(parent.context)
+            val itemView = layoutInflater.inflate(R.layout.item_list_skazki_category, parent, false)
+            HeaderViewHolder(itemView = itemView)
 
         } else {
 
-            var layoutInflater = LayoutInflater.from(parent.context)
-            var itemView = layoutInflater.inflate(R.layout.item_list_skazki, parent, false)
-            return SkazkiViewHolder(itemView = itemView)
+            val layoutInflater = LayoutInflater.from(parent.context)
+            val itemView = layoutInflater.inflate(R.layout.item_list_skazki, parent, false)
+            SkazkiViewHolder(itemView = itemView)
         }
     }
 
@@ -61,7 +63,6 @@ class SkazkiAdapter(context: Context): RecyclerView.Adapter<RecyclerView.ViewHol
         if (holder.itemViewType == LAYOUT_HEADER) {
             if (holder is HeaderViewHolder) {
                 holder.bindHeader(skazkiCatModel = skazkiCatModelList[position])
-            } else {
             }
 
         } else {
@@ -98,15 +99,16 @@ class SkazkiAdapter(context: Context): RecyclerView.Adapter<RecyclerView.ViewHol
 
         fun bindSkazki(skazkiCatModel: SkazkiCatModel, context: Context) {
 
-            val tb = "${skazkiCatModel.Items?.BodySkazka}"
+            //FireBase автоматически добавляет "\" к "\n",
+            //поэтому заменяю в тексте тег для отработки отступов
+            val textSkazka = "${skazkiCatModel.Items?.BodySkazka}"
             val oldValue = "\\n"
             val newValue = "\n"
-            val replace = tb.replace(oldValue, newValue)
+            val replace = textSkazka.replace(oldValue, newValue)
             skazkiCatModel.Items?.BodySkazka = replace
 
             nameSkazka.text = "${skazkiCatModel.Items?.NameSkazka}"
             descriptionSkazka.text = "${skazkiCatModel.Items?.DescriptionSkazka}"
-
             LoadImage().loadImageNameSkazka(context, skazkiCatModel, imgSkazka!!)
 
             itemView.setOnClickListener {

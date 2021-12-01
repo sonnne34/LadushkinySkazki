@@ -10,6 +10,7 @@
 
     <color name="yellow">#ffff66</color> //жёлтый
     <color name="yellowLight">#ffff99</color> //жёлтый
+    <color name="yellowLight2">#ffffcc</color> //жёлтый
     <color name="yellowLightTrans">#90ffff99</color> //жёлтый
     <color name="blackLightTrans">#90000000</color>
     <color name="blackTrans">#99000000</color>

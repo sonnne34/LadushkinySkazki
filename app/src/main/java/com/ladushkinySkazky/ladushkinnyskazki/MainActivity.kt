@@ -1,19 +1,22 @@
 package com.ladushkinySkazky.ladushkinnyskazki
 
-import android.content.SharedPreferences
+import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.ImageButton
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.ladushkinySkazky.ladushkinnyskazki.dialog.MenuDialog
-import com.ladushkinySkazky.ladushkinnyskazki.ui.main.MainFragment
+import com.ladushkinySkazky.ladushkinnyskazki.interfaces.ConnectionType
+import com.ladushkinySkazky.ladushkinnyskazki.interfaces.NetworkMonitorUtil
+import com.ladushkinySkazky.ladushkinnyskazki.ui.main.MainFragmentCategory
+import kotlin.system.exitProcess
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var btnMenu: ImageButton
-    private val HELLO = "HELLO"
-    private lateinit var sHello: SharedPreferences
-    private var saveHello: String? = null
+    private val networkMonitor = NetworkMonitorUtil(this)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,75 +24,34 @@ class MainActivity : AppCompatActivity() {
 
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
-                .replace(R.id.container, MainFragment.newInstance())
+                .replace(R.id.container, MainFragmentCategory.newInstance())
                 .commitNow()
         }
+
         btnMenu = findViewById(R.id.img_btn_menu_main)
 
         btnMenu.setOnClickListener {
             MenuDialog.openMenu(this)
         }
 
-        //        loadHello()
-//        if(saveHello != "Hello"){
-//            openHelloDialog()
-//        }
+        //проверка подключения к интернету
+        networkMonitorResult()
 
-
+        //проверка подключения к интернету
+        networkMonitor.register()
     }
 
-//    private fun openHelloDialog() {
-//        val helloDialog = AlertDialog.Builder(
-//            this
-//        )
-//        helloDialog.setTitle("Ура!")
-//        helloDialog.setTitle("Очень рады приветсвовать Вас!")
-//        helloDialog.setPositiveButton(
-//            "И мне радостно!"
-//        ) { _, _ ->
-//            val save = "Hello"
-//            saveHello(save)
-//            finish()
-//        }
-//        helloDialog.setNegativeButton(
-//            "ну, привет..."
-//        ) { _, _ ->
-//            val save = "Hello"
-//            saveHello(save)
-//            finish()
-//        }
-//
-//        helloDialog.show()
-//    }
-//
-//    private fun loadHello() {
-//
-//        //загружаем
-//        sHello = getPreferences(MODE_PRIVATE)
-//        saveHello = sHello.getString(HELLO, "").toString()
-//
-//    }
-
-//    private fun saveHello(hello: String) {
-//
-//        //сохраняем
-//        sHello = getPreferences(MODE_PRIVATE)
-//        val sl: SharedPreferences.Editor = sHello.edit()
-//        sl.putString(HELLO, hello).toString()
-//        sl.apply()
-//    }
-
-    private fun openQuitDialog() {
+    //диалоговое окно перед выходом из приложения
+    fun openExitDialog(context: Context) {
         val quitDialog = AlertDialog.Builder(
-            this
+            context
         )
         quitDialog.setTitle("Выход")
-        quitDialog.setTitle("Вы уверенны, что хотите выйти?")
+        quitDialog.setTitle("Вы уверенны, что хотите закрыть приложение?")
         quitDialog.setPositiveButton(
             "Да"
         ) { _, _ ->
             onDestroy()
-//            finish()
         }
         quitDialog.setNegativeButton(
             "Ой, нет!"
@@ -97,14 +59,56 @@ class MainActivity : AppCompatActivity() {
         quitDialog.show()
     }
 
-//    override fun onBackPressed() {
-//        openQuitDialog()
-//    }
+    //переопределения метода для обработки возвращения к фрагментам
+    override fun onBackPressed() {
+        //проверяем наличие фрагментов в стеке
+        val count = supportFragmentManager.backStackEntryCount
+        if (count == 0) {
+            //открывем диалог о выходе
+            openExitDialog(this)
+        } else {
+            //возвращаемся к пред. фрагменту
+            supportFragmentManager.popBackStack()
+        }
+    }
+
+    //проверка подключения к интернету
+    private fun  networkMonitorResult(){
+        networkMonitor.result = { isAvailable, type ->
+            runOnUiThread {
+                when (isAvailable) {
+                    true -> {
+                        when (type) {
+                            ConnectionType.Wifi -> {
+                                Log.i("NETWORK_MONITOR_STATUS", "Wifi Connection")
+                            }
+                            ConnectionType.Cellular -> {
+                                Log.i("NETWORK_MONITOR_STATUS", "Cellular Connection")
+                            }
+                            else -> { }
+                        }
+                    }
+                    false -> {
+                        Log.i("NETWORK_MONITOR_STATUS", "No Connection")
+                        Toast.makeText(applicationContext,
+                            "Проверьте подключение к интернету",
+                            Toast.LENGTH_LONG)
+                            .show()
+                    }
+                }
+            }
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        //остановка проверки подключения к интернету
+        networkMonitor.unregister()
+    }
 
     override fun onDestroy() {
-        moveTaskToBack(true);
-        super.onDestroy();
-        System.runFinalizersOnExit(true);
-        System.exit(0);
+        moveTaskToBack(true)
+        super.onDestroy()
+        exitProcess(0)
     }
 }
