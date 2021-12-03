@@ -141,6 +141,7 @@
             android:layout_gravity="center"
             android:layout_margin="7dp"
             android:background="@color/white"
+            android:textColor="@color/blackTrans"
             android:fontFamily="@font/font_first_time_writing"
             android:gravity="center"
             android:hint="или напишите нам\nпрямо здесь!"

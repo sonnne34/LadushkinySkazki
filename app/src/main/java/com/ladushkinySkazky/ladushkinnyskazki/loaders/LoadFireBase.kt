@@ -10,6 +10,7 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.ladushkinySkazky.ladushkinnyskazki.adapters.CategoryAdapter
+import com.ladushkinySkazky.ladushkinnyskazki.listeners.EventListeners
 
 class LoadFireBase() {
     fun loadSkazki(skazkiCatModel : ArrayList<CategorySkazkiModel>, categoryAdapter: CategoryAdapter, progress: ProgressBar) {
@@ -18,7 +19,6 @@ class LoadFireBase() {
         val myRef = database.getReference("Skazka")
 
         myRef.addValueEventListener(object : ValueEventListener {
-
             override fun onDataChange(dataSnapshot: DataSnapshot) {
 
                 for (ds in dataSnapshot.children) {

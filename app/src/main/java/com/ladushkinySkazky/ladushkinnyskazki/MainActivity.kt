@@ -37,8 +37,6 @@ class MainActivity : AppCompatActivity() {
         //проверка подключения к интернету
         networkMonitorResult()
 
-        //проверка подключения к интернету
-        networkMonitor.register()
     }
 
     //диалоговое окно перед выходом из приложения
@@ -102,6 +100,13 @@ class MainActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
+        //проверка подключения к интернету
+        networkMonitor.register()
+
+    }
+
+    override fun onPause() {
+        super.onPause()
         //остановка проверки подключения к интернету
         networkMonitor.unregister()
     }

@@ -36,11 +36,11 @@ class MenuDialog {
             btnSent.setOnClickListener {
                 mDataBase = FirebaseDatabase.getInstance().getReference("Feedback/Items/$id/TextFeedback")
                 mDataBase.ref.setValue(editSent.text.toString())
-                dialog.cancel()
                 Toast.makeText(context,
                     "Отправлено!",
                     Toast.LENGTH_LONG)
                     .show()
+                dialog.cancel()
             }
 
             btnClose.setOnClickListener {
