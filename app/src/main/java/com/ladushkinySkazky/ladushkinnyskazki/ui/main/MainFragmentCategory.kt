@@ -41,6 +41,8 @@ class MainFragmentCategory : Fragment() {
         if (categoryAdapter == null){
             categoryAdapter = CategoryAdapter(inflater.context)
             LoadFireBase().loadSkazki(categorySkazkiList, categoryAdapter!!, progress)
+        } else{
+            progress.visibility = View.GONE
         }
 
         rvListCategorySkazki.adapter = categoryAdapter
