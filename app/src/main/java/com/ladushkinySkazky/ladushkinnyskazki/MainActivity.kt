@@ -1,17 +1,21 @@
 package com.ladushkinySkazky.ladushkinnyskazki
 
 import android.content.Context
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.DisplayMetrics
 import android.util.Log
 import android.widget.ImageButton
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
 import com.ladushkinySkazky.ladushkinnyskazki.dialog.MenuDialog
 import com.ladushkinySkazky.ladushkinnyskazki.interfaces.ConnectionType
 import com.ladushkinySkazky.ladushkinnyskazki.interfaces.NetworkMonitorUtil
+import com.ladushkinySkazky.ladushkinnyskazki.singletons.DisplaySingleton
 import com.ladushkinySkazky.ladushkinnyskazki.ui.main.MainFragmentCategory
 import kotlin.system.exitProcess
+
+const val CELLS_ON_FIELD = 10
 
 class MainActivity : AppCompatActivity() {
 
@@ -24,7 +28,7 @@ class MainActivity : AppCompatActivity() {
 
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
-                .replace(R.id.container, MainFragmentCategory.newInstance())
+                .replace(R.id.containerSnake, MainFragmentCategory.newInstance())
                 .commitNow()
         }
 
@@ -37,10 +41,21 @@ class MainActivity : AppCompatActivity() {
         //проверка подключения к интернету
         networkMonitorResult()
 
+        //вычисление размеров объектов для змейки
+        sizePx()
+    }
+
+    //Вычисление размеров объектов
+    private fun sizePx() {
+        val displayMetrics: DisplayMetrics = applicationContext.resources.displayMetrics
+        val pxWidth = displayMetrics.widthPixels - 50
+        val sizeHead = pxWidth / CELLS_ON_FIELD
+        DisplaySingleton.addWidth(pxWidth.toString())
+        DisplaySingleton.addHead(sizeHead.toString())
     }
 
     //диалоговое окно перед выходом из приложения
-    fun openExitDialog(context: Context) {
+    private fun openExitDialog(context: Context) {
         val quitDialog = AlertDialog.Builder(
             context
         )
@@ -71,7 +86,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     //проверка подключения к интернету
-    private fun  networkMonitorResult(){
+    private fun networkMonitorResult() {
         networkMonitor.result = { isAvailable, type ->
             runOnUiThread {
                 when (isAvailable) {
@@ -83,14 +98,16 @@ class MainActivity : AppCompatActivity() {
                             ConnectionType.Cellular -> {
                                 Log.i("NETWORK_MONITOR_STATUS", "Cellular Connection")
                             }
-                            else -> { }
+                            else -> {}
                         }
                     }
                     false -> {
                         Log.i("NETWORK_MONITOR_STATUS", "No Connection")
-                        Toast.makeText(applicationContext,
+                        Toast.makeText(
+                            applicationContext,
                             "Проверьте подключение к интернету",
-                            Toast.LENGTH_LONG)
+                            Toast.LENGTH_LONG
+                        )
                             .show()
                     }
                 }

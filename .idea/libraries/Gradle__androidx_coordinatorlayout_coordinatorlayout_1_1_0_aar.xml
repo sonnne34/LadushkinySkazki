@@ -2,11 +2,15 @@
   <library name="Gradle: androidx.coordinatorlayout:coordinatorlayout:1.1.0@aar">
     <ANNOTATIONS>
       <root url="jar://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/e7df87a2257d345196d35f67cecc7c25/transformed/coordinatorlayout-1.1.0/annotations.zip!/" />
+      <root url="jar://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/f7985ad5b8549591289b57df008f11f0/transformed/coordinatorlayout-1.1.0/annotations.zip!/" />
     </ANNOTATIONS>
     <CLASSES>
       <root url="file://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/e7df87a2257d345196d35f67cecc7c25/transformed/coordinatorlayout-1.1.0/res" />
       <root url="file://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/e7df87a2257d345196d35f67cecc7c25/transformed/coordinatorlayout-1.1.0/AndroidManifest.xml" />
       <root url="jar://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/e7df87a2257d345196d35f67cecc7c25/transformed/coordinatorlayout-1.1.0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/f7985ad5b8549591289b57df008f11f0/transformed/coordinatorlayout-1.1.0/res" />
+      <root url="file://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/f7985ad5b8549591289b57df008f11f0/transformed/coordinatorlayout-1.1.0/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/f7985ad5b8549591289b57df008f11f0/transformed/coordinatorlayout-1.1.0/jars/classes.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

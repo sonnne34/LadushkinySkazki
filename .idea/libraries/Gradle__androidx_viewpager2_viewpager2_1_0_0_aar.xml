@@ -2,11 +2,15 @@
   <library name="Gradle: androidx.viewpager2:viewpager2:1.0.0@aar">
     <ANNOTATIONS>
       <root url="jar://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/06026c5b2d6a14015af2c931630c3c5c/transformed/jetified-viewpager2-1.0.0/annotations.zip!/" />
+      <root url="jar://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/63df41a0393cfcd4f9d0662fd0159df5/transformed/jetified-viewpager2-1.0.0/annotations.zip!/" />
     </ANNOTATIONS>
     <CLASSES>
       <root url="file://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/06026c5b2d6a14015af2c931630c3c5c/transformed/jetified-viewpager2-1.0.0/AndroidManifest.xml" />
       <root url="file://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/06026c5b2d6a14015af2c931630c3c5c/transformed/jetified-viewpager2-1.0.0/res" />
       <root url="jar://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/06026c5b2d6a14015af2c931630c3c5c/transformed/jetified-viewpager2-1.0.0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/63df41a0393cfcd4f9d0662fd0159df5/transformed/jetified-viewpager2-1.0.0/res" />
+      <root url="file://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/63df41a0393cfcd4f9d0662fd0159df5/transformed/jetified-viewpager2-1.0.0/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/63df41a0393cfcd4f9d0662fd0159df5/transformed/jetified-viewpager2-1.0.0/jars/classes.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

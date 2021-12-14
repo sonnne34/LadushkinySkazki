@@ -10,7 +10,6 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.ladushkinySkazky.ladushkinnyskazki.adapters.CategoryAdapter
-import com.ladushkinySkazky.ladushkinnyskazki.listeners.EventListeners
 
 class LoadFireBase() {
     fun loadSkazki(skazkiCatModel : ArrayList<CategorySkazkiModel>, categoryAdapter: CategoryAdapter, progress: ProgressBar) {
@@ -26,7 +25,7 @@ class LoadFireBase() {
                     Log.d("RRR", "ff = " + value.Items)
 
                     skazkiCatModel.add(value)
-                    SkazkiSingleton.addEstate(value)
+                    SkazkiSingleton.addSkazki(value)
                 }
                 updateAdapter(skazkiCatModel, categoryAdapter, progress)
             }

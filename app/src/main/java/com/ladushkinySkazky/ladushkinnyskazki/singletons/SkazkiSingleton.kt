@@ -3,13 +3,14 @@ package com.example.testetagi.singletons
 import android.util.Log
 import com.ladushkinySkazky.ladushkinnyskazki.models.CategorySkazkiModel
 import com.ladushkinySkazky.ladushkinnyskazki.listeners.EventListeners
+import com.ladushkinySkazky.ladushkinnyskazki.models.SkazkiModel
 
 object SkazkiSingleton {
 
     var skazkiItem : ArrayList<CategorySkazkiModel> = ArrayList()
     var listeners: ArrayList<EventListeners> = ArrayList()
 
-    fun addEstate(item : CategorySkazkiModel){
+    fun addSkazki(item : CategorySkazkiModel){
         var boolean = true
         for(i in skazkiItem){
             if(i.CategoryName == item.CategoryName){
@@ -20,7 +21,6 @@ object SkazkiSingleton {
             skazkiItem.add(item)
         }
     }
-
 
     fun notifyTwo() {
         for (listener in listeners) {

@@ -1,25 +1,27 @@
 package com.ladushkinySkazky.ladushkinnyskazki.ui.main
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.ladushkinySkazky.ladushkinnyskazki.R
 import com.ladushkinySkazky.ladushkinnyskazki.adapters.CategoryAdapter
 import com.ladushkinySkazky.ladushkinnyskazki.databinding.FragmentCategoryMainBinding
+import com.ladushkinySkazky.ladushkinnyskazki.listeners.RecyclerItemClickListener
 import com.ladushkinySkazky.ladushkinnyskazki.loaders.LoadFireBase
 import com.ladushkinySkazky.ladushkinnyskazki.models.CategorySkazkiModel
-import com.ladushkinySkazky.ladushkinnyskazki.listeners.RecyclerItemClickListener
+import com.ladushkinySkazky.ladushkinnyskazki.snake.SnakeActivity
 
 class MainFragmentCategory : Fragment() {
 
-    private lateinit var binding : FragmentCategoryMainBinding
+    private lateinit var binding: FragmentCategoryMainBinding
     private var categoryAdapter: CategoryAdapter? = null
     private var categorySkazkiList: ArrayList<CategorySkazkiModel> = ArrayList()
     private lateinit var mainFragment: SkazkyFragment
@@ -35,19 +37,28 @@ class MainFragmentCategory : Fragment() {
 
         binding = FragmentCategoryMainBinding.inflate(layoutInflater)
 
+        //игра змейка
+        val btnSnake = binding.btnSnakeCategoryMain
+        btnSnake.setOnClickListener {
+            val intent = Intent(inflater.context, SnakeActivity::class.java)
+            startActivity(intent)
+        }
+
         val progress = binding.progress
         val rvListCategorySkazki = binding.rvListCategory
 
-        if (categoryAdapter == null){
+        if (categoryAdapter == null) {
             categoryAdapter = CategoryAdapter(inflater.context)
             LoadFireBase().loadSkazki(categorySkazkiList, categoryAdapter!!, progress)
-        } else{
+        } else {
             progress.visibility = View.GONE
         }
 
         rvListCategorySkazki.adapter = categoryAdapter
-        rvListCategorySkazki.layoutManager = LinearLayoutManager(binding.root.context,
-            RecyclerView.VERTICAL,false)
+        rvListCategorySkazki.layoutManager = LinearLayoutManager(
+            binding.root.context,
+            RecyclerView.VERTICAL, false
+        )
         rvListCategorySkazki.setHasFixedSize(true)
         rvListCategorySkazki.recycledViewPool.setMaxRecycledViews(50, 50)
         rvListCategorySkazki.setItemViewCacheSize(50)
@@ -58,7 +69,7 @@ class MainFragmentCategory : Fragment() {
 
     }
 
-    fun onClickItem(rv: RecyclerView, context: Context){
+    private fun onClickItem(rv: RecyclerView, context: Context) {
         rv.addOnItemTouchListener(
             RecyclerItemClickListener(context, rv,
                 object : RecyclerItemClickListener.OnItemClickListener {
@@ -72,7 +83,7 @@ class MainFragmentCategory : Fragment() {
                         mainFragment.arguments = args
                         val manager = (activity as AppCompatActivity).supportFragmentManager
                         manager.beginTransaction()
-                            .replace(R.id.container, mainFragment, args.toString())
+                            .replace(R.id.containerSnake, mainFragment, args.toString())
                             .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
                             .addToBackStack(this@MainFragmentCategory.toString())
                             .commit()
