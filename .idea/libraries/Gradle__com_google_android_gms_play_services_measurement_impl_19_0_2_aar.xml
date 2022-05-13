@@ -9,6 +9,9 @@
       <root url="file://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/ce1d0e651a5e04f19550c4bb5a68c45c/transformed/jetified-play-services-measurement-impl-19.0.2/res" />
       <root url="jar://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/ce1d0e651a5e04f19550c4bb5a68c45c/transformed/jetified-play-services-measurement-impl-19.0.2/jars/classes.jar!/" />
       <root url="file://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/ce1d0e651a5e04f19550c4bb5a68c45c/transformed/jetified-play-services-measurement-impl-19.0.2/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/ce1d0e651a5e04f19550c4bb5a68c45c/transformed/jetified-play-services-measurement-impl-19.0.2/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/ce1d0e651a5e04f19550c4bb5a68c45c/transformed/jetified-play-services-measurement-impl-19.0.2/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/ce1d0e651a5e04f19550c4bb5a68c45c/transformed/jetified-play-services-measurement-impl-19.0.2/jars/classes.jar!/" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/Desktop/Sushi/app/gradle/caches/modules-2/files-2.1/com.google.android.gms/play-services-measurement-impl/19.0.2/1e50feff1b4c500575766d98c41c5ef0fcbdb9f9/play-services-measurement-impl-19.0.2-javadoc.jar!/" />

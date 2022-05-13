@@ -5,21 +5,23 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_margin="2dp"
+    android:background="@color/blackTrans"
     tools:context=".ui.main.MainFragmentCategory">
 
-    <Button
+    <TextView
         android:id="@+id/btnSnakeCategoryMain"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:fontFamily="@font/font_first_time_writing"
-        android:text="@string/btn_go_snake" />
-
-    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/blackTrans"
-        android:layout_below="@+id/btnSnakeCategoryMain">
+        android:layout_height="37dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginHorizontal="5dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/background_btn_snake_two"
+        android:fontFamily="@font/font_first_time_writing"
+        android:gravity="center"
+        android:text="@string/btn_go_snake"
+        android:textColor="@color/yellow"
+        android:textSize="18sp"
+        android:textStyle="bold" />
 
     <ProgressBar
         android:id="@+id/progress"
@@ -28,12 +30,11 @@
         android:layout_centerInParent="true"
         android:indeterminateDrawable="@drawable/progress_icon" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_list_category"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="3dp" />
-
-    </RelativeLayout>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_list_category"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/btnSnakeCategoryMain"
+            android:padding="3dp" />
 
 </RelativeLayout>

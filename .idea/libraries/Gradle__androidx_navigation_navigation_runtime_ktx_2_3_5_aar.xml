@@ -8,6 +8,9 @@
       <root url="jar://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/2619c1e1d8e137f2ecfb71bf48e0112c/transformed/navigation-runtime-ktx-2.3.5/jars/classes.jar!/" />
       <root url="file://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/2619c1e1d8e137f2ecfb71bf48e0112c/transformed/navigation-runtime-ktx-2.3.5/res" />
       <root url="file://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/2619c1e1d8e137f2ecfb71bf48e0112c/transformed/navigation-runtime-ktx-2.3.5/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/2619c1e1d8e137f2ecfb71bf48e0112c/transformed/navigation-runtime-ktx-2.3.5/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/2619c1e1d8e137f2ecfb71bf48e0112c/transformed/navigation-runtime-ktx-2.3.5/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/2619c1e1d8e137f2ecfb71bf48e0112c/transformed/navigation-runtime-ktx-2.3.5/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

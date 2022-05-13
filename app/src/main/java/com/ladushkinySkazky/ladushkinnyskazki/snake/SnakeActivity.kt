@@ -5,7 +5,6 @@ import android.media.MediaPlayer
 import android.os.Bundle
 import android.widget.FrameLayout
 import android.widget.ImageView
-import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
@@ -86,6 +85,7 @@ class SnakeActivity : AppCompatActivity() {
                 { checkIfCurrentDirectionIsNotOpposite(Direction.RIGHT, Direction.LEFT) }
         }
         icPause.setOnClickListener {
+            soundPause()
             if (isPlay) {
                 icPause.setImageResource(R.drawable.ic_play)
             } else {
@@ -103,6 +103,11 @@ class SnakeActivity : AppCompatActivity() {
     //загрузка размера объектов/шага
     private fun loadTextHead(): String {
         return DisplaySingleton.sizeHead
+    }
+
+    //размер шага
+    private fun loadSizeShag(): String {
+        return (DisplaySingleton.sizeHead.toInt() / 10).toString()
     }
 
     //проверка на повторное нажатие направления
@@ -148,10 +153,41 @@ class SnakeActivity : AppCompatActivity() {
     //съедение объекта, добавление объекта в тело змейки
     private fun checkIfSnakeEatsPerson() {
         if (head.left == animal.left && head.top == animal.top) {
+
+//        if ( checkTop() && checkLeft()) {
+//            val headTop = head.top + loadTextHead().toInt()
+//            val headLeft = head.left + loadTextHead().toInt()
+
             addPartOfTale(head.top, head.left)
+//            addPartOfTale(headTop, headLeft)
             soundHello()
             ifFullTale()
         }
+
+    }
+
+    private fun checkTop(): Boolean{
+        val sizeLeftMin = head.top - (loadTextHead().toInt() / 2)
+        val sizeLeftMax = head.top + (loadTextHead().toInt() / 2)
+        var bool = false
+        for(i in sizeLeftMin..sizeLeftMax) {
+            if(i == animal.top){
+            bool = true
+            }
+        }
+        return bool
+    }
+
+    private fun checkLeft(): Boolean{
+        val sizeTopMin = head.left - (loadTextHead().toInt() / 2)
+        val sizeTopMax = head.left + (loadTextHead().toInt() / 2)
+        var bool = false
+        for(i in sizeTopMin..sizeTopMax) {
+            if(i == animal.left){
+                bool = true
+            }
+        }
+        return bool
     }
 
     //создание кроватки
@@ -237,6 +273,7 @@ class SnakeActivity : AppCompatActivity() {
         val taleImage = ImageView(this)
         taleImage.setImageResource(R.drawable.hedgehog_two)
         taleImage.layoutParams =
+//            FrameLayout.LayoutParams(loadTextHead().toInt(), loadTextHead().toInt())
             FrameLayout.LayoutParams(loadTextHead().toInt(), loadTextHead().toInt())
         (taleImage.layoutParams as FrameLayout.LayoutParams).topMargin = top
         (taleImage.layoutParams as FrameLayout.LayoutParams).leftMargin = left
@@ -260,6 +297,19 @@ class SnakeActivity : AppCompatActivity() {
             Direction.RIGHT -> {
                 moveHeadAndRotate(Direction.RIGHT, 0f, loadTextHead().toInt())
             }
+
+//            Direction.UP -> {
+//                moveHeadAndRotate(Direction.UP, 270f, -loadSizeShag().toInt())
+//            }
+//            Direction.DOWN -> {
+//                moveHeadAndRotate(Direction.DOWN, 90f, loadSizeShag().toInt())
+//            }
+//            Direction.LEFT -> {
+//                moveHeadAndRotate(Direction.LEFT, 180f, -loadSizeShag().toInt())
+//            }
+//            Direction.RIGHT -> {
+//                moveHeadAndRotate(Direction.RIGHT, 0f, loadSizeShag().toInt())
+//            }
         }
 
         runOnUiThread {
@@ -367,7 +417,7 @@ class SnakeActivity : AppCompatActivity() {
             mPlayer.prepare()
             mPlayer.seekTo(0)
         } catch (t: Throwable) {
-            Toast.makeText(this, t.message, Toast.LENGTH_SHORT).show()
+//            Toast.makeText(this, t.message, Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -375,6 +425,18 @@ class SnakeActivity : AppCompatActivity() {
         playerBackSound = MediaPlayer.create(this, R.raw.sverchki)
         play(playerBackSound)
         playerBackSound.setOnCompletionListener { play(playerBackSound) }
+    }
+
+    private fun soundPause() {
+        val playerPauseSound = MediaPlayer.create(this, R.raw.blbl)
+        play(playerPauseSound)
+        playerPauseSound.setOnCompletionListener { stopPlay(playerPauseSound) }
+    }
+
+    private fun soundControl() {
+        val playerMoviSound = MediaPlayer.create(this, R.raw.mrr)
+        play(playerMoviSound)
+        playerMoviSound.setOnCompletionListener { stopPlay(playerMoviSound) }
     }
 
     private fun soundHello() {

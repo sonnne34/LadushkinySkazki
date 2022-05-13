@@ -1,16 +1,16 @@
 <component name="libraryTable">
   <library name="Gradle: androidx.core:core:1.7.0@aar">
     <ANNOTATIONS>
-      <root url="jar://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/9e0718e9520c6a8ba0f536d6c1d342d9/transformed/core-1.7.0/annotations.zip!/" />
       <root url="jar://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/96cf66059cabded80d7658c3876971fa/transformed/core-1.7.0/annotations.zip!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/96cf66059cabded80d7658c3876971fa/transformed/core-1.7.0/annotations.zip!/" />
     </ANNOTATIONS>
     <CLASSES>
-      <root url="jar://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/9e0718e9520c6a8ba0f536d6c1d342d9/transformed/core-1.7.0/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/9e0718e9520c6a8ba0f536d6c1d342d9/transformed/core-1.7.0/res" />
-      <root url="file://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/9e0718e9520c6a8ba0f536d6c1d342d9/transformed/core-1.7.0/AndroidManifest.xml" />
       <root url="file://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/96cf66059cabded80d7658c3876971fa/transformed/core-1.7.0/res" />
       <root url="file://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/96cf66059cabded80d7658c3876971fa/transformed/core-1.7.0/AndroidManifest.xml" />
       <root url="jar://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/96cf66059cabded80d7658c3876971fa/transformed/core-1.7.0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/96cf66059cabded80d7658c3876971fa/transformed/core-1.7.0/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/96cf66059cabded80d7658c3876971fa/transformed/core-1.7.0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/96cf66059cabded80d7658c3876971fa/transformed/core-1.7.0/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

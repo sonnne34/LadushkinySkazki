@@ -1,7 +1,8 @@
 package com.ladushkinySkazky.ladushkinnyskazki.snake
 
-const val START_GAME_SPEED = 800L
-const val MINIMUM_GAME_SPEED = 100L
+//const val START_GAME_SPEED = 900L
+const val START_GAME_SPEED = 600L
+const val MINIMUM_GAME_SPEED = 400L
 
 object SnakeCore {
     var nextMovie: () -> Unit = {}
