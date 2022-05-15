@@ -1,5 +1,5 @@
 # ladushkinySkazki
-Сказки на ночь для детей)
+Авторские сказки на ночь для детей) 
 
 ![m_Scazki1](https://user-images.githubusercontent.com/60262104/168309902-1c1d54ab-2c9c-4994-8ed6-482be287dc92.png)
 ![m_Scazki2](https://user-images.githubusercontent.com/60262104/168309922-4349cb5b-5787-4d3d-8bbf-7105db3d9fcc.png)
