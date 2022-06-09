@@ -15,8 +15,6 @@ import com.ladushkinySkazky.ladushkinnyskazki.singletons.DisplaySingleton
 import com.ladushkinySkazky.ladushkinnyskazki.ui.main.MainFragmentCategory
 import kotlin.system.exitProcess
 
-const val CELLS_ON_FIELD = 10
-
 class MainActivity : AppCompatActivity() {
 
     private lateinit var btnMenu: ImageButton
@@ -132,5 +130,9 @@ class MainActivity : AppCompatActivity() {
         moveTaskToBack(true)
         super.onDestroy()
         exitProcess(0)
+    }
+
+    companion object{
+        const val CELLS_ON_FIELD = 10
     }
 }

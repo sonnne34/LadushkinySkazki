@@ -8,7 +8,7 @@ import android.widget.ProgressBar
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.testetagi.singletons.SkazkiSingleton
+import com.ladushkinySkazky.ladushkinnyskazki.singletons.SkazkiSingleton
 import com.ladushkinySkazky.ladushkinnyskazki.adapters.SkazkiAdapter
 import com.ladushkinySkazky.ladushkinnyskazki.databinding.MainFragmentBinding
 import com.ladushkinySkazky.ladushkinnyskazki.models.CategorySkazkiModel

@@ -3,7 +3,7 @@ package com.ladushkinySkazky.ladushkinnyskazki.loaders
 import android.util.Log
 import android.view.View
 import android.widget.ProgressBar
-import com.example.testetagi.singletons.SkazkiSingleton
+import com.ladushkinySkazky.ladushkinnyskazki.singletons.SkazkiSingleton
 import com.ladushkinySkazky.ladushkinnyskazki.models.CategorySkazkiModel
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
