@@ -132,7 +132,7 @@ class MainActivity : AppCompatActivity() {
         exitProcess(0)
     }
 
-    companion object{
+    companion object {
         const val CELLS_ON_FIELD = 10
     }
 }

@@ -248,7 +248,7 @@ class SnakeActivity : AppCompatActivity() {
     private fun showCongratulation() {
         AlertDialog.Builder(this)
             .setTitle("Спасибо за помощь!")
-            .setMessage("Все ёжики пошли спатеньки, и ты, мой дружочек, приляг!")
+            .setMessage("Все ёжики пошли спатеньки, и ты, мой дружочек, засыпай!")
             .setPositiveButton("Спокойной ночки!") { _, _ ->
                 val intent = Intent(this, MainActivity::class.java)
                 startActivity(intent)
@@ -293,19 +293,6 @@ class SnakeActivity : AppCompatActivity() {
             Direction.RIGHT -> {
                 moveHeadAndRotate(Direction.RIGHT, 0f, loadTextHead().toInt())
             }
-
-//            Direction.UP -> {
-//                moveHeadAndRotate(Direction.UP, 270f, -loadSizeShag().toInt())
-//            }
-//            Direction.DOWN -> {
-//                moveHeadAndRotate(Direction.DOWN, 90f, loadSizeShag().toInt())
-//            }
-//            Direction.LEFT -> {
-//                moveHeadAndRotate(Direction.LEFT, 180f, -loadSizeShag().toInt())
-//            }
-//            Direction.RIGHT -> {
-//                moveHeadAndRotate(Direction.RIGHT, 0f, loadSizeShag().toInt())
-//            }
         }
 
         runOnUiThread {
@@ -467,6 +454,6 @@ class SnakeActivity : AppCompatActivity() {
     companion object {
         const val CELLS_ON_FIELD = 10
         const val CELLS_ON_GENERATE = 10
-        const val FULL = 3
+        const val FULL = 7
     }
 }

@@ -3,11 +3,9 @@ package com.ladushkinySkazky.ladushkinnyskazki.loaders
 import android.annotation.SuppressLint
 import android.content.Context
 import android.widget.ImageView
-import coil.load
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.google.firebase.storage.FirebaseStorage
-import com.ladushkinySkazky.ladushkinnyskazki.R
 import com.ladushkinySkazky.ladushkinnyskazki.models.SkazkiCatModel
 
 class LoadImage {
@@ -19,7 +17,7 @@ class LoadImage {
         imageName: ImageView
     ) {
 
-//        val glide = Glide.with(context)
+        val glide = Glide.with(context)
 
         if (skazkiCatModel.Items?.ImageNameSkazkaForLoad == null) {
 
@@ -28,24 +26,24 @@ class LoadImage {
 
             storageRef.downloadUrl.addOnSuccessListener { uri ->
                 skazkiCatModel.Items?.ImageNameSkazkaForLoad = uri
-                imageName.load(uri)
-                {
-                    placeholder(R.drawable.bacground)
-                    crossfade(true)
-                }
-//                val img = glide.load(uri)
-//                img.diskCacheStrategy(DiskCacheStrategy.AUTOMATIC)
-//                img.centerCrop().into(imageName)
+//                imageName.load(uri)
+//                {
+//                    placeholder(R.drawable.bacground)
+//                    crossfade(true)
+//                }
+                val img = glide.load(uri)
+                img.diskCacheStrategy(DiskCacheStrategy.AUTOMATIC)
+                img.centerCrop().into(imageName)
             }
         } else {
-            imageName.load(skazkiCatModel.Items?.ImageNameSkazkaForLoad)
-            {
-                placeholder(R.drawable.bacground)
-                crossfade(true)
-            }
-//            val img = glide.load(skazkiCatModel.Items?.ImageNameSkazkaForLoad)
-//            img.diskCacheStrategy(DiskCacheStrategy.AUTOMATIC)
-//            img.centerCrop().into(imageName)
+//            imageName.load(skazkiCatModel.Items?.ImageNameSkazkaForLoad)
+//            {
+//                placeholder(R.drawable.bacground)
+//                crossfade(true)
+//            }
+            val img = glide.load(skazkiCatModel.Items?.ImageNameSkazkaForLoad)
+            img.diskCacheStrategy(DiskCacheStrategy.AUTOMATIC)
+            img.centerCrop().into(imageName)
         }
     }
 
