@@ -3,6 +3,7 @@ package com.ladushkinySkazky.ladushkinnyskazki.dialog
 import android.app.Dialog
 import android.content.Context
 import android.view.Gravity
+import android.view.View
 import android.view.Window
 import android.widget.*
 import com.google.firebase.database.DatabaseReference
@@ -27,20 +28,31 @@ class MenuDialog {
 
             val btnClose = dialog.findViewById(R.id.btn_close_dialog_options) as TextView
             val editSent = dialog.findViewById<EditText>(R.id.edttxt_menu)
-            val btnSent = dialog.findViewById<ImageButton>(R.id.img_btn_send_menu)
+            val editName = dialog.findViewById<EditText>(R.id.edttxt_name_menu)
+            val editContact = dialog.findViewById<EditText>(R.id.edttxt_contact_menu)
+            val btnSent = dialog.findViewById<TextView>(R.id.img_btn_send_menu)
+
             lateinit var mDataBase: DatabaseReference
             lateinit var id: String
             val idRand: UUID = UUID.randomUUID()
             id = idRand.toString()
 
             btnSent.setOnClickListener {
-                mDataBase = FirebaseDatabase.getInstance().getReference("Feedback/Items/$id/TextFeedback")
-                mDataBase.ref.setValue(editSent.text.toString())
-                Toast.makeText(context,
-                    "Отправлено!",
-                    Toast.LENGTH_LONG)
-                    .show()
-                dialog.cancel()
+                if (editSent.length() != 0) {
+                    val send = "Имя: ${editName.text}, Отзыв: ${editSent.text}, Контакт: ${editContact.text}"
+                    mDataBase = FirebaseDatabase.getInstance().getReference("Feedback/Items/$id/TextFeedback")
+                    mDataBase.ref.setValue(send)
+                    Toast.makeText(context,
+                        "Спасибочки!",
+                        Toast.LENGTH_LONG)
+                        .show()
+                    dialog.cancel()
+                } else {
+                    Toast.makeText(context,
+                        "Ой, Вы совсем ничего не написали!)",
+                        Toast.LENGTH_LONG)
+                        .show()
+                }
             }
 
             btnClose.setOnClickListener {

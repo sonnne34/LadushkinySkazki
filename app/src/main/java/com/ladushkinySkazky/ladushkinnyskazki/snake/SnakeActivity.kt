@@ -11,15 +11,11 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import com.ladushkinySkazky.ladushkinnyskazki.MainActivity
 import com.ladushkinySkazky.ladushkinnyskazki.R
 import com.ladushkinySkazky.ladushkinnyskazki.singletons.DisplaySingleton
+import com.ladushkinySkazky.ladushkinnyskazki.snake.SnakeCore.MINIMUM_GAME_SPEED
 import com.ladushkinySkazky.ladushkinnyskazki.snake.SnakeCore.gameSpeed
 import com.ladushkinySkazky.ladushkinnyskazki.snake.SnakeCore.isPlay
 import com.ladushkinySkazky.ladushkinnyskazki.snake.SnakeCore.startTheGame
 import kotlinx.android.synthetic.main.activity_snake.*
-
-
-const val CELLS_ON_FIELD = 10
-const val CELLS_ON_GENERATE = 10
-const val FULL = 3
 
 class SnakeActivity : AppCompatActivity() {
 
@@ -166,24 +162,24 @@ class SnakeActivity : AppCompatActivity() {
 
     }
 
-    private fun checkTop(): Boolean{
+    private fun checkTop(): Boolean {
         val sizeLeftMin = head.top - (loadTextHead().toInt() / 2)
         val sizeLeftMax = head.top + (loadTextHead().toInt() / 2)
         var bool = false
-        for(i in sizeLeftMin..sizeLeftMax) {
-            if(i == animal.top){
-            bool = true
+        for (i in sizeLeftMin..sizeLeftMax) {
+            if (i == animal.top) {
+                bool = true
             }
         }
         return bool
     }
 
-    private fun checkLeft(): Boolean{
+    private fun checkLeft(): Boolean {
         val sizeTopMin = head.left - (loadTextHead().toInt() / 2)
         val sizeTopMax = head.left + (loadTextHead().toInt() / 2)
         var bool = false
-        for(i in sizeTopMin..sizeTopMax) {
-            if(i == animal.left){
+        for (i in sizeTopMin..sizeTopMax) {
+            if (i == animal.left) {
                 bool = true
             }
         }
@@ -252,7 +248,7 @@ class SnakeActivity : AppCompatActivity() {
     private fun showCongratulation() {
         AlertDialog.Builder(this)
             .setTitle("Спасибо за помощь!")
-            .setMessage("Все ёжики пошли спатеньки, и ты, мой дружочек, приляг!")
+            .setMessage("Все ёжики пошли спатеньки, и ты, мой дружочек, засыпай!")
             .setPositiveButton("Спокойной ночки!") { _, _ ->
                 val intent = Intent(this, MainActivity::class.java)
                 startActivity(intent)
@@ -297,19 +293,6 @@ class SnakeActivity : AppCompatActivity() {
             Direction.RIGHT -> {
                 moveHeadAndRotate(Direction.RIGHT, 0f, loadTextHead().toInt())
             }
-
-//            Direction.UP -> {
-//                moveHeadAndRotate(Direction.UP, 270f, -loadSizeShag().toInt())
-//            }
-//            Direction.DOWN -> {
-//                moveHeadAndRotate(Direction.DOWN, 90f, loadSizeShag().toInt())
-//            }
-//            Direction.LEFT -> {
-//                moveHeadAndRotate(Direction.LEFT, 180f, -loadSizeShag().toInt())
-//            }
-//            Direction.RIGHT -> {
-//                moveHeadAndRotate(Direction.RIGHT, 0f, loadSizeShag().toInt())
-//            }
         }
 
         runOnUiThread {
@@ -466,5 +449,11 @@ class SnakeActivity : AppCompatActivity() {
     override fun onStop() {
         super.onStop()
         stopPlay(playerBackSound)
+    }
+
+    companion object {
+        const val CELLS_ON_FIELD = 10
+        const val CELLS_ON_GENERATE = 10
+        const val FULL = 7
     }
 }

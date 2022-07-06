@@ -1,9 +1,8 @@
-package com.example.testetagi.singletons
+package com.ladushkinySkazky.ladushkinnyskazki.singletons
 
 import android.util.Log
 import com.ladushkinySkazky.ladushkinnyskazki.models.CategorySkazkiModel
 import com.ladushkinySkazky.ladushkinnyskazki.listeners.EventListeners
-import com.ladushkinySkazky.ladushkinnyskazki.models.SkazkiModel
 
 object SkazkiSingleton {
 

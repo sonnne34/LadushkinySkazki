@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Alexander/GitHub/ladushkinnySkazki/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />
         <entry key="..\:/Alexander/GitHub/ladushkinnySkazki/app/src/main/res/drawable/ic_pause.xml" value="0.15925925925925927" />
         <entry key="..\:/Alexander/GitHub/ladushkinnySkazki/app/src/main/res/drawable/ic_up.xml" value="0.15925925925925927" />
         <entry key="..\:/Alexander/GitHub/ladushkinnySkazki/app/src/main/res/drawable/okrugl_button.xml" value="0.10729166666666666" />
@@ -10,19 +11,20 @@
         <entry key="..\:/Alexander/GitHub/ladushkinnySkazki/app/src/main/res/drawable/progress_icon.xml" value="0.17314814814814813" />
         <entry key="..\:/Alexander/GitHub/ladushkinnySkazki/app/src/main/res/drawable/scrollview_thumb.xml" value="0.1" />
         <entry key="..\:/Alexander/GitHub/ladushkinnySkazki/app/src/main/res/drawable/vertical_scrollview_traack.xml" value="0.1" />
-        <entry key="..\:/Alexander/GitHub/ladushkinnySkazki/app/src/main/res/layout/activity_snake.xml" value="0.18" />
-        <entry key="..\:/Alexander/GitHub/ladushkinnySkazki/app/src/main/res/layout/dialog_option.xml" value="0.5" />
+        <entry key="..\:/Alexander/GitHub/ladushkinnySkazki/app/src/main/res/layout/activity_snake.xml" value="0.22" />
+        <entry key="..\:/Alexander/GitHub/ladushkinnySkazki/app/src/main/res/layout/dialog_option.xml" value="0.33" />
         <entry key="..\:/Alexander/GitHub/ladushkinnySkazki/app/src/main/res/layout/fragment_category_main.xml" value="0.21556122448979592" />
         <entry key="..\:/Alexander/GitHub/ladushkinnySkazki/app/src/main/res/layout/fragment_skazka_body.xml" value="0.16" />
         <entry key="..\:/Alexander/GitHub/ladushkinnySkazki/app/src/main/res/layout/fragment_skazka_fullscreen.xml" value="0.1" />
         <entry key="..\:/Alexander/GitHub/ladushkinnySkazki/app/src/main/res/layout/item_category_list_skazki.xml" value="0.18" />
-        <entry key="..\:/Alexander/GitHub/ladushkinnySkazki/app/src/main/res/layout/item_category_main_skazki.xml" value="0.25" />
+        <entry key="..\:/Alexander/GitHub/ladushkinnySkazki/app/src/main/res/layout/item_category_main_skazki.xml" value="0.18" />
         <entry key="..\:/Alexander/GitHub/ladushkinnySkazki/app/src/main/res/layout/item_header_list_skazki.xml" value="0.15" />
         <entry key="..\:/Alexander/GitHub/ladushkinnySkazki/app/src/main/res/layout/item_list_category_main_skazki.xml" value="0.16" />
         <entry key="..\:/Alexander/GitHub/ladushkinnySkazki/app/src/main/res/layout/item_list_skazki.xml" value="0.18" />
+        <entry key="..\:/Alexander/GitHub/ladushkinnySkazki/app/src/main/res/layout/item_list_skazki_category.xml" value="0.1" />
         <entry key="..\:/Alexander/GitHub/ladushkinnySkazki/app/src/main/res/layout/main_activity.xml" value="0.1" />
         <entry key="..\:/Alexander/GitHub/ladushkinnySkazki/app/src/main/res/layout/main_fragment.xml" value="0.12273550724637682" />
-        <entry key="..\:/Alexander/GitHub/ladushkinnySkazki/app/src/main/res/layout/skazka_body_dialog.xml" value="0.25" />
+        <entry key="..\:/Alexander/GitHub/ladushkinnySkazki/app/src/main/res/layout/skazka_body_dialog.xml" value="0.21561338289962825" />
       </map>
     </option>
   </component>
