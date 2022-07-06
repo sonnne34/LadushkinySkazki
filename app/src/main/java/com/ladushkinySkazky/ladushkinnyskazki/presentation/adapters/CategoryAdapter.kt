@@ -56,7 +56,7 @@ class CategoryAdapter(context: Context) : RecyclerView.Adapter<RecyclerView.View
 
     class HeaderViewHolder(itemView: View?) : RecyclerView.ViewHolder(itemView!!) {
         private var category = itemView?.findViewById(R.id.txt_name_category_skazka) as TextView
-        private var categoryDescription = itemView?.findViewById<TextView>(R.id.txt_deskription_category)
+        private var categoryDescription = itemView?.findViewById<TextView>(R.id.txt_description_category)
         private var categoryPicture = itemView?.findViewById<ImageView>(R.id.img_category_skazka)
 
         fun bindHeader(skazkiCatModel: SkazkiCatModel, context: Context) {

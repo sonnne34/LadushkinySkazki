@@ -93,7 +93,7 @@ class SkazkiAdapter(context: Context) : RecyclerView.Adapter<RecyclerView.ViewHo
 
     class SkazkiViewHolder(itemView: View?) : RecyclerView.ViewHolder(itemView!!) {
         private var nameSkazka = itemView?.findViewById(R.id.txt_name_skazka) as TextView
-        private var descriptionSkazka = itemView?.findViewById(R.id.txt_deskription_skazka) as TextView
+        private var descriptionSkazka = itemView?.findViewById(R.id.txt_description_skazka) as TextView
         private var imgSkazka = itemView?.findViewById<ImageView>(R.id.img_name_skazka)
 
         fun bindSkazki(skazkiCatModel: SkazkiCatModel, context: Context) {

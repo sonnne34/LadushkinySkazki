@@ -25,11 +25,11 @@ class MainMenuDialog {
             dialog.setCancelable(true)
             dialog.setCanceledOnTouchOutside(true)
 
-            val btnClose = dialog.findViewById(R.id.btn_close_dialog_options) as TextView
-            val editSent = dialog.findViewById<EditText>(R.id.edttxt_menu)
-            val editName = dialog.findViewById<EditText>(R.id.edttxt_name_menu)
-            val editContact = dialog.findViewById<EditText>(R.id.edttxt_contact_menu)
-            val btnSent = dialog.findViewById<TextView>(R.id.img_btn_send_menu)
+            val btnClose = dialog.findViewById(R.id.btn_close_menu_dialog) as TextView
+            val editSent = dialog.findViewById<EditText>(R.id.edt_feedback_menu_dialog)
+            val editName = dialog.findViewById<EditText>(R.id.edt_name_menu_dialog)
+            val editContact = dialog.findViewById<EditText>(R.id.edt_contact_menu_dialog)
+            val btnSent = dialog.findViewById<TextView>(R.id.img_btn_send_menu_dialog)
 
             lateinit var mDataBase: DatabaseReference
             lateinit var id: String
