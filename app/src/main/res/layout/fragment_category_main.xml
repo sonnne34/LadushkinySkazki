@@ -23,6 +23,22 @@
         android:textSize="18sp"
         android:textStyle="bold" />
 
+    <TextView
+        android:id="@+id/btnInteractiveCategoryMain"
+        android:layout_width="match_parent"
+        android:layout_height="37dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginHorizontal="5dp"
+        android:layout_marginTop="5dp"
+        android:background="@color/greenTrans"
+        android:fontFamily="@font/font_first_time_writing"
+        android:gravity="center"
+        android:layout_below="@+id/btnSnakeCategoryMain"
+        android:text="Художественная галерея"
+        android:textColor="@color/yellow"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
     <ProgressBar
         android:id="@+id/progress"
         android:layout_width="wrap_content"
@@ -30,11 +46,11 @@
         android:layout_centerInParent="true"
         android:indeterminateDrawable="@drawable/progress_icon" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_list_category"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/btnSnakeCategoryMain"
-            android:padding="3dp" />
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_list_category"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnInteractiveCategoryMain"
+        android:padding="3dp" />
 
 </RelativeLayout>
