@@ -1,4 +1,4 @@
-package com.ladushkinySkazky.ladushkinnyskazki.adapters
+package com.ladushkinySkazky.ladushkinnyskazki.presentation.adapters
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -9,13 +9,11 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.ladushkinySkazky.ladushkinnyskazki.R
-import com.ladushkinySkazky.ladushkinnyskazki.loaders.LoadImage
-import com.ladushkinySkazky.ladushkinnyskazki.models.CategorySkazkiModel
-import com.ladushkinySkazky.ladushkinnyskazki.models.SkazkiCatModel
-import java.util.*
-import kotlin.collections.ArrayList
+import com.ladushkinySkazky.ladushkinnyskazki.data.loaders.LoadImage
+import com.ladushkinySkazky.ladushkinnyskazki.data.models.CategorySkazkiModel
+import com.ladushkinySkazky.ladushkinnyskazki.data.models.SkazkiCatModel
 
-class CategoryAdapter(context: Context): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class CategoryAdapter(context: Context) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     private var mContext = context
 
@@ -29,7 +27,7 @@ class CategoryAdapter(context: Context): RecyclerView.Adapter<RecyclerView.ViewH
             categorySkazkiModel = skazkiList
         }
 
-        for(categoryModel in skazkiList) {
+        for (categoryModel in skazkiList) {
             val model = SkazkiCatModel()
             model.CategoryName = categoryModel.CategoryName
             model.CategoryPicture = categoryModel.CategoryPicture
@@ -40,16 +38,16 @@ class CategoryAdapter(context: Context): RecyclerView.Adapter<RecyclerView.ViewH
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-            val layoutInflater = LayoutInflater.from(parent.context)
-            val itemView = layoutInflater.inflate(R.layout.item_category_main_skazki, parent, false)
+        val layoutInflater = LayoutInflater.from(parent.context)
+        val itemView = layoutInflater.inflate(R.layout.item_category_main_skazki, parent, false)
         return HeaderViewHolder(itemView = itemView)
 
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-            if (holder is HeaderViewHolder) {
-                holder.bindHeader(skazkiCatModel = skazkiCatModelList[position], context = mContext)
-            }
+        if (holder is HeaderViewHolder) {
+            holder.bindHeader(skazkiCatModel = skazkiCatModelList[position], context = mContext)
+        }
     }
 
     override fun getItemCount(): Int {
@@ -57,9 +55,9 @@ class CategoryAdapter(context: Context): RecyclerView.Adapter<RecyclerView.ViewH
     }
 
     class HeaderViewHolder(itemView: View?) : RecyclerView.ViewHolder(itemView!!) {
-        var category = itemView?.findViewById(R.id.txt_name_category_skazka) as TextView
-        var categoryDescription = itemView?.findViewById<TextView>(R.id.txt_deskription_category)
-        var categoryPicture = itemView?.findViewById<ImageView>(R.id.img_category_skazka)
+        private var category = itemView?.findViewById(R.id.txt_name_category_skazka) as TextView
+        private var categoryDescription = itemView?.findViewById<TextView>(R.id.txt_deskription_category)
+        private var categoryPicture = itemView?.findViewById<ImageView>(R.id.img_category_skazka)
 
         fun bindHeader(skazkiCatModel: SkazkiCatModel, context: Context) {
             category.text = "${skazkiCatModel.CategoryName}"

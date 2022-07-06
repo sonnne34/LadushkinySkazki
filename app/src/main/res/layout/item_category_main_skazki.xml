@@ -10,7 +10,7 @@
         android:id="@+id/img_category_skazka"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:background="@drawable/bacground"
+        android:background="@drawable/background"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

@@ -1,18 +1,22 @@
-package com.ladushkinySkazky.ladushkinnyskazki.loaders
+package com.ladushkinySkazky.ladushkinnyskazki.data.loaders
 
 import android.util.Log
 import android.view.View
 import android.widget.ProgressBar
-import com.ladushkinySkazky.ladushkinnyskazki.singletons.SkazkiSingleton
-import com.ladushkinySkazky.ladushkinnyskazki.models.CategorySkazkiModel
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
-import com.ladushkinySkazky.ladushkinnyskazki.adapters.CategoryAdapter
+import com.ladushkinySkazky.ladushkinnyskazki.data.models.CategorySkazkiModel
+import com.ladushkinySkazky.ladushkinnyskazki.presentation.adapters.CategoryAdapter
+import com.ladushkinySkazky.ladushkinnyskazki.singletons.SkazkiSingleton
 
-class LoadFireBase() {
-    fun loadSkazki(skazkiCatModel : ArrayList<CategorySkazkiModel>, categoryAdapter: CategoryAdapter, progress: ProgressBar) {
+class LoadFireBase {
+    fun loadSkazki(
+        skazkiCatModel: ArrayList<CategorySkazkiModel>,
+        categoryAdapter: CategoryAdapter,
+        progress: ProgressBar
+    ) {
 
         val database = FirebaseDatabase.getInstance()
         val myRef = database.getReference("Skazka")
@@ -36,7 +40,11 @@ class LoadFireBase() {
         })
     }
 
-    private fun updateAdapter(list : ArrayList<CategorySkazkiModel>, categoryAdapter: CategoryAdapter, progress: ProgressBar) {
+    private fun updateAdapter(
+        list: ArrayList<CategorySkazkiModel>,
+        categoryAdapter: CategoryAdapter,
+        progress: ProgressBar
+    ) {
         categoryAdapter.setupCategoryAdapter(list)
         progress.visibility = View.GONE
     }

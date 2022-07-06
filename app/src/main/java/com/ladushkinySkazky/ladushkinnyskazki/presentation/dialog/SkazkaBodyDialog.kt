@@ -1,4 +1,4 @@
-package com.ladushkinySkazky.ladushkinnyskazki.dialog
+package com.ladushkinySkazky.ladushkinnyskazki.presentation.dialog
 
 import android.app.Dialog
 import android.content.Context
@@ -8,8 +8,8 @@ import android.widget.ImageView
 import android.widget.ListPopupWindow
 import android.widget.TextView
 import com.ladushkinySkazky.ladushkinnyskazki.R
-import com.ladushkinySkazky.ladushkinnyskazki.loaders.LoadImage
-import com.ladushkinySkazky.ladushkinnyskazki.models.SkazkiCatModel
+import com.ladushkinySkazky.ladushkinnyskazki.data.loaders.LoadImage
+import com.ladushkinySkazky.ladushkinnyskazki.data.models.SkazkiCatModel
 
 class SkazkaBodyDialog {
     companion object{
@@ -18,7 +18,7 @@ class SkazkaBodyDialog {
             var catModel = skazkiCatModel
             val dialog = Dialog(context, R.style.CustomDialogBodySkazka)
             dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
-            dialog.setContentView(R.layout.skazka_body_dialog)
+            dialog.setContentView(R.layout.dialog_skazka_body)
             dialog.window?.setGravity(Gravity.CENTER)
             dialog.window?.setLayout(
                 ListPopupWindow.WRAP_CONTENT,

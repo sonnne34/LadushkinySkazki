@@ -1,4 +1,4 @@
-package com.ladushkinySkazky.ladushkinnyskazki.ui.main
+package com.ladushkinySkazky.ladushkinnyskazki.presentation
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,13 +9,13 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.ladushkinySkazky.ladushkinnyskazki.singletons.SkazkiSingleton
-import com.ladushkinySkazky.ladushkinnyskazki.adapters.SkazkiAdapter
-import com.ladushkinySkazky.ladushkinnyskazki.databinding.MainFragmentBinding
-import com.ladushkinySkazky.ladushkinnyskazki.models.CategorySkazkiModel
+import com.ladushkinySkazky.ladushkinnyskazki.presentation.adapters.SkazkiAdapter
+import com.ladushkinySkazky.ladushkinnyskazki.data.models.CategorySkazkiModel
+import com.ladushkinySkazky.ladushkinnyskazki.databinding.FragmentSkazkyBinding
 
 class SkazkyFragment : Fragment() {
 
-    private lateinit var binding: MainFragmentBinding
+    private lateinit var binding: FragmentSkazkyBinding
     private var skazkiAdapter: SkazkiAdapter? = null
     private var categorySkazkiList: ArrayList<CategorySkazkiModel> = ArrayList()
     private lateinit var categorySkazkiListSingleton: ArrayList<CategorySkazkiModel>
@@ -30,7 +30,7 @@ class SkazkyFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = MainFragmentBinding.inflate(layoutInflater)
+        binding = FragmentSkazkyBinding.inflate(layoutInflater)
 
         val progress = binding.progress
         val rvListSkazki = binding.rvListSkazki
@@ -42,7 +42,7 @@ class SkazkyFragment : Fragment() {
 
         if (skazkiAdapter == null) {
             skazkiAdapter = SkazkiAdapter(inflater.context)
-            updateAdapter(categorySkazkiList, skazkiAdapter!!, progress, position)
+            updateAdapter(categorySkazkiList, skazkiAdapter!!, progress)
         }
 
         rvListSkazki.adapter = skazkiAdapter
@@ -61,9 +61,8 @@ class SkazkyFragment : Fragment() {
         list: ArrayList<CategorySkazkiModel>,
         skazkiAdapter: SkazkiAdapter,
         progress: ProgressBar,
-        position: Int
     ) {
-        skazkiAdapter.setupSkazkiAdapter(list, position)
+        skazkiAdapter.setupSkazkiAdapter(list)
         progress.visibility = View.GONE
     }
 }

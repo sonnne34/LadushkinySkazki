@@ -1,4 +1,4 @@
-package com.ladushkinySkazky.ladushkinnyskazki
+package com.ladushkinySkazky.ladushkinnyskazki.presentation
 
 import android.content.Context
 import android.os.Bundle
@@ -8,11 +8,11 @@ import android.widget.ImageButton
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import com.ladushkinySkazky.ladushkinnyskazki.dialog.MenuDialog
+import com.ladushkinySkazky.ladushkinnyskazki.R
+import com.ladushkinySkazky.ladushkinnyskazki.presentation.dialog.MainMenuDialog
 import com.ladushkinySkazky.ladushkinnyskazki.interfaces.ConnectionType
 import com.ladushkinySkazky.ladushkinnyskazki.interfaces.NetworkMonitorUtil
 import com.ladushkinySkazky.ladushkinnyskazki.singletons.DisplaySingleton
-import com.ladushkinySkazky.ladushkinnyskazki.ui.main.MainFragmentCategory
 import kotlin.system.exitProcess
 
 class MainActivity : AppCompatActivity() {
@@ -22,18 +22,18 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.main_activity)
+        setContentView(R.layout.activity_main)
 
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
-                .replace(R.id.containerSnake, MainFragmentCategory.newInstance())
+                .replace(R.id.containerSnake, MainFragment.newInstance())
                 .commitNow()
         }
 
         btnMenu = findViewById(R.id.img_btn_menu_main)
 
         btnMenu.setOnClickListener {
-            MenuDialog.openMenu(this)
+            MainMenuDialog.openMenu(this)
         }
 
         //проверка подключения к интернету

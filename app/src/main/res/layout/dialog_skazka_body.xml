@@ -19,7 +19,7 @@
             android:id="@+id/img_body_skazka"
             android:layout_width="match_parent"
             android:layout_height="250dp"
-            android:background="@drawable/bacground"/>
+            android:background="@drawable/background"/>
 
         <TextView
             android:id="@+id/txt_name_body_skazka"

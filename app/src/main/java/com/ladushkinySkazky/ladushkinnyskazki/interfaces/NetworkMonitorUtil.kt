@@ -25,12 +25,13 @@ class NetworkMonitorUtil(context: Context) {
     fun register() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
             // Use NetworkCallback for Android 9 and above
-            val connectivityManager = mContext.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+            val connectivityManager =
+                mContext.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
 
             if (connectivityManager.activeNetwork == null) {
 
                 // UNAVAILABLE
-                result(false,null)
+                result(false, null)
             }
 
             // Check when the connection changes
@@ -42,7 +43,10 @@ class NetworkMonitorUtil(context: Context) {
                     result(false, null)
                 }
 
-                override fun onCapabilitiesChanged(network: Network, networkCapabilities: NetworkCapabilities) {
+                override fun onCapabilitiesChanged(
+                    network: Network,
+                    networkCapabilities: NetworkCapabilities
+                ) {
                     super.onCapabilitiesChanged(network, networkCapabilities)
                     when {
                         networkCapabilities.hasTransport(NetworkCapabilities.TRANSPORT_WIFI) -> {
@@ -80,7 +84,8 @@ class NetworkMonitorUtil(context: Context) {
     private val networkChangeReceiver: BroadcastReceiver = object : BroadcastReceiver() {
         override fun onReceive(context: Context, intent: Intent) {
 
-            val connectivityManager = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+            val connectivityManager =
+                context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
             val activeNetworkInfo = connectivityManager.activeNetworkInfo
 
             if (activeNetworkInfo != null) {

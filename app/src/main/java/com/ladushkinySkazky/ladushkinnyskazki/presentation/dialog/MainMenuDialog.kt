@@ -1,9 +1,8 @@
-package com.ladushkinySkazky.ladushkinnyskazki.dialog
+package com.ladushkinySkazky.ladushkinnyskazki.presentation.dialog
 
 import android.app.Dialog
 import android.content.Context
 import android.view.Gravity
-import android.view.View
 import android.view.Window
 import android.widget.*
 import com.google.firebase.database.DatabaseReference
@@ -11,12 +10,12 @@ import com.google.firebase.database.FirebaseDatabase
 import com.ladushkinySkazky.ladushkinnyskazki.R
 import java.util.*
 
-class MenuDialog {
+class MainMenuDialog {
     companion object{
         fun openMenu(context: Context){
             val dialog = Dialog(context, R.style.CustomDialogMenu)
             dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
-            dialog.setContentView(R.layout.dialog_option)
+            dialog.setContentView(R.layout.dialog_main_menu)
             dialog.window?.setGravity(Gravity.TOP)
             dialog.window?.setLayout(
                 ListPopupWindow.WRAP_CONTENT,

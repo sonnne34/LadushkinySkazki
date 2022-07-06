@@ -12,4 +12,10 @@
     <string name="btn_go_snake">МИНИ-ИГРА</string>
     <string name="txt_snake">Помоги Понюшке уложить спать всех ёжиков!</string>
     <string name="comment_interactive">здесь можешь рассказать\nо себе, о рисунке, о чём угодно!</string>
+    <string name="description_button_menu">button menu</string>
+    <string name="description_button_play_up">button play up</string>
+    <string name="description_button_play_down">button play down</string>
+    <string name="description_button_play_left">button play left</string>
+    <string name="description_button_play_right">button play right</string>
+    <string name="description_button_play_play_pause">button play pause or play</string>
 </resources>

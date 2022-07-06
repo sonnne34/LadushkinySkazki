@@ -1,4 +1,4 @@
-package com.ladushkinySkazky.ladushkinnyskazki.ui.main
+package com.ladushkinySkazky.ladushkinnyskazki.presentation
 
 import android.content.Context
 import android.content.Intent
@@ -12,22 +12,22 @@ import androidx.fragment.app.FragmentTransaction
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.ladushkinySkazky.ladushkinnyskazki.R
-import com.ladushkinySkazky.ladushkinnyskazki.adapters.CategoryAdapter
-import com.ladushkinySkazky.ladushkinnyskazki.databinding.FragmentCategoryMainBinding
+import com.ladushkinySkazky.ladushkinnyskazki.presentation.adapters.CategoryAdapter
 import com.ladushkinySkazky.ladushkinnyskazki.listeners.RecyclerItemClickListener
-import com.ladushkinySkazky.ladushkinnyskazki.loaders.LoadFireBase
-import com.ladushkinySkazky.ladushkinnyskazki.models.CategorySkazkiModel
+import com.ladushkinySkazky.ladushkinnyskazki.data.loaders.LoadFireBase
+import com.ladushkinySkazky.ladushkinnyskazki.data.models.CategorySkazkiModel
+import com.ladushkinySkazky.ladushkinnyskazki.databinding.FragmentMainBinding
 import com.ladushkinySkazky.ladushkinnyskazki.snake.SnakeActivity
 
-class MainFragmentCategory : Fragment() {
+class MainFragment : Fragment() {
 
-    private lateinit var binding: FragmentCategoryMainBinding
+    private lateinit var binding: FragmentMainBinding
     private var categoryAdapter: CategoryAdapter? = null
     private var categorySkazkiList: ArrayList<CategorySkazkiModel> = ArrayList()
     private lateinit var mainFragment: SkazkyFragment
 
     companion object {
-        fun newInstance() = MainFragmentCategory()
+        fun newInstance() = MainFragment()
     }
 
     override fun onCreateView(
@@ -35,7 +35,7 @@ class MainFragmentCategory : Fragment() {
         savedInstanceState: Bundle?
     ): View {
 
-        binding = FragmentCategoryMainBinding.inflate(layoutInflater)
+        binding = FragmentMainBinding.inflate(layoutInflater)
 
         //игра змейка
         val btnSnake = binding.btnSnakeCategoryMain
@@ -85,7 +85,7 @@ class MainFragmentCategory : Fragment() {
                         manager.beginTransaction()
                             .replace(R.id.containerSnake, mainFragment, args.toString())
                             .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
-                            .addToBackStack(this@MainFragmentCategory.toString())
+                            .addToBackStack(this@MainFragment.toString())
                             .commit()
                     }
 
