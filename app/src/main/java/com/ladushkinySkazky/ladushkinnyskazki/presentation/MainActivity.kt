@@ -8,14 +8,17 @@ import android.widget.ImageButton
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProvider
 import com.ladushkinySkazky.ladushkinnyskazki.R
-import com.ladushkinySkazky.ladushkinnyskazki.presentation.dialog.MainMenuDialog
 import com.ladushkinySkazky.ladushkinnyskazki.interfaces.ConnectionType
 import com.ladushkinySkazky.ladushkinnyskazki.interfaces.NetworkMonitorUtil
+import com.ladushkinySkazky.ladushkinnyskazki.presentation.dialog.MainMenuDialog
 import com.ladushkinySkazky.ladushkinnyskazki.singletons.DisplaySingleton
 import kotlin.system.exitProcess
 
 class MainActivity : AppCompatActivity() {
+
+//    private lateinit var viewModel: SkazkyViewModel
 
     private lateinit var btnMenu: ImageButton
     private val networkMonitor = NetworkMonitorUtil(this)
@@ -23,6 +26,11 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+//        viewModel = ViewModelProvider(this)[SkazkyViewModel::class.java]
+//        viewModel.categoryList.observe(this) {
+//
+//        }
 
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()

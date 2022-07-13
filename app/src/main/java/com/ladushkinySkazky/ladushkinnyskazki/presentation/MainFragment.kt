@@ -15,11 +15,13 @@ import com.ladushkinySkazky.ladushkinnyskazki.R
 import com.ladushkinySkazky.ladushkinnyskazki.presentation.adapters.CategoryAdapter
 import com.ladushkinySkazky.ladushkinnyskazki.listeners.RecyclerItemClickListener
 import com.ladushkinySkazky.ladushkinnyskazki.data.LoadFireBase
-import com.ladushkinySkazky.ladushkinnyskazki.domian.models.CategorySkazkiModel
+import com.ladushkinySkazky.ladushkinnyskazki.data.CategorySkazkiModel
 import com.ladushkinySkazky.ladushkinnyskazki.databinding.FragmentMainBinding
 import com.ladushkinySkazky.ladushkinnyskazki.snake.SnakeActivity
 
 class MainFragment : Fragment() {
+
+//    private lateinit var viewModel: SkazkyViewModel
 
     private lateinit var binding: FragmentMainBinding
     private var categoryAdapter: CategoryAdapter? = null
@@ -46,6 +48,11 @@ class MainFragment : Fragment() {
 
         val progress = binding.progress
         val rvListCategorySkazki = binding.rvListCategory
+
+//        viewModel = ViewModelProvider(this)[SkazkyViewModel::class.java]
+//        viewModel.categoryList.observe(viewLifecycleOwner) {
+//
+//        }
 
         if (categoryAdapter == null) {
             categoryAdapter = CategoryAdapter(inflater.context)

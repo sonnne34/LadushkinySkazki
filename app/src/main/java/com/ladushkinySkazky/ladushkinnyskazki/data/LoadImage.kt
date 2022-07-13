@@ -6,7 +6,7 @@ import android.widget.ImageView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.google.firebase.storage.FirebaseStorage
-import com.ladushkinySkazky.ladushkinnyskazki.domian.models.SkazkiCatModel
+import com.ladushkinySkazky.ladushkinnyskazki.domian.model.SkazkiCatModel
 
 class LoadImage {
 

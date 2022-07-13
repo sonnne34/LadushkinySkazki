@@ -1,9 +1,9 @@
-package com.ladushkinySkazky.ladushkinnyskazki.domian.models
+package com.ladushkinySkazky.ladushkinnyskazki.domian.model
 
 import android.net.Uri
 
 data class SkazkiModel(
-    var ID: Long  = Long.MAX_VALUE,
+    var ID: Int  = Int.MAX_VALUE,
     var NameSkazka: String = String(),
     var DescriptionSkazka: String = String(),
     var BodySkazka: String = String(),

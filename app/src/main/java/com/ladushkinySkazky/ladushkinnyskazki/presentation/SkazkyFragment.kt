@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.ladushkinySkazky.ladushkinnyskazki.singletons.SkazkiSingleton
 import com.ladushkinySkazky.ladushkinnyskazki.presentation.adapters.SkazkiAdapter
-import com.ladushkinySkazky.ladushkinnyskazki.domian.models.CategorySkazkiModel
+import com.ladushkinySkazky.ladushkinnyskazki.data.CategorySkazkiModel
 import com.ladushkinySkazky.ladushkinnyskazki.databinding.FragmentSkazkyBinding
 
 class SkazkyFragment : Fragment() {

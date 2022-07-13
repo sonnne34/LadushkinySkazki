@@ -1,6 +1,7 @@
-package com.ladushkinySkazky.ladushkinnyskazki.domian.models
+package com.ladushkinySkazky.ladushkinnyskazki.data
 
 import android.net.Uri
+import com.ladushkinySkazky.ladushkinnyskazki.domian.model.SkazkiModel
 
 
 data class CategorySkazkiModel(

@@ -1,6 +1,6 @@
 package com.ladushkinySkazky.ladushkinnyskazki.singletons
 
-import com.ladushkinySkazky.ladushkinnyskazki.domian.models.CategorySkazkiModel
+import com.ladushkinySkazky.ladushkinnyskazki.data.CategorySkazkiModel
 
 object SkazkiSingleton {
 
