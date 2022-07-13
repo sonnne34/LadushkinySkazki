@@ -8,8 +8,8 @@ import android.widget.ImageView
 import android.widget.ListPopupWindow
 import android.widget.TextView
 import com.ladushkinySkazky.ladushkinnyskazki.R
-import com.ladushkinySkazky.ladushkinnyskazki.data.loaders.LoadImage
-import com.ladushkinySkazky.ladushkinnyskazki.data.models.SkazkiCatModel
+import com.ladushkinySkazky.ladushkinnyskazki.data.LoadImage
+import com.ladushkinySkazky.ladushkinnyskazki.domian.models.SkazkiCatModel
 
 class SkazkaBodyDialog {
     companion object{

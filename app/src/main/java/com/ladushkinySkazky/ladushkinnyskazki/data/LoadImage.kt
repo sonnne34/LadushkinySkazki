@@ -1,4 +1,4 @@
-package com.ladushkinySkazky.ladushkinnyskazki.data.loaders
+package com.ladushkinySkazky.ladushkinnyskazki.data
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -6,7 +6,7 @@ import android.widget.ImageView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.google.firebase.storage.FirebaseStorage
-import com.ladushkinySkazky.ladushkinnyskazki.data.models.SkazkiCatModel
+import com.ladushkinySkazky.ladushkinnyskazki.domian.models.SkazkiCatModel
 
 class LoadImage {
 

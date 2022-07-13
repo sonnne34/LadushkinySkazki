@@ -14,8 +14,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.ladushkinySkazky.ladushkinnyskazki.R
 import com.ladushkinySkazky.ladushkinnyskazki.presentation.adapters.CategoryAdapter
 import com.ladushkinySkazky.ladushkinnyskazki.listeners.RecyclerItemClickListener
-import com.ladushkinySkazky.ladushkinnyskazki.data.loaders.LoadFireBase
-import com.ladushkinySkazky.ladushkinnyskazki.data.models.CategorySkazkiModel
+import com.ladushkinySkazky.ladushkinnyskazki.data.LoadFireBase
+import com.ladushkinySkazky.ladushkinnyskazki.domian.models.CategorySkazkiModel
 import com.ladushkinySkazky.ladushkinnyskazki.databinding.FragmentMainBinding
 import com.ladushkinySkazky.ladushkinnyskazki.snake.SnakeActivity
 

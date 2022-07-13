@@ -1,15 +1,13 @@
-package com.ladushkinySkazky.ladushkinnyskazki.data.loaders
+package com.ladushkinySkazky.ladushkinnyskazki.data
 
-import android.app.Application
 import android.util.Log
 import android.view.View
 import android.widget.ProgressBar
-import android.widget.Toast
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
-import com.ladushkinySkazky.ladushkinnyskazki.data.models.CategorySkazkiModel
+import com.ladushkinySkazky.ladushkinnyskazki.domian.models.CategorySkazkiModel
 import com.ladushkinySkazky.ladushkinnyskazki.presentation.adapters.CategoryAdapter
 import com.ladushkinySkazky.ladushkinnyskazki.singletons.SkazkiSingleton
 

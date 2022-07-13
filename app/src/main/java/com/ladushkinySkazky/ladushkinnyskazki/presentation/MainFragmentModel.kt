@@ -4,8 +4,7 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.ladushkinySkazky.ladushkinnyskazki.data.loaders.LoadFireBase
-import com.ladushkinySkazky.ladushkinnyskazki.data.models.CategorySkazkiModel
+import com.ladushkinySkazky.ladushkinnyskazki.domian.models.CategorySkazkiModel
 
 class MainFragmentModel(application: Application): AndroidViewModel(application) {
 
