@@ -3,7 +3,7 @@ package com.ladushkinySkazky.ladushkinnyskazki.data.models
 import android.net.Uri
 
 
-class CategorySkazkiModel(
+data class CategorySkazkiModel(
     var CategoryName: String,
     var CategoryDescription: String,
     var CategoryPicture: String,

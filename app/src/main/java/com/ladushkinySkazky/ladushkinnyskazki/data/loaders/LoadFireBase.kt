@@ -1,8 +1,10 @@
 package com.ladushkinySkazky.ladushkinnyskazki.data.loaders
 
+import android.app.Application
 import android.util.Log
 import android.view.View
 import android.widget.ProgressBar
+import android.widget.Toast
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
@@ -35,7 +37,10 @@ class LoadFireBase {
             }
 
             override fun onCancelled(error: DatabaseError) {
-                // Failed to read value
+//                Toast.makeText(application,
+//                    "Проверьте соединение с интернетом",
+//                    Toast.LENGTH_LONG)
+//                    .show()
             }
         })
     }

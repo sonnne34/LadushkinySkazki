@@ -2,7 +2,7 @@ package com.ladushkinySkazky.ladushkinnyskazki.data.models
 
 import android.net.Uri
 
-class SkazkiCatModel(
+data class SkazkiCatModel(
     var Items: SkazkiModel? = null,
     var CategoryName: String? = null,
     var CategoryDescription: String? = null,
