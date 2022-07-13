@@ -4,17 +4,11 @@ import android.net.Uri
 
 
 data class CategorySkazkiModel(
-    var CategoryName: String,
-    var CategoryDescription: String,
-    var CategoryPicture: String,
-    var CategoryPictureUri: Uri?
+    var CategoryName: String = String(),
+    var CategoryDescription: String = String(),
+    var CategoryPicture: String = String(),
+    var CategoryPictureUri: Uri? = null
 ) {
-    constructor() : this(
-        CategoryName = String(),
-        CategoryDescription = String(),
-        CategoryPicture = String(),
-        CategoryPictureUri = null
-    )
 
     var isHeader = false
     var Items: HashMap<String, SkazkiModel> = HashMap()

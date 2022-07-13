@@ -3,19 +3,10 @@ package com.ladushkinySkazky.ladushkinnyskazki.data.models
 import android.net.Uri
 
 data class SkazkiModel(
-    var ID: Long,
-    var NameSkazka: String,
-    var DescriptionSkazka: String,
-    var BodySkazka: String,
-    var ImageNameSkazka: String,
-    var ImageNameSkazkaForLoad: Uri?
-) {
-    constructor() : this(
-        ID = Long.MAX_VALUE,
-        NameSkazka = String(),
-        DescriptionSkazka = String(),
-        BodySkazka = String(),
-        ImageNameSkazka = String(),
-        ImageNameSkazkaForLoad = null
-    )
-}
+    var ID: Long  = Long.MAX_VALUE,
+    var NameSkazka: String = String(),
+    var DescriptionSkazka: String = String(),
+    var BodySkazka: String = String(),
+    var ImageNameSkazka: String= String(),
+    var ImageNameSkazkaForLoad: Uri? = null
+)
