@@ -9,71 +9,70 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.ladushkinySkazky.ladushkinnyskazki.R
-import com.ladushkinySkazky.ladushkinnyskazki.presentation.adapters.CategoryAdapter
-import com.ladushkinySkazky.ladushkinnyskazki.listeners.RecyclerItemClickListener
-import com.ladushkinySkazky.ladushkinnyskazki.data.LoadFireBase
-import com.ladushkinySkazky.ladushkinnyskazki.data.CategorySkazkiModel
 import com.ladushkinySkazky.ladushkinnyskazki.databinding.FragmentMainBinding
+import com.ladushkinySkazky.ladushkinnyskazki.listeners.RecyclerItemClickListener
+import com.ladushkinySkazky.ladushkinnyskazki.presentation.adapters.CategoryAdapter
 import com.ladushkinySkazky.ladushkinnyskazki.snake.SnakeActivity
 
 class MainFragment : Fragment() {
 
-//    private lateinit var viewModel: SkazkyViewModel
+    private var _binding: FragmentMainBinding? = null
+    private val binding: FragmentMainBinding
+        get() = _binding ?: throw RuntimeException("FragmentMainBinding == null")
 
-    private lateinit var binding: FragmentMainBinding
-    private var categoryAdapter: CategoryAdapter? = null
-    private var categorySkazkiList: ArrayList<CategorySkazkiModel> = ArrayList()
-    private lateinit var mainFragment: SkazkyFragment
+    private lateinit var viewModel: MainViewModel
 
-    companion object {
-        fun newInstance() = MainFragment()
-    }
+    private var categoryAdapter: CategoryAdapter = CategoryAdapter()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-
-        binding = FragmentMainBinding.inflate(layoutInflater)
-
-        //игра змейка
-        val btnSnake = binding.btnSnakeCategoryMain
-        btnSnake.setOnClickListener {
-            val intent = Intent(inflater.context, SnakeActivity::class.java)
-            startActivity(intent)
-        }
-
-        val progress = binding.progress
-        val rvListCategorySkazki = binding.rvListCategory
-
-//        viewModel = ViewModelProvider(this)[SkazkyViewModel::class.java]
-//        viewModel.categoryList.observe(viewLifecycleOwner) {
-//
-//        }
-
-        if (categoryAdapter == null) {
-            categoryAdapter = CategoryAdapter(inflater.context)
-            LoadFireBase().loadSkazki(categorySkazkiList, categoryAdapter!!, progress)
-        } else {
-            progress.visibility = View.GONE
-        }
-
-        rvListCategorySkazki.adapter = categoryAdapter
-        rvListCategorySkazki.layoutManager = LinearLayoutManager(
-            binding.root.context,
-            RecyclerView.VERTICAL, false
-        )
-        rvListCategorySkazki.setHasFixedSize(true)
-        rvListCategorySkazki.recycledViewPool.setMaxRecycledViews(50, 50)
-        rvListCategorySkazki.setItemViewCacheSize(50)
-
-        onClickItem(rvListCategorySkazki, binding.root.context)
-
+        _binding = FragmentMainBinding.inflate(layoutInflater)
         return binding.root
 
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        goSnake()
+        rvSetup()
+        onClickItem(binding.rvListCategory, binding.root.context)
+        observeViewModel()
+    }
+
+    private fun goSnake() {
+        binding.btnSnakeCategoryMain.setOnClickListener {
+            val intent = Intent(requireActivity(), SnakeActivity::class.java)
+            startActivity(intent)
+        }
+    }
+
+    private fun rvSetup() {
+        with(binding.rvListCategory) {
+            adapter = categoryAdapter
+            layoutManager = LinearLayoutManager(
+                binding.root.context,
+                RecyclerView.VERTICAL, false
+            )
+            setHasFixedSize(true)
+            recycledViewPool.setMaxRecycledViews(50, 50)
+            setItemViewCacheSize(50)
+        }
+    }
+
+    private fun observeViewModel() {
+        viewModel = ViewModelProvider(this)[MainViewModel::class.java]
+        viewModel.categoryList.observe(viewLifecycleOwner) {
+            categoryAdapter.submitList(it)
+            if (it.isNotEmpty()) {
+                binding.progress.visibility = View.GONE
+            }
+        }
     }
 
     private fun onClickItem(rv: RecyclerView, context: Context) {
@@ -84,13 +83,13 @@ class MainFragment : Fragment() {
                     override fun onItemClick(view: View, position: Int) {
 
                         val args = Bundle()
-                        args.putString("pos", position.toString())
+                        args.putInt("pos", position)
 
-                        mainFragment = SkazkyFragment.newInstance()
-                        mainFragment.arguments = args
+                        val skazkyFragment = SkazkyFragment.newInstance()
+                        skazkyFragment.arguments = args
                         val manager = (activity as AppCompatActivity).supportFragmentManager
                         manager.beginTransaction()
-                            .replace(R.id.containerSnake, mainFragment, args.toString())
+                            .replace(R.id.containerSnake, skazkyFragment, args.toString())
                             .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
                             .addToBackStack(this@MainFragment.toString())
                             .commit()
@@ -102,5 +101,11 @@ class MainFragment : Fragment() {
                 }
             )
         )
+    }
+
+    companion object {
+        fun newInstance(): MainFragment{
+            return MainFragment()
+        }
     }
 }

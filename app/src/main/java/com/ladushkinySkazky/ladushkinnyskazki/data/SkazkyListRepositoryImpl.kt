@@ -1,29 +1,36 @@
 package com.ladushkinySkazky.ladushkinnyskazki.data
 
-import com.ladushkinySkazky.ladushkinnyskazki.domian.model.SkazkiCatModel
-import com.ladushkinySkazky.ladushkinnyskazki.domian.model.SkazkiModel
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import com.ladushkinySkazky.ladushkinnyskazki.domian.SkazkyListRepository
+import com.ladushkinySkazky.ladushkinnyskazki.domian.model.SkazkiCatModel
 
 object SkazkyListRepositoryImpl : SkazkyListRepository {
 
-    private val categorySkazkyList = mutableListOf<CategorySkazkiModel>()
-    private val skazkyCatList = mutableListOf<SkazkiCatModel>()
-    private val skazkyList = mutableListOf<SkazkiModel>()
+    private val skazkyCatList = MutableLiveData<List<SkazkiCatModel>>()
+    private val skazkyList = mutableListOf<SkazkiCatModel>()
+    private val skazkyListTwo = mutableListOf<List<SkazkiCatModel>>()
 
-    override fun getCategorySkazkyList(): List<CategorySkazkiModel> {
-        return categorySkazkyList.toList()
+    private val skazkyListFB = LoadSkazky()
+
+    override fun getCategorySkazkyList(): LiveData<List<SkazkiCatModel>> = skazkyListFB
+
+    override fun getSkazkyCatList(): LiveData<List<SkazkiCatModel>> {
+        return skazkyCatList
     }
 
-    override fun getSkazkyCatList(): List<SkazkiCatModel> {
-        return skazkyCatList.toList()
+
+
+    override fun getItemSkazkyList(position: Int): SkazkiCatModel {
+        return getCategorySkazkyList().value?.get(position)
+            ?: throw RuntimeException("Element with id $position not found")
     }
 
-    override fun getSkazkyList(): List<SkazkiModel> {
-        return skazkyList.toList()
-    }
 
-    override fun getItemSkazka(itemSkazkaId: Int): SkazkiModel {
-        return skazkyList.find { it.ID == itemSkazkaId }
+
+
+    override fun getItemSkazka(itemSkazkaId: Int): SkazkiCatModel {
+        return skazkyList.find { it.Items?.ID == itemSkazkaId }
             ?: throw RuntimeException("Element with id $itemSkazkaId not found")
     }
 }

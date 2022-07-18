@@ -51,6 +51,8 @@ class MainActivity : AppCompatActivity() {
         sizePx()
     }
 
+
+
     //Вычисление размеров объектов
     private fun sizePx() {
         val displayMetrics: DisplayMetrics = applicationContext.resources.displayMetrics

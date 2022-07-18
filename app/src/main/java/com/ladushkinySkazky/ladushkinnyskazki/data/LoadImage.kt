@@ -1,6 +1,7 @@
 package com.ladushkinySkazky.ladushkinnyskazki.data
 
 import android.annotation.SuppressLint
+import android.app.Application
 import android.content.Context
 import android.widget.ImageView
 import com.bumptech.glide.Glide

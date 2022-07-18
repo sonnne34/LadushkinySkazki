@@ -1,11 +1,11 @@
 package com.ladushkinySkazky.ladushkinnyskazki.domian.usecases
 
 import com.ladushkinySkazky.ladushkinnyskazki.domian.SkazkyListRepository
-import com.ladushkinySkazky.ladushkinnyskazki.domian.model.SkazkiModel
+import com.ladushkinySkazky.ladushkinnyskazki.domian.model.SkazkiCatModel
 
 class GetSkazkyListUseCase(private val skazkyListRepository: SkazkyListRepository) {
 
-    fun getSkazkyList(): List<SkazkiModel> {
-        return skazkyListRepository.getSkazkyList()
+    fun getSkazkyList(position: Int): SkazkiCatModel {
+        return skazkyListRepository.getItemSkazkyList(position)
     }
 }
