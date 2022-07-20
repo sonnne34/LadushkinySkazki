@@ -8,7 +8,7 @@ import android.widget.ImageView
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
-import com.ladushkinySkazky.ladushkinnyskazki.MainActivity
+import com.ladushkinySkazky.ladushkinnyskazki.presentation.MainActivity
 import com.ladushkinySkazky.ladushkinnyskazki.R
 import com.ladushkinySkazky.ladushkinnyskazki.singletons.DisplaySingleton
 import com.ladushkinySkazky.ladushkinnyskazki.snake.SnakeCore.MINIMUM_GAME_SPEED
@@ -132,8 +132,8 @@ class SnakeActivity : AppCompatActivity() {
     //координаты нового объекта "еды"
     private fun generateAnimalCoordinates(): ViewCoordinate {
         val viewCoordinate = ViewCoordinate(
-            (0 until CELLS_ON_GENERATE).random() * loadTextHead().toInt(),
-            (0 until CELLS_ON_GENERATE).random() * loadTextHead().toInt()
+            (1 until CELLS_ON_GENERATE).random() * loadTextHead().toInt(),
+            (1 until CELLS_ON_GENERATE).random() * loadTextHead().toInt()
         )
         for (partTale in allTale) {
             if (partTale.viewCoordinate == viewCoordinate) {
@@ -201,8 +201,8 @@ class SnakeActivity : AppCompatActivity() {
     //координаты нового объекта кроватка
     private fun generateBedCoordinates(): ViewCoordinate {
         val viewCoordinate = ViewCoordinate(
-            (0 until CELLS_ON_GENERATE).random() * loadTextHead().toInt(),
-            (0 until CELLS_ON_GENERATE).random() * loadTextHead().toInt()
+            (1 until CELLS_ON_GENERATE).random() * loadTextHead().toInt(),
+            (1 until CELLS_ON_GENERATE).random() * loadTextHead().toInt()
         )
         for (partTale in allTale) {
             if (partTale.viewCoordinate == viewCoordinate) {

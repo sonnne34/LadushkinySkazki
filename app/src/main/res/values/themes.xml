@@ -12,7 +12,7 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
-        <item name="android:windowBackground">@drawable/backgr_activity_main</item>
+        <item name="android:windowBackground">@drawable/background_activity_main</item>
 
     </style>
     <style name="ThemeOverlay.LadushkinnySkazki.FullscreenContainer" parent="">

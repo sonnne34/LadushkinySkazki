@@ -6,15 +6,13 @@
       <root url="jar://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/7d7a9639d0c795e9ea8f16fa35e0ec61/transformed/jetified-coil-2.1.0/jars/classes.jar!/" />
       <root url="file://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/7d7a9639d0c795e9ea8f16fa35e0ec61/transformed/jetified-coil-2.1.0/res" />
       <root url="file://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/7d7a9639d0c795e9ea8f16fa35e0ec61/transformed/jetified-coil-2.1.0/AndroidManifest.xml" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/7d7a9639d0c795e9ea8f16fa35e0ec61/transformed/jetified-coil-2.1.0/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/7d7a9639d0c795e9ea8f16fa35e0ec61/transformed/jetified-coil-2.1.0/AndroidManifest.xml" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/7d7a9639d0c795e9ea8f16fa35e0ec61/transformed/jetified-coil-2.1.0/res" />
     </CLASSES>
     <JAVADOC>
-      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.coil-kt/coil/2.1.0/45d82140ca5ddec8e229c2824b5e4d1d7ab1f55a/coil-2.1.0-javadoc.jar!/" />
+      <root url="jar://$USER_HOME$/Desktop/Sushi/app/gradle/caches/modules-2/files-2.1/io.coil-kt/coil/2.1.0/45d82140ca5ddec8e229c2824b5e4d1d7ab1f55a/coil-2.1.0-javadoc.jar!/" />
     </JAVADOC>
     <SOURCES>
-      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.coil-kt/coil/2.1.0/92f91219245976b9bc6111999eab492b0e829933/coil-2.1.0-sources.jar!/" />
+      <root url="jar://$USER_HOME$/Desktop/Sushi/app/gradle/caches/modules-2/files-2.1/io.coil-kt/coil/2.1.0/92f91219245976b9bc6111999eab492b0e829933/coil-2.1.0-sources.jar!/" />
     </SOURCES>
   </library>
 </component>

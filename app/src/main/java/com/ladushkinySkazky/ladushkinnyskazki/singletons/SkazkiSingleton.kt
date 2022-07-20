@@ -1,35 +1,20 @@
 package com.ladushkinySkazky.ladushkinnyskazki.singletons
 
-import android.util.Log
-import com.ladushkinySkazky.ladushkinnyskazki.models.CategorySkazkiModel
-import com.ladushkinySkazky.ladushkinnyskazki.listeners.EventListeners
+import com.ladushkinySkazky.ladushkinnyskazki.domian.model.CategorySkazkiModel
 
 object SkazkiSingleton {
 
-    var skazkiItem : ArrayList<CategorySkazkiModel> = ArrayList()
-    var listeners: ArrayList<EventListeners> = ArrayList()
+    var skazkiItem: ArrayList<CategorySkazkiModel> = ArrayList()
 
-    fun addSkazki(item : CategorySkazkiModel){
+    fun addSkazki(item: CategorySkazkiModel) {
         var boolean = true
-        for(i in skazkiItem){
-            if(i.CategoryName == item.CategoryName){
+        for (i in skazkiItem) {
+            if (i.CategoryName == item.CategoryName) {
                 boolean = false
             }
         }
-        if (boolean){
+        if (boolean) {
             skazkiItem.add(item)
         }
-    }
-
-    fun notifyTwo() {
-        for (listener in listeners) {
-            listener.updateRR()
-            Log.d("Test", "notifiTwo = $listener")
-        }
-    }
-
-    fun subscribe(listener: EventListeners) {
-        listeners.add(listener)
-        Log.d("Test", "Listener = $listener")
     }
 }
