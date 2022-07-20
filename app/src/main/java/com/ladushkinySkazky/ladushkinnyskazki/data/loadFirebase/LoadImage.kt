@@ -1,12 +1,12 @@
 package com.ladushkinySkazky.ladushkinnyskazki.data.loadFirebase
 
 import android.annotation.SuppressLint
-import android.app.Application
 import android.content.Context
 import android.widget.ImageView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.google.firebase.storage.FirebaseStorage
+import com.ladushkinySkazky.ladushkinnyskazki.domian.model.CategorySkazkiModel
 import com.ladushkinySkazky.ladushkinnyskazki.domian.model.SkazkiCatModel
 
 class LoadImage {
@@ -41,7 +41,7 @@ class LoadImage {
     @SuppressLint("CheckResult")
     fun loadImageCategorySkazka(
         context: Context,
-        skazkiCatModel: SkazkiCatModel,
+        skazkiCatModel: CategorySkazkiModel,
         imageName: ImageView
     ) {
 
@@ -50,7 +50,7 @@ class LoadImage {
         if (skazkiCatModel.CategoryPictureUri == null) {
 
             val storage = FirebaseStorage.getInstance()
-            val storageRef = storage.getReferenceFromUrl(skazkiCatModel.CategoryPicture!!)
+            val storageRef = storage.getReferenceFromUrl(skazkiCatModel.CategoryPicture)
 
             storageRef.downloadUrl.addOnSuccessListener { uri ->
                 skazkiCatModel.CategoryPictureUri = uri

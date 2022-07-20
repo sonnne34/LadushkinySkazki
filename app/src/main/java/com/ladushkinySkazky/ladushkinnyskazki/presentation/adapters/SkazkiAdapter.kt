@@ -1,5 +1,6 @@
 package com.ladushkinySkazky.ladushkinnyskazki.presentation.adapters
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,14 +9,16 @@ import android.widget.TextView
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.ladushkinySkazky.ladushkinnyskazki.R
+import com.ladushkinySkazky.ladushkinnyskazki.data.loadFirebase.LoadImage
 import com.ladushkinySkazky.ladushkinnyskazki.domian.model.SkazkiCatModel
+import com.ladushkinySkazky.ladushkinnyskazki.presentation.dialog.SkazkaBodyDialog
 
-class SkazkiAdapter :
+class SkazkiAdapter(val context: Context) :
     ListAdapter<SkazkiCatModel, RecyclerView.ViewHolder>(SkazkyItemDiffCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
 
-        return if(viewType == VIEW_TYPE_CATEGORY) {
+        return if (viewType == VIEW_TYPE_CATEGORY) {
             val layoutInflater = LayoutInflater.from(parent.context)
             val itemView = layoutInflater.inflate(R.layout.item_list_category, parent, false)
             CategoryViewHolder(itemView = itemView)
@@ -49,10 +52,10 @@ class SkazkiAdapter :
 
                 viewHolder.nameSkazka.text = "${skazkaItem.Items?.NameSkazka}"
                 viewHolder.descriptionSkazka.text = "${skazkaItem.Items?.DescriptionSkazka}"
-//                LoadImage().loadImageNameSkazka(context, skazkaItem, imgSkazka!!)
+                LoadImage().loadImageNameSkazka(context, skazkaItem, viewHolder.imgSkazka)
 
                 viewHolder.itemView.setOnClickListener {
-//            SkazkaBodyDialog.openBody(context, skazkaItem)
+            SkazkaBodyDialog.openBody(context, skazkaItem)
                 }
             }
         }
@@ -76,7 +79,7 @@ class SkazkiAdapter :
         var nameSkazka = itemView.findViewById(R.id.txt_name_skazka) as TextView
         var descriptionSkazka =
             itemView.findViewById(R.id.txt_description_skazka) as TextView
-        var imgSkazka = itemView.findViewById<ImageView>(R.id.img_name_skazka)
+        var imgSkazka = itemView.findViewById<ImageView>(R.id.img_name_skazka)!!
     }
 
     companion object {

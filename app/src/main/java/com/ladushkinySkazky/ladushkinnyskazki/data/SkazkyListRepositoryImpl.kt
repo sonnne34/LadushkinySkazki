@@ -26,6 +26,8 @@ object SkazkyListRepositoryImpl : SkazkyListRepository {
         for (category in getItemCategoryList(position)) {
             skazkyModel.CategoryName = category.CategoryName
             skazkyModel.isHeader = true
+            skazkyModel.CategoryPicture = category.CategoryPicture
+            skazkyModel.CategoryPictureUri = category.CategoryPictureUri
             skazkyList.add(skazkyModel)
             for (i in category.Items) {
                 skazkyList.add(SkazkiCatModel(i.value))

@@ -1,5 +1,6 @@
 package com.ladushkinySkazky.ladushkinnyskazki.presentation.adapters
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,10 +9,10 @@ import android.widget.TextView
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.ladushkinySkazky.ladushkinnyskazki.R
+import com.ladushkinySkazky.ladushkinnyskazki.data.loadFirebase.LoadImage
 import com.ladushkinySkazky.ladushkinnyskazki.domian.model.CategorySkazkiModel
-import com.squareup.picasso.Picasso
 
-class CategoryAdapter :
+class CategoryAdapter(val context: Context) :
     ListAdapter<CategorySkazkiModel, CategoryAdapter.CategoryViewHolder>(CategoryItemDiffCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoryViewHolder {
@@ -25,7 +26,7 @@ class CategoryAdapter :
         val categoryItem = getItem(position)
         holder.category.text = categoryItem.CategoryName
         holder.categoryDescription.text = categoryItem.CategoryDescription
-        Picasso.get().load(categoryItem.CategoryPicture).into(holder.categoryPicture)
+        LoadImage().loadImageCategorySkazka(context, categoryItem, holder.categoryPicture)
     }
 
     class CategoryViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -33,6 +34,5 @@ class CategoryAdapter :
         var categoryDescription =
             itemView.findViewById<TextView>(R.id.txt_description_category)!!
         var categoryPicture = itemView.findViewById<ImageView>(R.id.img_category_skazka)!!
-
     }
 }

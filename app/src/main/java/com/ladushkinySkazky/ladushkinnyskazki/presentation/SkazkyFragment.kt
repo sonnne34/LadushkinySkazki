@@ -17,7 +17,7 @@ class SkazkyFragment : Fragment() {
     private val binding: FragmentSkazkyBinding
         get() = _binding ?: throw RuntimeException("FragmentSkazkyBinding == null")
 
-    private var skazkiAdapter: SkazkiAdapter = SkazkiAdapter()
+    private lateinit var skazkiAdapter: SkazkiAdapter
 
     private lateinit var viewModel: SkazkyViewModel
 
@@ -27,16 +27,7 @@ class SkazkyFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentSkazkyBinding.inflate(layoutInflater)
-
-//        categorySkazkiListSingleton = SkazkiSingleton.skazkiItem
-//        model = categorySkazkiListSingleton[position!!]
-//        categorySkazkiList.add(model)
-
-//        if (skazkiAdapter == null) {
-//            skazkiAdapter = SkazkiAdapter(inflater.context)
-//            updateAdapter(categorySkazkiList, skazkiAdapter!!, progress)
-//        }
-
+        skazkiAdapter = SkazkiAdapter(binding.root.context)
         return binding.root
     }
 

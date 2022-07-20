@@ -26,13 +26,14 @@ class MainFragment : Fragment() {
 
     private lateinit var viewModel: MainViewModel
 
-    private var categoryAdapter: CategoryAdapter = CategoryAdapter()
+    private lateinit var categoryAdapter: CategoryAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentMainBinding.inflate(layoutInflater)
+        categoryAdapter = CategoryAdapter(binding.root.context)
         return binding.root
 
     }
@@ -104,7 +105,7 @@ class MainFragment : Fragment() {
     }
 
     companion object {
-        fun newInstance(): MainFragment{
+        fun newInstance(): MainFragment {
             return MainFragment()
         }
     }
