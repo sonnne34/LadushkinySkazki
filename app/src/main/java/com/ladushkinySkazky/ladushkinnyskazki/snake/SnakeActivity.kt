@@ -10,7 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.ladushkinySkazky.ladushkinnyskazki.presentation.MainActivity
 import com.ladushkinySkazky.ladushkinnyskazki.R
-import com.ladushkinySkazky.ladushkinnyskazki.refactoring.singletons.DisplaySingleton
+import com.ladushkinySkazky.ladushkinnyskazki.data.DisplaySingleton
 import com.ladushkinySkazky.ladushkinnyskazki.snake.SnakeCore.MINIMUM_GAME_SPEED
 import com.ladushkinySkazky.ladushkinnyskazki.snake.SnakeCore.gameSpeed
 import com.ladushkinySkazky.ladushkinnyskazki.snake.SnakeCore.isPlay

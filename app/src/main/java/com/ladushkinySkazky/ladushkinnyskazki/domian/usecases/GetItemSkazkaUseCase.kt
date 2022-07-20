@@ -1,7 +1,7 @@
 package com.ladushkinySkazky.ladushkinnyskazki.domian.usecases
 
 import com.ladushkinySkazky.ladushkinnyskazki.domian.SkazkyListRepository
-import com.ladushkinySkazky.ladushkinnyskazki.domian.model.SkazkiCatModel
+import com.ladushkinySkazky.ladushkinnyskazki.domian.models.SkazkiCatModel
 
 class GetItemSkazkaUseCase(private val skazkyListRepository: SkazkyListRepository) {
 

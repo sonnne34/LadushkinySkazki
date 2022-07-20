@@ -9,11 +9,11 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.ladushkinySkazky.ladushkinnyskazki.R
-import com.ladushkinySkazky.ladushkinnyskazki.interfaces.ConnectionType
-import com.ladushkinySkazky.ladushkinnyskazki.interfaces.NetworkMonitorUtil
+import com.ladushkinySkazky.ladushkinnyskazki.domian.ConnectionType
+import com.ladushkinySkazky.ladushkinnyskazki.domian.NetworkMonitorUtil
 import com.ladushkinySkazky.ladushkinnyskazki.presentation.dialog.MainMenuDialog
 import com.ladushkinySkazky.ladushkinnyskazki.presentation.mainFragment.MainFragment
-import com.ladushkinySkazky.ladushkinnyskazki.refactoring.singletons.DisplaySingleton
+import com.ladushkinySkazky.ladushkinnyskazki.data.DisplaySingleton
 import kotlin.system.exitProcess
 
 class MainActivity : AppCompatActivity() {

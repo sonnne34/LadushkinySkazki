@@ -1,7 +1,7 @@
 package com.ladushkinySkazky.ladushkinnyskazki.presentation.adapters
 
 import androidx.recyclerview.widget.DiffUtil
-import com.ladushkinySkazky.ladushkinnyskazki.domian.model.CategorySkazkiModel
+import com.ladushkinySkazky.ladushkinnyskazki.domian.models.CategorySkazkiModel
 
 class CategoryItemDiffCallback : DiffUtil.ItemCallback<CategorySkazkiModel>() {
 

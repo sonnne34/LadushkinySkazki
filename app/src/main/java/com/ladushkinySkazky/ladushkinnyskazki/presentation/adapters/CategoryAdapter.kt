@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.ladushkinySkazky.ladushkinnyskazki.R
 import com.ladushkinySkazky.ladushkinnyskazki.data.loadFirebase.LoadImage
-import com.ladushkinySkazky.ladushkinnyskazki.domian.model.CategorySkazkiModel
+import com.ladushkinySkazky.ladushkinnyskazki.domian.models.CategorySkazkiModel
 
 class CategoryAdapter(val context: Context) :
     ListAdapter<CategorySkazkiModel, CategoryAdapter.CategoryViewHolder>(CategoryItemDiffCallback()) {

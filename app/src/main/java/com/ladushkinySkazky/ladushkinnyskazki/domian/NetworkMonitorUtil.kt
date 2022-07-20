@@ -1,4 +1,4 @@
-package com.ladushkinySkazky.ladushkinnyskazki.interfaces
+package com.ladushkinySkazky.ladushkinnyskazki.domian
 
 import android.content.BroadcastReceiver
 import android.content.Context

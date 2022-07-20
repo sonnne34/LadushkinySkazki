@@ -3,8 +3,8 @@ package com.ladushkinySkazky.ladushkinnyskazki.data
 import androidx.lifecycle.LiveData
 import com.ladushkinySkazky.ladushkinnyskazki.data.loadFirebase.LoadSkazky
 import com.ladushkinySkazky.ladushkinnyskazki.domian.SkazkyListRepository
-import com.ladushkinySkazky.ladushkinnyskazki.domian.model.CategorySkazkiModel
-import com.ladushkinySkazky.ladushkinnyskazki.domian.model.SkazkiCatModel
+import com.ladushkinySkazky.ladushkinnyskazki.domian.models.CategorySkazkiModel
+import com.ladushkinySkazky.ladushkinnyskazki.domian.models.SkazkiCatModel
 
 object SkazkyListRepositoryImpl : SkazkyListRepository {
 
@@ -31,6 +31,7 @@ object SkazkyListRepositoryImpl : SkazkyListRepository {
             skazkyList.add(skazkyModel)
             for (i in category.Items) {
                 skazkyList.add(SkazkiCatModel(i.value))
+                skazkyList.sortBy { it.Items?.ID }
             }
         }
         return skazkyList
