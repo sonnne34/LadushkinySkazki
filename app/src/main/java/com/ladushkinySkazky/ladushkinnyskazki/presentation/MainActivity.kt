@@ -1,6 +1,7 @@
 package com.ladushkinySkazky.ladushkinnyskazki.presentation
 
 import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.DisplayMetrics
 import android.util.Log
@@ -13,24 +14,20 @@ import com.ladushkinySkazky.ladushkinnyskazki.domian.ConnectionType
 import com.ladushkinySkazky.ladushkinnyskazki.domian.NetworkMonitorUtil
 import com.ladushkinySkazky.ladushkinnyskazki.presentation.dialog.MainMenuDialog
 import com.ladushkinySkazky.ladushkinnyskazki.presentation.mainFragment.MainFragment
-import com.ladushkinySkazky.ladushkinnyskazki.data.DisplaySingleton
 import kotlin.system.exitProcess
 
 class MainActivity : AppCompatActivity() {
 
-//    private lateinit var viewModel: SkazkyViewModel
-
     private lateinit var btnMenu: ImageButton
     private val networkMonitor = NetworkMonitorUtil(this)
+
+    private lateinit var mPreferences: SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-//        viewModel = ViewModelProvider(this)[SkazkyViewModel::class.java]
-//        viewModel.categoryList.observe(this) {
-//
-//        }
+        mPreferences = getSharedPreferences(NAME_PREF, MODE_PRIVATE)
 
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
@@ -51,15 +48,31 @@ class MainActivity : AppCompatActivity() {
         sizePx()
     }
 
+    private fun setWidth(pxWidth: Int) {
+        mPreferences.edit()
+            .putString(WIDTH, pxWidth.toString())
+            .apply()
+    }
 
+    private fun setSizeHead(sizeHead: Int) {
+        mPreferences.edit()
+            .putString(SIZE_HEAD, sizeHead.toString())
+            .apply()
+    }
 
     //Вычисление размеров объектов
     private fun sizePx() {
-        val displayMetrics: DisplayMetrics = applicationContext.resources.displayMetrics
-        val pxWidth = displayMetrics.widthPixels - 50
-        val sizeHead = pxWidth / CELLS_ON_FIELD
-        DisplaySingleton.addWidth(pxWidth.toString())
-        DisplaySingleton.addHead(sizeHead.toString())
+        if (getSize() == "") {
+            val displayMetrics: DisplayMetrics = applicationContext.resources.displayMetrics
+            val pxWidth = displayMetrics.widthPixels - 50
+            val sizeHead = pxWidth / CELLS_ON_FIELD
+            setSizeHead(sizeHead)
+            setWidth(pxWidth)
+        }
+    }
+
+    private fun getSize(): String {
+        return mPreferences.getString(SIZE_HEAD, "").toString()
     }
 
     //диалоговое окно перед выходом из приложения
@@ -144,5 +157,8 @@ class MainActivity : AppCompatActivity() {
 
     companion object {
         const val CELLS_ON_FIELD = 10
+        const val WIDTH = "pxWidth"
+        const val SIZE_HEAD = "sizeHead"
+        const val NAME_PREF = "preference"
     }
 }
