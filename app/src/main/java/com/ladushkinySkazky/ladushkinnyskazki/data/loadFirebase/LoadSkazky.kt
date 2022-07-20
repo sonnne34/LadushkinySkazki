@@ -6,7 +6,7 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
-import com.ladushkinySkazky.ladushkinnyskazki.domian.model.CategorySkazkiModel
+import com.ladushkinySkazky.ladushkinnyskazki.domian.models.CategorySkazkiModel
 
 class LoadSkazky : LiveData<List<CategorySkazkiModel>>() {
 

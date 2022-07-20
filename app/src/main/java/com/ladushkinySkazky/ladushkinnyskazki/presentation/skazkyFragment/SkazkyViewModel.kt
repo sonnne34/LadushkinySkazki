@@ -1,11 +1,11 @@
-package com.ladushkinySkazky.ladushkinnyskazki.presentation
+package com.ladushkinySkazky.ladushkinnyskazki.presentation.skazkyFragment
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.ladushkinySkazky.ladushkinnyskazki.data.SkazkyListRepositoryImpl
-import com.ladushkinySkazky.ladushkinnyskazki.domian.model.SkazkiCatModel
+import com.ladushkinySkazky.ladushkinnyskazki.domian.models.SkazkiCatModel
 import com.ladushkinySkazky.ladushkinnyskazki.domian.usecases.GetSkazkyListUseCase
 
 class SkazkyViewModel(application: Application) : AndroidViewModel(application) {

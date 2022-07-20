@@ -9,9 +9,9 @@ import android.widget.ListPopupWindow
 import android.widget.TextView
 import com.ladushkinySkazky.ladushkinnyskazki.R
 import com.ladushkinySkazky.ladushkinnyskazki.data.loadFirebase.LoadImage
-import com.ladushkinySkazky.ladushkinnyskazki.domian.model.SkazkiCatModel
+import com.ladushkinySkazky.ladushkinnyskazki.domian.models.SkazkiCatModel
 
-class SkazkaBodyDialog {
+class SkazkaTextDialog {
     companion object{
         fun openBody(context: Context, skazkiCatModel: SkazkiCatModel){
 

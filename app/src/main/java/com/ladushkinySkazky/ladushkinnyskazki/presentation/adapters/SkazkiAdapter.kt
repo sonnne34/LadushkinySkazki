@@ -10,8 +10,8 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.ladushkinySkazky.ladushkinnyskazki.R
 import com.ladushkinySkazky.ladushkinnyskazki.data.loadFirebase.LoadImage
-import com.ladushkinySkazky.ladushkinnyskazki.domian.model.SkazkiCatModel
-import com.ladushkinySkazky.ladushkinnyskazki.presentation.dialog.SkazkaBodyDialog
+import com.ladushkinySkazky.ladushkinnyskazki.domian.models.SkazkiCatModel
+import com.ladushkinySkazky.ladushkinnyskazki.presentation.dialog.SkazkaTextDialog
 
 class SkazkiAdapter(val context: Context) :
     ListAdapter<SkazkiCatModel, RecyclerView.ViewHolder>(SkazkyItemDiffCallback()) {
@@ -55,7 +55,7 @@ class SkazkiAdapter(val context: Context) :
                 LoadImage().loadImageNameSkazka(context, skazkaItem, viewHolder.imgSkazka)
 
                 viewHolder.itemView.setOnClickListener {
-            SkazkaBodyDialog.openBody(context, skazkaItem)
+            SkazkaTextDialog.openBody(context, skazkaItem)
                 }
             }
         }

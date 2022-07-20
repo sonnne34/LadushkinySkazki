@@ -1,4 +1,4 @@
-package com.ladushkinySkazky.ladushkinnyskazki.presentation
+package com.ladushkinySkazky.ladushkinnyskazki.presentation.skazkyFragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -58,6 +58,9 @@ class SkazkyFragment : Fragment() {
         viewModel.getItemSkazkiList(position)
         viewModel.skazkyList.observe(viewLifecycleOwner) {
             skazkiAdapter.submitList(it)
+            if (it.isNotEmpty()) {
+                binding.progress.visibility = View.GONE
+            }
         }
     }
 

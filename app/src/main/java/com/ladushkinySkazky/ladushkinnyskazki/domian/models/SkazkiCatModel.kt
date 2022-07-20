@@ -1,4 +1,4 @@
-package com.ladushkinySkazky.ladushkinnyskazki.domian.model
+package com.ladushkinySkazky.ladushkinnyskazki.domian.models
 
 import android.net.Uri
 

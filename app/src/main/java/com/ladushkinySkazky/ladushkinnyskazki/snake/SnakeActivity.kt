@@ -1,6 +1,7 @@
 package com.ladushkinySkazky.ladushkinnyskazki.snake
 
 import android.content.Intent
+import android.content.SharedPreferences
 import android.media.MediaPlayer
 import android.os.Bundle
 import android.widget.FrameLayout
@@ -8,9 +9,8 @@ import android.widget.ImageView
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
-import com.ladushkinySkazky.ladushkinnyskazki.presentation.MainActivity
 import com.ladushkinySkazky.ladushkinnyskazki.R
-import com.ladushkinySkazky.ladushkinnyskazki.singletons.DisplaySingleton
+import com.ladushkinySkazky.ladushkinnyskazki.presentation.MainActivity
 import com.ladushkinySkazky.ladushkinnyskazki.snake.SnakeCore.MINIMUM_GAME_SPEED
 import com.ladushkinySkazky.ladushkinnyskazki.snake.SnakeCore.gameSpeed
 import com.ladushkinySkazky.ladushkinnyskazki.snake.SnakeCore.isPlay
@@ -27,9 +27,13 @@ class SnakeActivity : AppCompatActivity() {
     private lateinit var bed: ImageView
     private lateinit var playerBackSound: MediaPlayer
 
+    private lateinit var mPreferences: SharedPreferences
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_snake)
+
+        mPreferences = getSharedPreferences(MainActivity.NAME_PREF, MODE_PRIVATE)
 
         //появляющиеся объекты ("еда" змейки)
         animal = ImageView(this)
@@ -93,17 +97,12 @@ class SnakeActivity : AppCompatActivity() {
 
     //загрузка ширины экрана
     private fun loadTextWidth(): String {
-        return DisplaySingleton.sizeWidth
+        return mPreferences.getString(MainActivity.WIDTH, "").toString()
     }
 
     //загрузка размера объектов/шага
     private fun loadTextHead(): String {
-        return DisplaySingleton.sizeHead
-    }
-
-    //размер шага
-    private fun loadSizeShag(): String {
-        return (DisplaySingleton.sizeHead.toInt() / 10).toString()
+        return mPreferences.getString(MainActivity.SIZE_HEAD, "").toString()
     }
 
     //проверка на повторное нажатие направления
