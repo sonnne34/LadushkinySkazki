@@ -1,4 +1,4 @@
-package com.ladushkinySkazky.ladushkinnyskazki.presentation
+package com.ladushkinySkazky.ladushkinnyskazki.presentation.skazkyFragment
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel

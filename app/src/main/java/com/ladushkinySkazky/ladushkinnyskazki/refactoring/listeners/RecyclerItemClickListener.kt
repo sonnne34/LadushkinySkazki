@@ -1,4 +1,4 @@
-package com.ladushkinySkazky.ladushkinnyskazki.listeners
+package com.ladushkinySkazky.ladushkinnyskazki.refactoring.listeners
 
 import android.content.Context
 import android.view.GestureDetector

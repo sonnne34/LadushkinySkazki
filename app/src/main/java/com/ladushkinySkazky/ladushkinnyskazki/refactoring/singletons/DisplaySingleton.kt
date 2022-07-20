@@ -1,4 +1,4 @@
-package com.ladushkinySkazky.ladushkinnyskazki.singletons
+package com.ladushkinySkazky.ladushkinnyskazki.refactoring.singletons
 
 object DisplaySingleton {
     var sizeWidth: String = ""

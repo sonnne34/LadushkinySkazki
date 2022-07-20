@@ -1,4 +1,4 @@
-package com.ladushkinySkazky.ladushkinnyskazki.presentation
+package com.ladushkinySkazky.ladushkinnyskazki.presentation.mainFragment
 
 import android.content.Context
 import android.content.Intent
@@ -14,7 +14,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.ladushkinySkazky.ladushkinnyskazki.R
 import com.ladushkinySkazky.ladushkinnyskazki.databinding.FragmentMainBinding
-import com.ladushkinySkazky.ladushkinnyskazki.listeners.RecyclerItemClickListener
+import com.ladushkinySkazky.ladushkinnyskazki.presentation.skazkyFragment.SkazkyFragment
+import com.ladushkinySkazky.ladushkinnyskazki.refactoring.listeners.RecyclerItemClickListener
 import com.ladushkinySkazky.ladushkinnyskazki.presentation.adapters.CategoryAdapter
 import com.ladushkinySkazky.ladushkinnyskazki.snake.SnakeActivity
 
