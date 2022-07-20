@@ -14,8 +14,8 @@ class SkazkyViewModel(application: Application) : AndroidViewModel(application) 
     private val getSkazkyListUseCase = GetSkazkyListUseCase(repository)
 
 
-    private val _skazkyList = MutableLiveData<SkazkiCatModel>()
-    val skazkyList: LiveData<SkazkiCatModel>
+    private val _skazkyList = MutableLiveData<List<SkazkiCatModel>>()
+    val skazkyList: LiveData<List<SkazkiCatModel>>
         get() = _skazkyList
 
     fun getItemSkazkiList(position: Int) {

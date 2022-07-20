@@ -1,7 +1,6 @@
 package com.ladushkinySkazky.ladushkinnyskazki.presentation
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,7 +9,6 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.ladushkinySkazky.ladushkinnyskazki.databinding.FragmentSkazkyBinding
-import com.ladushkinySkazky.ladushkinnyskazki.domian.model.SkazkiCatModel
 import com.ladushkinySkazky.ladushkinnyskazki.presentation.adapters.SkazkiAdapter
 
 class SkazkyFragment : Fragment() {
@@ -65,13 +63,10 @@ class SkazkyFragment : Fragment() {
 
     private fun observeViewModel() {
         val position = arguments?.getInt("pos")!!
-        Log.d("LOADFB", "position = $position")
-
         viewModel = ViewModelProvider(this)[SkazkyViewModel::class.java]
         viewModel.getItemSkazkiList(position)
         viewModel.skazkyList.observe(viewLifecycleOwner) {
-            Log.d("LOADFB", "skazkyList = ${viewModel.skazkyList.value}")
-            skazkiAdapter.submitList(listOf(it))
+            skazkiAdapter.submitList(it)
         }
     }
 

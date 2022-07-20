@@ -1,4 +1,4 @@
-package com.ladushkinySkazky.ladushkinnyskazki.data
+package com.ladushkinySkazky.ladushkinnyskazki.data.loadFirebase
 
 import android.annotation.SuppressLint
 import android.app.Application
