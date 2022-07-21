@@ -36,7 +36,7 @@
         tools:layout_editor_absoluteX="0dp" />
 
     <FrameLayout
-        android:id="@+id/containerSnake"
+        android:id="@+id/container"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/txt_snake"

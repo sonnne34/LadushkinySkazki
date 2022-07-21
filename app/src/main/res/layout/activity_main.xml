@@ -28,7 +28,7 @@
         android:contentDescription="@string/description_button_menu" />
 
     <FrameLayout
-        android:id="@+id/containerSnake"
+        android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/txt_header_main"

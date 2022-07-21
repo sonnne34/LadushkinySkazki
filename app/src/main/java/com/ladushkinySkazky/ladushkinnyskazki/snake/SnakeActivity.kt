@@ -54,7 +54,7 @@ class SnakeActivity : AppCompatActivity() {
         soundBack()
 
         //поле для игры
-        containerSnake.layoutParams =
+        container.layoutParams =
             ConstraintLayout.LayoutParams(loadTextWidth().toInt(), loadTextWidth().toInt()).apply {
                 bottomToBottom = ConstraintLayout.LayoutParams.PARENT_ID
                 startToStart = ConstraintLayout.LayoutParams.PARENT_ID
@@ -124,8 +124,8 @@ class SnakeActivity : AppCompatActivity() {
             viewCoordinate.top
         (animal.layoutParams as FrameLayout.LayoutParams).leftMargin =
             viewCoordinate.left
-        containerSnake.removeView(animal)
-        containerSnake.addView(animal)
+        container.removeView(animal)
+        container.addView(animal)
     }
 
     //координаты нового объекта "еды"
@@ -193,8 +193,8 @@ class SnakeActivity : AppCompatActivity() {
         (bed.layoutParams as FrameLayout.LayoutParams).leftMargin =
             viewCoordinate.left
 
-        containerSnake.removeView(animal)
-        containerSnake.addView(bed)
+        container.removeView(animal)
+        container.addView(bed)
     }
 
     //координаты нового объекта кроватка
@@ -273,7 +273,7 @@ class SnakeActivity : AppCompatActivity() {
         (taleImage.layoutParams as FrameLayout.LayoutParams).topMargin = top
         (taleImage.layoutParams as FrameLayout.LayoutParams).leftMargin = left
 
-        containerSnake.addView(taleImage)
+        container.addView(taleImage)
         return taleImage
     }
 
@@ -305,8 +305,8 @@ class SnakeActivity : AppCompatActivity() {
             makeTaleMove()
             checkIfSnakeEatsPerson()
             checkIfCompletePerson()
-            containerSnake.removeView(head)
-            containerSnake.addView(head)
+            container.removeView(head)
+            container.addView(head)
         }
     }
 
@@ -361,7 +361,7 @@ class SnakeActivity : AppCompatActivity() {
         var tempTalePart: PartOfTale? = null
         for (index in 0 until allTale.size) {
             val talePart = allTale[index]
-            containerSnake.removeView(talePart.imageView)
+            container.removeView(talePart.imageView)
             if (index == 0) {
                 tempTalePart = talePart
                 allTale[index] = PartOfTale(
