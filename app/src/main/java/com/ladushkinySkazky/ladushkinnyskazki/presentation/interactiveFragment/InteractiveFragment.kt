@@ -9,6 +9,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.ladushkinySkazky.ladushkinnyskazki.R
 import com.ladushkinySkazky.ladushkinnyskazki.databinding.FragmentInteractiveBinding
 import com.ladushkinySkazky.ladushkinnyskazki.presentation.adapters.InteractiveAdapter
@@ -35,8 +37,22 @@ class InteractiveFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        rvSetup()
         goInteractiveAdd()
         observeViewModel()
+    }
+
+    private fun rvSetup() {
+        with(binding.rvListInteractive) {
+            adapter = interactiveAdapter
+            layoutManager = LinearLayoutManager(
+                binding.root.context,
+                RecyclerView.VERTICAL, false
+            )
+            setHasFixedSize(true)
+            recycledViewPool.setMaxRecycledViews(50, 50)
+            setItemViewCacheSize(50)
+        }
     }
 
     private fun goInteractiveAdd() {
