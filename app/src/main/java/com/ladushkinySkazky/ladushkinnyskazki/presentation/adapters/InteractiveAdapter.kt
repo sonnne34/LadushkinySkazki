@@ -1,6 +1,7 @@
 package com.ladushkinySkazky.ladushkinnyskazki.presentation.adapters
 
 import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,6 +10,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.ladushkinySkazky.ladushkinnyskazki.R
+import com.ladushkinySkazky.ladushkinnyskazki.data.loadFirebase.LoadImage
 import com.ladushkinySkazky.ladushkinnyskazki.domian.models.InteractiveModel
 
 class InteractiveAdapter(val context: Context) :
@@ -27,7 +29,9 @@ class InteractiveAdapter(val context: Context) :
         viewHolder.nameAuthor.text = interactiveItem.Name
         viewHolder.yearAuthor.text = interactiveItem.Year
         viewHolder.comment.text = interactiveItem.Comment
-//        LoadImage().loadImageCategorySkazka(context, interactiveItem, holder.categoryPicture)
+        LoadImage().loadImageInteractive(context, interactiveItem, viewHolder.img)
+        Log.d("LOADIMAGE", "interactiveItem.Image = ${interactiveItem.Image}")
+        Log.d("LOADIMAGE", "interactiveItem.ImageForLoad = ${interactiveItem.ImageForLoad}")
     }
 
     class InteractiveViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
