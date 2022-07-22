@@ -1,7 +1,6 @@
-package com.ladushkinySkazky.ladushkinnyskazki.presentation.adapters
+package com.ladushkinySkazky.ladushkinnyskazki.presentation.interactiveFragment
 
 import android.content.Context
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -26,12 +25,14 @@ class InteractiveAdapter(val context: Context) :
 
     override fun onBindViewHolder(viewHolder: InteractiveViewHolder, position: Int) {
         val interactiveItem = getItem(position)
-        viewHolder.nameAuthor.text = interactiveItem.Name
-        viewHolder.yearAuthor.text = interactiveItem.Year
-        viewHolder.comment.text = interactiveItem.Comment
-        LoadImage().loadImageInteractive(context, interactiveItem, viewHolder.img)
-        Log.d("LOADIMAGE", "interactiveItem.Image = ${interactiveItem.Image}")
-        Log.d("LOADIMAGE", "interactiveItem.ImageForLoad = ${interactiveItem.ImageForLoad}")
+        if (interactiveItem.Check) {
+            viewHolder.nameAuthor.text = interactiveItem.Name
+            viewHolder.yearAuthor.text = interactiveItem.Year
+            viewHolder.comment.text = interactiveItem.Comment
+            LoadImage().loadImageInteractive(context, interactiveItem, viewHolder.img)
+        } else{
+            viewHolder.itemView.visibility = View.GONE
+        }
     }
 
     class InteractiveViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {

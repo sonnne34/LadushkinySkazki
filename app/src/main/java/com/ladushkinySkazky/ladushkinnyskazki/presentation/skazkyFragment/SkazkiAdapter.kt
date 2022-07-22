@@ -1,4 +1,4 @@
-package com.ladushkinySkazky.ladushkinnyskazki.presentation.adapters
+package com.ladushkinySkazky.ladushkinnyskazki.presentation.skazkyFragment
 
 import android.content.Context
 import android.view.LayoutInflater

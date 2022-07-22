@@ -9,7 +9,6 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.ladushkinySkazky.ladushkinnyskazki.databinding.FragmentSkazkyBinding
-import com.ladushkinySkazky.ladushkinnyskazki.presentation.adapters.SkazkiAdapter
 
 class SkazkyFragment : Fragment() {
 

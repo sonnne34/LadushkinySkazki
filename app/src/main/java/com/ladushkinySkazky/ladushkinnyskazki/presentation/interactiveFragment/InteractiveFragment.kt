@@ -13,7 +13,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.ladushkinySkazky.ladushkinnyskazki.R
 import com.ladushkinySkazky.ladushkinnyskazki.databinding.FragmentInteractiveBinding
-import com.ladushkinySkazky.ladushkinnyskazki.presentation.adapters.InteractiveAdapter
 import com.ladushkinySkazky.ladushkinnyskazki.presentation.interactiveAddFragment.InteractiveAddFragment
 
 class InteractiveFragment : Fragment() {

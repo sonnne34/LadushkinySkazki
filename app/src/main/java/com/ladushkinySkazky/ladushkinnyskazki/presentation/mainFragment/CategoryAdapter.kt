@@ -1,7 +1,6 @@
-package com.ladushkinySkazky.ladushkinnyskazki.presentation.adapters
+package com.ladushkinySkazky.ladushkinnyskazki.presentation.mainFragment
 
 import android.content.Context
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -28,8 +27,6 @@ class CategoryAdapter(val context: Context) :
         holder.category.text = categoryItem.CategoryName
         holder.categoryDescription.text = categoryItem.CategoryDescription
         LoadImage().loadImageCategorySkazka(context, categoryItem, holder.categoryPicture)
-        Log.d("LOADIMAGE", "categoryItem.Image = ${categoryItem.CategoryPicture}")
-        Log.d("LOADIMAGE", "categoryItem.ImageForLoad = ${categoryItem.CategoryPictureUri.toString()}")
     }
 
     class CategoryViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {

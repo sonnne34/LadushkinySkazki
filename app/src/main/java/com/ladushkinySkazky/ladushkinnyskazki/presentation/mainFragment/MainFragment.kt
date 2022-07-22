@@ -16,7 +16,6 @@ import com.ladushkinySkazky.ladushkinnyskazki.R
 import com.ladushkinySkazky.ladushkinnyskazki.databinding.FragmentMainBinding
 import com.ladushkinySkazky.ladushkinnyskazki.presentation.skazkyFragment.SkazkyFragment
 import com.ladushkinySkazky.ladushkinnyskazki.presentation.adapters.RecyclerItemClickListener
-import com.ladushkinySkazky.ladushkinnyskazki.presentation.adapters.CategoryAdapter
 import com.ladushkinySkazky.ladushkinnyskazki.presentation.interactiveFragment.InteractiveFragment
 import com.ladushkinySkazky.ladushkinnyskazki.snake.SnakeActivity
 
