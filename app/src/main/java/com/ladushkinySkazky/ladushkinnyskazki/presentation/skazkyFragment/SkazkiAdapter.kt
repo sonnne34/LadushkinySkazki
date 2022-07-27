@@ -53,9 +53,11 @@ class SkazkiAdapter(val context: Context) :
                 viewHolder.nameSkazka.text = "${skazkaItem.Items?.NameSkazka}"
                 viewHolder.descriptionSkazka.text = "${skazkaItem.Items?.DescriptionSkazka}"
                 LoadImage().loadImageNameSkazka(context, skazkaItem, viewHolder.imgSkazka)
-
+                if (skazkaItem.Items!!.New) {
+                    viewHolder.imgNew.visibility = View.VISIBLE
+                }
                 viewHolder.itemView.setOnClickListener {
-            SkazkaTextDialog.openBody(context, skazkaItem)
+                    SkazkaTextDialog.openBody(context, skazkaItem)
                 }
             }
         }
@@ -80,10 +82,17 @@ class SkazkiAdapter(val context: Context) :
         var descriptionSkazka =
             itemView.findViewById(R.id.txt_description_skazka) as TextView
         var imgSkazka = itemView.findViewById<ImageView>(R.id.img_name_skazka)!!
+        var imgNew = itemView.findViewById<ImageView>(R.id.img_new_skazka)!!
+        var imgView = itemView.findViewById<ImageView>(R.id.img_eye_skazka)!!
+        var imgLike = itemView.findViewById<ImageView>(R.id.img_like_skazka)!!
     }
 
     companion object {
         const val VIEW_TYPE_CATEGORY = 100
         const val VIEW_TYPE_SKAZKA = 101
+//        const val VIEW_YES = "view yes"
+//        const val VIEW_NO = "view no"
+//        const val LIKE_YES = "like yes"
+//        const val LIKE_NO = "like no"
     }
 }

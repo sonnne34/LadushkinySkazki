@@ -43,6 +43,7 @@ class MainFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         goSnake()
         goInteractive()
+        goNewSkazky()
         rvSetup()
         onClickItem(binding.rvListCategory, binding.root.context)
         observeViewModel()
@@ -63,6 +64,12 @@ class MainFragment : Fragment() {
                 .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
                 .addToBackStack(this@MainFragment.toString())
                 .commit()
+        }
+    }
+
+    private fun goNewSkazky(){
+        binding.btnNewCategoryMain.setOnClickListener {
+
         }
     }
 

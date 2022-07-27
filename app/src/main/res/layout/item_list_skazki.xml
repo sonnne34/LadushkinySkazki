@@ -53,4 +53,37 @@
 
     </LinearLayout>
 
+    <ImageView
+        android:id="@+id/img_new_skazka"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_margin="10dp"
+        android:contentDescription="@string/description_new_skazka"
+        android:src="@drawable/ic_new"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/img_like_skazka"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_margin="10dp"
+        android:visibility="invisible"
+        android:background="@drawable/ic_view_no"
+        android:contentDescription="@string/description_view_skazka"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/img_eye_skazka" />
+
+    <ImageView
+        android:id="@+id/img_eye_skazka"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_margin="10dp"
+        android:visibility="invisible"
+        android:background="@drawable/ic_like_no"
+        android:contentDescription="@string/description_like_skazka"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

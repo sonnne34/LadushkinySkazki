@@ -45,4 +45,8 @@
     <string name="txt_name_author">Имя художника</string>
     <string name="txt_year_item">0 лет</string>
     <string name="description_image_interactive">Рисунок</string>
+    <string name="description_new_skazka">Новая сказка</string>
+    <string name="description_view_skazka">Иконка просмотрена ли сказка</string>
+    <string name="description_like_skazka">Иконка \"нравится сказка\"</string>
+    <string name="btn_new">Новинки</string>
 </resources>

@@ -8,5 +8,6 @@ data class SkazkiModel(
     var DescriptionSkazka: String = String(),
     var BodySkazka: String = String(),
     var ImageNameSkazka: String = String(),
-    var ImageNameSkazkaForLoad: Uri? = null
+    var ImageNameSkazkaForLoad: Uri? = null,
+    var New: Boolean = false
 )
