@@ -69,7 +69,17 @@ class MainFragment : Fragment() {
 
     private fun goNewSkazky(){
         binding.btnNewCategoryMain.setOnClickListener {
+            val args = Bundle()
+            args.putString(TYPE, NEW)
 
+            val skazkyFragment = SkazkyFragment.newInstance()
+            skazkyFragment.arguments = args
+            val manager = (activity as AppCompatActivity).supportFragmentManager
+            manager.beginTransaction()
+                .replace(R.id.container, skazkyFragment, args.toString())
+                .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+                .addToBackStack(this@MainFragment.toString())
+                .commit()
         }
     }
 
@@ -92,6 +102,7 @@ class MainFragment : Fragment() {
             categoryAdapter.submitList(it)
             if (it.isNotEmpty()) {
                 binding.progress.visibility = View.GONE
+                binding.btnNewCategoryMain.visibility = View.VISIBLE
             }
         }
     }
@@ -105,6 +116,7 @@ class MainFragment : Fragment() {
 
                         val args = Bundle()
                         args.putInt("pos", position)
+                        args.putString(TYPE, CATEGORY)
 
                         val skazkyFragment = SkazkyFragment.newInstance()
                         skazkyFragment.arguments = args
@@ -128,5 +140,8 @@ class MainFragment : Fragment() {
         fun newInstance(): MainFragment {
             return MainFragment()
         }
+        const val TYPE = "type"
+        const val CATEGORY = "category"
+        const val NEW = "new"
     }
 }

@@ -8,14 +8,13 @@
     android:background="@color/blackTrans"
     tools:context=".presentation.mainFragment.MainFragment">
 
-    <TextView
+    <Button
         android:id="@+id/btnSnakeCategoryMain"
         android:layout_width="match_parent"
-        android:layout_height="37dp"
+        android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginHorizontal="5dp"
-        android:layout_marginTop="5dp"
-        android:background="@drawable/background_btn_snake_two"
+        android:backgroundTint="#5061340C"
         android:fontFamily="@font/font_first_time_writing"
         android:gravity="center"
         android:text="@string/btn_go_snake"
@@ -23,15 +22,14 @@
         android:textSize="18sp"
         android:textStyle="bold" />
 
-    <TextView
+    <Button
         android:id="@+id/btnInteractiveCategoryMain"
         android:layout_width="match_parent"
-        android:layout_height="37dp"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/btnSnakeCategoryMain"
         android:layout_centerHorizontal="true"
         android:layout_marginHorizontal="5dp"
-        android:layout_marginTop="5dp"
-        android:background="@color/greenTrans"
+        android:backgroundTint="@color/greenTrans"
         android:fontFamily="@font/font_first_time_writing"
         android:gravity="center"
         android:text="@string/btn_gallery"
@@ -39,21 +37,21 @@
         android:textSize="18sp"
         android:textStyle="bold" />
 
-    <TextView
+    <Button
         android:id="@+id/btnNewCategoryMain"
         android:layout_width="match_parent"
-        android:layout_height="37dp"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/btnInteractiveCategoryMain"
         android:layout_centerHorizontal="true"
         android:layout_marginHorizontal="5dp"
-        android:layout_marginTop="5dp"
-        android:background="@color/black_overlay"
+        android:backgroundTint="#50335871"
         android:fontFamily="@font/font_first_time_writing"
         android:gravity="center"
         android:text="@string/btn_new"
         android:textColor="@color/yellow"
         android:textSize="18sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:visibility="visible" />
 
     <ProgressBar
         android:id="@+id/progress"

@@ -37,6 +37,25 @@ object SkazkyListRepositoryImpl : SkazkyListRepository {
         return skazkyList
     }
 
+    override fun getItemNewSkazkyList(): List<SkazkiCatModel> {
+        skazkyList.clear()
+        val list = getCategorySkazkyList().value
+        for (cat in list!!) {
+            skazkyModel.CategoryName = cat.CategoryName
+            skazkyModel.isHeader = true
+            skazkyModel.CategoryPicture = cat.CategoryPicture
+            skazkyModel.CategoryPictureUri = cat.CategoryPictureUri
+//            skazkyList.add(skazkyModel)
+            for (i in cat.Items) {
+                if (i.value.New) {
+                    skazkyList.add(SkazkiCatModel(i.value))
+                }
+                skazkyList.sortBy { it.Items?.ID }
+            }
+        }
+        return skazkyList
+    }
+
     override fun getItemSkazka(itemSkazkaId: Int): SkazkiCatModel {
         return skazkyList.find { it.Items?.ID == itemSkazkaId }
             ?: throw RuntimeException("Element with id $itemSkazkaId not found")
