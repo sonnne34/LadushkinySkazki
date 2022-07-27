@@ -1,4 +1,4 @@
-package com.ladushkinySkazky.ladushkinnyskazki.presentation.adapters
+package com.ladushkinySkazky.ladushkinnyskazki.presentation.skazkyFragment
 
 import androidx.recyclerview.widget.DiffUtil
 import com.ladushkinySkazky.ladushkinnyskazki.domian.models.SkazkiCatModel

@@ -9,7 +9,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.ladushkinySkazky.ladushkinnyskazki.databinding.FragmentSkazkyBinding
-import com.ladushkinySkazky.ladushkinnyskazki.presentation.adapters.SkazkiAdapter
+import com.ladushkinySkazky.ladushkinnyskazki.presentation.mainFragment.MainFragment
 
 class SkazkyFragment : Fragment() {
 
@@ -35,8 +35,11 @@ class SkazkyFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         rvSetup()
-        observeViewModel()
 
+        when (arguments?.getString(MainFragment.TYPE)!!) {
+            MainFragment.CATEGORY -> observeViewModelTypeCategory()
+            MainFragment.NEW -> observeViewModelTypeNew()
+        }
     }
 
     private fun rvSetup() {
@@ -52,10 +55,21 @@ class SkazkyFragment : Fragment() {
         }
     }
 
-    private fun observeViewModel() {
+    private fun observeViewModelTypeCategory() {
         val position = arguments?.getInt("pos")!!
         viewModel = ViewModelProvider(this)[SkazkyViewModel::class.java]
         viewModel.getItemSkazkiList(position)
+        viewModel.skazkyList.observe(viewLifecycleOwner) {
+            skazkiAdapter.submitList(it)
+            if (it.isNotEmpty()) {
+                binding.progress.visibility = View.GONE
+            }
+        }
+    }
+
+    private fun observeViewModelTypeNew() {
+        viewModel = ViewModelProvider(this)[SkazkyViewModel::class.java]
+        viewModel.getNewItemSkazkiList()
         viewModel.skazkyList.observe(viewLifecycleOwner) {
             skazkiAdapter.submitList(it)
             if (it.isNotEmpty()) {

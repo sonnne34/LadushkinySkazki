@@ -16,7 +16,7 @@ import com.ladushkinySkazky.ladushkinnyskazki.R
 import com.ladushkinySkazky.ladushkinnyskazki.databinding.FragmentMainBinding
 import com.ladushkinySkazky.ladushkinnyskazki.presentation.skazkyFragment.SkazkyFragment
 import com.ladushkinySkazky.ladushkinnyskazki.presentation.adapters.RecyclerItemClickListener
-import com.ladushkinySkazky.ladushkinnyskazki.presentation.adapters.CategoryAdapter
+import com.ladushkinySkazky.ladushkinnyskazki.presentation.interactiveFragment.InteractiveFragment
 import com.ladushkinySkazky.ladushkinnyskazki.snake.SnakeActivity
 
 class MainFragment : Fragment() {
@@ -42,6 +42,8 @@ class MainFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         goSnake()
+        goInteractive()
+        goNewSkazky()
         rvSetup()
         onClickItem(binding.rvListCategory, binding.root.context)
         observeViewModel()
@@ -51,6 +53,33 @@ class MainFragment : Fragment() {
         binding.btnSnakeCategoryMain.setOnClickListener {
             val intent = Intent(requireActivity(), SnakeActivity::class.java)
             startActivity(intent)
+        }
+    }
+    private fun goInteractive(){
+        binding.btnInteractiveCategoryMain.setOnClickListener {
+            val interactiveFragment = InteractiveFragment.newInstance()
+            val manager = (activity as AppCompatActivity).supportFragmentManager
+            manager.beginTransaction()
+                .replace(R.id.container, interactiveFragment)
+                .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+                .addToBackStack(this@MainFragment.toString())
+                .commit()
+        }
+    }
+
+    private fun goNewSkazky(){
+        binding.btnNewCategoryMain.setOnClickListener {
+            val args = Bundle()
+            args.putString(TYPE, NEW)
+
+            val skazkyFragment = SkazkyFragment.newInstance()
+            skazkyFragment.arguments = args
+            val manager = (activity as AppCompatActivity).supportFragmentManager
+            manager.beginTransaction()
+                .replace(R.id.container, skazkyFragment, args.toString())
+                .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+                .addToBackStack(this@MainFragment.toString())
+                .commit()
         }
     }
 
@@ -73,6 +102,7 @@ class MainFragment : Fragment() {
             categoryAdapter.submitList(it)
             if (it.isNotEmpty()) {
                 binding.progress.visibility = View.GONE
+                binding.btnNewCategoryMain.visibility = View.VISIBLE
             }
         }
     }
@@ -86,12 +116,13 @@ class MainFragment : Fragment() {
 
                         val args = Bundle()
                         args.putInt("pos", position)
+                        args.putString(TYPE, CATEGORY)
 
                         val skazkyFragment = SkazkyFragment.newInstance()
                         skazkyFragment.arguments = args
                         val manager = (activity as AppCompatActivity).supportFragmentManager
                         manager.beginTransaction()
-                            .replace(R.id.containerSnake, skazkyFragment, args.toString())
+                            .replace(R.id.container, skazkyFragment, args.toString())
                             .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
                             .addToBackStack(this@MainFragment.toString())
                             .commit()
@@ -109,5 +140,8 @@ class MainFragment : Fragment() {
         fun newInstance(): MainFragment {
             return MainFragment()
         }
+        const val TYPE = "type"
+        const val CATEGORY = "category"
+        const val NEW = "new"
     }
 }

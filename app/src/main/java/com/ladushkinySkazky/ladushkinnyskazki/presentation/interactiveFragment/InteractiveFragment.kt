@@ -1,12 +1,19 @@
 package com.ladushkinySkazky.ladushkinnyskazki.presentation.interactiveFragment
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.ladushkinySkazky.ladushkinnyskazki.R
 import com.ladushkinySkazky.ladushkinnyskazki.databinding.FragmentInteractiveBinding
+import com.ladushkinySkazky.ladushkinnyskazki.presentation.interactiveAddFragment.InteractiveAddFragment
 
 class InteractiveFragment : Fragment() {
 
@@ -16,28 +23,55 @@ class InteractiveFragment : Fragment() {
 
     private lateinit var viewModel: InteractiveViewModel
 
+    private lateinit var interactiveAdapter: InteractiveAdapter
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentInteractiveBinding.inflate(layoutInflater)
-//        categoryAdapter = CategoryAdapter(binding.root.context)
+        interactiveAdapter = InteractiveAdapter(binding.root.context)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        rvSetup()
+        goInteractiveAdd()
         observeViewModel()
+    }
+
+    private fun rvSetup() {
+        with(binding.rvListInteractive) {
+            adapter = interactiveAdapter
+            layoutManager = LinearLayoutManager(
+                binding.root.context,
+                RecyclerView.VERTICAL, false
+            )
+            setHasFixedSize(true)
+            recycledViewPool.setMaxRecycledViews(50, 50)
+            setItemViewCacheSize(50)
+        }
+    }
+
+    private fun goInteractiveAdd() {
+        binding.btnSendInteractive.setOnClickListener {
+            val interactiveAddFragment = InteractiveAddFragment.newInstance()
+            val manager = (activity as AppCompatActivity).supportFragmentManager
+            manager.beginTransaction()
+                .replace(R.id.container, interactiveAddFragment)
+                .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+                .addToBackStack(InteractiveFragment.toString())
+                .commit()
+        }
     }
 
     private fun observeViewModel() {
         viewModel = ViewModelProvider(this)[InteractiveViewModel::class.java]
-//        viewModel.categoryList.observe(viewLifecycleOwner) {
-//            categoryAdapter.submitList(it)
-//            if (it.isNotEmpty()) {
-//                binding.progress.visibility = View.GONE
-//            }
-//        }
+        viewModel.interactiveList.observe(viewLifecycleOwner) {
+            interactiveAdapter.submitList(it)
+            Log.d("LOAD", "interactiveAdapter = $it" )
+        }
     }
 
     companion object {

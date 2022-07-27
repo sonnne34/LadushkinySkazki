@@ -6,12 +6,14 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.ladushkinySkazky.ladushkinnyskazki.data.SkazkyListRepositoryImpl
 import com.ladushkinySkazky.ladushkinnyskazki.domian.models.SkazkiCatModel
+import com.ladushkinySkazky.ladushkinnyskazki.domian.usecases.GetNewSkazkyListUseCase
 import com.ladushkinySkazky.ladushkinnyskazki.domian.usecases.GetSkazkyListUseCase
 
 class SkazkyViewModel(application: Application) : AndroidViewModel(application) {
 
     private val repository = SkazkyListRepositoryImpl
     private val getSkazkyListUseCase = GetSkazkyListUseCase(repository)
+    private val getNewSkazkyListUseCase = GetNewSkazkyListUseCase(repository)
 
 
     private val _skazkyList = MutableLiveData<List<SkazkiCatModel>>()
@@ -20,6 +22,11 @@ class SkazkyViewModel(application: Application) : AndroidViewModel(application) 
 
     fun getItemSkazkiList(position: Int) {
         val item = getSkazkyListUseCase.getSkazkyList(position)
+        _skazkyList.value = item
+    }
+
+    fun getNewItemSkazkiList() {
+        val item = getNewSkazkyListUseCase.getNewSkazkyList()
         _skazkyList.value = item
     }
 }
