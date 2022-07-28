@@ -2,8 +2,8 @@
   <library name="Gradle: androidx.appcompat:appcompat-resources:1.4.2@aar">
     <CLASSES>
       <root url="jar://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/e152470b30b02bbcc8dd3f38053b8087/transformed/jetified-appcompat-resources-1.4.2/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/e152470b30b02bbcc8dd3f38053b8087/transformed/jetified-appcompat-resources-1.4.2/AndroidManifest.xml" />
       <root url="file://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/e152470b30b02bbcc8dd3f38053b8087/transformed/jetified-appcompat-resources-1.4.2/res" />
+      <root url="file://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/e152470b30b02bbcc8dd3f38053b8087/transformed/jetified-appcompat-resources-1.4.2/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
