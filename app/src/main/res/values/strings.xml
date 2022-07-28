@@ -43,7 +43,7 @@
     <string name="txt_category">Название категории</string>
     <string name="txt_description_category">Описание категории</string>
     <string name="txt_name_author">Имя художника</string>
-    <string name="txt_year_item">0 лет</string>
+    <string name="txt_year_item">, 0</string>
     <string name="description_image_interactive">Рисунок</string>
     <string name="description_new_skazka">Новая сказка</string>
     <string name="description_view_skazka">Иконка просмотрена ли сказка</string>
