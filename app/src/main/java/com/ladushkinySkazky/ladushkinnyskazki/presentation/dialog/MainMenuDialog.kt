@@ -2,6 +2,7 @@ package com.ladushkinySkazky.ladushkinnyskazki.presentation.dialog
 
 import android.app.Dialog
 import android.content.Context
+import android.text.format.DateFormat
 import android.view.Gravity
 import android.view.Window
 import android.widget.EditText
@@ -12,6 +13,7 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.ladushkinySkazky.ladushkinnyskazki.R
 import java.util.*
+
 
 class MainMenuDialog {
     companion object {
@@ -41,15 +43,30 @@ class MainMenuDialog {
 
             btnSent.setOnClickListener {
                 if (editSent.length() != 0) {
-                    val send =
-                        "Имя: ${editName.text}, Отзыв: ${editSent.text}, Контакт: ${editContact.text}"
+
+                    val name = "Имя: ${editName.text}"
+                    val text = "Отзыв: ${editSent.text}"
+                    val contact = "Контакт: ${editContact.text}"
+                    val df = DateFormat.format("yyyy-MM-dd hh:mm:ss a", Date())
+                    val dataTime = df.toString()
 
                     mDataBase = FirebaseDatabase.getInstance().getReference("Feedback/$id/ID")
                     mDataBase.ref.setValue(id)
 
+                    mDataBase = FirebaseDatabase.getInstance().getReference("Feedback/$id/DataTime")
+                    mDataBase.ref.setValue(dataTime)
+
+                    mDataBase =
+                        FirebaseDatabase.getInstance().getReference("Feedback/$id/NameFeedback")
+                    mDataBase.ref.setValue(name)
+
                     mDataBase =
                         FirebaseDatabase.getInstance().getReference("Feedback/$id/TextFeedback")
-                    mDataBase.ref.setValue(send)
+                    mDataBase.ref.setValue(text)
+
+                    mDataBase =
+                        FirebaseDatabase.getInstance().getReference("Feedback/$id/ContactFeedback")
+                    mDataBase.ref.setValue(contact)
 
                     Toast.makeText(
                         context,

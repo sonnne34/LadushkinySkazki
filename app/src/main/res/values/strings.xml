@@ -27,7 +27,7 @@
     <string name="txt_address_email">sonne-34@yandex.ru</string>
     <string name="txt_feedback_here">или напишите нам прямо здесь:</string>
     <string name="txt_your_name">Ваше имя</string>
-    <string name="txt_your_feedback">Ваш отзыв\n(обязательное поле)</string>
+    <string name="txt_your_feedback">Ваш отзыв / пожелание\n(обязательное поле)</string>
     <string name="txt_contact">Ваш телефон, e-mail или др.</string>
     <string name="send">Отправить</string>
     <string name="close">Закрыть</string>

@@ -5,6 +5,7 @@ import android.app.ProgressDialog
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.text.format.DateFormat
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,15 +15,12 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.ViewModelProvider
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
-import com.ladushkinySkazky.ladushkinnyskazki.R
 import com.ladushkinySkazky.ladushkinnyskazki.databinding.FragmentInteractiveAddBinding
-import com.ladushkinySkazky.ladushkinnyskazki.presentation.interactiveFragment.InteractiveFragment
 import com.squareup.picasso.Picasso
 import java.io.IOException
 import java.util.*
@@ -165,10 +163,14 @@ class InteractiveAddFragment : Fragment() {
         val year = edtYear.text.toString()
         val comment = edtComment.text.toString()
         val image = "gs://skazki-99ce4.appspot.com/Interactive/$id"
+        val dataTime = DateFormat.format("yyyy-MM-dd hh:mm:ss a", Date())
 
         var mDataBase: DatabaseReference =
             FirebaseDatabase.getInstance().getReference("Interactive/$id/ID")
         mDataBase.ref.setValue(id)
+
+        mDataBase = FirebaseDatabase.getInstance().getReference("Interactive/$id/DataTime")
+        mDataBase.ref.setValue(dataTime.toString())
 
         mDataBase = FirebaseDatabase.getInstance().getReference("Interactive/$id/Check")
         mDataBase.ref.setValue(false)
@@ -215,13 +217,8 @@ class InteractiveAddFragment : Fragment() {
     }
 
     private fun goInteractive() {
-        val interactiveFragment = InteractiveFragment.newInstance()
         val manager = (activity as AppCompatActivity).supportFragmentManager
-        manager.beginTransaction()
-            .replace(R.id.container, interactiveFragment)
-            .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
-            .addToBackStack(InteractiveAddFragment.toString())
-            .commit()
+        manager.popBackStack()
     }
 
     companion object {
