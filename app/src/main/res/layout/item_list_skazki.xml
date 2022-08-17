@@ -45,6 +45,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginTop="5dp"
+            android:ellipsize="end"
             android:fontFamily="@font/font_first_time_writing"
             android:text="@string/description_skazka"
             android:textColor="@color/yellowLight"
@@ -69,9 +70,9 @@
         android:layout_width="24dp"
         android:layout_height="24dp"
         android:layout_margin="10dp"
-        android:visibility="invisible"
         android:background="@drawable/ic_view_no"
         android:contentDescription="@string/description_view_skazka"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/img_eye_skazka" />
 
@@ -80,9 +81,9 @@
         android:layout_width="24dp"
         android:layout_height="24dp"
         android:layout_margin="10dp"
-        android:visibility="invisible"
         android:background="@drawable/ic_like_no"
         android:contentDescription="@string/description_like_skazka"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
