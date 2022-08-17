@@ -69,7 +69,7 @@ class InteractiveFragment : Fragment() {
     private fun observeViewModel() {
         viewModel = ViewModelProvider(this)[InteractiveViewModel::class.java]
         viewModel.interactiveList.observe(viewLifecycleOwner) {
-            interactiveAdapter.submitList(it)
+            interactiveAdapter.submitList(it.sortedByDescending { it1 -> it1.DataTime })
             Log.d("LOAD", "interactiveAdapter = $it" )
         }
     }

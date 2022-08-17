@@ -1,5 +1,6 @@
 package com.ladushkinySkazky.ladushkinnyskazki.presentation.interactiveFragment
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
@@ -23,11 +24,12 @@ class InteractiveAdapter(val context: Context) :
         return InteractiveViewHolder(itemView = itemView)
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(viewHolder: InteractiveViewHolder, position: Int) {
         val interactiveItem = getItem(position)
         if (interactiveItem.Check) {
             viewHolder.nameAuthor.text = interactiveItem.Name
-            viewHolder.yearAuthor.text = interactiveItem.Year
+            viewHolder.yearAuthor.text = ", ${interactiveItem.Year}"
             viewHolder.comment.text = interactiveItem.Comment
             LoadImage().loadImageInteractive(context, interactiveItem, viewHolder.img)
         } else{

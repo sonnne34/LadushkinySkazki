@@ -2,17 +2,22 @@ package com.ladushkinySkazky.ladushkinnyskazki.presentation.dialog
 
 import android.app.Dialog
 import android.content.Context
+import android.text.format.DateFormat
 import android.view.Gravity
 import android.view.Window
-import android.widget.*
+import android.widget.EditText
+import android.widget.ListPopupWindow
+import android.widget.TextView
+import android.widget.Toast
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.ladushkinySkazky.ladushkinnyskazki.R
 import java.util.*
 
+
 class MainMenuDialog {
-    companion object{
-        fun openMenu(context: Context){
+    companion object {
+        fun openMenu(context: Context) {
             val dialog = Dialog(context, R.style.CustomDialogMenu)
             dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
             dialog.setContentView(R.layout.dialog_main_menu)
@@ -38,18 +43,44 @@ class MainMenuDialog {
 
             btnSent.setOnClickListener {
                 if (editSent.length() != 0) {
-                    val send = "Имя: ${editName.text}, Отзыв: ${editSent.text}, Контакт: ${editContact.text}"
-                    mDataBase = FirebaseDatabase.getInstance().getReference("Feedback/Items/$id/TextFeedback")
-                    mDataBase.ref.setValue(send)
-                    Toast.makeText(context,
+
+                    val name = "Имя: ${editName.text}"
+                    val text = "Отзыв: ${editSent.text}"
+                    val contact = "Контакт: ${editContact.text}"
+                    val df = DateFormat.format("yyyy-MM-dd hh:mm:ss a", Date())
+                    val dataTime = df.toString()
+
+                    mDataBase = FirebaseDatabase.getInstance().getReference("Feedback/$id/ID")
+                    mDataBase.ref.setValue(id)
+
+                    mDataBase = FirebaseDatabase.getInstance().getReference("Feedback/$id/DataTime")
+                    mDataBase.ref.setValue(dataTime)
+
+                    mDataBase =
+                        FirebaseDatabase.getInstance().getReference("Feedback/$id/NameFeedback")
+                    mDataBase.ref.setValue(name)
+
+                    mDataBase =
+                        FirebaseDatabase.getInstance().getReference("Feedback/$id/TextFeedback")
+                    mDataBase.ref.setValue(text)
+
+                    mDataBase =
+                        FirebaseDatabase.getInstance().getReference("Feedback/$id/ContactFeedback")
+                    mDataBase.ref.setValue(contact)
+
+                    Toast.makeText(
+                        context,
                         "Спасибочки!",
-                        Toast.LENGTH_LONG)
+                        Toast.LENGTH_LONG
+                    )
                         .show()
                     dialog.cancel()
                 } else {
-                    Toast.makeText(context,
+                    Toast.makeText(
+                        context,
                         "Ой, Вы совсем ничего не написали!)",
-                        Toast.LENGTH_LONG)
+                        Toast.LENGTH_LONG
+                    )
                         .show()
                 }
             }

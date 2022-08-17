@@ -1,18 +1,9 @@
 <component name="libraryTable">
   <library name="Gradle: androidx.interpolator:interpolator:1.0.0@aar">
     <CLASSES>
-      <root url="file://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/a293be790c762e9bf2bf1ded83306ac8/transformed/interpolator-1.0.0/res" />
-      <root url="file://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/c35f3cc340b90627499616deec9bc40e/transformed/interpolator-1.0.0/res" />
-      <root url="file://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/3f7b99fb1d68b662e72698e109f95625/transformed/interpolator-1.0.0/res" />
-      <root url="file://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/104f9f1e87f4b62f86d9093cc1445074/transformed/interpolator-1.0.0/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/104f9f1e87f4b62f86d9093cc1445074/transformed/interpolator-1.0.0/AndroidManifest.xml" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/104f9f1e87f4b62f86d9093cc1445074/transformed/interpolator-1.0.0/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/104f9f1e87f4b62f86d9093cc1445074/transformed/interpolator-1.0.0/res" />
-      <root url="file://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/40b838534332b9ffb8b9683bbd0b1f29/transformed/interpolator-1.0.0/res" />
       <root url="jar://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/850d18eebb88ceb5a47e8c9c0ee0832f/transformed/interpolator-1.0.0/jars/classes.jar!/" />
       <root url="file://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/850d18eebb88ceb5a47e8c9c0ee0832f/transformed/interpolator-1.0.0/res" />
       <root url="file://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/850d18eebb88ceb5a47e8c9c0ee0832f/transformed/interpolator-1.0.0/AndroidManifest.xml" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/850d18eebb88ceb5a47e8c9c0ee0832f/transformed/interpolator-1.0.0/res" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

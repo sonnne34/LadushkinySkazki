@@ -9,7 +9,7 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="body_skazka">Текст сказки</string>
-    <string name="btn_go_snake">МИНИ-ИГРА</string>
+    <string name="btn_go_snake">🌟 МИНИ-ИГРА 🌟</string>
     <string name="txt_snake">Помоги Понюшке уложить спать всех ёжиков!</string>
     <string name="comment_interactive">здесь можешь рассказать\nо себе, о рисунке, о чём угодно!</string>
     <string name="description_button_menu">button menu</string>
@@ -27,7 +27,7 @@
     <string name="txt_address_email">sonne-34@yandex.ru</string>
     <string name="txt_feedback_here">или напишите нам прямо здесь:</string>
     <string name="txt_your_name">Ваше имя</string>
-    <string name="txt_your_feedback">Ваш отзыв\n(обязательное поле)</string>
+    <string name="txt_your_feedback">Ваш отзыв / пожелание\n(обязательное поле)</string>
     <string name="txt_contact">Ваш телефон, e-mail или др.</string>
     <string name="send">Отправить</string>
     <string name="close">Закрыть</string>
@@ -38,15 +38,15 @@
     <string name="description_image_choice">Выбор рисунка из галереи устройства</string>
     <string name="edt_name">имя</string>
     <string name="edt_year">возраст</string>
-    <string name="btn_gallery">Художественная галерея</string>
+    <string name="btn_gallery">💫 Художественная галерея 💫</string>
     <string name="description_category_skazka">Картинка катеории сказок</string>
     <string name="txt_category">Название категории</string>
     <string name="txt_description_category">Описание категории</string>
     <string name="txt_name_author">Имя художника</string>
-    <string name="txt_year_item">0 лет</string>
+    <string name="txt_year_item">, 0</string>
     <string name="description_image_interactive">Рисунок</string>
     <string name="description_new_skazka">Новая сказка</string>
     <string name="description_view_skazka">Иконка просмотрена ли сказка</string>
     <string name="description_like_skazka">Иконка \"нравится сказка\"</string>
-    <string name="btn_new">Новинки</string>
+    <string name="btn_new">✨ Новинки ✨</string>
 </resources>
