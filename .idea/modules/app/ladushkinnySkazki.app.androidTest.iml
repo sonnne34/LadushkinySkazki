@@ -60,7 +60,7 @@
                 <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/ab5049ac359c9f3157db7c363343b2a1/transformed/jetified-activity-1.5.0-api.jar</arg>
                 <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/2519b8027e225b6c92420c36d41ec2fc/transformed/jetified-lifecycle-viewmodel-savedstate-2.5.0-api.jar</arg>
                 <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/c8d99f00b98f59ef20d5da4c2b4ef08e/transformed/jetified-kotlinx-coroutines-android-1.6.1.jar</arg>
-                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/484a1386b1a26e0a5a33184a95037869/transformed/jetified-picasso-2.71828-api.jar</arg>
+                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/fd20d93bf0114549612bfdd745e3fe9f/transformed/jetified-picasso-2.71828-api.jar</arg>
                 <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/51533e84df0779a0ac49a20f3f75787d/transformed/jetified-okhttp-4.9.3.jar</arg>
                 <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/73d2253aa6e7feaa8119a75377070c7a/transformed/jetified-okio-jvm-3.0.0.jar</arg>
                 <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/089c993c846f6d625a80799bfa133957/transformed/jetified-kotlin-stdlib-jdk8-1.6.0.jar</arg>
@@ -128,7 +128,7 @@
                 <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/9c67cd4a54ecc96dfcbf6da104712436/transformed/jetified-kotlin-stdlib-common-1.6.21.jar</arg>
                 <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/4823591968aee2a4404178abb28e54eb/transformed/jetified-annotations-13.0.jar</arg>
                 <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/5810e814c6cd879bc0d46ff7d0e482b9/transformed/jetified-firebase-annotations-16.0.0.jar</arg>
-                <arg>$USER_HOME$/AppData/Local/Android/Sdk/platforms/android-32-2/android.jar</arg>
+                <arg>$USER_HOME$/AppData/Local/Android/Sdk/platforms/android-33/android.jar</arg>
                 <arg>$USER_HOME$/AppData/Local/Android/Sdk/build-tools/30.0.3/core-lambda-stubs.jar</arg>
               </args>
             </stringArg>
@@ -203,7 +203,7 @@
       <sourceFolder url="file://$MODULE_DIR$/../../../app/src/androidTest/java" isTestSource="true" />
     </content>
     <content url="file://$MODULE_DIR$/../../../app/src/androidTestDebug" />
-    <orderEntry type="jdk" jdkName="Android API 32 Platform" jdkType="Android SDK" />
+    <orderEntry type="jdk" jdkName="Android API 33, extension level 3 Platform" jdkType="Android SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="ladushkinnySkazki.app.main" scope="TEST" />
     <orderEntry type="library" scope="TEST" name="Gradle: org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.6.1" level="project" />
