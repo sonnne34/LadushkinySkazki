@@ -1,19 +1,16 @@
 package com.ladushkinySkazky.ladushkinnyskazki.presentation
 
-import android.content.Context
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.DisplayMetrics
 import android.util.Log
 import android.widget.ImageButton
 import android.widget.Toast
-import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.ladushkinySkazky.ladushkinnyskazki.R
 import com.ladushkinySkazky.ladushkinnyskazki.domian.ConnectionType
 import com.ladushkinySkazky.ladushkinnyskazki.domian.NetworkMonitorUtil
 import com.ladushkinySkazky.ladushkinnyskazki.presentation.dialog.MainMenuDialog
-import com.ladushkinySkazky.ladushkinnyskazki.presentation.mainFragment.MainFragment
 import kotlin.system.exitProcess
 
 class MainActivity : AppCompatActivity() {
@@ -28,12 +25,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         mPreferences = getSharedPreferences(NAME_PREF, MODE_PRIVATE)
-
-        if (savedInstanceState == null) {
-            supportFragmentManager.beginTransaction()
-                .replace(R.id.container, MainFragment.newInstance())
-                .commitNow()
-        }
 
         btnMenu = findViewById(R.id.img_btn_menu_main)
 
@@ -73,38 +64,6 @@ class MainActivity : AppCompatActivity() {
 
     private fun getSize(): String {
         return mPreferences.getString(SIZE_HEAD, "").toString()
-    }
-
-    //диалоговое окно перед выходом из приложения
-    private fun openExitDialog(context: Context) {
-        val quitDialog = AlertDialog.Builder(
-            context
-        )
-        quitDialog.setTitle("Выход")
-        quitDialog.setTitle("Вы уверенны, что хотите закрыть приложение?")
-        quitDialog.setPositiveButton(
-            "Да"
-        ) { _, _ ->
-            onDestroy()
-        }
-        quitDialog.setNegativeButton(
-            "Ой, нет!"
-        ) { _, _ -> }
-        quitDialog.show()
-    }
-
-    //переопределения метода для обработки возвращения к фрагментам
-    @Deprecated("Deprecated in Java")
-    override fun onBackPressed() {
-        //проверяем наличие фрагментов в стеке
-        val count = supportFragmentManager.backStackEntryCount
-        if (count == 0) {
-            //открывем диалог о выходе
-            openExitDialog(this)
-        } else {
-            //возвращаемся к пред. фрагменту
-            supportFragmentManager.popBackStack()
-        }
     }
 
     //проверка подключения к интернету

@@ -13,9 +13,9 @@ import android.widget.EditText
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
-import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
@@ -217,15 +217,10 @@ class InteractiveAddFragment : Fragment() {
     }
 
     private fun goInteractive() {
-        val manager = (activity as AppCompatActivity).supportFragmentManager
-        manager.popBackStack()
+        findNavController().popBackStack()
     }
 
     companion object {
-        fun newInstance(): InteractiveAddFragment {
-            return InteractiveAddFragment()
-        }
-
         private const val PICK_IMAGE_REQUEST = 71
     }
 }

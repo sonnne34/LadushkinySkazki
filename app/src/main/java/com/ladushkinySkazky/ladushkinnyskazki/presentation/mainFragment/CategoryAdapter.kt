@@ -15,6 +15,8 @@ import com.ladushkinySkazky.ladushkinnyskazki.domian.models.CategorySkazkiModel
 class CategoryAdapter(val context: Context) :
     ListAdapter<CategorySkazkiModel, CategoryAdapter.CategoryViewHolder>(CategoryItemDiffCallback()) {
 
+    var onCategoryClickListener: OnCategoryClickListener? = null
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoryViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
         val itemView = layoutInflater.inflate(R.layout.item_category_main_skazki, parent, false)
@@ -27,6 +29,9 @@ class CategoryAdapter(val context: Context) :
         holder.category.text = categoryItem.CategoryName
         holder.categoryDescription.text = categoryItem.CategoryDescription
         LoadImage().loadImageCategorySkazka(context, categoryItem, holder.categoryPicture)
+        holder.itemView.setOnClickListener {
+            onCategoryClickListener?.onCategoryClick(categoryItem, position)
+        }
     }
 
     class CategoryViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -34,5 +39,9 @@ class CategoryAdapter(val context: Context) :
         var categoryDescription =
             itemView.findViewById<TextView>(R.id.txt_description_category)!!
         var categoryPicture = itemView.findViewById<ImageView>(R.id.img_category_skazka)!!
+    }
+
+    interface OnCategoryClickListener {
+        fun onCategoryClick(categorySkazkiModel: CategorySkazkiModel, position: Int)
     }
 }
