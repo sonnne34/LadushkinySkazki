@@ -1,9 +1,13 @@
 <component name="libraryTable">
   <library name="Gradle: androidx.dynamicanimation:dynamicanimation:1.0.0@aar">
     <CLASSES>
-      <root url="jar://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/b967a2ce01d97813824631b90fec6a4d/transformed/dynamicanimation-1.0.0/jars/classes.jar!/" />
       <root url="file://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/b967a2ce01d97813824631b90fec6a4d/transformed/dynamicanimation-1.0.0/res" />
-      <root url="file://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/b967a2ce01d97813824631b90fec6a4d/transformed/dynamicanimation-1.0.0/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/c333b4031dadb34a3875eaa1bcee3fdb/transformed/dynamicanimation-1.0.0/res" />
+      <root url="file://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/673607eb37afdf45708b60329dc470e1/transformed/dynamicanimation-1.0.0/res" />
+      <root url="file://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/558ecdb25a47b6d3ee9cade9abe1d945/transformed/dynamicanimation-1.0.0/res" />
+      <root url="file://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/b2ca2ccbc8c2c6b2d5274715c01d39bb/transformed/dynamicanimation-1.0.0/res" />
+      <root url="jar://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/b2ca2ccbc8c2c6b2d5274715c01d39bb/transformed/dynamicanimation-1.0.0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/b2ca2ccbc8c2c6b2d5274715c01d39bb/transformed/dynamicanimation-1.0.0/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

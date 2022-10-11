@@ -5,15 +5,12 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.ladushkinySkazky.ladushkinnyskazki.R
 import com.ladushkinySkazky.ladushkinnyskazki.databinding.FragmentInteractiveBinding
-import com.ladushkinySkazky.ladushkinnyskazki.presentation.interactiveAddFragment.InteractiveAddFragment
 
 class InteractiveFragment : Fragment() {
 
@@ -56,13 +53,9 @@ class InteractiveFragment : Fragment() {
 
     private fun goInteractiveAdd() {
         binding.btnSendInteractive.setOnClickListener {
-            val interactiveAddFragment = InteractiveAddFragment.newInstance()
-            val manager = (activity as AppCompatActivity).supportFragmentManager
-            manager.beginTransaction()
-                .replace(R.id.container, interactiveAddFragment)
-                .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
-                .addToBackStack(InteractiveFragment.toString())
-                .commit()
+            findNavController().navigate(
+                InteractiveFragmentDirections.actionInteractiveFragmentToInteractiveAddFragment()
+            )
         }
     }
 
@@ -70,13 +63,7 @@ class InteractiveFragment : Fragment() {
         viewModel = ViewModelProvider(this)[InteractiveViewModel::class.java]
         viewModel.interactiveList.observe(viewLifecycleOwner) {
             interactiveAdapter.submitList(it.sortedByDescending { it1 -> it1.DataTime })
-            Log.d("LOAD", "interactiveAdapter = $it" )
-        }
-    }
-
-    companion object {
-        fun newInstance(): InteractiveFragment {
-            return InteractiveFragment()
+            Log.d("LOAD", "interactiveAdapter = $it")
         }
     }
 }

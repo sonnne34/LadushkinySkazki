@@ -1,9 +1,13 @@
 <component name="libraryTable">
   <library name="Gradle: androidx.versionedparcelable:versionedparcelable:1.1.1@aar">
     <CLASSES>
-      <root url="jar://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/e0d4668f3df58cdc7cf5c77ece5fe1fe/transformed/versionedparcelable-1.1.1/jars/classes.jar!/" />
       <root url="file://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/e0d4668f3df58cdc7cf5c77ece5fe1fe/transformed/versionedparcelable-1.1.1/res" />
-      <root url="file://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/e0d4668f3df58cdc7cf5c77ece5fe1fe/transformed/versionedparcelable-1.1.1/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/db62d0d42f0aef9eb1a3aa622071ff7a/transformed/versionedparcelable-1.1.1/res" />
+      <root url="file://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/b70c11193dce7a8a5f97ac351456b845/transformed/versionedparcelable-1.1.1/res" />
+      <root url="file://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/fe02f28ac805fdacc7368068e50b68cb/transformed/versionedparcelable-1.1.1/res" />
+      <root url="file://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/c3bd6cf66b49bb3f5e521781189a3d0f/transformed/versionedparcelable-1.1.1/res" />
+      <root url="jar://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/c3bd6cf66b49bb3f5e521781189a3d0f/transformed/versionedparcelable-1.1.1/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/c3bd6cf66b49bb3f5e521781189a3d0f/transformed/versionedparcelable-1.1.1/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

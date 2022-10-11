@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/mainFragment">
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.ladushkinySkazky.ladushkinnyskazki.presentation.mainFragment.MainFragment"
+        android:label="fragment_main"
+        tools:layout="@layout/fragment_main" >
+        <action
+            android:id="@+id/action_mainFragment_to_skazkyFragment"
+            app:destination="@id/skazkyFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left" />
+        <action
+            android:id="@+id/action_mainFragment_to_interactiveFragment"
+            app:destination="@id/interactiveFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left" />
+    </fragment>
+    <fragment
+        android:id="@+id/skazkyFragment"
+        android:name="com.ladushkinySkazky.ladushkinnyskazki.presentation.skazkyFragment.SkazkyFragment"
+        android:label="fragment_skazky"
+        tools:layout="@layout/fragment_skazky" >
+        <argument
+            android:name="newSkazky"
+            app:argType="boolean" />
+        <argument
+            android:name="position"
+            app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/interactiveFragment"
+        android:name="com.ladushkinySkazky.ladushkinnyskazki.presentation.interactiveFragment.InteractiveFragment"
+        android:label="InteractiveFragment" >
+        <action
+            android:id="@+id/action_interactiveFragment_to_interactiveAddFragment"
+            app:destination="@id/interactiveAddFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/translate_left_side"
+            app:popUpTo="@id/interactiveFragment"
+            app:popUpToInclusive="false" />
+    </fragment>
+    <fragment
+        android:id="@+id/interactiveAddFragment"
+        android:name="com.ladushkinySkazky.ladushkinnyskazki.presentation.interactiveAddFragment.InteractiveAddFragment"
+        android:label="InteractiveAddFragment" />
+</navigation>

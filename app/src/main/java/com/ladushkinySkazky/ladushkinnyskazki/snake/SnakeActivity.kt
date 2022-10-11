@@ -10,18 +10,23 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.ladushkinySkazky.ladushkinnyskazki.R
+import com.ladushkinySkazky.ladushkinnyskazki.databinding.ActivitySnakeBinding
 import com.ladushkinySkazky.ladushkinnyskazki.presentation.MainActivity
 import com.ladushkinySkazky.ladushkinnyskazki.snake.SnakeCore.MINIMUM_GAME_SPEED
 import com.ladushkinySkazky.ladushkinnyskazki.snake.SnakeCore.gameSpeed
 import com.ladushkinySkazky.ladushkinnyskazki.snake.SnakeCore.isPlay
 import com.ladushkinySkazky.ladushkinnyskazki.snake.SnakeCore.startTheGame
-import kotlinx.android.synthetic.main.activity_snake.*
 
 class SnakeActivity : AppCompatActivity() {
+
+    private var _binding: ActivitySnakeBinding? = null
+    private val binding: ActivitySnakeBinding
+        get() = _binding ?: throw RuntimeException("ActivitySnakeBinding == null")
 
     private val allTale = mutableListOf<PartOfTale>()
     private var currentDirections: Direction = Direction.DOWN
 
+    private lateinit var container: FrameLayout
     private lateinit var animal: ImageView
     private lateinit var head: ImageView
     private lateinit var bed: ImageView
@@ -31,7 +36,11 @@ class SnakeActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_snake)
+//        setContentView(R.layout.activity_snake)
+
+        _binding = ActivitySnakeBinding.inflate(layoutInflater)
+
+        container = binding.container
 
         mPreferences = getSharedPreferences(MainActivity.NAME_PREF, MODE_PRIVATE)
 
@@ -68,31 +77,34 @@ class SnakeActivity : AppCompatActivity() {
         SnakeCore.nextMovie = { move(Direction.RIGHT) }
 
         //кнопки управления
-        icUp.setOnClickListener {
-            SnakeCore.nextMovie =
-                { checkIfCurrentDirectionIsNotOpposite(Direction.UP, Direction.DOWN) }
-        }
-        icDown.setOnClickListener {
-            SnakeCore.nextMovie =
-                { checkIfCurrentDirectionIsNotOpposite(Direction.DOWN, Direction.UP) }
-        }
-        icLeft.setOnClickListener {
-            SnakeCore.nextMovie =
-                { checkIfCurrentDirectionIsNotOpposite(Direction.LEFT, Direction.RIGHT) }
-        }
-        icRight.setOnClickListener {
-            SnakeCore.nextMovie =
-                { checkIfCurrentDirectionIsNotOpposite(Direction.RIGHT, Direction.LEFT) }
-        }
-        icPause.setOnClickListener {
-            soundPause()
-            if (isPlay) {
-                icPause.setImageResource(R.drawable.ic_play)
-            } else {
-                icPause.setImageResource(R.drawable.ic_pause)
+        with(binding) {
+            icUp.setOnClickListener {
+                SnakeCore.nextMovie =
+                    { checkIfCurrentDirectionIsNotOpposite(Direction.UP, Direction.DOWN) }
             }
-            isPlay = !isPlay
+            icDown.setOnClickListener {
+                SnakeCore.nextMovie =
+                    { checkIfCurrentDirectionIsNotOpposite(Direction.DOWN, Direction.UP) }
+            }
+            icLeft.setOnClickListener {
+                SnakeCore.nextMovie =
+                    { checkIfCurrentDirectionIsNotOpposite(Direction.LEFT, Direction.RIGHT) }
+            }
+            icRight.setOnClickListener {
+                SnakeCore.nextMovie =
+                    { checkIfCurrentDirectionIsNotOpposite(Direction.RIGHT, Direction.LEFT) }
+            }
+            icPause.setOnClickListener {
+                soundPause()
+                if (isPlay) {
+                    icPause.setImageResource(R.drawable.ic_play)
+                } else {
+                    icPause.setImageResource(R.drawable.ic_pause)
+                }
+                isPlay = !isPlay
+            }
         }
+
     }
 
     //загрузка ширины экрана
@@ -148,41 +160,11 @@ class SnakeActivity : AppCompatActivity() {
     //съедение объекта, добавление объекта в тело змейки
     private fun checkIfSnakeEatsPerson() {
         if (head.left == animal.left && head.top == animal.top) {
-
-//        if ( checkTop() && checkLeft()) {
-//            val headTop = head.top + loadTextHead().toInt()
-//            val headLeft = head.left + loadTextHead().toInt()
-
             addPartOfTale(head.top, head.left)
-//            addPartOfTale(headTop, headLeft)
             soundHello()
             ifFullTale()
         }
 
-    }
-
-    private fun checkTop(): Boolean {
-        val sizeLeftMin = head.top - (loadTextHead().toInt() / 2)
-        val sizeLeftMax = head.top + (loadTextHead().toInt() / 2)
-        var bool = false
-        for (i in sizeLeftMin..sizeLeftMax) {
-            if (i == animal.top) {
-                bool = true
-            }
-        }
-        return bool
-    }
-
-    private fun checkLeft(): Boolean {
-        val sizeTopMin = head.left - (loadTextHead().toInt() / 2)
-        val sizeTopMax = head.left + (loadTextHead().toInt() / 2)
-        var bool = false
-        for (i in sizeTopMin..sizeTopMax) {
-            if (i == animal.left) {
-                bool = true
-            }
-        }
-        return bool
     }
 
     //создание кроватки
@@ -415,15 +397,8 @@ class SnakeActivity : AppCompatActivity() {
         playerPauseSound.setOnCompletionListener { stopPlay(playerPauseSound) }
     }
 
-    private fun soundControl() {
-        val playerMoviSound = MediaPlayer.create(this, R.raw.mrr)
-        play(playerMoviSound)
-        playerMoviSound.setOnCompletionListener { stopPlay(playerMoviSound) }
-    }
-
     private fun soundHello() {
         val mPlayerHelloSound = MediaPlayer.create(this, R.raw.hello)
-//        val mPlayerHelloSound = MediaPlayer.create(this, R.raw.pruvet)
         play(mPlayerHelloSound)
         mPlayerHelloSound.setOnCompletionListener { stopPlay(mPlayerHelloSound) }
     }

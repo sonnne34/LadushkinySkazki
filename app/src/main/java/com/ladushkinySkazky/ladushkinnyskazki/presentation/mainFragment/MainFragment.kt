@@ -1,22 +1,17 @@
 package com.ladushkinySkazky.ladushkinnyskazki.presentation.mainFragment
 
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.ladushkinySkazky.ladushkinnyskazki.R
 import com.ladushkinySkazky.ladushkinnyskazki.databinding.FragmentMainBinding
-import com.ladushkinySkazky.ladushkinnyskazki.presentation.skazkyFragment.SkazkyFragment
-import com.ladushkinySkazky.ladushkinnyskazki.presentation.adapters.RecyclerItemClickListener
-import com.ladushkinySkazky.ladushkinnyskazki.presentation.interactiveFragment.InteractiveFragment
+import com.ladushkinySkazky.ladushkinnyskazki.domian.models.CategorySkazkiModel
 import com.ladushkinySkazky.ladushkinnyskazki.snake.SnakeActivity
 
 class MainFragment : Fragment() {
@@ -45,7 +40,7 @@ class MainFragment : Fragment() {
         goInteractive()
         goNewSkazky()
         rvSetup()
-        onClickItem(binding.rvListCategory, binding.root.context)
+        onClickItem()
         observeViewModel()
     }
 
@@ -55,31 +50,20 @@ class MainFragment : Fragment() {
             startActivity(intent)
         }
     }
-    private fun goInteractive(){
+
+    private fun goInteractive() {
         binding.btnInteractiveCategoryMain.setOnClickListener {
-            val interactiveFragment = InteractiveFragment.newInstance()
-            val manager = (activity as AppCompatActivity).supportFragmentManager
-            manager.beginTransaction()
-                .replace(R.id.container, interactiveFragment)
-                .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
-                .addToBackStack(this@MainFragment.toString())
-                .commit()
+            findNavController().navigate(
+                MainFragmentDirections.actionMainFragmentToInteractiveFragment()
+            )
         }
     }
 
-    private fun goNewSkazky(){
+    private fun goNewSkazky() {
         binding.btnNewCategoryMain.setOnClickListener {
-            val args = Bundle()
-            args.putString(TYPE, NEW)
-
-            val skazkyFragment = SkazkyFragment.newInstance()
-            skazkyFragment.arguments = args
-            val manager = (activity as AppCompatActivity).supportFragmentManager
-            manager.beginTransaction()
-                .replace(R.id.container, skazkyFragment, args.toString())
-                .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
-                .addToBackStack(this@MainFragment.toString())
-                .commit()
+            findNavController().navigate(
+                MainFragmentDirections.actionMainFragmentToSkazkyFragment(true, 0)
+            )
         }
     }
 
@@ -107,41 +91,13 @@ class MainFragment : Fragment() {
         }
     }
 
-    private fun onClickItem(rv: RecyclerView, context: Context) {
-        rv.addOnItemTouchListener(
-            RecyclerItemClickListener(context, rv,
-                object : RecyclerItemClickListener.OnItemClickListener {
-
-                    override fun onItemClick(view: View, position: Int) {
-
-                        val args = Bundle()
-                        args.putInt("pos", position)
-                        args.putString(TYPE, CATEGORY)
-
-                        val skazkyFragment = SkazkyFragment.newInstance()
-                        skazkyFragment.arguments = args
-                        val manager = (activity as AppCompatActivity).supportFragmentManager
-                        manager.beginTransaction()
-                            .replace(R.id.container, skazkyFragment, args.toString())
-                            .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
-                            .addToBackStack(this@MainFragment.toString())
-                            .commit()
-                    }
-
-                    override fun onItemLongClick(view: View?, position: Int) {
-
-                    }
-                }
-            )
-        )
-    }
-
-    companion object {
-        fun newInstance(): MainFragment {
-            return MainFragment()
+    private fun onClickItem() {
+        categoryAdapter.onCategoryClickListener = object : CategoryAdapter.OnCategoryClickListener {
+            override fun onCategoryClick(categorySkazkiModel: CategorySkazkiModel, position: Int) {
+                findNavController().navigate(
+                    MainFragmentDirections.actionMainFragmentToSkazkyFragment(false, position)
+                )
+            }
         }
-        const val TYPE = "type"
-        const val CATEGORY = "category"
-        const val NEW = "new"
     }
 }
