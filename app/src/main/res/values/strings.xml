@@ -19,12 +19,15 @@
     <string name="description_button_play_right">button play right</string>
     <string name="description_button_play_play_pause">button play pause or play</string>
     <string name="description_icon_logo">icon logo</string>
-    <string name="txt_author_sk">Автор сказок: Лада Светочева</string>
-    <string name="txt_res">Иконки, звёздный фон:\nhttps://www.freepik.com</string>
-    <string name="txt_feedback">Будем рады Вашим отзывам!</string>
-    <string name="txt_feedback_two">Автор сказок так-же на связи 😊</string>
-    <string name="txt_e_mail">Наш e-mail:</string>
-    <string name="txt_address_email">sonne-34@yandex.ru</string>
+    <string name="txt_text_sk">
+        Автор сказок: Лада Светочева\n
+        Иконки, звёздный фон:\n
+        https://www.freepik.com\n
+        Будем рады Вашим отзывам!\n
+        Автор сказок так-же на связи 😊\n
+        Наш e-mail:
+    </string>
+    <string name="txt_address_email"><u>sonne-34@yandex.ru</u></string>
     <string name="txt_feedback_here">или напишите нам прямо здесь:</string>
     <string name="txt_your_name">Ваше имя</string>
     <string name="txt_your_feedback">Ваш отзыв / пожелание\n(обязательное поле)</string>

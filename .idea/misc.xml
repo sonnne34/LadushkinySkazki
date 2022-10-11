@@ -10,11 +10,12 @@
         <entry key="..\:/Alexander/GitHub/ladushkinnySkazki/app/src/main/res/drawable/okrugl_button.xml" value="0.10729166666666666" />
         <entry key="..\:/Alexander/GitHub/ladushkinnySkazki/app/src/main/res/drawable/okrugl_menu.xml" value="0.10364583333333334" />
         <entry key="..\:/Alexander/GitHub/ladushkinnySkazki/app/src/main/res/drawable/progress_icon.xml" value="0.17314814814814813" />
+        <entry key="..\:/Alexander/GitHub/ladushkinnySkazki/app/src/main/res/drawable/round_menu.xml" value="0.1" />
         <entry key="..\:/Alexander/GitHub/ladushkinnySkazki/app/src/main/res/drawable/scrollview_thumb.xml" value="0.1" />
         <entry key="..\:/Alexander/GitHub/ladushkinnySkazki/app/src/main/res/drawable/vertical_scrollview_traack.xml" value="0.1" />
         <entry key="..\:/Alexander/GitHub/ladushkinnySkazki/app/src/main/res/layout/activity_main.xml" value="0.19635416666666666" />
         <entry key="..\:/Alexander/GitHub/ladushkinnySkazki/app/src/main/res/layout/activity_snake.xml" value="0.22" />
-        <entry key="..\:/Alexander/GitHub/ladushkinnySkazki/app/src/main/res/layout/dialog_main_menu.xml" value="0.22" />
+        <entry key="..\:/Alexander/GitHub/ladushkinnySkazki/app/src/main/res/layout/dialog_main_menu.xml" value="0.25" />
         <entry key="..\:/Alexander/GitHub/ladushkinnySkazki/app/src/main/res/layout/dialog_option.xml" value="0.33" />
         <entry key="..\:/Alexander/GitHub/ladushkinnySkazki/app/src/main/res/layout/dialog_skazka_body.xml" value="0.19635416666666666" />
         <entry key="..\:/Alexander/GitHub/ladushkinnySkazki/app/src/main/res/layout/fragment_category_main.xml" value="0.25" />

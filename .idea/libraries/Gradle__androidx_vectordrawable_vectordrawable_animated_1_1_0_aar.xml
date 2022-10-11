@@ -1,13 +1,9 @@
 <component name="libraryTable">
   <library name="Gradle: androidx.vectordrawable:vectordrawable-animated:1.1.0@aar">
     <CLASSES>
-      <root url="file://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/6ec5652d7ad206b95067bc75467043c1/transformed/vectordrawable-animated-1.1.0/res" />
-      <root url="file://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/04db1b70c706472d8e625d97a9a3a3a9/transformed/vectordrawable-animated-1.1.0/res" />
-      <root url="file://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/27225d57dc8a4c1d2243f1558f6a9701/transformed/vectordrawable-animated-1.1.0/res" />
-      <root url="file://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/58d7549736ce8c2fb241387c7fd93ff0/transformed/vectordrawable-animated-1.1.0/res" />
-      <root url="file://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/a56cb3c8dd6a820134e5615975ffb613/transformed/vectordrawable-animated-1.1.0/AndroidManifest.xml" />
-      <root url="file://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/a56cb3c8dd6a820134e5615975ffb613/transformed/vectordrawable-animated-1.1.0/res" />
       <root url="jar://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/a56cb3c8dd6a820134e5615975ffb613/transformed/vectordrawable-animated-1.1.0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/a56cb3c8dd6a820134e5615975ffb613/transformed/vectordrawable-animated-1.1.0/res" />
+      <root url="file://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/a56cb3c8dd6a820134e5615975ffb613/transformed/vectordrawable-animated-1.1.0/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
