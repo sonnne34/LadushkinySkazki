@@ -94,6 +94,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     //переопределения метода для обработки возвращения к фрагментам
+    @Deprecated("Deprecated in Java")
     override fun onBackPressed() {
         //проверяем наличие фрагментов в стеке
         val count = supportFragmentManager.backStackEntryCount
