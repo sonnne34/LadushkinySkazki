@@ -1,15 +1,16 @@
 <component name="libraryTable">
   <library name="Gradle: com.github.bumptech.glide:gifdecoder:4.12.0@aar">
     <ANNOTATIONS>
-      <root url="jar://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/4b0a418d632114348c7232b8ab000c0a/transformed/jetified-gifdecoder-4.12.0/annotations.zip!/" />
+      <root url="jar://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/c1e3c088a6f98bb8d3d22b7c58b79586/transformed/jetified-gifdecoder-4.12.0/annotations.zip!/" />
     </ANNOTATIONS>
     <CLASSES>
       <root url="file://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/91c87502383995e3dfe4548386bc68f1/transformed/jetified-gifdecoder-4.12.0/res" />
       <root url="file://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/6c1a7c18051db061fe8435a9bc205ad3/transformed/jetified-gifdecoder-4.12.0/res" />
       <root url="file://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/cbc241b8a9028079192316c6b8c6b710/transformed/jetified-gifdecoder-4.12.0/res" />
-      <root url="file://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/4b0a418d632114348c7232b8ab000c0a/transformed/jetified-gifdecoder-4.12.0/AndroidManifest.xml" />
-      <root url="jar://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/4b0a418d632114348c7232b8ab000c0a/transformed/jetified-gifdecoder-4.12.0/jars/classes.jar!/" />
       <root url="file://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/4b0a418d632114348c7232b8ab000c0a/transformed/jetified-gifdecoder-4.12.0/res" />
+      <root url="file://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/c1e3c088a6f98bb8d3d22b7c58b79586/transformed/jetified-gifdecoder-4.12.0/res" />
+      <root url="file://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/c1e3c088a6f98bb8d3d22b7c58b79586/transformed/jetified-gifdecoder-4.12.0/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/c1e3c088a6f98bb8d3d22b7c58b79586/transformed/jetified-gifdecoder-4.12.0/jars/classes.jar!/" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/Desktop/Sushi/app/gradle/caches/modules-2/files-2.1/com.github.bumptech.glide/gifdecoder/4.12.0/746b9323bb108e97840d4dacd37bd8d4cec34419/gifdecoder-4.12.0-javadoc.jar!/" />

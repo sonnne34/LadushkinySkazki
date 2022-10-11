@@ -1,12 +1,12 @@
 <component name="libraryTable">
   <library name="Gradle: androidx.drawerlayout:drawerlayout:1.1.1@aar">
     <ANNOTATIONS>
-      <root url="jar://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/1fe111fdf9e6c5e8da7d0cdea23b4215/transformed/drawerlayout-1.1.1/annotations.zip!/" />
+      <root url="jar://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/5933a64874825bbb762e05dadb8eb161/transformed/drawerlayout-1.1.1/annotations.zip!/" />
     </ANNOTATIONS>
     <CLASSES>
-      <root url="file://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/1fe111fdf9e6c5e8da7d0cdea23b4215/transformed/drawerlayout-1.1.1/AndroidManifest.xml" />
-      <root url="jar://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/1fe111fdf9e6c5e8da7d0cdea23b4215/transformed/drawerlayout-1.1.1/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/1fe111fdf9e6c5e8da7d0cdea23b4215/transformed/drawerlayout-1.1.1/res" />
+      <root url="file://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/5933a64874825bbb762e05dadb8eb161/transformed/drawerlayout-1.1.1/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/5933a64874825bbb762e05dadb8eb161/transformed/drawerlayout-1.1.1/res" />
+      <root url="jar://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/5933a64874825bbb762e05dadb8eb161/transformed/drawerlayout-1.1.1/jars/classes.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

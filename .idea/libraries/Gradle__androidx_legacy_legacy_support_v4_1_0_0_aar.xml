@@ -4,9 +4,10 @@
       <root url="file://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/f52231a1085c6505f47f73b7ffad207e/transformed/legacy-support-v4-1.0.0/res" />
       <root url="file://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/d5dcdba8c54e09d85b607ed2818f6411/transformed/legacy-support-v4-1.0.0/res" />
       <root url="file://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/b233f7de7bcc34c07bd2293f415d42d3/transformed/legacy-support-v4-1.0.0/res" />
-      <root url="file://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/e359aa86cf45072e758e18beffaa1dc2/transformed/legacy-support-v4-1.0.0/AndroidManifest.xml" />
       <root url="file://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/e359aa86cf45072e758e18beffaa1dc2/transformed/legacy-support-v4-1.0.0/res" />
-      <root url="jar://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/e359aa86cf45072e758e18beffaa1dc2/transformed/legacy-support-v4-1.0.0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/4002adb8751e9b0a4019c875c7fe97c9/transformed/legacy-support-v4-1.0.0/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/4002adb8751e9b0a4019c875c7fe97c9/transformed/legacy-support-v4-1.0.0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/4002adb8751e9b0a4019c875c7fe97c9/transformed/legacy-support-v4-1.0.0/res" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

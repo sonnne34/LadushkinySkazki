@@ -4,9 +4,10 @@
       <root url="file://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/8aaf8dca313039c9790e5580d269f021/transformed/jetified-play-services-stats-17.0.2/res" />
       <root url="file://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/743f2e0b332d84bfa45c864f618d94ca/transformed/jetified-play-services-stats-17.0.2/res" />
       <root url="file://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/49aa4966acfec928a913ac6c6f0b1373/transformed/jetified-play-services-stats-17.0.2/res" />
-      <root url="file://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/5168854cd01b9fca55f578a0c9299733/transformed/jetified-play-services-stats-17.0.2/AndroidManifest.xml" />
       <root url="file://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/5168854cd01b9fca55f578a0c9299733/transformed/jetified-play-services-stats-17.0.2/res" />
-      <root url="jar://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/5168854cd01b9fca55f578a0c9299733/transformed/jetified-play-services-stats-17.0.2/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/18c8793c17991e6844ea5fc464e2ff3c/transformed/jetified-play-services-stats-17.0.2/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/18c8793c17991e6844ea5fc464e2ff3c/transformed/jetified-play-services-stats-17.0.2/res" />
+      <root url="jar://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/18c8793c17991e6844ea5fc464e2ff3c/transformed/jetified-play-services-stats-17.0.2/jars/classes.jar!/" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/Desktop/Sushi/app/gradle/caches/modules-2/files-2.1/com.google.android.gms/play-services-stats/17.0.2/c0d58b8efa926b2c607984c54fb3d274490badd1/play-services-stats-17.0.2-javadoc.jar!/" />

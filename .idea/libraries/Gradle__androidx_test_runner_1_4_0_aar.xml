@@ -5,8 +5,9 @@
       <root url="file://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/f5deca2ea6684e1c458cf925a0b8db57/transformed/runner-1.4.0/res" />
       <root url="file://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/15baac03266634140417a5cc1785e401/transformed/runner-1.4.0/res" />
       <root url="file://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/c716d69c024d486068e90c7f11fe9657/transformed/runner-1.4.0/res" />
-      <root url="jar://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/c716d69c024d486068e90c7f11fe9657/transformed/runner-1.4.0/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/c716d69c024d486068e90c7f11fe9657/transformed/runner-1.4.0/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/5023881e8921e981e174f36888f39fc5/transformed/runner-1.4.0/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/5023881e8921e981e174f36888f39fc5/transformed/runner-1.4.0/res" />
+      <root url="jar://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/5023881e8921e981e174f36888f39fc5/transformed/runner-1.4.0/jars/classes.jar!/" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/Desktop/Sushi/app/gradle/caches/modules-2/files-2.1/androidx.test/runner/1.4.0/aee6a62a26d9b413dadc1732e66cc4ef3bcf9d61/runner-1.4.0-javadoc.jar!/" />
