@@ -31,107 +31,107 @@
             <stringArg name="classpath">
               <args>
                 <arg>$MODULE_DIR$/../../../app/build/intermediates/compile_and_runtime_not_namespaced_r_class_jar/debug/R.jar</arg>
-                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/df15a842f93bb05fda6e5222718566d5/transformed/jetified-viewbinding-7.2.1-api.jar</arg>
-                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/c085c788a093e2edaeca960a34b38caf/transformed/navigation-runtime-ktx-2.5.2-api.jar</arg>
-                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/a689e45ef8b989cfa51f3ec1a2ff2605/transformed/navigation-runtime-2.5.2-api.jar</arg>
-                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/75ccce485f44f7a5f498a25640201504/transformed/navigation-common-ktx-2.5.2-api.jar</arg>
-                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/435102b450fc424cbbe372047564e233/transformed/navigation-common-2.5.2-api.jar</arg>
-                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/41fa9e1830ba23131d8df7126553fb45/transformed/jetified-activity-ktx-1.5.1-api.jar</arg>
-                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/e38470dafcafb4cc0433d0c923d79fcd/transformed/jetified-lifecycle-viewmodel-ktx-2.5.1-api.jar</arg>
-                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/0c51917eeb39cdc1c4ebd1726a45f506/transformed/jetified-coil-2.1.0-api.jar</arg>
-                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/b7d8452bdc0392c80d2a25fe67289828/transformed/jetified-coil-base-2.1.0-api.jar</arg>
-                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/5c066c9f4b5fea5c604ce10b84a3568e/transformed/material-1.6.1-api.jar</arg>
-                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/be11ab4c645983d5953bbdeb08d4de1d/transformed/appcompat-1.5.1-api.jar</arg>
-                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/096b2fc6fc931a3a173bd02d321caf06/transformed/legacy-support-v4-1.0.0-api.jar</arg>
-                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/bb31d10c514ec3d55bb742daa2f0dee6/transformed/jetified-glide-4.12.0-api.jar</arg>
-                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/8caf4c677fe1ae209079a95e33498511/transformed/jetified-viewpager2-1.0.0-api.jar</arg>
-                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/3e4c2eb4b212b7327e58d2ad504de774/transformed/jetified-firebase-storage-20.0.2-api.jar</arg>
-                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/bd22582e50c6aed0086141782882bd57/transformed/jetified-firebase-database-ktx-20.0.6-api.jar</arg>
-                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/7654c6d6da38caec2594c9b622ec5e5a/transformed/jetified-firebase-database-20.0.6-api.jar</arg>
-                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/f55b40d45bc9d3ee3be1e8922a78e929/transformed/jetified-firebase-appcheck-interop-16.0.1-api.jar</arg>
-                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/c1aff9559f7d5773971c0a3f1f31c571/transformed/jetified-firebase-database-collection-18.0.1-api.jar</arg>
-                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/fdd0666b3fb6fa46d979915eb29bdd14/transformed/jetified-play-services-base-18.0.1-api.jar</arg>
-                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/b1c0872e5cadc81d89f36fe35af3e7dc/transformed/jetified-firebase-auth-interop-19.0.2-api.jar</arg>
-                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/192edc785c87661942c71ee6b37389d9/transformed/jetified-firebase-analytics-ktx-21.1.1-api.jar</arg>
-                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/50f92e441a515131d82a087df93a241a/transformed/jetified-firebase-common-ktx-20.1.2-api.jar</arg>
-                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/ad14495b0df4317cbd69eca37bb761a5/transformed/jetified-firebase-analytics-21.1.1-api.jar</arg>
-                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/cd621b53e855bc7322843bb82d8fda97/transformed/jetified-play-services-measurement-api-21.1.1-api.jar</arg>
-                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/45be95e8f31df394fff01737c78bd822/transformed/jetified-firebase-installations-17.0.1-api.jar</arg>
-                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/a72ca355077805ebdf5cad45eafa8d58/transformed/jetified-firebase-common-20.1.2-api.jar</arg>
-                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/7e78bf1ffffa0c1b0da9750e94b9de87/transformed/jetified-firebase-installations-interop-17.0.1-api.jar</arg>
-                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/7715620a152fe1f57871e113605bbc52/transformed/jetified-play-services-tasks-18.0.1-api.jar</arg>
-                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/b3c25800eea9a3c489552ee2cca69751/transformed/jetified-play-services-measurement-21.1.1-api.jar</arg>
-                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/0c24251f1b03f11e985b3f9ba05e68f4/transformed/jetified-play-services-measurement-sdk-21.1.1-api.jar</arg>
-                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/c142f60cefcaed24a808e4559e2de585/transformed/jetified-play-services-measurement-impl-21.1.1-api.jar</arg>
-                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/9ec70d58daeb4b1632a109accc8afda7/transformed/jetified-play-services-ads-identifier-18.0.0-api.jar</arg>
-                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/02e7862a5a7ee5dde16c0abfadc6bf27/transformed/jetified-play-services-measurement-sdk-api-21.1.1-api.jar</arg>
-                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/576a807bb64f2569fb337beacba1dab9/transformed/jetified-play-services-measurement-base-21.1.1-api.jar</arg>
-                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/12e6159f4b1ab3da4f1394177f6702fe/transformed/jetified-play-services-stats-17.0.2-api.jar</arg>
-                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/dd947706b50b22388afbc49835d351e1/transformed/jetified-firebase-measurement-connector-19.0.0-api.jar</arg>
-                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/0769030a9c5d823ac1cd0dc348778507/transformed/jetified-play-services-basement-18.1.0-api.jar</arg>
-                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/14eecacd0431640191edacda9efcec9e/transformed/fragment-1.3.6-api.jar</arg>
-                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/c8cc4f927c687047ee00e109e97a4b88/transformed/jetified-activity-1.5.1-api.jar</arg>
-                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/686cd50ca8a3a2235589411f4d72d49a/transformed/jetified-lifecycle-viewmodel-savedstate-2.5.1-api.jar</arg>
-                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/5514e2c450aee1d5f1566d3241845e5e/transformed/jetified-lifecycle-livedata-ktx-2.5.1-api.jar</arg>
-                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/d84fa7692dca3e49f060814d425ffdca/transformed/jetified-kotlinx-coroutines-core-jvm-1.6.1.jar</arg>
-                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/614a63056a7c707a1621211eb301e056/transformed/jetified-lifecycle-runtime-ktx-2.5.1-api.jar</arg>
-                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/d2e248173b940b5d85abe01f9f4698bd/transformed/jetified-kotlinx-coroutines-android-1.6.1.jar</arg>
-                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/645432897dca451a06db9b94766cf9bf/transformed/jetified-picasso-2.71828-api.jar</arg>
-                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/5f00437aca22562496166dce4eebc129/transformed/jetified-okhttp-4.9.3.jar</arg>
-                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/d139703ddb00d4ee4f7172dfd520d4f8/transformed/jetified-okio-jvm-3.0.0.jar</arg>
-                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/33547c949f44f18cd196ecaff259811a/transformed/jetified-kotlin-stdlib-jdk8-1.7.0.jar</arg>
-                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/c429bdf12385e245e9b8ec395814728e/transformed/jetified-core-ktx-1.9.0-api.jar</arg>
-                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/22743c0a3e337678f1d10e01b29d275d/transformed/recyclerview-1.3.0-rc01-api.jar</arg>
-                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/0426880399930d6deb04b9e9beb69a40/transformed/jetified-appcompat-resources-1.5.1-api.jar</arg>
-                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/046d38c7e825eec246ef9e425bd9e375/transformed/legacy-support-core-ui-1.0.0-api.jar</arg>
-                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/93aaab4c6f1fe3929dc4fe2e4c12153d/transformed/drawerlayout-1.1.1-api.jar</arg>
-                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/daa54e200e3e057c3d1a471a41873b0b/transformed/coordinatorlayout-1.1.0-api.jar</arg>
-                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/48ea2ee7747494288467db6d6464e1b9/transformed/dynamicanimation-1.0.0-api.jar</arg>
-                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/38b0e88f4de8253489699a65b9115c3a/transformed/transition-1.2.0-api.jar</arg>
-                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/1124ebc9baba641b496411671e6d97b2/transformed/vectordrawable-animated-1.1.0-api.jar</arg>
-                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/b91786dbfb85aa7465721ccc15e1ffbe/transformed/vectordrawable-1.1.0-api.jar</arg>
-                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/a3231d2e20a1d21e2d9709c617836890/transformed/media-1.0.0-api.jar</arg>
-                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/ce60938a468aa31594ddcf12fd5a7879/transformed/legacy-support-core-utils-1.0.0-api.jar</arg>
-                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/e1b9b6443c438404306e1198ea27abea/transformed/viewpager-1.0.0-api.jar</arg>
-                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/ded258cec31d874097d9c770054f25c1/transformed/slidingpanelayout-1.0.0-api.jar</arg>
-                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/c499dc44c90882c8d7e5de4ee3e942c1/transformed/customview-1.1.0-api.jar</arg>
-                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/f11f06365f8c815773309ebfac91b517/transformed/loader-1.0.0-api.jar</arg>
-                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/1f80799066ea89446f6d0bd026f6fb28/transformed/swiperefreshlayout-1.0.0-api.jar</arg>
-                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/8c1fd3bd1f657c2213492d54c366b782/transformed/asynclayoutinflater-1.0.0-api.jar</arg>
-                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/6382d268db119eeb7c54758646bed5d2/transformed/core-1.9.0-api.jar</arg>
-                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/aa06c9cce6dbcdc35d1f97ed5c8d5aa3/transformed/cursoradapter-1.0.0-api.jar</arg>
-                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/23f71e970bce83fad6c5af7f1c9d0716/transformed/jetified-savedstate-ktx-1.2.0-api.jar</arg>
-                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/183853675bff44f5dd6c58117b20851f/transformed/jetified-savedstate-1.2.0-api.jar</arg>
-                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/a4037fd33500ef945ab013f04eb080bd/transformed/cardview-1.0.0-api.jar</arg>
-                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/04e5d60833fba0888069477f69b0e230/transformed/lifecycle-runtime-2.5.1-api.jar</arg>
-                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/704bee6e9fea1939914907309bae4fbd/transformed/lifecycle-viewmodel-2.5.1-api.jar</arg>
-                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/31009fcc48cf5f5aac3f0fe66ec2ca4a/transformed/jetified-firebase-components-17.0.1-api.jar</arg>
-                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/7a0cbf6aa4609a2fd410d439a7d4fff4/transformed/jetified-gifdecoder-4.12.0-api.jar</arg>
-                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/530c93056bd602454265a7fdb7996984/transformed/versionedparcelable-1.1.1-api.jar</arg>
+                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/3e9e1b8eaa4c46b9fe8535fd1df189f4/transformed/jetified-viewbinding-7.2.2-api.jar</arg>
+                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/8bfef8cbefb4eb0d9f31e3b476a3ff55/transformed/navigation-runtime-ktx-2.5.2-api.jar</arg>
+                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/4fc1dbf31aec9e2bfddb21fbd04956b9/transformed/navigation-runtime-2.5.2-api.jar</arg>
+                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/10a9e500dd1634fdeba3fb8ee479a808/transformed/navigation-common-ktx-2.5.2-api.jar</arg>
+                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/64eb2f9c40282aae3262f54e25596388/transformed/navigation-common-2.5.2-api.jar</arg>
+                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/23791c6d86d11704664a099d8c646543/transformed/jetified-activity-ktx-1.5.1-api.jar</arg>
+                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/12d518e0aa16012aad0e6a6f5e90f90d/transformed/jetified-lifecycle-viewmodel-ktx-2.5.1-api.jar</arg>
+                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/d88ae8d0f48e6115658dbdb52a0efb79/transformed/jetified-coil-2.1.0-api.jar</arg>
+                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/111caa96b16394dde8c1da6884bce1dd/transformed/jetified-coil-base-2.1.0-api.jar</arg>
+                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/7846094418e80e301b1c631bc96f6bb5/transformed/material-1.6.1-api.jar</arg>
+                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/6c726036b0d3ec891ad5f378f78703a9/transformed/appcompat-1.5.1-api.jar</arg>
+                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/0f424568c35bad40f5a49a26b063666a/transformed/legacy-support-v4-1.0.0-api.jar</arg>
+                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/e2ff788c17cbc41dec04b4aa1ea1df12/transformed/jetified-glide-4.12.0-api.jar</arg>
+                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/045ae38e1f912aaa27789bc765d12a53/transformed/jetified-viewpager2-1.0.0-api.jar</arg>
+                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/0c4117c2aee28ebc3f8b60d84d990cae/transformed/jetified-firebase-storage-20.0.2-api.jar</arg>
+                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/cf8733f4c4b00bf394a6cf2bd362d6d2/transformed/jetified-firebase-database-ktx-20.0.6-api.jar</arg>
+                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/bd47ca6c0744f8412c4380cc8f8d4924/transformed/jetified-firebase-database-20.0.6-api.jar</arg>
+                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/86e38b30821dece547c7aa1ac789ec2f/transformed/jetified-firebase-appcheck-interop-16.0.1-api.jar</arg>
+                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/3845432d326adadb1bebb8fd87e5e499/transformed/jetified-firebase-database-collection-18.0.1-api.jar</arg>
+                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/42522eed83fee0f2398d393489d89130/transformed/jetified-play-services-base-18.0.1-api.jar</arg>
+                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/aa85fa115996badcd820617d49345960/transformed/jetified-firebase-auth-interop-19.0.2-api.jar</arg>
+                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/0128e60d3a2ab80e0670b2ad6801b79c/transformed/jetified-firebase-analytics-ktx-21.1.1-api.jar</arg>
+                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/f9355a8a53428c0ba47be8fd684eb330/transformed/jetified-firebase-common-ktx-20.1.2-api.jar</arg>
+                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/18843ad0f3368d1dcbdfcd4612821fe5/transformed/jetified-firebase-analytics-21.1.1-api.jar</arg>
+                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/0826067004a00ed652e912c0e888c67c/transformed/jetified-play-services-measurement-api-21.1.1-api.jar</arg>
+                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/b04ccdb61392cacb86757466b3f8e8e3/transformed/jetified-firebase-installations-17.0.1-api.jar</arg>
+                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/69d750a77ed54b43086c44d0f879619d/transformed/jetified-firebase-common-20.1.2-api.jar</arg>
+                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/e2dc1be70c9dbb882ef023e0535882e5/transformed/jetified-firebase-installations-interop-17.0.1-api.jar</arg>
+                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/2dc65a6fa8c1c625ac7ddafce8cb1aa8/transformed/jetified-play-services-tasks-18.0.1-api.jar</arg>
+                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/eab0962bdb2235035e132f761d8b2816/transformed/jetified-play-services-measurement-21.1.1-api.jar</arg>
+                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/9df0d900a405dfa38482670e238301d8/transformed/jetified-play-services-measurement-sdk-21.1.1-api.jar</arg>
+                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/1b7621f3ed539ea5673640afa43f611c/transformed/jetified-play-services-measurement-impl-21.1.1-api.jar</arg>
+                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/2b7817fe1798cba6db681f019f54dad3/transformed/jetified-play-services-ads-identifier-18.0.0-api.jar</arg>
+                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/2eed5ad2025a449fde3cde469aa7d521/transformed/jetified-play-services-measurement-sdk-api-21.1.1-api.jar</arg>
+                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/b402685865918376085006f3adf2638d/transformed/jetified-play-services-measurement-base-21.1.1-api.jar</arg>
+                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/0237564c464631d1d61debf34bc5f7f4/transformed/jetified-play-services-stats-17.0.2-api.jar</arg>
+                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/60b98884fc849f841df17ea2363a672c/transformed/jetified-firebase-measurement-connector-19.0.0-api.jar</arg>
+                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/64fb65b97d6b56c610ba4e9597f430d5/transformed/jetified-play-services-basement-18.1.0-api.jar</arg>
+                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/65567f23480161d21dbdb0db2fd4965a/transformed/fragment-1.3.6-api.jar</arg>
+                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/b420e2639123b40867d9875165f80739/transformed/jetified-activity-1.5.1-api.jar</arg>
+                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/65eef73ee98aa0285dbcc91dfedda304/transformed/jetified-lifecycle-viewmodel-savedstate-2.5.1-api.jar</arg>
+                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/3223bb99b9c0d3d536720b9004c0d2d9/transformed/jetified-lifecycle-livedata-ktx-2.5.1-api.jar</arg>
+                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/11c4db4c80c1ae5136645f68139a7363/transformed/jetified-kotlinx-coroutines-core-jvm-1.6.1.jar</arg>
+                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/05d796536a52f904c4d9eee350691c24/transformed/jetified-lifecycle-runtime-ktx-2.5.1-api.jar</arg>
+                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/ac69866eeaa71e9e71f41a95e657aa9c/transformed/jetified-kotlinx-coroutines-android-1.6.1.jar</arg>
+                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/fbda27707c2cbbe72d635291578db957/transformed/jetified-picasso-2.71828-api.jar</arg>
+                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/b6649bc134c25757ca43f500a2f959f0/transformed/jetified-okhttp-4.9.3.jar</arg>
+                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/82e14f98ceb9e243225dbe3a8ddc6360/transformed/jetified-okio-jvm-3.0.0.jar</arg>
+                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/b0293cb3190514c66b8c73b6a8877164/transformed/jetified-kotlin-stdlib-jdk8-1.7.10.jar</arg>
+                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/0efd8affede5772243a500b5e2117181/transformed/jetified-core-ktx-1.9.0-api.jar</arg>
+                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/5eb0cb7bd44efc5e03198a79f5176eb1/transformed/recyclerview-1.3.0-rc01-api.jar</arg>
+                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/cc576ef8f19979ef85f3c8dc2d8f0fbf/transformed/jetified-appcompat-resources-1.5.1-api.jar</arg>
+                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/1f421414f6ece243ed3f5bf7b4af5dc2/transformed/legacy-support-core-ui-1.0.0-api.jar</arg>
+                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/363aad02730e040598fc7a33601500b1/transformed/drawerlayout-1.1.1-api.jar</arg>
+                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/10c0369e6e5d5fc8dd1563654007b6a5/transformed/coordinatorlayout-1.1.0-api.jar</arg>
+                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/dbca84df56d03a51f52de562de5b62ee/transformed/dynamicanimation-1.0.0-api.jar</arg>
+                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/fac928270eb246a6bd3106432e544843/transformed/transition-1.2.0-api.jar</arg>
+                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/ff9deb1501e6cec0e77e52c8e99d4892/transformed/vectordrawable-animated-1.1.0-api.jar</arg>
+                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/19d1b57e182841e55b18d455a673a860/transformed/vectordrawable-1.1.0-api.jar</arg>
+                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/30b683848ed3796cd9d4d99d2ee7db6f/transformed/media-1.0.0-api.jar</arg>
+                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/64c0854b23ae7166bae7b7d1b62c9300/transformed/legacy-support-core-utils-1.0.0-api.jar</arg>
+                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/71cfc835e07cc5ff2436b7be20bd5680/transformed/viewpager-1.0.0-api.jar</arg>
+                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/c83072bafc3ed0bafdf6ba77033a795d/transformed/slidingpanelayout-1.0.0-api.jar</arg>
+                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/3b5f554d45ca0da4e307f158b12ef717/transformed/customview-1.1.0-api.jar</arg>
+                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/92b1b9dc84aa1e89a48501ff86aaaabc/transformed/loader-1.0.0-api.jar</arg>
+                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/3cf5b74ef4e46f8eba22bab2254a5605/transformed/swiperefreshlayout-1.0.0-api.jar</arg>
+                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/132155ca68ce646feb193aa4598212bb/transformed/asynclayoutinflater-1.0.0-api.jar</arg>
+                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/c56ee52fb9103c5157ccc3a0311d157b/transformed/core-1.9.0-api.jar</arg>
+                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/188055564390910887a1d7e17cc76abc/transformed/cursoradapter-1.0.0-api.jar</arg>
+                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/c5c7ad8c14bc98a683b188ec20d6dee9/transformed/jetified-savedstate-ktx-1.2.0-api.jar</arg>
+                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/d2778e7b2af0134dfd6977eaf6f4318e/transformed/jetified-savedstate-1.2.0-api.jar</arg>
+                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/823b67da89dd1461d36bc76402ba639c/transformed/cardview-1.0.0-api.jar</arg>
+                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/81be2e5c2bbe1a0028c5b45a77c32b69/transformed/lifecycle-runtime-2.5.1-api.jar</arg>
+                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/6c3b120293dc71a43b632ebb4124571a/transformed/lifecycle-viewmodel-2.5.1-api.jar</arg>
+                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/e561cf2378a49059556cf0f4f697692e/transformed/jetified-firebase-components-17.0.1-api.jar</arg>
+                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/102bb7bd6ef5d8152434572968110739/transformed/jetified-gifdecoder-4.12.0-api.jar</arg>
+                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/7ab2de306c222e64256e46b78033a2e5/transformed/versionedparcelable-1.1.1-api.jar</arg>
                 <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/modules-2/files-2.1/androidx.collection/collection/1.2.0/34dbc21d203cc4d4d623ac572a21acd4ccd716af/collection-1.2.0.jar</arg>
-                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/0e231797e9691db108d38d22d4fbcb20/transformed/lifecycle-livedata-2.5.1-api.jar</arg>
-                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/6cd20bd89670b304c0ebcba3b84aa99f/transformed/core-runtime-2.1.0-api.jar</arg>
+                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/2cf625849181f49f04c1039ee7521e43/transformed/lifecycle-livedata-2.5.1-api.jar</arg>
+                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/57b715cb1b9faeb2959a31a365e02efb/transformed/core-runtime-2.1.0-api.jar</arg>
                 <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/modules-2/files-2.1/androidx.arch.core/core-common/2.1.0/b3152fc64428c9354344bd89848ecddc09b6f07e/core-common-2.1.0.jar</arg>
-                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/6abc443646b1852baeab05bd34f3ffc2/transformed/jetified-lifecycle-livedata-core-ktx-2.5.1-api.jar</arg>
-                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/042c33f338a285530cbe0d1860bbc7ae/transformed/lifecycle-livedata-core-2.5.1-api.jar</arg>
+                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/080385e353e17c4f47e87b14270a7273/transformed/jetified-lifecycle-livedata-core-ktx-2.5.1-api.jar</arg>
+                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/ddf798ba73eaca74ed09cc40f092f016/transformed/lifecycle-livedata-core-2.5.1-api.jar</arg>
                 <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/modules-2/files-2.1/androidx.lifecycle/lifecycle-common/2.5.1/1fdb7349701e9cf2f0a69fc10642b6fef6bb3e12/lifecycle-common-2.5.1.jar</arg>
-                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/89b9f93e202f6db48c07f4633bf20d9f/transformed/documentfile-1.0.0-api.jar</arg>
-                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/0c1c0952176b180e5f05815d782f7ecc/transformed/localbroadcastmanager-1.0.0-api.jar</arg>
-                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/c21fd9b269354a0f0f4068151d45f1d0/transformed/print-1.0.0-api.jar</arg>
-                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/ba9283905d6b95f12ff42f0848731f8e/transformed/interpolator-1.0.0-api.jar</arg>
+                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/4cee37f91cb196e37e3ee335503966b3/transformed/documentfile-1.0.0-api.jar</arg>
+                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/09e0c79d31dcc09bbe2599be3a394f70/transformed/localbroadcastmanager-1.0.0-api.jar</arg>
+                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/bcf8e98b5cb794a5051a4ee2c1966734/transformed/print-1.0.0-api.jar</arg>
+                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/afc3dbb6296ab88ca345244407d98dc7/transformed/interpolator-1.0.0-api.jar</arg>
                 <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/modules-2/files-2.1/androidx.annotation/annotation/1.3.0/21f49f5f9b85fc49de712539f79123119740595/annotation-1.3.0.jar</arg>
-                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/15ff0a8654c24c58ab2174a883398cdd/transformed/jetified-kotlin-stdlib-jdk7-1.7.0.jar</arg>
-                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/8c079581c46589a4e8a3099cb4e697ac/transformed/jetified-annotation-experimental-1.3.0-api.jar</arg>
-                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/51639e37897d793798b4bd768927342d/transformed/jetified-kotlin-stdlib-1.7.10.jar</arg>
-                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/b43cb38e03f0263ec6430a9c9cf51a78/transformed/jetified-kotlin-stdlib-common-1.7.10.jar</arg>
-                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/f6f8783eb367c480b8c32f6e9fbf0c7e/transformed/jetified-annotations-13.0.jar</arg>
-                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/4bfb7b2b5e1c35e27db4bfcdba7c6469/transformed/constraintlayout-2.1.4-api.jar</arg>
-                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/70f1ffaeb0df701e0c1dcb7471b14051/transformed/multidex-2.0.0-api.jar</arg>
-                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/52f3cdf994e8a8c623ccfd6d6d3ace79/transformed/jetified-error_prone_annotations-2.9.0.jar</arg>
-                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/427f85d3c954a6e4e9975eedf881ce75/transformed/jetified-firebase-annotations-16.1.0.jar</arg>
-                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/65f05f0796159bc547f94cc3f7b4bbed/transformed/exifinterface-1.3.3-api.jar</arg>
-                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/b08847dea884cb9c249a17954215ecc3/transformed/jetified-disklrucache-4.12.0.jar</arg>
-                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/6c39f7b70460f16b18929f0a6e1ad6ed/transformed/jetified-annotations-4.12.0.jar</arg>
+                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/016b8014dda0afbd1784d33cdadae08c/transformed/jetified-kotlin-stdlib-jdk7-1.7.10.jar</arg>
+                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/8f211d3d13ba995c849c3a80b727d4e9/transformed/jetified-annotation-experimental-1.3.0-api.jar</arg>
+                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/01bbe027187cc595b6e6df84a2feb90e/transformed/jetified-kotlin-stdlib-1.7.10.jar</arg>
+                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/346be149897c1748038430f5b1eeacbe/transformed/jetified-kotlin-stdlib-common-1.7.10.jar</arg>
+                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/b1453080de86cc92f751922b4c368fc2/transformed/jetified-annotations-13.0.jar</arg>
+                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/ca9903e4cadcff28da99c89096d9c540/transformed/constraintlayout-2.1.4-api.jar</arg>
+                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/a39420db5dfc53da34d12fb8c5e831a2/transformed/multidex-2.0.0-api.jar</arg>
+                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/88f8a38610ee82c8e05062a075561b06/transformed/jetified-error_prone_annotations-2.9.0.jar</arg>
+                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/c8a2aa61232f38fcbdbbaebd16f491a5/transformed/jetified-firebase-annotations-16.1.0.jar</arg>
+                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/23b3f32163894a5979ff01a898dd1a9a/transformed/exifinterface-1.3.3-api.jar</arg>
+                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/a07d740e0a848d833aba84572614a4a2/transformed/jetified-disklrucache-4.12.0.jar</arg>
+                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/c14b716a0dcb225bd45bd7a7b4e75dfa/transformed/jetified-annotations-4.12.0.jar</arg>
                 <arg>$USER_HOME$/AppData/Local/Android/Sdk/platforms/android-33/android.jar</arg>
                 <arg>$USER_HOME$/AppData/Local/Android/Sdk/build-tools/30.0.3/core-lambda-stubs.jar</arg>
               </args>
@@ -145,13 +145,13 @@
           <arrayArguments>
             <arrayArg name="pluginClasspaths">
               <args>
-                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-compiler-embeddable/1.7.0/4d09852239f61842072b40b524882fa3caaed371/kotlin-compiler-embeddable-1.7.0.jar</arg>
-                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-reflect/1.7.0/e660b0079fdaf744dc9cc7f6f3aa3c761ec839b0/kotlin-reflect-1.7.0.jar</arg>
-                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/1.7.0/a5f42c684ad9003160ef0d0f693ecf0ba7b13549/kotlin-stdlib-1.7.0.jar</arg>
-                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-common/1.7.0/51736992f422993a1e741051bdf3c12801bc1ca1/kotlin-stdlib-common-1.7.0.jar</arg>
+                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-compiler-embeddable/1.7.10/909803167c98606fcf22b4c848647c68e351d48d/kotlin-compiler-embeddable-1.7.10.jar</arg>
+                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-reflect/1.7.10/165e600dfea6185cf5efa700756294cc4904dbeb/kotlin-reflect-1.7.10.jar</arg>
+                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/1.7.10/d2abf9e77736acc4450dc4a3f707fa2c10f5099d/kotlin-stdlib-1.7.10.jar</arg>
+                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-common/1.7.10/bac80c520d0a9e3f3673bc2658c6ed02ef45a76a/kotlin-stdlib-common-1.7.10.jar</arg>
                 <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/modules-2/files-2.1/org.jetbrains/annotations/13.0/919f0dfe192fb4e063e7dacadee7f8bb9a2672a9/annotations-13.0.jar</arg>
-                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-script-runtime/1.7.0/3acea1d447587e61bc3e1b3ed6227d9e9ed4ddf1/kotlin-script-runtime-1.7.0.jar</arg>
-                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-daemon-embeddable/1.7.0/fd56798de80825c673ac93808284c5198ffa2b50/kotlin-daemon-embeddable-1.7.0.jar</arg>
+                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-script-runtime/1.7.10/c99c87a6988d8fd8d5142e9ed5c9f34a7cf561ee/kotlin-script-runtime-1.7.10.jar</arg>
+                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-daemon-embeddable/1.7.10/3a9f7aef7080d3ae63126cbba4f827ed664f32fa/kotlin-daemon-embeddable-1.7.10.jar</arg>
                 <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/modules-2/files-2.1/org.jetbrains.intellij.deps/trove4j/1.0.20200330/3afb14d5f9ceb459d724e907a21145e8ff394f02/trove4j-1.0.20200330.jar</arg>
                 <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/modules-2/files-2.1/net.java.dev.jna/jna/5.6.0/330f2244e9030119ab3030fc3fededc86713d9cc/jna-5.6.0.jar</arg>
               </args>
@@ -193,11 +193,11 @@
     <orderEntry type="jdk" jdkName="Android API 33, extension level 3 Platform" jdkType="Android SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="Gradle: androidx.annotation:annotation:1.3.0" level="project" />
-    <orderEntry type="library" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.7.0" level="project" />
+    <orderEntry type="library" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.7.10" level="project" />
     <orderEntry type="library" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib:1.7.10" level="project" />
     <orderEntry type="library" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib-common:1.7.10" level="project" />
     <orderEntry type="library" name="Gradle: org.jetbrains:annotations:13.0" level="project" />
-    <orderEntry type="library" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.7.0" level="project" />
+    <orderEntry type="library" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.7.10" level="project" />
     <orderEntry type="library" name="Gradle: androidx.arch.core:core-common:2.1.0" level="project" />
     <orderEntry type="library" name="Gradle: androidx.lifecycle:lifecycle-common:2.5.1" level="project" />
     <orderEntry type="library" name="Gradle: androidx.collection:collection:1.2.0" level="project" />
@@ -209,7 +209,7 @@
     <orderEntry type="library" name="Gradle: com.squareup.okio:okio-jvm:3.0.0" level="project" />
     <orderEntry type="library" name="Gradle: com.github.bumptech.glide:disklrucache:4.12.0" level="project" />
     <orderEntry type="library" name="Gradle: com.github.bumptech.glide:annotations:4.12.0" level="project" />
-    <orderEntry type="library" name="Gradle: androidx.databinding:viewbinding:7.2.1@aar" level="project" />
+    <orderEntry type="library" name="Gradle: androidx.databinding:viewbinding:7.2.2@aar" level="project" />
     <orderEntry type="library" name="Gradle: androidx.core:core-ktx:1.9.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: androidx.core:core:1.9.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: androidx.annotation:annotation-experimental:1.3.0@aar" level="project" />

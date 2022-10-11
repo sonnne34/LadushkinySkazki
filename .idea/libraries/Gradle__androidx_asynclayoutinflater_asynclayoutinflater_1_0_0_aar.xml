@@ -3,9 +3,10 @@
     <CLASSES>
       <root url="file://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/ab9cb6b90b1162d7c4e9da0103c8c2dd/transformed/asynclayoutinflater-1.0.0/res" />
       <root url="file://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/026749d66e0595a1c578dfd3edf0d98a/transformed/asynclayoutinflater-1.0.0/res" />
-      <root url="jar://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/20cab64e5455e07d531f35263d2e9a47/transformed/asynclayoutinflater-1.0.0/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/20cab64e5455e07d531f35263d2e9a47/transformed/asynclayoutinflater-1.0.0/AndroidManifest.xml" />
       <root url="file://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/20cab64e5455e07d531f35263d2e9a47/transformed/asynclayoutinflater-1.0.0/res" />
+      <root url="jar://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/6258f4c6d3326e5efcb7d7f87bae6bd8/transformed/asynclayoutinflater-1.0.0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/6258f4c6d3326e5efcb7d7f87bae6bd8/transformed/asynclayoutinflater-1.0.0/res" />
+      <root url="file://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/6258f4c6d3326e5efcb7d7f87bae6bd8/transformed/asynclayoutinflater-1.0.0/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
