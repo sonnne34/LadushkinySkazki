@@ -86,7 +86,8 @@
             android:id="@+id/rv_list_category"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:padding="3dp" />
+            android:padding="3dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
     </RelativeLayout>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
