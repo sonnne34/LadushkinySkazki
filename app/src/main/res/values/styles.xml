@@ -4,6 +4,12 @@
         <item name="android:buttonBarStyle">?android:attr/buttonBarStyle</item>
     </style>
 
+    \\стиль окна изображения на весь экран
+    <style name="CustomDialogInteractiveFullScreen" parent="@android:style/Theme.Dialog">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
+
     \\стиль диалогового окна (текст сказки)
     <style name="CustomDialogBodySkazka" parent="@android:style/Theme.Dialog">
         <item name="android:windowAnimationStyle">@style/CustomDialogAnimationBodySkazka</item>
