@@ -1,13 +1,9 @@
 <component name="libraryTable">
   <library name="Gradle: androidx.test.services:storage:1.4.0@aar">
     <CLASSES>
-      <root url="file://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/8f6ad09a10ea493d15f524e954b0bbb1/transformed/jetified-storage-1.4.0/res" />
-      <root url="file://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/63ab49666abe9b73f3e1fb2820a8d720/transformed/jetified-storage-1.4.0/res" />
-      <root url="file://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/8a78e19c9dc53ccb0ec5aaf5c61895e4/transformed/jetified-storage-1.4.0/res" />
-      <root url="file://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/719302c4bafa3639a8f906605bae6d3b/transformed/jetified-storage-1.4.0/res" />
-      <root url="file://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/a1be326afcecebcb755186dfb2cec71a/transformed/jetified-storage-1.4.0/AndroidManifest.xml" />
       <root url="jar://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/a1be326afcecebcb755186dfb2cec71a/transformed/jetified-storage-1.4.0/jars/classes.jar!/" />
       <root url="file://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/a1be326afcecebcb755186dfb2cec71a/transformed/jetified-storage-1.4.0/res" />
+      <root url="file://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/a1be326afcecebcb755186dfb2cec71a/transformed/jetified-storage-1.4.0/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

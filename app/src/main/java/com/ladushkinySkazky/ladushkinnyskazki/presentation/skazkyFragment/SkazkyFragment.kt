@@ -7,8 +7,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.navArgs
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.ladushkinySkazky.ladushkinnyskazki.databinding.FragmentSkazkyBinding
 
 class SkazkyFragment : Fragment() {
@@ -35,32 +33,16 @@ class SkazkyFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        rvSetup()
-
+        binding.rvListSkazki.adapter = skazkiAdapter
         when (args.newSkazky) {
             true -> observeViewModelTypeNew()
             false -> observeViewModelTypeCategory()
         }
     }
 
-    private fun rvSetup() {
-        with(binding.rvListSkazki) {
-            adapter = skazkiAdapter
-            layoutManager = LinearLayoutManager(
-                binding.root.context,
-                RecyclerView.VERTICAL, false
-            )
-            setHasFixedSize(true)
-            recycledViewPool.setMaxRecycledViews(50, 50)
-            setItemViewCacheSize(50)
-        }
-    }
-
-    private fun observeViewModelTypeCategory() {
-        val position = args.position
+    private fun observeViewModelTypeNew() {
         viewModel = ViewModelProvider(this)[SkazkyViewModel::class.java]
-        viewModel.getItemSkazkiList(position)
+        viewModel.getNewItemSkazkiList()
         viewModel.skazkyList.observe(viewLifecycleOwner) {
             skazkiAdapter.submitList(it)
             if (it.isNotEmpty()) {
@@ -69,9 +51,10 @@ class SkazkyFragment : Fragment() {
         }
     }
 
-    private fun observeViewModelTypeNew() {
+    private fun observeViewModelTypeCategory() {
+        val position = args.position
         viewModel = ViewModelProvider(this)[SkazkyViewModel::class.java]
-        viewModel.getNewItemSkazkiList()
+        viewModel.getItemSkazkiList(position)
         viewModel.skazkyList.observe(viewLifecycleOwner) {
             skazkiAdapter.submitList(it)
             if (it.isNotEmpty()) {

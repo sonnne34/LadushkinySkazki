@@ -8,7 +8,7 @@
     <ImageView
         android:id="@+id/img_name_skazka"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="250dp"
         android:background="@drawable/background_image"
         android:contentDescription="@string/description_image_sk"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -16,43 +16,52 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <LinearLayout
-        android:id="@+id/linearLayout"
+    <View
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="250dp"
         android:background="@color/blackTrans"
-        android:orientation="vertical"
-        android:padding="7dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/txt_name_skazka"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/font_first_time_writing"
-            android:padding="7dp"
-            android:text="@string/name_skazka"
-            android:textColor="@color/yellow"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+    <TextView
+        android:id="@+id/txt_name_skazka"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@color/blackTrans"
+        android:fontFamily="@font/font_first_time_writing"
+        android:padding="7dp"
+        android:text="@string/name_skazka"
+        android:textColor="@color/yellow"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/txt_description_skazka"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="5dp"
-            android:ellipsize="end"
-            android:fontFamily="@font/font_first_time_writing"
-            android:text="@string/description_skazka"
-            android:textColor="@color/yellowLight"
-            android:textSize="16sp"
-            android:textStyle="bold" />
-
-    </LinearLayout>
+    <TextView
+        android:id="@+id/txt_description_skazka"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:background="@color/blackTrans"
+        android:ellipsize="end"
+        android:fontFamily="@font/font_first_time_writing"
+        android:lineSpacingMultiplier="1.15"
+        android:paddingStart="20dp"
+        android:paddingTop="10dp"
+        android:paddingEnd="10dp"
+        android:paddingBottom="15dp"
+        android:text="@string/description_skazka"
+        android:textColor="@color/yellowLight"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_name_skazka" />
 
     <ImageView
         android:id="@+id/img_new_skazka"

@@ -1,12 +1,8 @@
 <component name="libraryTable">
   <library name="Gradle: androidx.test:monitor:1.4.0@aar">
     <CLASSES>
-      <root url="file://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/0e15b99b7e364cf1a1267822fddd4685/transformed/monitor-1.4.0/res" />
-      <root url="file://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/25c59bf784a8403127c804015b6c4b08/transformed/monitor-1.4.0/res" />
-      <root url="file://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/c597a1e9c694070ecabb165bc99e1c6a/transformed/monitor-1.4.0/res" />
-      <root url="file://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/a26aef758639ec50459241d4d8d7724c/transformed/monitor-1.4.0/res" />
-      <root url="file://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/4ba9fad26b784e508a418ab13cdb4abc/transformed/monitor-1.4.0/res" />
       <root url="jar://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/4ba9fad26b784e508a418ab13cdb4abc/transformed/monitor-1.4.0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/4ba9fad26b784e508a418ab13cdb4abc/transformed/monitor-1.4.0/res" />
       <root url="file://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/4ba9fad26b784e508a418ab13cdb4abc/transformed/monitor-1.4.0/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC>
