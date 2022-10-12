@@ -12,6 +12,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.ladushkinySkazky.ladushkinnyskazki.R
 import com.ladushkinySkazky.ladushkinnyskazki.data.loadFirebase.LoadImage
 import com.ladushkinySkazky.ladushkinnyskazki.domian.models.InteractiveModel
+import com.ladushkinySkazky.ladushkinnyskazki.presentation.dialog.InteractiveFullScreenDialog
+
 
 class InteractiveAdapter(val context: Context) :
     ListAdapter<InteractiveModel, InteractiveAdapter.InteractiveViewHolder>(
@@ -32,8 +34,11 @@ class InteractiveAdapter(val context: Context) :
             viewHolder.yearAuthor.text = ", ${interactiveItem.Year}"
             viewHolder.comment.text = interactiveItem.Comment
             LoadImage().loadImageInteractive(context, interactiveItem, viewHolder.img)
-        } else{
+        } else {
             viewHolder.itemView.visibility = View.GONE
+        }
+        viewHolder.itemView.setOnClickListener {
+            InteractiveFullScreenDialog.openFullscreen(context, interactiveItem)
         }
     }
 

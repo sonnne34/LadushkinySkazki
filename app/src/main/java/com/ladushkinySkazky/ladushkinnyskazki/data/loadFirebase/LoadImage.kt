@@ -92,4 +92,31 @@ class LoadImage {
             img.centerCrop().into(imageName)
         }
     }
+
+    @SuppressLint("CheckResult")
+    fun loadFullImageInteractive(
+        context: Context,
+        model: InteractiveModel,
+        imageName: ImageView
+    ) {
+
+        val glide = Glide.with(context)
+
+        if (model.ImageForLoad == null) {
+
+            val storage = FirebaseStorage.getInstance()
+            val storageRef = storage.getReferenceFromUrl(model.Image)
+
+            storageRef.downloadUrl.addOnSuccessListener { uri ->
+                model.ImageForLoad = uri
+                val img = glide.load(uri)
+                img.diskCacheStrategy(DiskCacheStrategy.AUTOMATIC)
+                img.into(imageName)
+            }
+        } else {
+            val img = glide.load(model.ImageForLoad)
+            img.diskCacheStrategy(DiskCacheStrategy.AUTOMATIC)
+            img.into(imageName)
+        }
+    }
 }
