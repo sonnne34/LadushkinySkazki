@@ -2,6 +2,7 @@ package com.ladushkinySkazky.ladushkinnyskazki.data.loadFirebase
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.net.Uri
 import android.widget.ImageView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
@@ -10,113 +11,88 @@ import com.ladushkinySkazky.ladushkinnyskazki.domian.models.CategorySkazkiModel
 import com.ladushkinySkazky.ladushkinnyskazki.domian.models.InteractiveModel
 import com.ladushkinySkazky.ladushkinnyskazki.domian.models.SkazkiCatModel
 
-class LoadImage {
+class LoadImage(
+    private val context: Context,
+    private val imageView: ImageView
+) {
+    private val storage = FirebaseStorage.getInstance()
 
     @SuppressLint("CheckResult")
-    fun loadImageNameSkazka(
-        context: Context,
-        skazkiCatModel: SkazkiCatModel,
-        imageName: ImageView
-    ) {
+    fun loadImageCategorySkazka(categorySkazkiModel: CategorySkazkiModel) {
 
-        val glide = Glide.with(context)
-
-        if (skazkiCatModel.Items?.ImageNameSkazkaForLoad == null) {
-
-            val storage = FirebaseStorage.getInstance()
-            val storageRef = storage.getReferenceFromUrl(skazkiCatModel.Items?.ImageNameSkazka!!)
-
-            storageRef.downloadUrl.addOnSuccessListener { uri ->
-                skazkiCatModel.Items?.ImageNameSkazkaForLoad = uri
-                val img = glide.load(uri)
-                img.diskCacheStrategy(DiskCacheStrategy.AUTOMATIC)
-                img.centerCrop().into(imageName)
-            }
+        var saveUri = categorySkazkiModel.CategoryPictureUri
+        if (saveUri == null) {
+            storage.getReferenceFromUrl(categorySkazkiModel.CategoryPicture)
+                .downloadUrl
+                .addOnSuccessListener { uri ->
+                    saveUri = uri
+                    glideCenterCrop(uri)
+                }
         } else {
-            val img = glide.load(skazkiCatModel.Items?.ImageNameSkazkaForLoad)
-            img.diskCacheStrategy(DiskCacheStrategy.AUTOMATIC)
-            img.centerCrop().into(imageName)
+            glideCenterCrop(saveUri!!)
         }
     }
 
     @SuppressLint("CheckResult")
-    fun loadImageCategorySkazka(
-        context: Context,
-        skazkiCatModel: CategorySkazkiModel,
-        imageName: ImageView
-    ) {
+    fun loadImageNameSkazka(skazkiCatModel: SkazkiCatModel) {
 
-        val glide = Glide.with(context)
+        var saveUri = skazkiCatModel.Items?.ImageNameSkazkaForLoad
 
-        if (skazkiCatModel.CategoryPictureUri == null) {
-
-            val storage = FirebaseStorage.getInstance()
-            val storageRef = storage.getReferenceFromUrl(skazkiCatModel.CategoryPicture)
-
-            storageRef.downloadUrl.addOnSuccessListener { uri ->
-                skazkiCatModel.CategoryPictureUri = uri
-                val img = glide.load(uri)
-                img.diskCacheStrategy(DiskCacheStrategy.AUTOMATIC)
-                img.centerCrop().into(imageName)
-            }
+        if (saveUri == null) {
+            storage.getReferenceFromUrl(skazkiCatModel.Items?.ImageNameSkazka!!)
+                .downloadUrl
+                .addOnSuccessListener { uri ->
+                    saveUri = uri
+                    glideCenterCrop(uri)
+                }
         } else {
-            val img = glide.load(skazkiCatModel.CategoryPictureUri)
-            img.diskCacheStrategy(DiskCacheStrategy.AUTOMATIC)
-            img.centerCrop().into(imageName)
+            glideCenterCrop(saveUri!!)
         }
     }
 
     @SuppressLint("CheckResult")
-    fun loadImageInteractive(
-        context: Context,
-        model: InteractiveModel,
-        imageName: ImageView
-    ) {
-
-        val glide = Glide.with(context)
-
-        if (model.ImageForLoad == null) {
-
-            val storage = FirebaseStorage.getInstance()
-            val storageRef = storage.getReferenceFromUrl(model.Image)
-
-            storageRef.downloadUrl.addOnSuccessListener { uri ->
-                model.ImageForLoad = uri
-                val img = glide.load(uri)
-                img.diskCacheStrategy(DiskCacheStrategy.AUTOMATIC)
-                img.centerCrop().into(imageName)
-            }
+    fun loadImageInteractive(interactiveModel: InteractiveModel) {
+        var saveUri = interactiveModel.ImageForLoad
+        if (saveUri == null) {
+            storage.getReferenceFromUrl(interactiveModel.Image)
+                .downloadUrl
+                .addOnSuccessListener { uri ->
+                    saveUri = uri
+                    glideCenterCrop(uri)
+                }
         } else {
-            val img = glide.load(model.ImageForLoad)
-            img.diskCacheStrategy(DiskCacheStrategy.AUTOMATIC)
-            img.centerCrop().into(imageName)
+            glideCenterCrop(saveUri!!)
         }
     }
 
     @SuppressLint("CheckResult")
-    fun loadFullImageInteractive(
-        context: Context,
-        model: InteractiveModel,
-        imageName: ImageView
-    ) {
+    fun loadFullImageInteractive(interactiveModel: InteractiveModel) {
 
-        val glide = Glide.with(context)
-
-        if (model.ImageForLoad == null) {
-
-            val storage = FirebaseStorage.getInstance()
-            val storageRef = storage.getReferenceFromUrl(model.Image)
-
-            storageRef.downloadUrl.addOnSuccessListener { uri ->
-                model.ImageForLoad = uri
-                val img = glide.load(uri)
-                img.diskCacheStrategy(DiskCacheStrategy.AUTOMATIC)
-                img.into(imageName)
-            }
+        var saveUri = interactiveModel.ImageForLoad
+        if (saveUri == null) {
+            storage.getReferenceFromUrl(interactiveModel.Image)
+                .downloadUrl
+                .addOnSuccessListener { uri ->
+                    saveUri = uri
+                    glide(uri)
+                }
         } else {
-            val img = glide.load(model.ImageForLoad)
-            img.diskCacheStrategy(DiskCacheStrategy.AUTOMATIC)
-            img.into(imageName)
+            glide(saveUri!!)
         }
+    }
+
+    private fun glideCenterCrop(uri: Uri) {
+        Glide.with(context)
+            .load(uri)
+            .centerCrop()
+            .diskCacheStrategy(DiskCacheStrategy.AUTOMATIC)
+            .into(imageView)
+    }
+
+    private fun glide(uri: Uri) {
+        Glide.with(context)
+            .load(uri)
+            .diskCacheStrategy(DiskCacheStrategy.AUTOMATIC)
+            .into(imageView)
     }
 }

@@ -27,7 +27,7 @@ class InteractiveFullScreenDialog {
             dialog.setCanceledOnTouchOutside(true)
 
             val img = dialog.findViewById(R.id.img_interactive_fullscreen) as ImageView
-            LoadImage().loadFullImageInteractive(context, interactiveModel, img)
+            LoadImage(context, img).loadFullImageInteractive(interactiveModel)
 
             dialog.show()
         }

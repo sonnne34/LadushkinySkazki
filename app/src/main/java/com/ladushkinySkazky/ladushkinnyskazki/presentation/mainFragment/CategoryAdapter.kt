@@ -28,7 +28,7 @@ class CategoryAdapter(val context: Context) :
         val categoryItem = getItem(position)
         holder.category.text = categoryItem.CategoryName
         holder.categoryDescription.text = categoryItem.CategoryDescription
-        LoadImage().loadImageCategorySkazka(context, categoryItem, holder.categoryPicture)
+        LoadImage(context, holder.categoryPicture).loadImageCategorySkazka(categoryItem)
         holder.itemView.setOnClickListener {
             onCategoryClickListener?.onCategoryClick(categoryItem, position)
         }

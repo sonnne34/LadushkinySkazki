@@ -33,7 +33,7 @@ class InteractiveAdapter(val context: Context) :
             viewHolder.nameAuthor.text = interactiveItem.Name
             viewHolder.yearAuthor.text = ", ${interactiveItem.Year}"
             viewHolder.comment.text = interactiveItem.Comment
-            LoadImage().loadImageInteractive(context, interactiveItem, viewHolder.img)
+            LoadImage(context, viewHolder.img).loadImageInteractive(interactiveItem)
         } else {
             viewHolder.itemView.visibility = View.GONE
         }

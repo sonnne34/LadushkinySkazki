@@ -52,7 +52,7 @@ class SkazkiAdapter(val context: Context) :
 
                 viewHolder.nameSkazka.text = "${skazkaItem.Items?.NameSkazka}"
                 viewHolder.descriptionSkazka.text = "${skazkaItem.Items?.DescriptionSkazka}"
-                LoadImage().loadImageNameSkazka(context, skazkaItem, viewHolder.imgSkazka)
+                LoadImage(context, viewHolder.imgSkazka).loadImageNameSkazka(skazkaItem)
                 if (skazkaItem.Items!!.New) {
                     viewHolder.imgNew.visibility = View.VISIBLE
                 }
