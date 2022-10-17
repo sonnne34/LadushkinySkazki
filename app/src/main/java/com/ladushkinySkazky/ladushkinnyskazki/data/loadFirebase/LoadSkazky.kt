@@ -13,6 +13,7 @@ class LoadSkazky : LiveData<List<CategorySkazkiModel>>() {
     private val firebaseDatabase = FirebaseDatabase.getInstance().getReference("Skazka")
 
     private val listener = firebaseDatabase.addValueEventListener(object : ValueEventListener {
+
         override fun onDataChange(dataSnapshot: DataSnapshot) {
             value = dataSnapshot.children.map {
                 it.getValue(CategorySkazkiModel::class.java) ?: CategorySkazkiModel()

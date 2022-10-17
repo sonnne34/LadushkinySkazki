@@ -24,8 +24,8 @@ object SkazkyListRepositoryImpl : SkazkyListRepository {
     override fun getItemSkazkyList(position: Int): List<SkazkiCatModel> {
         skazkyList.clear()
         for (category in getItemCategoryList(position)) {
-            skazkyModel.CategoryName = category.CategoryName
             skazkyModel.isHeader = true
+            skazkyModel.CategoryName = category.CategoryName
             skazkyModel.CategoryPicture = category.CategoryPicture
             skazkyModel.CategoryPictureUri = category.CategoryPictureUri
             skazkyList.add(skazkyModel)
@@ -41,11 +41,6 @@ object SkazkyListRepositoryImpl : SkazkyListRepository {
         skazkyList.clear()
         val list = getCategorySkazkyList().value
         for (cat in list!!) {
-            skazkyModel.CategoryName = cat.CategoryName
-            skazkyModel.isHeader = true
-            skazkyModel.CategoryPicture = cat.CategoryPicture
-            skazkyModel.CategoryPictureUri = cat.CategoryPictureUri
-//            skazkyList.add(skazkyModel)
             for (i in cat.Items) {
                 if (i.value.New) {
                     skazkyList.add(SkazkiCatModel(i.value))

@@ -3,6 +3,7 @@ package com.ladushkinySkazky.ladushkinnyskazki.data.loadFirebase
 import android.annotation.SuppressLint
 import android.content.Context
 import android.net.Uri
+import android.util.Log
 import android.widget.ImageView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
@@ -21,15 +22,23 @@ class LoadImage(
     fun loadImageCategorySkazka(categorySkazkiModel: CategorySkazkiModel) {
 
         var saveUri = categorySkazkiModel.CategoryPictureUri
+        Log.d("LoadUri", "на входе loadImageCategorySkazka saveUriSave = $saveUri")
+
         if (saveUri == null) {
             storage.getReferenceFromUrl(categorySkazkiModel.CategoryPicture)
                 .downloadUrl
                 .addOnSuccessListener { uri ->
                     saveUri = uri
+
+                    Log.d(
+                        "LoadUri",
+                        "пошла загрузка в loadImageCategorySkazka saveUriSave = $saveUri"
+                    )
                     glideCenterCrop(uri)
                 }
         } else {
             glideCenterCrop(saveUri!!)
+            Log.d("LoadUri", "Уже загружено в loadImageCategorySkazka saveUri выполнено = $saveUri")
         }
     }
 
