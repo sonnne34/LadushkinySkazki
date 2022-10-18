@@ -1,6 +1,5 @@
 package com.ladushkinySkazky.ladushkinnyskazki.snake
 
-import android.content.Intent
 import android.content.SharedPreferences
 import android.media.MediaPlayer
 import android.os.Bundle
@@ -36,12 +35,10 @@ class SnakeActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-//        setContentView(R.layout.activity_snake)
 
         _binding = ActivitySnakeBinding.inflate(layoutInflater)
-
-        container = binding.container
-
+        setContentView(binding.root)
+        container = binding.containerGame
         mPreferences = getSharedPreferences(MainActivity.NAME_PREF, MODE_PRIVATE)
 
         //появляющиеся объекты ("еда" змейки)
@@ -231,8 +228,9 @@ class SnakeActivity : AppCompatActivity() {
             .setTitle("Спасибо за помощь!")
             .setMessage("Все ёжики пошли спатеньки, и ты, мой дружочек, засыпай!")
             .setPositiveButton("Спокойной ночки!") { _, _ ->
-                val intent = Intent(this, MainActivity::class.java)
-                startActivity(intent)
+                finish()
+//                val intent = Intent(this, MainActivity::class.java)
+//                startActivity(intent)
             }
             .setCancelable(false)
             .create()

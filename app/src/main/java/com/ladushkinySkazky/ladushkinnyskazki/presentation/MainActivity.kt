@@ -23,11 +23,8 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
         mPreferences = getSharedPreferences(NAME_PREF, MODE_PRIVATE)
-
         btnMenu = findViewById(R.id.img_btn_menu_main)
-
         btnMenu.setOnClickListener {
             MainMenuDialog.openMenu(this)
         }

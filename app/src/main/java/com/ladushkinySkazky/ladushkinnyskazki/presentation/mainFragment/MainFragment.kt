@@ -1,6 +1,5 @@
 package com.ladushkinySkazky.ladushkinnyskazki.presentation.mainFragment
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,7 +9,6 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.ladushkinySkazky.ladushkinnyskazki.databinding.FragmentMainBinding
 import com.ladushkinySkazky.ladushkinnyskazki.domian.models.CategorySkazkiModel
-import com.ladushkinySkazky.ladushkinnyskazki.snake.SnakeActivity
 
 class MainFragment : Fragment() {
 
@@ -41,13 +39,13 @@ class MainFragment : Fragment() {
     }
 
     private fun observeViewModel() {
-        viewModel = ViewModelProvider(this)[MainViewModel::class.java]
-        viewModel.categoryList.observe(viewLifecycleOwner) {
-            categoryAdapter.submitList(it)
+        viewModel = ViewModelProvider(this.requireActivity())[MainViewModel::class.java]
+        viewModel.categoryList.observe(this.requireActivity()) {
             if (it.isNotEmpty()) {
                 binding.progress.visibility = View.GONE
                 binding.btnNewCategoryMain.visibility = View.VISIBLE
             }
+            categoryAdapter.submitList(it)
         }
     }
 
@@ -63,8 +61,9 @@ class MainFragment : Fragment() {
 
     private fun goSnake() {
         binding.btnSnakeCategoryMain.setOnClickListener {
-            val intent = Intent(requireActivity(), SnakeActivity::class.java)
-            startActivity(intent)
+            findNavController().navigate(
+                MainFragmentDirections.actionMainFragmentToSnakeActivity()
+            )
         }
     }
 

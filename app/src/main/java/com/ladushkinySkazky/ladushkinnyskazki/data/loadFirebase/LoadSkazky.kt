@@ -11,10 +11,10 @@ import com.ladushkinySkazky.ladushkinnyskazki.domian.models.CategorySkazkiModel
 class LoadSkazky : LiveData<List<CategorySkazkiModel>>() {
 
     private val firebaseDatabase = FirebaseDatabase.getInstance().getReference("Skazka")
-
     private val listener = firebaseDatabase.addValueEventListener(object : ValueEventListener {
 
         override fun onDataChange(dataSnapshot: DataSnapshot) {
+
             value = dataSnapshot.children.map {
                 it.getValue(CategorySkazkiModel::class.java) ?: CategorySkazkiModel()
             }
@@ -26,12 +26,16 @@ class LoadSkazky : LiveData<List<CategorySkazkiModel>>() {
     })
 
     override fun onActive() {
-        firebaseDatabase.addValueEventListener(listener)
+        if (value?.isEmpty() == true) {
+            firebaseDatabase.addValueEventListener(listener)
+        }
         super.onActive()
+        Log.d("LoadUri", "onActive")
     }
 
     override fun onInactive() {
         firebaseDatabase.removeEventListener(listener)
         super.onInactive()
+        Log.d("LoadUri", "onInactive")
     }
 }

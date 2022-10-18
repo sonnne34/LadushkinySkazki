@@ -7,8 +7,8 @@ import android.view.Window
 import android.widget.ImageView
 import android.widget.ListPopupWindow
 import android.widget.TextView
+import coil.load
 import com.ladushkinySkazky.ladushkinnyskazki.R
-import com.ladushkinySkazky.ladushkinnyskazki.data.loadFirebase.LoadImage
 import com.ladushkinySkazky.ladushkinnyskazki.domian.models.SkazkiCatModel
 
 class SkazkaTextDialog {
@@ -33,7 +33,9 @@ class SkazkaTextDialog {
 
             txtName.text = skazkiCatModel.Items?.NameSkazka
             txtBody.text = skazkiCatModel.Items?.BodySkazka.toString()
-            LoadImage(context, img).loadImageNameSkazka(skazkiCatModel)
+            img.load(skazkiCatModel.Items?.SkazkaUriPicture) {
+                crossfade(true)
+            }
 
             dialog.show()
         }

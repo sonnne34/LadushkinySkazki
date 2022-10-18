@@ -6,8 +6,9 @@ import android.view.Gravity
 import android.view.Window
 import android.widget.ImageView
 import android.widget.ListPopupWindow
+import coil.load
+import com.google.firebase.storage.FirebaseStorage
 import com.ladushkinySkazky.ladushkinnyskazki.R
-import com.ladushkinySkazky.ladushkinnyskazki.data.loadFirebase.LoadImage
 import com.ladushkinySkazky.ladushkinnyskazki.domian.models.InteractiveModel
 
 class InteractiveFullScreenDialog {
@@ -27,7 +28,22 @@ class InteractiveFullScreenDialog {
             dialog.setCanceledOnTouchOutside(true)
 
             val img = dialog.findViewById(R.id.img_interactive_fullscreen) as ImageView
-            LoadImage(context, img).loadFullImageInteractive(interactiveModel)
+
+            if (interactiveModel.ImageForLoad == null) {
+                FirebaseStorage
+                    .getInstance()
+                    .getReferenceFromUrl(interactiveModel.Image)
+                    .downloadUrl.addOnSuccessListener { uri ->
+                        interactiveModel.ImageForLoad = uri
+                        img.load(uri) {
+                            crossfade(true)
+                        }
+                    }
+            } else {
+                img.load(interactiveModel.ImageForLoad) {
+                    crossfade(true)
+                }
+            }
 
             dialog.show()
         }

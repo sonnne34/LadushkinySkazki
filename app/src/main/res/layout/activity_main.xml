@@ -18,7 +18,7 @@
         android:text="@string/header_app"
         android:textColor="@color/yellow"
         android:textSize="25sp"
-        app:layout_constraintBottom_toTopOf="@id/container"
+        app:layout_constraintBottom_toTopOf="@id/container_game"
         app:layout_constraintEnd_toStartOf="@id/img_btn_menu_main"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -29,13 +29,13 @@
         android:layout_height="40dp"
         android:background="@drawable/ic_menu"
         android:contentDescription="@string/description_button_menu"
-        app:layout_constraintBottom_toTopOf="@+id/container"
+        app:layout_constraintBottom_toTopOf="@+id/container_game"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/txt_header_main"
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/container"
+        android:id="@+id/container_game"
         android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="match_parent"
         android:layout_height="0dp"

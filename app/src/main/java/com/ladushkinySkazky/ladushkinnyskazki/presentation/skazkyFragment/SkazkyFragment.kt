@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.navArgs
 import com.ladushkinySkazky.ladushkinnyskazki.databinding.FragmentSkazkyBinding
+import com.ladushkinySkazky.ladushkinnyskazki.presentation.mainFragment.MainViewModel
 
 class SkazkyFragment : Fragment() {
 
@@ -19,7 +20,7 @@ class SkazkyFragment : Fragment() {
 
     private lateinit var skazkiAdapter: SkazkiAdapter
 
-    private lateinit var viewModel: SkazkyViewModel
+    private lateinit var viewModel: MainViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -41,9 +42,9 @@ class SkazkyFragment : Fragment() {
     }
 
     private fun observeViewModelTypeNew() {
-        viewModel = ViewModelProvider(this)[SkazkyViewModel::class.java]
+        viewModel = ViewModelProvider(this.requireActivity())[MainViewModel::class.java]
         viewModel.getNewItemSkazkiList()
-        viewModel.skazkyList.observe(viewLifecycleOwner) {
+        viewModel.skazkyList.observe(this.requireActivity()) {
             skazkiAdapter.submitList(it)
             if (it.isNotEmpty()) {
                 binding.progress.visibility = View.GONE
@@ -53,9 +54,9 @@ class SkazkyFragment : Fragment() {
 
     private fun observeViewModelTypeCategory() {
         val position = args.position
-        viewModel = ViewModelProvider(this)[SkazkyViewModel::class.java]
+        viewModel = ViewModelProvider(this.requireActivity())[MainViewModel::class.java]
         viewModel.getItemSkazkiList(position)
-        viewModel.skazkyList.observe(viewLifecycleOwner) {
+        viewModel.skazkyList.observe(this.requireActivity()) {
             skazkiAdapter.submitList(it)
             if (it.isNotEmpty()) {
                 binding.progress.visibility = View.GONE

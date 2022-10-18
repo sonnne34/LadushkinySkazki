@@ -8,11 +8,12 @@ import com.ladushkinySkazky.ladushkinnyskazki.domian.models.SkazkiCatModel
 
 object SkazkyListRepositoryImpl : SkazkyListRepository {
 
-    private val skazkyListFB = LoadSkazky()
+    private val skazkyLiveDataFB = LoadSkazky()
     private val skazkyModel = SkazkiCatModel()
     private val skazkyList = mutableListOf<SkazkiCatModel>()
 
-    override fun getCategorySkazkyList(): LiveData<List<CategorySkazkiModel>> = skazkyListFB
+    override fun getCategorySkazkyList(): LiveData<List<CategorySkazkiModel>> = skazkyLiveDataFB
+
 
     private fun getItemCategoryList(position: Int): List<CategorySkazkiModel> {
         return listOf(
@@ -26,8 +27,7 @@ object SkazkyListRepositoryImpl : SkazkyListRepository {
         for (category in getItemCategoryList(position)) {
             skazkyModel.isHeader = true
             skazkyModel.CategoryName = category.CategoryName
-            skazkyModel.CategoryPicture = category.CategoryPicture
-            skazkyModel.CategoryPictureUri = category.CategoryPictureUri
+            skazkyModel.CategoryUriPicture = category.CategoryUriPicture
             skazkyList.add(skazkyModel)
             for (i in category.Items) {
                 skazkyList.add(SkazkiCatModel(i.value))
@@ -36,6 +36,7 @@ object SkazkyListRepositoryImpl : SkazkyListRepository {
         }
         return skazkyList
     }
+
 
     override fun getItemNewSkazkyList(): List<SkazkiCatModel> {
         skazkyList.clear()

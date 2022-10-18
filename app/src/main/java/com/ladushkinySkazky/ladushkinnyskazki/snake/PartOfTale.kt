@@ -2,6 +2,7 @@ package com.ladushkinySkazky.ladushkinnyskazki.snake
 
 import android.widget.ImageView
 
-data class PartOfTale (
+data class PartOfTale(
     val viewCoordinate: ViewCoordinate,
-    val imageView: ImageView)
+    val imageView: ImageView
+)
