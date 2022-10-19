@@ -69,7 +69,8 @@ class SnakeActivity : AppCompatActivity() {
             }
 
         //запуск игры, создание "еды", первое движение
-        startTheGame()
+        isPlay = false
+        openWelcomeDialog()
         generateNewAnimal()
         SnakeCore.nextMovie = { move(Direction.RIGHT) }
 
@@ -411,6 +412,20 @@ class SnakeActivity : AppCompatActivity() {
         val mPlayerCongratulationSound = MediaPlayer.create(this, R.raw.zev)
         play(mPlayerCongratulationSound)
         mPlayerCongratulationSound.setOnCompletionListener { stopPlay(mPlayerCongratulationSound) }
+    }
+
+    private fun openWelcomeDialog() {
+        val sendDialog = AlertDialog.Builder(
+            this
+        )
+        sendDialog.setTitle("Приветик!")
+        sendDialog.setMessage("Помоги Понюшке собрать всех ёжиков и отведи их в кроватку!\n" +
+                "Помни, за пределы поля выходить нельзя, в цепочку ёжиков врезаться нельзя.\n" +
+                "Радоваться успехам - нужно! :)")
+        sendDialog.setPositiveButton("Понятненько)") { _, _ ->
+            startTheGame()
+        }
+        sendDialog.show()
     }
 
     override fun onRestart() {
