@@ -34,6 +34,7 @@ class SkazkaTextDialog {
             txtName.text = skazkiCatModel.Items?.NameSkazka
             txtBody.text = skazkiCatModel.Items?.BodySkazka.toString()
             img.load(skazkiCatModel.Items?.SkazkaUriPicture) {
+                placeholder(R.drawable.background_image)
                 crossfade(true)
             }
 

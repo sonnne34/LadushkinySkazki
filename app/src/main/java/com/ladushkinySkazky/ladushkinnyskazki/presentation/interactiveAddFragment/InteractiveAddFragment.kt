@@ -16,12 +16,12 @@ import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import coil.load
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
 import com.ladushkinySkazky.ladushkinnyskazki.databinding.FragmentInteractiveAddBinding
-import com.squareup.picasso.Picasso
 import java.io.IOException
 import java.util.*
 
@@ -88,7 +88,9 @@ class InteractiveAddFragment : Fragment() {
         if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null && data.data != null) {
             filePath = data.data!!
             try {
-                Picasso.get().load(filePath).into(imageView)
+                imageView.load(filePath) {
+                    crossfade(true)
+                }
             } catch (e: IOException) {
                 e.printStackTrace()
             }

@@ -47,6 +47,7 @@ class InteractiveAdapter(val context: Context) :
                 }
             } else {
                 viewHolder.img.load(interactiveItem.ImageForLoad) {
+                    placeholder(R.drawable.background_image)
                     crossfade(true)
                 }
             }

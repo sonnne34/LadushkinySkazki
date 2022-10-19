@@ -27,6 +27,7 @@ object SnakeCore {
     fun startTheGame() {
         gameSpeed = START_GAME_SPEED
         isPlay = true
+
     }
 
 }

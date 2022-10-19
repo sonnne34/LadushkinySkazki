@@ -9,7 +9,6 @@
         android:id="@+id/img_category_skazka"
         android:layout_width="match_parent"
         android:layout_height="250dp"
-        android:background="@drawable/background_image"
         android:contentDescription="@string/description_category_skazka"
         android:scaleType="centerCrop"
         app:layout_constraintBottom_toBottomOf="parent"

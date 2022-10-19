@@ -54,6 +54,7 @@ class SkazkiAdapter(val context: Context) :
                 viewHolder.descriptionSkazka.text = "${skazkaItem.Items?.DescriptionSkazka}"
                 viewHolder.imgSkazka.load(skazkaItem.Items?.SkazkaUriPicture) {
                     crossfade(true)
+                    placeholder(R.drawable.background_image)
                 }
                 if (skazkaItem.Items!!.New) {
                     viewHolder.imgNew.visibility = View.VISIBLE

@@ -106,12 +106,12 @@ class SnakeActivity : AppCompatActivity() {
 
     //загрузка ширины экрана
     private fun loadTextWidth(): String {
-        return mPreferences.getString(MainActivity.WIDTH, "").toString()
+        return mPreferences.getString(MainActivity.SNAKE_WIDTH, "").toString()
     }
 
     //загрузка размера объектов/шага
     private fun loadTextHead(): String {
-        return mPreferences.getString(MainActivity.SIZE_HEAD, "").toString()
+        return mPreferences.getString(MainActivity.SNAKE_SIZE_HEAD, "").toString()
     }
 
     //проверка на повторное нажатие направления
@@ -419,8 +419,10 @@ class SnakeActivity : AppCompatActivity() {
     }
 
     override fun onStop() {
-        super.onStop()
         stopPlay(playerBackSound)
+        isPlay = false
+        super.onStop()
+
     }
 
     companion object {

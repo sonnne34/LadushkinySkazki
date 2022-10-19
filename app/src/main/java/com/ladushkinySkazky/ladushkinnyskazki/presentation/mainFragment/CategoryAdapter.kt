@@ -1,7 +1,6 @@
 package com.ladushkinySkazky.ladushkinnyskazki.presentation.mainFragment
 
 import android.content.Context
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,12 +9,8 @@ import android.widget.TextView
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
-import coil.transform.CircleCropTransformation
-import com.bumptech.glide.Glide
-import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.ladushkinySkazky.ladushkinnyskazki.R
 import com.ladushkinySkazky.ladushkinnyskazki.domian.models.CategorySkazkiModel
-import com.squareup.picasso.Picasso
 
 class CategoryAdapter(val context: Context) :
     ListAdapter<CategorySkazkiModel,
@@ -34,15 +29,10 @@ class CategoryAdapter(val context: Context) :
         val categoryItem = getItem(position)
         holder.category.text = categoryItem.CategoryName
         holder.categoryDescription.text = categoryItem.CategoryDescription
-
-        Log.d("LoadUriGlide", "Glide.with(context) = ${categoryItem.CategoryUriPicture}")
-
-        holder.categoryPicture.load(categoryItem.CategoryUriPicture){
+        holder.categoryPicture.load(categoryItem.CategoryUriPicture) {
+            placeholder(R.drawable.background_image)
             crossfade(true)
         }
-
-        Log.d("LoadUriGlide", "Glide.with(context)")
-
         holder.itemView.setOnClickListener {
             onCategoryClickListener?.onCategoryClick(categoryItem, position)
         }
