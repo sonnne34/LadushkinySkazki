@@ -26,13 +26,13 @@ class MainActivity : AppCompatActivity() {
 
     private fun sizePx() {
         val mPreferences = getSharedPreferences(NAME_PREF, MODE_PRIVATE)
-        if (mPreferences.getString(SNAKE_SIZE_HEAD, "").toString() == "") {
+        if (!mPreferences.contains(WIDTH_SNAKE)) {
             val displayMetrics: DisplayMetrics = applicationContext.resources.displayMetrics
             val pxWidth = displayMetrics.widthPixels - 50
             val sizeHead = pxWidth / SNAKE_CELLS_ON_FIELD
             mPreferences.edit()
-                .putString(SNAKE_WIDTH, pxWidth.toString())
-                .putString(SNAKE_SIZE_HEAD, sizeHead.toString())
+                .putString(WIDTH_SNAKE, pxWidth.toString())
+                .putString(SIZE_HEAD_SNAKE, sizeHead.toString())
                 .apply()
         }
     }
@@ -64,8 +64,8 @@ class MainActivity : AppCompatActivity() {
 
     companion object {
         const val SNAKE_CELLS_ON_FIELD = 10
-        const val SNAKE_WIDTH = "pxWidth"
-        const val SNAKE_SIZE_HEAD = "sizeHead"
+        const val WIDTH_SNAKE = "pxWidth"
+        const val SIZE_HEAD_SNAKE = "sizeHead"
         const val NAME_PREF = "preference"
     }
 }

@@ -1,7 +1,10 @@
 package com.ladushkinySkazky.ladushkinnyskazki.snake
 
+import android.annotation.SuppressLint
+import android.content.SharedPreferences
 import android.media.MediaPlayer
 import android.os.Bundle
+import android.view.MotionEvent
 import android.widget.FrameLayout
 import android.widget.ImageView
 import androidx.appcompat.app.AlertDialog
@@ -29,8 +32,12 @@ class SnakeActivity : AppCompatActivity() {
     private lateinit var head: ImageView
     private lateinit var bed: ImageView
     private lateinit var playerBackSound: MediaPlayer
+    private lateinit var mPreferences: SharedPreferences
     private var loadTextWidth = 0
     private var loadTextHead = 0
+    private var speed: Long = 0
+    private var isMusic = true
+    private var isSound = true
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,16 +45,22 @@ class SnakeActivity : AppCompatActivity() {
         _binding = ActivitySnakeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val mPreferences = getSharedPreferences(MainActivity.NAME_PREF, MODE_PRIVATE)
-        loadTextWidth = mPreferences.getString(MainActivity.SNAKE_WIDTH, "")!!.toInt()
-        loadTextHead = mPreferences.getString(MainActivity.SNAKE_SIZE_HEAD, "")!!.toInt()
+        mPreferences = getSharedPreferences(MainActivity.NAME_PREF, MODE_PRIVATE)
 
+        getSharedPreferences()
         setupView()
         setupOnClick()
         setupStartGame()
     }
 
-    private fun setupStartGame(){
+    private fun getSharedPreferences() {
+        loadTextWidth = mPreferences.getString(MainActivity.WIDTH_SNAKE, "300")!!.toInt()
+        loadTextHead = mPreferences.getString(MainActivity.SIZE_HEAD_SNAKE, "300")!!.toInt()
+        isMusic = mPreferences.getBoolean(IS_MUSIC, true)
+        isSound = mPreferences.getBoolean(IS_SOUND, true)
+    }
+
+    private fun setupStartGame() {
         soundBack()
         isPlay = false
         openWelcomeDialog()
@@ -56,6 +69,18 @@ class SnakeActivity : AppCompatActivity() {
     }
 
     private fun setupView() {
+
+        if (isMusic) {
+            binding.icMusic.setImageResource(R.drawable.ic_music_on)
+        } else {
+            binding.icMusic.setImageResource(R.drawable.ic_music_off)
+        }
+
+        if (isSound) {
+            binding.icSound.setImageResource(R.drawable.ic_sound_on)
+        } else {
+            binding.icSound.setImageResource(R.drawable.ic_sound_off)
+        }
 
         //появляющиеся объекты ("еда" змейки)
         animal = ImageView(this)
@@ -84,9 +109,43 @@ class SnakeActivity : AppCompatActivity() {
             }
     }
 
+    @SuppressLint("ClickableViewAccessibility")
     private fun setupOnClick() {
         //кнопки управления
         with(binding) {
+
+            icQuestion.setOnClickListener {
+                isPlay = false
+                icPause.setImageResource(R.drawable.ic_play)
+                openQuestionDialog()
+            }
+
+            icMusic.setOnClickListener {
+                isMusic = !isMusic
+                mPreferences.edit()
+                    .putBoolean(IS_MUSIC, isMusic)
+                    .apply()
+                if (isMusic) {
+                    icMusic.setImageResource(R.drawable.ic_music_on)
+                    soundBack()
+                } else {
+                    icMusic.setImageResource(R.drawable.ic_music_off)
+                    stopPlay(playerBackSound)
+                }
+            }
+
+            icSound.setOnClickListener {
+                isSound = !isSound
+                mPreferences.edit()
+                    .putBoolean(IS_SOUND, isSound)
+                    .apply()
+                if (isSound) {
+                    icSound.setImageResource(R.drawable.ic_sound_on)
+                } else {
+                    icSound.setImageResource(R.drawable.ic_sound_off)
+                }
+            }
+
             icUp.setOnClickListener {
                 SnakeCore.nextMovie =
                     { checkIfCurrentDirectionIsNotOpposite(Direction.UP, Direction.DOWN) }
@@ -112,8 +171,27 @@ class SnakeActivity : AppCompatActivity() {
                 }
                 isPlay = !isPlay
             }
+
+            icSpeed.performClick()
+            icSpeed.setOnTouchListener { v, event ->
+                when (v) {
+                    icSpeed -> {
+                        when (event?.action) {
+                            MotionEvent.ACTION_DOWN -> {
+                                speed = gameSpeed
+                                gameSpeed = 250
+                            }
+                            MotionEvent.ACTION_UP -> {
+                                gameSpeed = speed
+                            }
+                        }
+                    }
+                }
+                true
+            }
         }
     }
+
 
     //генератор новых объектов ("еды")
     private fun generateNewAnimal() {
@@ -179,7 +257,6 @@ class SnakeActivity : AppCompatActivity() {
             soundHello()
             ifFullTale()
         }
-
     }
 
     //собраны ли все друзья
@@ -344,32 +421,45 @@ class SnakeActivity : AppCompatActivity() {
 
     private fun soundBack() {
         playerBackSound = MediaPlayer.create(this, R.raw.sverchki)
-        play(playerBackSound)
-        playerBackSound.setOnCompletionListener { play(playerBackSound) }
+        if (isMusic) {
+            play(playerBackSound)
+            playerBackSound.setOnCompletionListener { play(playerBackSound) }
+        } else {
+            stopPlay(playerBackSound)
+
+        }
     }
 
     private fun soundPause() {
-        val playerPauseSound = MediaPlayer.create(this, R.raw.blbl)
-        play(playerPauseSound)
-        playerPauseSound.setOnCompletionListener { stopPlay(playerPauseSound) }
+        if (isSound) {
+            val playerPauseSound = MediaPlayer.create(this, R.raw.blbl)
+            play(playerPauseSound)
+            playerPauseSound.setOnCompletionListener { stopPlay(playerPauseSound) }
+        }
     }
 
     private fun soundHello() {
-        val mPlayerHelloSound = MediaPlayer.create(this, R.raw.hello)
-        play(mPlayerHelloSound)
-        mPlayerHelloSound.setOnCompletionListener { stopPlay(mPlayerHelloSound) }
+        if (isSound) {
+            val mPlayerHelloSound = MediaPlayer.create(this, R.raw.hello)
+            play(mPlayerHelloSound)
+            mPlayerHelloSound.setOnCompletionListener { stopPlay(mPlayerHelloSound) }
+        }
     }
 
     private fun soundCrash() {
-        val mPlayerGameOver = MediaPlayer.create(this, R.raw.puks)
-        play(mPlayerGameOver)
-        mPlayerGameOver.setOnCompletionListener { stopPlay(mPlayerGameOver) }
+        if (isSound) {
+            val mPlayerGameOver = MediaPlayer.create(this, R.raw.puks)
+            play(mPlayerGameOver)
+            mPlayerGameOver.setOnCompletionListener { stopPlay(mPlayerGameOver) }
+        }
     }
 
     private fun soundCongratulation() {
-        val mPlayerCongratulationSound = MediaPlayer.create(this, R.raw.zev)
-        play(mPlayerCongratulationSound)
-        mPlayerCongratulationSound.setOnCompletionListener { stopPlay(mPlayerCongratulationSound) }
+        if (isSound) {
+            val mPlayerCongratulationSound = MediaPlayer.create(this, R.raw.zev)
+            play(mPlayerCongratulationSound)
+            mPlayerCongratulationSound.setOnCompletionListener { stopPlay(mPlayerCongratulationSound) }
+        }
     }
 
     private fun play(mPlayer: MediaPlayer) {
@@ -378,7 +468,6 @@ class SnakeActivity : AppCompatActivity() {
 
     private fun stopPlay(mPlayer: MediaPlayer) {
         mPlayer.stop()
-
         try {
             mPlayer.prepare()
             mPlayer.seekTo(0)
@@ -388,20 +477,35 @@ class SnakeActivity : AppCompatActivity() {
 
     //Диалоги:
 
+    private fun openQuestionDialog() {
+        AlertDialog.Builder(this)
+            .setTitle("Правила игры:")
+            .setMessage(
+                "Нужно помочь Понюшке собрать всех ёжиков и отвести их в кроватку.\n" +
+                        "За пределы поля выходить нельзя.\n" +
+                        "В цепочку ёжиков врезаться нельзя.\n" +
+                        "Когда будет собрано 7 ёжиков, кроватка появится.\n" +
+                        "Радоваться успехам - нужно! :)"
+            )
+            .setPositiveButton("Понятненько)") { _, _ ->
+            }
+            .setCancelable(false)
+            .show()
+    }
+
     private fun openWelcomeDialog() {
-        val sendDialog = AlertDialog.Builder(
-            this
-        )
-        sendDialog.setTitle("Приветик!")
-        sendDialog.setMessage(
-            "Помоги Понюшке собрать всех ёжиков и отведи их в кроватку!\n" +
-                    "Помни, за пределы поля выходить нельзя, в цепочку ёжиков врезаться нельзя.\n" +
-                    "Радоваться успехам - нужно! :)"
-        )
-        sendDialog.setPositiveButton("Понятненько)") { _, _ ->
-            startTheGame()
-        }
-        sendDialog.show()
+        AlertDialog.Builder(this)
+            .setTitle("Приветик!")
+            .setMessage(
+                "Помоги Понюшке собрать всех ёжиков и отведи их в кроватку!\n" +
+                        "Помни, за пределы поля выходить нельзя, в цепочку ёжиков врезаться нельзя.\n" +
+                        "Радоваться успехам - нужно! :)"
+            )
+            .setPositiveButton("Понятненько)") { _, _ ->
+                startTheGame()
+            }
+            .setCancelable(false)
+            .show()
     }
 
     //сообщение GAME OVER
@@ -411,6 +515,8 @@ class SnakeActivity : AppCompatActivity() {
             .setMessage("Собрано друзей: ${allTale.size}!")
             .setPositiveButton("ок") { _, _ ->
                 this.recreate()
+
+
             }
             .setCancelable(false)
             .create()
@@ -432,11 +538,15 @@ class SnakeActivity : AppCompatActivity() {
 
     override fun onRestart() {
         super.onRestart()
-        play(playerBackSound)
+        if (isMusic) {
+            play(playerBackSound)
+        }
     }
 
     override fun onStop() {
-        stopPlay(playerBackSound)
+        if (isMusic) {
+            stopPlay(playerBackSound)
+        }
         isPlay = false
         super.onStop()
 
@@ -446,5 +556,7 @@ class SnakeActivity : AppCompatActivity() {
         const val CELLS_ON_FIELD = 10
         const val CELLS_ON_GENERATE = 10
         const val FULL = 7
+        private const val IS_MUSIC = "isMusic"
+        private const val IS_SOUND = "isSound"
     }
 }
