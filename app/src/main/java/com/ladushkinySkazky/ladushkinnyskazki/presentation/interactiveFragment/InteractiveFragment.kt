@@ -1,7 +1,6 @@
 package com.ladushkinySkazky.ladushkinnyskazki.presentation.interactiveFragment
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -39,8 +38,10 @@ class InteractiveFragment : Fragment() {
     private fun observeViewModel() {
         viewModel = ViewModelProvider(this)[InteractiveViewModel::class.java]
         viewModel.interactiveList.observe(viewLifecycleOwner) {
+            if (it.isNotEmpty()) {
+                binding.progressInteractive.visibility = View.GONE
+            }
             interactiveAdapter.submitList(it.sortedByDescending { it1 -> it1.DataTime })
-            Log.d("LOAD", "interactiveAdapter = $it")
         }
     }
 
