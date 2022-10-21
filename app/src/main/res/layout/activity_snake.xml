@@ -140,7 +140,7 @@
         android:background="@drawable/round_button_red"
         android:contentDescription="@string/description_button_play_play_pause"
         android:padding="17dp"
-        android:src="@drawable/ic_play"
+        android:src="@drawable/ic_pause"
         app:layout_constraintBottom_toBottomOf="@+id/icUp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/view"
