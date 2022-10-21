@@ -1,12 +1,14 @@
 package com.ladushkinySkazky.ladushkinnyskazki.snake
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.content.SharedPreferences
 import android.media.MediaPlayer
 import android.os.Bundle
 import android.view.MotionEvent
 import android.widget.FrameLayout
 import android.widget.ImageView
+import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
@@ -50,12 +52,13 @@ class SnakeActivity : AppCompatActivity() {
         getSharedPreferences()
         setupView()
         setupOnClick()
+        onBackPress(this)
         setupStartGame()
     }
 
     private fun getSharedPreferences() {
-        loadTextWidth = mPreferences.getString(MainActivity.WIDTH_SNAKE, "300")!!.toInt()
-        loadTextHead = mPreferences.getString(MainActivity.SIZE_HEAD_SNAKE, "300")!!.toInt()
+        loadTextWidth = mPreferences.getInt(MainActivity.SNAKE_WIDTH, 0)
+        loadTextHead = mPreferences.getInt(MainActivity.SNAKE_SIZE_HEAD, 0)
         isMusic = mPreferences.getBoolean(IS_MUSIC, true)
         isSound = mPreferences.getBoolean(IS_SOUND, true)
     }
@@ -274,7 +277,7 @@ class SnakeActivity : AppCompatActivity() {
         if (allTale.size == FULL && head.left == bed.left && head.top == bed.top) {
             isPlay = false
             soundCongratulation()
-            showCongratulation()
+            openCongratulationDialog()
         }
     }
 
@@ -328,7 +331,7 @@ class SnakeActivity : AppCompatActivity() {
             if (checkIfSnakeSmash()) {
                 isPlay = false
                 soundCrash()
-                showScore()
+                openScoreDialog()
                 return@runOnUiThread
             }
 
@@ -508,23 +511,19 @@ class SnakeActivity : AppCompatActivity() {
             .show()
     }
 
-    //сообщение GAME OVER
-    private fun showScore() {
+    private fun openScoreDialog() {
         AlertDialog.Builder(this)
             .setTitle("Ой!")
             .setMessage("Собрано друзей: ${allTale.size}!")
             .setPositiveButton("ок") { _, _ ->
                 this.recreate()
-
-
             }
             .setCancelable(false)
             .create()
             .show()
     }
 
-    //сообщение о победе
-    private fun showCongratulation() {
+    private fun openCongratulationDialog() {
         AlertDialog.Builder(this)
             .setTitle("Спасибо за помощь!")
             .setMessage("Все ёжики пошли спатеньки, и ты, мой дружочек, засыпай!")
@@ -551,6 +550,28 @@ class SnakeActivity : AppCompatActivity() {
         super.onStop()
 
     }
+
+    private fun onBackPress(context: Context) {
+        onBackPressedDispatcher.addCallback(
+            this,
+            object : OnBackPressedCallback(true) {
+                override fun handleOnBackPressed() {
+                    isPlay = false
+                    AlertDialog.Builder(context)
+                        .setTitle("Уже наигрались?")
+                        .setPositiveButton("Да!") { _, _ ->
+                            finish()
+                        }
+                        .setNegativeButton("Ой, нет!") { _, _ ->
+                            isPlay = true
+                        }
+                        .setCancelable(false)
+                        .create()
+                        .show()
+                }
+            })
+    }
+
 
     companion object {
         const val CELLS_ON_FIELD = 10

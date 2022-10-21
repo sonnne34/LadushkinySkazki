@@ -30,12 +30,10 @@ class LoadSkazky : LiveData<List<CategorySkazkiModel>>() {
             firebaseDatabase.addValueEventListener(listener)
         }
         super.onActive()
-        Log.d("LoadUri", "onActive")
     }
 
     override fun onInactive() {
         firebaseDatabase.removeEventListener(listener)
         super.onInactive()
-        Log.d("LoadUri", "onInactive")
     }
 }
