@@ -52,4 +52,7 @@
     <string name="description_view_skazka">Иконка просмотрена ли сказка</string>
     <string name="description_like_skazka">Иконка \"нравится сказка\"</string>
     <string name="btn_new">✨ Новинки ✨</string>
+    <string name="description_question">Правила игры</string>
+    <string name="description_btn_music">Включение/отключение музыки</string>
+    <string name="description_btn_sound">Включение/отключение звуков</string>
 </resources>

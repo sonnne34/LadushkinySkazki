@@ -16,7 +16,7 @@
         android:padding="20dp"
         android:text="@string/txt_snake"
         android:textColor="@color/yellow"
-        android:textSize="16sp"
+        android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -26,6 +26,7 @@
         android:layout_height="45dp"
         android:layout_margin="10dp"
         android:background="@drawable/round_button_blue"
+        android:contentDescription="@string/description_question"
         android:padding="3dp"
         android:src="@drawable/ic_query"
         app:layout_constraintBottom_toTopOf="@+id/container_game"
@@ -40,6 +41,7 @@
         android:layout_height="45dp"
         android:layout_margin="10dp"
         android:background="@drawable/round_button_orange"
+        android:contentDescription="@string/description_btn_music"
         android:padding="10dp"
         android:src="@drawable/ic_music_off"
         app:layout_constraintBottom_toTopOf="@+id/container_game"
@@ -53,6 +55,7 @@
         android:layout_height="45dp"
         android:layout_margin="10dp"
         android:background="@drawable/round_button_green"
+        android:contentDescription="@string/description_btn_sound"
         android:padding="10dp"
         android:src="@drawable/ic_sound_off"
         app:layout_constraintBottom_toTopOf="@+id/container_game"
