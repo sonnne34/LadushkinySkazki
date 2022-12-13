@@ -3,4 +3,8 @@
     <item
         android:id="@+id/about_us"
         android:title="@string/about_us" />
+
+    <item
+        android:id="@+id/feedback"
+        android:title="@string/txt_menu_feedback" />
 </menu>

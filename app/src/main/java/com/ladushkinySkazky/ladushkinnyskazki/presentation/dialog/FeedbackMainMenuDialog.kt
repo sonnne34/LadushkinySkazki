@@ -15,12 +15,12 @@ import com.ladushkinySkazky.ladushkinnyskazki.R
 import java.util.*
 
 
-class MainMenuDialog {
+class FeedbackMainMenuDialog {
     companion object {
         fun openMenu(context: Context) {
             val dialog = Dialog(context, R.style.CustomDialogMenu)
             dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
-            dialog.setContentView(R.layout.dialog_main_menu)
+            dialog.setContentView(R.layout.dialog_feedback)
             dialog.window?.setGravity(Gravity.TOP)
             dialog.window?.setLayout(
                 ListPopupWindow.WRAP_CONTENT,

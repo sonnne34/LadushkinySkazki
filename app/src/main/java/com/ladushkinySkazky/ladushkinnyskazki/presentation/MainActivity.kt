@@ -8,7 +8,8 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.ladushkinySkazky.ladushkinnyskazki.R
 import com.ladushkinySkazky.ladushkinnyskazki.domian.NetworkMonitorUtil
-import com.ladushkinySkazky.ladushkinnyskazki.presentation.dialog.MainMenuDialog
+import com.ladushkinySkazky.ladushkinnyskazki.presentation.dialog.AboutUsMainMenuDialog
+import com.ladushkinySkazky.ladushkinnyskazki.presentation.dialog.FeedbackMainMenuDialog
 
 class MainActivity : AppCompatActivity() {
 
@@ -17,15 +18,9 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
         networkMonitorResult()
         sizePx()
-
         setSupportActionBar(findViewById(R.id.my_toolbar))
-
-        supportActionBar?.setDisplayHomeAsUpEnabled(true) ?: throw IllegalStateException()
-        supportActionBar?.setDisplayShowHomeEnabled(true) ?: throw IllegalStateException()
-
     }
 
 
@@ -36,13 +31,11 @@ class MainActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            android.R.id.home -> {
-                onBackPressed()
-                return true
-            }
-
             R.id.about_us -> {
-                MainMenuDialog.openMenu(this)
+                AboutUsMainMenuDialog.openMenu(this)
+            }
+            R.id.feedback -> {
+                FeedbackMainMenuDialog.openMenu(this)
             }
         }
         return super.onOptionsItemSelected(item)

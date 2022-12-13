@@ -48,10 +48,4 @@
         <item name="android:textColorPrimary">@color/yellow</item>
     </style>
 
-    <style name="ToolbarTitleTheme" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
-        <item name="android:textSize">22sp</item>
-        <item name="android:gravity">center</item>
-        <item name="android:layout_gravity">center</item>
-    </style>
-
 </resources>
