@@ -55,4 +55,5 @@
     <string name="description_question">Правила игры</string>
     <string name="description_btn_music">Включение/отключение музыки</string>
     <string name="description_btn_sound">Включение/отключение звуков</string>
+    <string name="about_us">О нас</string>
 </resources>

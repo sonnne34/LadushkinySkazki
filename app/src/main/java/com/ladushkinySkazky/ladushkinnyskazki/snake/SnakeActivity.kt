@@ -5,6 +5,7 @@ import android.content.Context
 import android.content.SharedPreferences
 import android.media.MediaPlayer
 import android.os.Bundle
+import android.util.Log
 import android.view.MotionEvent
 import android.widget.FrameLayout
 import android.widget.ImageView
@@ -47,13 +48,14 @@ class SnakeActivity : AppCompatActivity() {
         _binding = ActivitySnakeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        openWelcomeDialog()
+
         mPreferences = getSharedPreferences(MainActivity.NAME_PREF, MODE_PRIVATE)
 
         getSharedPreferences()
         setupView()
         setupOnClick()
         onBackPress(this)
-        setupStartGame()
     }
 
     private fun getSharedPreferences() {
@@ -66,7 +68,6 @@ class SnakeActivity : AppCompatActivity() {
     private fun setupStartGame() {
         soundBack()
         isPlay = false
-        openWelcomeDialog()
         generateNewAnimal()
         SnakeCore.nextMovie = { move(Direction.RIGHT) }
     }
@@ -346,7 +347,7 @@ class SnakeActivity : AppCompatActivity() {
     //проверка на повторное нажатие направления
     private fun checkIfCurrentDirectionIsNotOpposite(
         properDirections: Direction,
-        oppositeDirections: Direction
+        oppositeDirections: Direction,
     ) {
         if (currentDirections == oppositeDirections) {
             move(currentDirections)
@@ -475,6 +476,7 @@ class SnakeActivity : AppCompatActivity() {
             mPlayer.prepare()
             mPlayer.seekTo(0)
         } catch (t: Throwable) {
+            Log.d("Exception", "Throwable $t")
         }
     }
 
@@ -498,13 +500,14 @@ class SnakeActivity : AppCompatActivity() {
 
     private fun openWelcomeDialog() {
         AlertDialog.Builder(this)
-            .setTitle("Приветик!")
+            .setTitle("Вперёд!")
             .setMessage(
-                "Помоги Понюшке собрать всех ёжиков и отведи их в кроватку!\n" +
+                "Нужно помочь Понюшке собрать всех ёжиков и отведи их в кроватку!\n" +
                         "Помни, за пределы поля выходить нельзя, в цепочку ёжиков врезаться нельзя.\n" +
                         "Радоваться успехам - нужно! :)"
             )
-            .setPositiveButton("Понятненько)") { _, _ ->
+            .setPositiveButton("К победе!)") { _, _ ->
+                setupStartGame()
                 startTheGame()
             }
             .setCancelable(false)

@@ -2,7 +2,8 @@ package com.ladushkinySkazky.ladushkinnyskazki.presentation
 
 import android.os.Bundle
 import android.util.DisplayMetrics
-import android.widget.ImageButton
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.ladushkinySkazky.ladushkinnyskazki.R
@@ -17,11 +18,34 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val btnMenu = findViewById<ImageButton>(R.id.img_btn_menu_main)
-        btnMenu.setOnClickListener { MainMenuDialog.openMenu(this) }
-
         networkMonitorResult()
         sizePx()
+
+        setSupportActionBar(findViewById(R.id.my_toolbar))
+
+        supportActionBar?.setDisplayHomeAsUpEnabled(true) ?: throw IllegalStateException()
+        supportActionBar?.setDisplayShowHomeEnabled(true) ?: throw IllegalStateException()
+
+    }
+
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.main_menu, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            android.R.id.home -> {
+                onBackPressed()
+                return true
+            }
+
+            R.id.about_us -> {
+                MainMenuDialog.openMenu(this)
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     private fun sizePx() {
