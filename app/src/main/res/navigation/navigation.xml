@@ -43,8 +43,6 @@
         <action
             android:id="@+id/action_interactiveFragment_to_interactiveAddFragment"
             app:destination="@id/interactiveAddFragment"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/translate_left_side"
             app:popUpTo="@id/interactiveFragment"
             app:popUpToInclusive="false" />
     </fragment>
