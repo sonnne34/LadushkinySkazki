@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity() {
 
     private val networkMonitor = NetworkMonitorUtil(this)
 
-    private val coroutineScope = CoroutineScope(Dispatchers.Main)
+    private var coroutineScope = CoroutineScope(Dispatchers.Main)
 
     private var timerOne: CountDownTimer? = null
     private var timerTwo: CountDownTimer? = null
@@ -32,12 +32,17 @@ class MainActivity : AppCompatActivity() {
     private var timerFive: CountDownTimer? = null
     private var timerSix: CountDownTimer? = null
 
+    private lateinit var container: FrameLayout
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        coroutineScope.launch {
-            snow()
-        }
+
+        coroutineScope.launch { snow() }
+        container = findViewById(R.id.activity_main_container)
+
+        Log.d("timer", "onCreate")
+
 
 
         networkMonitorResult()
@@ -46,7 +51,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private suspend fun snow() {
-        val container = findViewById<FrameLayout>(R.id.activity_main_container)
+
         val snowOne = ImageView(this)
         val snowTwo = ImageView(this)
         val snowThree = ImageView(this)
@@ -62,28 +67,25 @@ class MainActivity : AppCompatActivity() {
         snowSix.setImageResource(R.drawable.snowflake_six)
 
         delay((5_000..7_000).random().toLong())
-        startTimerOne(snowOne, container)
+        startTimerOne(snowOne)
         delay((1_000..5_000).random().toLong())
-        startTimerTwo(snowTwo, container)
+        startTimerTwo(snowTwo)
         delay((1_000..5_000).random().toLong())
-        startTimerThree(snowThree, container)
+        startTimerThree(snowThree)
         delay((1_000..5_000).random().toLong())
-        startTimerFour(snowFour, container)
+        startTimerFour(snowFour)
         delay((1_000..5_000).random().toLong())
-        startTimerFive(snowFive, container)
+        startTimerFive(snowFive)
         delay((1_000..5_000).random().toLong())
-        startTimerSix(snowSix, container)
+        startTimerSix(snowSix)
 
     }
 
-    private fun startTimerOne(
-        image: ImageView,
-        container: FrameLayout,
-    ) {
+    private fun startTimerOne(image: ImageView) {
         val timerPeriod = (20_000..30_000).random().toLong()
         timerOne = object : CountDownTimer(Long.MAX_VALUE, timerPeriod) {
             override fun onTick(millisUntilFinished: Long) {
-                generateSnow(image, container)
+                generateSnow(image)
                 Log.d("timer", "timerOne ${image.drawable}")
             }
 
@@ -92,14 +94,11 @@ class MainActivity : AppCompatActivity() {
         timerOne?.start()
     }
 
-    private fun startTimerTwo(
-        image: ImageView,
-        container: FrameLayout,
-    ) {
+    private fun startTimerTwo(image: ImageView) {
         val timerPeriod = (20_000..30_000).random().toLong()
         timerTwo = object : CountDownTimer(Long.MAX_VALUE, timerPeriod) {
             override fun onTick(millisUntilFinished: Long) {
-                generateSnow(image, container)
+                generateSnow(image)
                 Log.d("timer", "timerTwo ${image.drawable}")
             }
 
@@ -108,14 +107,11 @@ class MainActivity : AppCompatActivity() {
         timerTwo?.start()
     }
 
-    private fun startTimerThree(
-        image: ImageView,
-        container: FrameLayout,
-    ) {
+    private fun startTimerThree(image: ImageView) {
         val timerPeriod = (20_000..30_000).random().toLong()
         timerThree = object : CountDownTimer(Long.MAX_VALUE, timerPeriod) {
             override fun onTick(millisUntilFinished: Long) {
-                generateSnow(image, container)
+                generateSnow(image)
                 Log.d("timer", "timerThree ${image.drawable}")
             }
 
@@ -124,14 +120,11 @@ class MainActivity : AppCompatActivity() {
         timerThree?.start()
     }
 
-    private fun startTimerFour(
-        image: ImageView,
-        container: FrameLayout,
-    ) {
+    private fun startTimerFour(image: ImageView) {
         val timerPeriod = (20_000..30_000).random().toLong()
         timerFour = object : CountDownTimer(Long.MAX_VALUE, timerPeriod) {
             override fun onTick(millisUntilFinished: Long) {
-                generateSnow(image, container)
+                generateSnow(image)
                 Log.d("timer", "timerFour ${image.drawable}")
             }
 
@@ -140,14 +133,11 @@ class MainActivity : AppCompatActivity() {
         timerFour?.start()
     }
 
-    private fun startTimerFive(
-        image: ImageView,
-        container: FrameLayout,
-    ) {
+    private fun startTimerFive(image: ImageView) {
         val timerPeriod = (20_000..30_000).random().toLong()
         timerFive = object : CountDownTimer(Long.MAX_VALUE, timerPeriod) {
             override fun onTick(millisUntilFinished: Long) {
-                generateSnow(image, container)
+                generateSnow(image)
                 Log.d("timer", "timerFive ${image.drawable}")
             }
 
@@ -156,14 +146,11 @@ class MainActivity : AppCompatActivity() {
         timerFive?.start()
     }
 
-    private fun startTimerSix(
-        image: ImageView,
-        container: FrameLayout,
-    ) {
+    private fun startTimerSix(image: ImageView) {
         val timerPeriod = (20_000..30_000).random().toLong()
         timerSix = object : CountDownTimer(Long.MAX_VALUE, timerPeriod) {
             override fun onTick(millisUntilFinished: Long) {
-                generateSnow(image, container)
+                generateSnow(image)
                 Log.d("timer", "timerSix ${image.drawable}")
             }
 
@@ -172,7 +159,7 @@ class MainActivity : AppCompatActivity() {
         timerSix?.start()
     }
 
-    private fun generateSnow(snow: ImageView, container: FrameLayout) {
+    private fun generateSnow(snow: ImageView) {
         val sizeSnow = (32..128).random()
         val viewCoordinate = generateSnowCoordinates()
 
@@ -199,6 +186,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun animSnow(image: ImageView) {
+        image.clearAnimation()
         //анимация альфа канала (прозрачности от 0 до 1)
         val animation: Animation = AlphaAnimation(1.0f, 0.0f)
         //длительность анимации 1/10 секунды
@@ -258,20 +246,28 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    override fun onRestart() {
+        super.onRestart()
+        coroutineScope.launch { snow() }
+        Log.d("timer", "onRestart coroutineScope.cancel() ${coroutineScope.isActive}")
+        Log.d("timer", "onRestart")
+    }
+
     override fun onResume() {
         super.onResume()
         networkMonitor.register()
-        timerOne?.start()
-        timerTwo?.start()
-        timerThree?.start()
-        timerFour?.start()
-        timerFive?.start()
-        timerSix?.start()
+        Log.d("timer", "onResume")
     }
 
     override fun onPause() {
         super.onPause()
         networkMonitor.unregister()
+        Log.d("timer", "onPause")
+    }
+
+    override fun onStop() {
+        super.onStop()
+        Log.d("timer", "onStop")
         Log.d("timer", "timer?.cancel()")
         timerOne?.cancel()
         timerTwo?.cancel()
@@ -280,6 +276,12 @@ class MainActivity : AppCompatActivity() {
         timerFive?.cancel()
         timerSix?.cancel()
         coroutineScope.cancel()
+        Log.d("timer", "coroutineScope.cancel() ${coroutineScope.isActive}")
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.d("timer", "onDestroy")
     }
 
     companion object {
