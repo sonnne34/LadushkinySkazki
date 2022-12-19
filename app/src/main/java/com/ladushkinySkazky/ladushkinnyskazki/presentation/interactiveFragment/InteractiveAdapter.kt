@@ -30,30 +30,27 @@ class InteractiveAdapter(val context: Context) :
     @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(viewHolder: InteractiveViewHolder, position: Int) {
         val interactiveItem = getItem(position)
-        if (interactiveItem.Check) {
-            viewHolder.nameAuthor.text = interactiveItem.Name
-            viewHolder.yearAuthor.text = ", ${interactiveItem.Year}"
-            viewHolder.comment.text = interactiveItem.Comment
+        viewHolder.nameAuthor.text = interactiveItem.Name
+        viewHolder.yearAuthor.text = ", ${interactiveItem.Year}"
+        viewHolder.comment.text = interactiveItem.Comment
 
-            if (interactiveItem.ImageForLoad == null) {
-                FirebaseStorage
-                    .getInstance()
-                    .getReferenceFromUrl(interactiveItem.Image)
-                    .downloadUrl.addOnSuccessListener { uri ->
+        if (interactiveItem.ImageForLoad == null) {
+            FirebaseStorage
+                .getInstance()
+                .getReferenceFromUrl(interactiveItem.Image)
+                .downloadUrl.addOnSuccessListener { uri ->
                     interactiveItem.ImageForLoad = uri
                     viewHolder.img.load(uri) {
                         crossfade(true)
                     }
                 }
-            } else {
-                viewHolder.img.load(interactiveItem.ImageForLoad) {
-                    placeholder(R.drawable.background_image)
-                    crossfade(true)
-                }
-            }
         } else {
-            viewHolder.itemView.visibility = View.GONE
+            viewHolder.img.load(interactiveItem.ImageForLoad) {
+                placeholder(R.drawable.background_image)
+                crossfade(true)
+            }
         }
+
         viewHolder.itemView.setOnClickListener {
             InteractiveFullScreenDialog.openFullscreen(context, interactiveItem)
         }

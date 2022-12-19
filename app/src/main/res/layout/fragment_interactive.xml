@@ -40,7 +40,8 @@
                     android:id="@+id/btn_send_interactive"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="7dp"
+                    android:layout_marginVertical="8dp"
+                    android:layout_marginHorizontal="16dp"
                     android:backgroundTint="@color/yellowLightTrans"
                     android:text="@string/btn_add_interactive"
                     android:textColor="@color/blackTrans" />

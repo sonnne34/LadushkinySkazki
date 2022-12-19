@@ -21,7 +21,7 @@ class InteractiveFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
     ): View {
         _binding = FragmentInteractiveBinding.inflate(layoutInflater)
         interactiveAdapter = InteractiveAdapter(binding.root.context)
@@ -37,11 +37,13 @@ class InteractiveFragment : Fragment() {
 
     private fun observeViewModel() {
         viewModel = ViewModelProvider(this)[InteractiveViewModel::class.java]
-        viewModel.interactiveList.observe(viewLifecycleOwner) {
-            if (it.isNotEmpty()) {
+        viewModel.interactiveList.observe(viewLifecycleOwner) { interactiveList ->
+            if (interactiveList.isNotEmpty()) {
                 binding.progressInteractive.visibility = View.GONE
             }
-            interactiveAdapter.submitList(it.sortedByDescending { it1 -> it1.DataTime })
+            interactiveAdapter
+                .submitList(interactiveList.sortedByDescending { it1 -> it1.DataTime }
+                .filter { it.Check })
         }
     }
 
