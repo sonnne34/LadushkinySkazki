@@ -1,8 +1,6 @@
 package com.ladushkinySkazky.ladushkinnyskazki.presentation.interactiveAddFragment
 
-import android.app.Activity.RESULT_OK
 import android.app.ProgressDialog
-import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.text.format.DateFormat
@@ -12,17 +10,18 @@ import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import coil.load
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
+import com.ladushkinySkazky.ladushkinnyskazki.R
 import com.ladushkinySkazky.ladushkinnyskazki.databinding.FragmentInteractiveAddBinding
-import com.squareup.picasso.Picasso
-import java.io.IOException
 import java.util.*
 
 
@@ -43,7 +42,7 @@ class InteractiveAddFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
     ): View {
         _binding = FragmentInteractiveAddBinding.inflate(layoutInflater)
         return binding.root
@@ -57,41 +56,20 @@ class InteractiveAddFragment : Fragment() {
 
     private fun setupView() {
         with(binding) {
+            imageView = imgInteractiveAdd
+            val contractImage = ActivityResultContracts.GetContent()
+            val launcherImage = registerForActivityResult(contractImage) {
+                filePath = it
+                if (filePath != null) {
+                    imageView.load(filePath) { placeholder(R.drawable.ic_loading) }
+                }
+            }
+            imageView.setOnClickListener { launcherImage.launch("image/*") }
+
             edtNameAuthor = edtNameInteractiveAdd
             edtYear = edtYearInteractiveAdd
             edtComment = edtCommentInteractiveAdd
-            imageView = imgInteractiveAdd
-            imageView.setOnClickListener {
-                imageLoad()
-            }
-            btnSendInteractiveAdd.setOnClickListener {
-                checkSend()
-            }
-        }
-    }
-
-    private fun imageLoad() {
-        val intent = Intent()
-        intent.type = "image/*"
-        intent.action = Intent.ACTION_GET_CONTENT
-        startActivityForResult(Intent.createChooser(intent, "Select Picture"), PICK_IMAGE_REQUEST)
-    }
-
-    @Deprecated(
-        "Deprecated in Java", ReplaceWith(
-            "super.onActivityResult(requestCode, resultCode, data)",
-            "androidx.fragment.app.Fragment"
-        )
-    )
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null && data.data != null) {
-            filePath = data.data!!
-            try {
-                Picasso.get().load(filePath).into(imageView)
-            } catch (e: IOException) {
-                e.printStackTrace()
-            }
+            btnSendInteractiveAdd.setOnClickListener { checkSend() }
         }
     }
 
@@ -220,7 +198,8 @@ class InteractiveAddFragment : Fragment() {
         findNavController().popBackStack()
     }
 
-    companion object {
-        private const val PICK_IMAGE_REQUEST = 71
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

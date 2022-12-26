@@ -2,7 +2,6 @@
   <library name="Gradle: com.google.android.gms:play-services-tasks:18.0.1@aar">
     <CLASSES>
       <root url="jar://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/29c75f06ea12febd8b3d3c668f8486ca/transformed/jetified-play-services-tasks-18.0.1/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/29c75f06ea12febd8b3d3c668f8486ca/transformed/jetified-play-services-tasks-18.0.1/res" />
       <root url="file://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/29c75f06ea12febd8b3d3c668f8486ca/transformed/jetified-play-services-tasks-18.0.1/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC>

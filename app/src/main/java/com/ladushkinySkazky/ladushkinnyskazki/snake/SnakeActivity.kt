@@ -1,11 +1,15 @@
 package com.ladushkinySkazky.ladushkinnyskazki.snake
 
-import android.content.Intent
+import android.annotation.SuppressLint
+import android.content.Context
 import android.content.SharedPreferences
 import android.media.MediaPlayer
 import android.os.Bundle
+import android.util.Log
+import android.view.MotionEvent
 import android.widget.FrameLayout
 import android.widget.ImageView
+import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
@@ -31,53 +35,121 @@ class SnakeActivity : AppCompatActivity() {
     private lateinit var head: ImageView
     private lateinit var bed: ImageView
     private lateinit var playerBackSound: MediaPlayer
-
     private lateinit var mPreferences: SharedPreferences
+    private var loadTextWidth = 0
+    private var loadTextHead = 0
+    private var speed: Long = 0
+    private var isMusic = true
+    private var isSound = true
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-//        setContentView(R.layout.activity_snake)
 
         _binding = ActivitySnakeBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        container = binding.container
+        openWelcomeDialog()
 
         mPreferences = getSharedPreferences(MainActivity.NAME_PREF, MODE_PRIVATE)
+
+        getSharedPreferences()
+        setupView()
+        setupOnClick()
+        onBackPress(this)
+    }
+
+    private fun getSharedPreferences() {
+        loadTextWidth = mPreferences.getInt(MainActivity.SNAKE_WIDTH, 0)
+        loadTextHead = mPreferences.getInt(MainActivity.SNAKE_SIZE_HEAD, 0)
+        isMusic = mPreferences.getBoolean(IS_MUSIC, true)
+        isSound = mPreferences.getBoolean(IS_SOUND, true)
+    }
+
+    private fun setupStartGame() {
+        soundBack()
+        isPlay = false
+        generateNewAnimal()
+        SnakeCore.nextMovie = { move(Direction.RIGHT) }
+    }
+
+    private fun setupView() {
+
+        if (isMusic) {
+            binding.icMusic.setImageResource(R.drawable.ic_music_on)
+        } else {
+            binding.icMusic.setImageResource(R.drawable.ic_music_off)
+        }
+
+        if (isSound) {
+            binding.icSound.setImageResource(R.drawable.ic_sound_on)
+        } else {
+            binding.icSound.setImageResource(R.drawable.ic_sound_off)
+        }
 
         //появляющиеся объекты ("еда" змейки)
         animal = ImageView(this)
         animal.layoutParams =
-            FrameLayout.LayoutParams(loadTextHead().toInt(), loadTextHead().toInt())
+            FrameLayout.LayoutParams(loadTextHead, loadTextHead)
         animal.setImageResource(R.drawable.hedgehog_two)
 
         //голова змейки
         head = ImageView(this)
-        head.layoutParams = FrameLayout.LayoutParams(loadTextHead().toInt(), loadTextHead().toInt())
+        head.layoutParams = FrameLayout.LayoutParams(loadTextHead, loadTextHead)
         head.setImageResource(R.drawable.unicorn)
 
         //кроватка
         bed = ImageView(this)
-        bed.layoutParams = FrameLayout.LayoutParams(loadTextHead().toInt(), loadTextHead().toInt())
+        bed.layoutParams = FrameLayout.LayoutParams(loadTextHead, loadTextHead)
         bed.setImageResource(R.drawable.cradle)
 
-        soundBack()
-
         //поле для игры
+        container = binding.containerGame
         container.layoutParams =
-            ConstraintLayout.LayoutParams(loadTextWidth().toInt(), loadTextWidth().toInt()).apply {
+            ConstraintLayout.LayoutParams(loadTextWidth, loadTextWidth).apply {
                 bottomToBottom = ConstraintLayout.LayoutParams.PARENT_ID
                 startToStart = ConstraintLayout.LayoutParams.PARENT_ID
                 topToTop = ConstraintLayout.LayoutParams.PARENT_ID
                 endToEnd = ConstraintLayout.LayoutParams.PARENT_ID
             }
+    }
 
-        //запуск игры, создание "еды", первое движение
-        startTheGame()
-        generateNewAnimal()
-        SnakeCore.nextMovie = { move(Direction.RIGHT) }
-
+    @SuppressLint("ClickableViewAccessibility")
+    private fun setupOnClick() {
         //кнопки управления
         with(binding) {
+
+            icQuestion.setOnClickListener {
+                isPlay = false
+                icPause.setImageResource(R.drawable.ic_play)
+                openQuestionDialog()
+            }
+
+            icMusic.setOnClickListener {
+                isMusic = !isMusic
+                mPreferences.edit()
+                    .putBoolean(IS_MUSIC, isMusic)
+                    .apply()
+                if (isMusic) {
+                    icMusic.setImageResource(R.drawable.ic_music_on)
+                    soundBack()
+                } else {
+                    icMusic.setImageResource(R.drawable.ic_music_off)
+                    stopPlay(playerBackSound)
+                }
+            }
+
+            icSound.setOnClickListener {
+                isSound = !isSound
+                mPreferences.edit()
+                    .putBoolean(IS_SOUND, isSound)
+                    .apply()
+                if (isSound) {
+                    icSound.setImageResource(R.drawable.ic_sound_on)
+                } else {
+                    icSound.setImageResource(R.drawable.ic_sound_off)
+                }
+            }
+
             icUp.setOnClickListener {
                 SnakeCore.nextMovie =
                     { checkIfCurrentDirectionIsNotOpposite(Direction.UP, Direction.DOWN) }
@@ -103,31 +175,27 @@ class SnakeActivity : AppCompatActivity() {
                 }
                 isPlay = !isPlay
             }
-        }
 
-    }
-
-    //загрузка ширины экрана
-    private fun loadTextWidth(): String {
-        return mPreferences.getString(MainActivity.WIDTH, "").toString()
-    }
-
-    //загрузка размера объектов/шага
-    private fun loadTextHead(): String {
-        return mPreferences.getString(MainActivity.SIZE_HEAD, "").toString()
-    }
-
-    //проверка на повторное нажатие направления
-    private fun checkIfCurrentDirectionIsNotOpposite(
-        properDirections: Direction,
-        oppositeDirections: Direction
-    ) {
-        if (currentDirections == oppositeDirections) {
-            move(currentDirections)
-        } else {
-            move(properDirections)
+            icSpeed.performClick()
+            icSpeed.setOnTouchListener { v, event ->
+                when (v) {
+                    icSpeed -> {
+                        when (event?.action) {
+                            MotionEvent.ACTION_DOWN -> {
+                                speed = gameSpeed
+                                gameSpeed = 250
+                            }
+                            MotionEvent.ACTION_UP -> {
+                                gameSpeed = speed
+                            }
+                        }
+                    }
+                }
+                true
+            }
         }
     }
+
 
     //генератор новых объектов ("еды")
     private fun generateNewAnimal() {
@@ -143,8 +211,8 @@ class SnakeActivity : AppCompatActivity() {
     //координаты нового объекта "еды"
     private fun generateAnimalCoordinates(): ViewCoordinate {
         val viewCoordinate = ViewCoordinate(
-            (1 until CELLS_ON_GENERATE).random() * loadTextHead().toInt(),
-            (1 until CELLS_ON_GENERATE).random() * loadTextHead().toInt()
+            (1 until CELLS_ON_GENERATE).random() * loadTextHead,
+            (1 until CELLS_ON_GENERATE).random() * loadTextHead
         )
         for (partTale in allTale) {
             if (partTale.viewCoordinate == viewCoordinate) {
@@ -155,16 +223,6 @@ class SnakeActivity : AppCompatActivity() {
             return generateAnimalCoordinates()
         }
         return viewCoordinate
-    }
-
-    //съедение объекта, добавление объекта в тело змейки
-    private fun checkIfSnakeEatsPerson() {
-        if (head.left == animal.left && head.top == animal.top) {
-            addPartOfTale(head.top, head.left)
-            soundHello()
-            ifFullTale()
-        }
-
     }
 
     //создание кроватки
@@ -182,8 +240,8 @@ class SnakeActivity : AppCompatActivity() {
     //координаты нового объекта кроватка
     private fun generateBedCoordinates(): ViewCoordinate {
         val viewCoordinate = ViewCoordinate(
-            (1 until CELLS_ON_GENERATE).random() * loadTextHead().toInt(),
-            (1 until CELLS_ON_GENERATE).random() * loadTextHead().toInt()
+            (1 until CELLS_ON_GENERATE).random() * loadTextHead,
+            (1 until CELLS_ON_GENERATE).random() * loadTextHead
         )
         for (partTale in allTale) {
             if (partTale.viewCoordinate == viewCoordinate) {
@@ -196,12 +254,12 @@ class SnakeActivity : AppCompatActivity() {
         return viewCoordinate
     }
 
-    // в кроватке
-    private fun checkIfCompletePerson() {
-        if (allTale.size == FULL && head.left == bed.left && head.top == bed.top) {
-            isPlay = false
-            soundCongratulation()
-            showCongratulation()
+    //съедение объекта, добавление объекта в тело змейки
+    private fun checkIfSnakeEatsPerson() {
+        if (head.left == animal.left && head.top == animal.top) {
+            addPartOfTale(head.top, head.left)
+            soundHello()
+            ifFullTale()
         }
     }
 
@@ -215,6 +273,15 @@ class SnakeActivity : AppCompatActivity() {
         }
     }
 
+    // в кроватке
+    private fun checkIfCompletePerson() {
+        if (allTale.size == FULL && head.left == bed.left && head.top == bed.top) {
+            isPlay = false
+            soundCongratulation()
+            openCongratulationDialog()
+        }
+    }
+
     //увеличение скорости игры
     private fun increaseDifficult() {
         if (gameSpeed <= MINIMUM_GAME_SPEED) {
@@ -223,20 +290,6 @@ class SnakeActivity : AppCompatActivity() {
         if (allTale.size % 3 == 0) {
             gameSpeed -= 100
         }
-    }
-
-    //сообщение GAME OVER
-    private fun showCongratulation() {
-        AlertDialog.Builder(this)
-            .setTitle("Спасибо за помощь!")
-            .setMessage("Все ёжики пошли спатеньки, и ты, мой дружочек, засыпай!")
-            .setPositiveButton("Спокойной ночки!") { _, _ ->
-                val intent = Intent(this, MainActivity::class.java)
-                startActivity(intent)
-            }
-            .setCancelable(false)
-            .create()
-            .show()
     }
 
     //хвост змейки
@@ -250,8 +303,7 @@ class SnakeActivity : AppCompatActivity() {
         val taleImage = ImageView(this)
         taleImage.setImageResource(R.drawable.hedgehog_two)
         taleImage.layoutParams =
-//            FrameLayout.LayoutParams(loadTextHead().toInt(), loadTextHead().toInt())
-            FrameLayout.LayoutParams(loadTextHead().toInt(), loadTextHead().toInt())
+            FrameLayout.LayoutParams(loadTextHead, loadTextHead)
         (taleImage.layoutParams as FrameLayout.LayoutParams).topMargin = top
         (taleImage.layoutParams as FrameLayout.LayoutParams).leftMargin = left
 
@@ -263,16 +315,16 @@ class SnakeActivity : AppCompatActivity() {
     private fun move(direction: Direction) {
         when (direction) {
             Direction.UP -> {
-                moveHeadAndRotate(Direction.UP, 270f, -loadTextHead().toInt())
+                moveHeadAndRotate(Direction.UP, 270f, -loadTextHead)
             }
             Direction.DOWN -> {
-                moveHeadAndRotate(Direction.DOWN, 90f, loadTextHead().toInt())
+                moveHeadAndRotate(Direction.DOWN, 90f, loadTextHead)
             }
             Direction.LEFT -> {
-                moveHeadAndRotate(Direction.LEFT, 180f, -loadTextHead().toInt())
+                moveHeadAndRotate(Direction.LEFT, 180f, -loadTextHead)
             }
             Direction.RIGHT -> {
-                moveHeadAndRotate(Direction.RIGHT, 0f, loadTextHead().toInt())
+                moveHeadAndRotate(Direction.RIGHT, 0f, loadTextHead)
             }
         }
 
@@ -280,7 +332,7 @@ class SnakeActivity : AppCompatActivity() {
             if (checkIfSnakeSmash()) {
                 isPlay = false
                 soundCrash()
-                showScore()
+                openScoreDialog()
                 return@runOnUiThread
             }
 
@@ -289,6 +341,18 @@ class SnakeActivity : AppCompatActivity() {
             checkIfCompletePerson()
             container.removeView(head)
             container.addView(head)
+        }
+    }
+
+    //проверка на повторное нажатие направления
+    private fun checkIfCurrentDirectionIsNotOpposite(
+        properDirections: Direction,
+        oppositeDirections: Direction,
+    ) {
+        if (currentDirections == oppositeDirections) {
+            move(currentDirections)
+        } else {
+            move(properDirections)
         }
     }
 
@@ -306,36 +370,6 @@ class SnakeActivity : AppCompatActivity() {
             }
             currentDirections = direction
         }
-    }
-
-    //сообщение GAME OVER
-    private fun showScore() {
-        AlertDialog.Builder(this)
-            .setTitle("Ой!")
-            .setMessage("Собрано друзей: ${allTale.size}!")
-            .setPositiveButton("ок") { _, _ ->
-                this.recreate()
-            }
-            .setCancelable(false)
-            .create()
-            .show()
-    }
-
-    //проверка врезания в хвост и выхода за размеры игрового поля
-    private fun checkIfSnakeSmash(): Boolean {
-        for (talePart in allTale) {
-            if (allTale.size != 0 && talePart.viewCoordinate.left == head.left && talePart.viewCoordinate.top == head.top) {
-                return true
-            }
-        }
-        if (head.top < 0
-            || head.left < 0
-            || head.top >= loadTextHead().toInt() * CELLS_ON_FIELD
-            || head.left >= loadTextHead().toInt() * CELLS_ON_FIELD
-        ) {
-            return true
-        }
-        return false
     }
 
     //движение хвоста
@@ -370,64 +404,183 @@ class SnakeActivity : AppCompatActivity() {
         RIGHT
     }
 
+    //проверка врезания в хвост и выхода за размеры игрового поля
+    private fun checkIfSnakeSmash(): Boolean {
+        for (talePart in allTale) {
+            if (allTale.size != 0 && talePart.viewCoordinate.left == head.left && talePart.viewCoordinate.top == head.top) {
+                return true
+            }
+        }
+        if (head.top < 0
+            || head.left < 0
+            || head.top >= loadTextHead * CELLS_ON_FIELD
+            || head.left >= loadTextHead * CELLS_ON_FIELD
+        ) {
+            return true
+        }
+        return false
+    }
+
+    //Звуки:
+
+    private fun soundBack() {
+        playerBackSound = MediaPlayer.create(this, R.raw.sverchki)
+        if (isMusic) {
+            play(playerBackSound)
+            playerBackSound.setOnCompletionListener { play(playerBackSound) }
+        } else {
+            stopPlay(playerBackSound)
+
+        }
+    }
+
+    private fun soundPause() {
+        if (isSound) {
+            val playerPauseSound = MediaPlayer.create(this, R.raw.blbl)
+            play(playerPauseSound)
+            playerPauseSound.setOnCompletionListener { stopPlay(playerPauseSound) }
+        }
+    }
+
+    private fun soundHello() {
+        if (isSound) {
+            val mPlayerHelloSound = MediaPlayer.create(this, R.raw.hello)
+            play(mPlayerHelloSound)
+            mPlayerHelloSound.setOnCompletionListener { stopPlay(mPlayerHelloSound) }
+        }
+    }
+
+    private fun soundCrash() {
+        if (isSound) {
+            val mPlayerGameOver = MediaPlayer.create(this, R.raw.puks)
+            play(mPlayerGameOver)
+            mPlayerGameOver.setOnCompletionListener { stopPlay(mPlayerGameOver) }
+        }
+    }
+
+    private fun soundCongratulation() {
+        if (isSound) {
+            val mPlayerCongratulationSound = MediaPlayer.create(this, R.raw.zev)
+            play(mPlayerCongratulationSound)
+            mPlayerCongratulationSound.setOnCompletionListener { stopPlay(mPlayerCongratulationSound) }
+        }
+    }
+
     private fun play(mPlayer: MediaPlayer) {
         mPlayer.start()
     }
 
     private fun stopPlay(mPlayer: MediaPlayer) {
         mPlayer.stop()
-
         try {
             mPlayer.prepare()
             mPlayer.seekTo(0)
         } catch (t: Throwable) {
-//            Toast.makeText(this, t.message, Toast.LENGTH_SHORT).show()
+            Log.d("Exception", "Throwable $t")
         }
     }
 
-    private fun soundBack() {
-        playerBackSound = MediaPlayer.create(this, R.raw.sverchki)
-        play(playerBackSound)
-        playerBackSound.setOnCompletionListener { play(playerBackSound) }
+    //Диалоги:
+
+    private fun openQuestionDialog() {
+        AlertDialog.Builder(this)
+            .setTitle("Правила игры:")
+            .setMessage(
+                "Нужно помочь Понюшке собрать всех ёжиков и отвести их в кроватку.\n" +
+                        "За пределы поля выходить нельзя.\n" +
+                        "В цепочку ёжиков врезаться нельзя.\n" +
+                        "Когда будет собрано 7 ёжиков, кроватка появится.\n" +
+                        "Радоваться успехам - нужно! :)"
+            )
+            .setPositiveButton("Понятненько)") { _, _ ->
+            }
+            .setCancelable(false)
+            .show()
     }
 
-    private fun soundPause() {
-        val playerPauseSound = MediaPlayer.create(this, R.raw.blbl)
-        play(playerPauseSound)
-        playerPauseSound.setOnCompletionListener { stopPlay(playerPauseSound) }
+    private fun openWelcomeDialog() {
+        AlertDialog.Builder(this)
+            .setTitle("Вперёд!")
+            .setMessage(
+                "Нужно помочь Понюшке собрать всех ёжиков и отведи их в кроватку!\n" +
+                        "Помни, за пределы поля выходить нельзя, в цепочку ёжиков врезаться нельзя.\n" +
+                        "Радоваться успехам - нужно! :)"
+            )
+            .setPositiveButton("К победе!)") { _, _ ->
+                setupStartGame()
+                startTheGame()
+            }
+            .setCancelable(false)
+            .show()
     }
 
-    private fun soundHello() {
-        val mPlayerHelloSound = MediaPlayer.create(this, R.raw.hello)
-        play(mPlayerHelloSound)
-        mPlayerHelloSound.setOnCompletionListener { stopPlay(mPlayerHelloSound) }
+    private fun openScoreDialog() {
+        AlertDialog.Builder(this)
+            .setTitle("Ой!")
+            .setMessage("Собрано друзей: ${allTale.size}!")
+            .setPositiveButton("ок") { _, _ ->
+                this.recreate()
+            }
+            .setCancelable(false)
+            .create()
+            .show()
     }
 
-    private fun soundCrash() {
-        val mPlayerGameOver = MediaPlayer.create(this, R.raw.puks)
-        play(mPlayerGameOver)
-        mPlayerGameOver.setOnCompletionListener { stopPlay(mPlayerGameOver) }
-    }
-
-    private fun soundCongratulation() {
-        val mPlayerCongratulationSound = MediaPlayer.create(this, R.raw.zev)
-        play(mPlayerCongratulationSound)
-        mPlayerCongratulationSound.setOnCompletionListener { stopPlay(mPlayerCongratulationSound) }
+    private fun openCongratulationDialog() {
+        AlertDialog.Builder(this)
+            .setTitle("Спасибо за помощь!")
+            .setMessage("Все ёжики пошли спатеньки, и ты, мой дружочек, засыпай!")
+            .setPositiveButton("Спокойной ночки!") { _, _ ->
+                finish()
+            }
+            .setCancelable(false)
+            .create()
+            .show()
     }
 
     override fun onRestart() {
         super.onRestart()
-        play(playerBackSound)
+        if (isMusic) {
+            play(playerBackSound)
+        }
     }
 
     override fun onStop() {
+        if (isMusic) {
+            stopPlay(playerBackSound)
+        }
+        isPlay = false
         super.onStop()
-        stopPlay(playerBackSound)
+
     }
+
+    private fun onBackPress(context: Context) {
+        onBackPressedDispatcher.addCallback(
+            this,
+            object : OnBackPressedCallback(true) {
+                override fun handleOnBackPressed() {
+                    isPlay = false
+                    AlertDialog.Builder(context)
+                        .setTitle("Уже наигрались?")
+                        .setPositiveButton("Да!") { _, _ ->
+                            finish()
+                        }
+                        .setNegativeButton("Ой, нет!") { _, _ ->
+                            isPlay = true
+                        }
+                        .setCancelable(false)
+                        .create()
+                        .show()
+                }
+            })
+    }
+
 
     companion object {
         const val CELLS_ON_FIELD = 10
         const val CELLS_ON_GENERATE = 10
         const val FULL = 7
+        private const val IS_MUSIC = "isMusic"
+        private const val IS_SOUND = "isSound"
     }
 }

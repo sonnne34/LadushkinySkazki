@@ -7,5 +7,4 @@ import com.ladushkinySkazky.ladushkinnyskazki.domian.models.InteractiveModel
 
 object InteractiveRepositoryImpl : InteractiveRepository {
     override fun getInteractiveList(): LiveData<List<InteractiveModel>> = LoadInteractive()
-
 }

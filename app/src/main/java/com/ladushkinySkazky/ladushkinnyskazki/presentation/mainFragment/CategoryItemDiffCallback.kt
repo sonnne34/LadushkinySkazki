@@ -3,7 +3,7 @@ package com.ladushkinySkazky.ladushkinnyskazki.presentation.mainFragment
 import androidx.recyclerview.widget.DiffUtil
 import com.ladushkinySkazky.ladushkinnyskazki.domian.models.CategorySkazkiModel
 
-class CategoryItemDiffCallback : DiffUtil.ItemCallback<CategorySkazkiModel>() {
+object CategoryItemDiffCallback : DiffUtil.ItemCallback<CategorySkazkiModel>() {
 
     override fun areItemsTheSame(
         oldItem: CategorySkazkiModel,

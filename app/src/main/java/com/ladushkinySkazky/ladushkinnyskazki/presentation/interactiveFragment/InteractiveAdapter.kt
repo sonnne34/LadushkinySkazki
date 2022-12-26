@@ -9,15 +9,16 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import coil.load
+import com.google.firebase.storage.FirebaseStorage
 import com.ladushkinySkazky.ladushkinnyskazki.R
-import com.ladushkinySkazky.ladushkinnyskazki.data.loadFirebase.LoadImage
 import com.ladushkinySkazky.ladushkinnyskazki.domian.models.InteractiveModel
 import com.ladushkinySkazky.ladushkinnyskazki.presentation.dialog.InteractiveFullScreenDialog
 
 
 class InteractiveAdapter(val context: Context) :
     ListAdapter<InteractiveModel, InteractiveAdapter.InteractiveViewHolder>(
-        InteractiveItemDiffCallback()
+        InteractiveItemDiffCallback
     ) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): InteractiveViewHolder {
@@ -29,14 +30,27 @@ class InteractiveAdapter(val context: Context) :
     @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(viewHolder: InteractiveViewHolder, position: Int) {
         val interactiveItem = getItem(position)
-        if (interactiveItem.Check) {
-            viewHolder.nameAuthor.text = interactiveItem.Name
-            viewHolder.yearAuthor.text = ", ${interactiveItem.Year}"
-            viewHolder.comment.text = interactiveItem.Comment
-            LoadImage().loadImageInteractive(context, interactiveItem, viewHolder.img)
+        viewHolder.nameAuthor.text = interactiveItem.Name
+        viewHolder.yearAuthor.text = ", ${interactiveItem.Year}"
+        viewHolder.comment.text = interactiveItem.Comment
+
+        if (interactiveItem.ImageForLoad == null) {
+            FirebaseStorage
+                .getInstance()
+                .getReferenceFromUrl(interactiveItem.Image)
+                .downloadUrl.addOnSuccessListener { uri ->
+                    interactiveItem.ImageForLoad = uri
+                    viewHolder.img.load(uri) {
+                        crossfade(true)
+                    }
+                }
         } else {
-            viewHolder.itemView.visibility = View.GONE
+            viewHolder.img.load(interactiveItem.ImageForLoad) {
+                placeholder(R.drawable.background_image)
+                crossfade(true)
+            }
         }
+
         viewHolder.itemView.setOnClickListener {
             InteractiveFullScreenDialog.openFullscreen(context, interactiveItem)
         }

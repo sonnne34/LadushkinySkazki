@@ -20,6 +20,9 @@
             app:destination="@id/interactiveFragment"
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_left" />
+        <action
+            android:id="@+id/action_mainFragment_to_snakeActivity"
+            app:destination="@id/snakeActivity" />
     </fragment>
     <fragment
         android:id="@+id/skazkyFragment"
@@ -40,8 +43,6 @@
         <action
             android:id="@+id/action_interactiveFragment_to_interactiveAddFragment"
             app:destination="@id/interactiveAddFragment"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/translate_left_side"
             app:popUpTo="@id/interactiveFragment"
             app:popUpToInclusive="false" />
     </fragment>
@@ -49,4 +50,9 @@
         android:id="@+id/interactiveAddFragment"
         android:name="com.ladushkinySkazky.ladushkinnyskazki.presentation.interactiveAddFragment.InteractiveAddFragment"
         android:label="InteractiveAddFragment" />
+    <activity
+        android:id="@+id/snakeActivity"
+        android:name="com.ladushkinySkazky.ladushkinnyskazki.snake.SnakeActivity"
+        android:label="activity_snake"
+        tools:layout="@layout/activity_snake" />
 </navigation>

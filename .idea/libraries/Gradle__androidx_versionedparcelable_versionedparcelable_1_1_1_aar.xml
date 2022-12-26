@@ -2,7 +2,6 @@
   <library name="Gradle: androidx.versionedparcelable:versionedparcelable:1.1.1@aar">
     <CLASSES>
       <root url="jar://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/c3bd6cf66b49bb3f5e521781189a3d0f/transformed/versionedparcelable-1.1.1/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/c3bd6cf66b49bb3f5e521781189a3d0f/transformed/versionedparcelable-1.1.1/res" />
       <root url="file://$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/c3bd6cf66b49bb3f5e521781189a3d0f/transformed/versionedparcelable-1.1.1/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC />

@@ -10,7 +10,7 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="body_skazka">Текст сказки</string>
     <string name="btn_go_snake">🌟 МИНИ-ИГРА 🌟</string>
-    <string name="txt_snake">Помоги Понюшке уложить спать всех ёжиков!</string>
+    <string name="txt_snake">Долгий путь в кроватку…</string>
     <string name="comment_interactive">здесь можешь рассказать\nо себе, о рисунке, о чём угодно!</string>
     <string name="description_button_menu">button menu</string>
     <string name="description_button_play_up">button play up</string>
@@ -23,6 +23,9 @@
         Автор сказок: Лада Светочева\n
         Иконки, звёздный фон:\n
         https://www.freepik.com\n
+        Наш e-mail:
+    </string>
+    <string name="txt_text_feedback">
         Будем рады Вашим отзывам!\n
         Автор сказок так-же на связи 😊\n
         Наш e-mail:
@@ -31,7 +34,7 @@
     <string name="txt_feedback_here">или напишите нам прямо здесь:</string>
     <string name="txt_your_name">Ваше имя</string>
     <string name="txt_your_feedback">Ваш отзыв / пожелание\n(обязательное поле)</string>
-    <string name="txt_contact">Ваш телефон, e-mail или др.</string>
+    <string name="txt_contact">Ваш телефон, e-mail или др.*</string>
     <string name="send">Отправить</string>
     <string name="close">Закрыть</string>
     <string name="description_image_sk">Картинка для сказки</string>
@@ -52,4 +55,10 @@
     <string name="description_view_skazka">Иконка просмотрена ли сказка</string>
     <string name="description_like_skazka">Иконка \"нравится сказка\"</string>
     <string name="btn_new">✨ Новинки ✨</string>
+    <string name="description_question">Правила игры</string>
+    <string name="description_btn_music">Включение/отключение музыки</string>
+    <string name="description_btn_sound">Включение/отключение звуков</string>
+    <string name="about_us">О нас</string>
+    <string name="txt_menu_feedback">Оставить отзыв</string>
+    <string name="txt_dialog_star">*контактные данные нужны только при случае, если Вы хотите, чтобы мы с Вами связались.</string>
 </resources>

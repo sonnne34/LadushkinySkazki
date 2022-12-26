@@ -1,7 +1,6 @@
 package com.ladushkinySkazky.ladushkinnyskazki.presentation.interactiveFragment
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.ladushkinySkazky.ladushkinnyskazki.databinding.FragmentInteractiveBinding
+import com.ladushkinySkazky.ladushkinnyskazki.presentation.interactiveFragment.InteractiveFragmentDirections
 
 class InteractiveFragment : Fragment() {
 
@@ -22,7 +22,7 @@ class InteractiveFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
     ): View {
         _binding = FragmentInteractiveBinding.inflate(layoutInflater)
         interactiveAdapter = InteractiveAdapter(binding.root.context)
@@ -38,9 +38,13 @@ class InteractiveFragment : Fragment() {
 
     private fun observeViewModel() {
         viewModel = ViewModelProvider(this)[InteractiveViewModel::class.java]
-        viewModel.interactiveList.observe(viewLifecycleOwner) {
-            interactiveAdapter.submitList(it.sortedByDescending { it1 -> it1.DataTime })
-            Log.d("LOAD", "interactiveAdapter = $it")
+        viewModel.interactiveList.observe(viewLifecycleOwner) { interactiveList ->
+            if (interactiveList.isNotEmpty()) {
+                binding.progressInteractive.visibility = View.GONE
+            }
+            interactiveAdapter
+                .submitList(interactiveList.sortedByDescending { it1 -> it1.DataTime }
+                .filter { it.Check })
         }
     }
 
@@ -50,5 +54,10 @@ class InteractiveFragment : Fragment() {
                 InteractiveFragmentDirections.actionInteractiveFragmentToInteractiveAddFragment()
             )
         }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

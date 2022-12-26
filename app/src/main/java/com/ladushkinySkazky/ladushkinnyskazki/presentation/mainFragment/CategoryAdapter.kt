@@ -8,12 +8,13 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import coil.load
 import com.ladushkinySkazky.ladushkinnyskazki.R
-import com.ladushkinySkazky.ladushkinnyskazki.data.loadFirebase.LoadImage
 import com.ladushkinySkazky.ladushkinnyskazki.domian.models.CategorySkazkiModel
 
 class CategoryAdapter(val context: Context) :
-    ListAdapter<CategorySkazkiModel, CategoryAdapter.CategoryViewHolder>(CategoryItemDiffCallback()) {
+    ListAdapter<CategorySkazkiModel,
+            CategoryAdapter.CategoryViewHolder>(CategoryItemDiffCallback) {
 
     var onCategoryClickListener: OnCategoryClickListener? = null
 
@@ -28,7 +29,10 @@ class CategoryAdapter(val context: Context) :
         val categoryItem = getItem(position)
         holder.category.text = categoryItem.CategoryName
         holder.categoryDescription.text = categoryItem.CategoryDescription
-        LoadImage().loadImageCategorySkazka(context, categoryItem, holder.categoryPicture)
+        holder.categoryPicture.load(categoryItem.CategoryUriPicture) {
+            placeholder(R.drawable.background_image)
+            crossfade(true)
+        }
         holder.itemView.setOnClickListener {
             onCategoryClickListener?.onCategoryClick(categoryItem, position)
         }
