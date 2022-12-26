@@ -197,4 +197,9 @@ class InteractiveAddFragment : Fragment() {
     private fun goInteractive() {
         findNavController().popBackStack()
     }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
 }

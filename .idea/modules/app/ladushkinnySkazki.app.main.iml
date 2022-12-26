@@ -30,40 +30,39 @@
           <stringArguments>
             <stringArg name="classpath">
               <args>
-                <arg>$MODULE_DIR$/../../../app/build/intermediates/compile_and_runtime_not_namespaced_r_class_jar/debug/R.jar</arg>
                 <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/7c7bd1097a82444f4374f54a1c846dc5/transformed/jetified-viewbinding-7.2.2-api.jar</arg>
-                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/888940ff3f7679e738391a7ccd5b9f7f/transformed/navigation-fragment-ktx-2.5.2-api.jar</arg>
-                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/cc31aa05ce3fb74fee7e61e8a4dc4a70/transformed/navigation-ui-ktx-2.5.2-api.jar</arg>
-                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/2c436c94a2b631fbb9367f553a508167/transformed/navigation-runtime-ktx-2.5.2-api.jar</arg>
-                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/dc04ddfe39ee309d0100d835aeb34207/transformed/navigation-fragment-2.5.2-api.jar</arg>
-                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/9fa194a1d2c54acbf05c5ead4c54e6c7/transformed/navigation-ui-2.5.2-api.jar</arg>
-                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/0036f6256091ae4d1fa5bc0f6912e60b/transformed/navigation-runtime-2.5.2-api.jar</arg>
-                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/37814d1725d090abe0c230a69de579cf/transformed/navigation-common-ktx-2.5.2-api.jar</arg>
-                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/b71df2616793364cb9a7a69307ce364e/transformed/navigation-common-2.5.2-api.jar</arg>
-                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/82be91815d8af0f14da4c8dc66a51596/transformed/jetified-fragment-ktx-1.5.2-api.jar</arg>
+                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/9a5fcf5135d41489fdac89eb0379efc1/transformed/navigation-fragment-ktx-2.5.3-api.jar</arg>
+                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/e9d3a79a3da0584edbebac32810d29d8/transformed/navigation-ui-ktx-2.5.3-api.jar</arg>
+                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/6b2d5cd54ba1563af25e4821e63c036f/transformed/navigation-runtime-ktx-2.5.3-api.jar</arg>
+                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/a72310509316c24eeb257f2aa5b8c6a3/transformed/navigation-fragment-2.5.3-api.jar</arg>
+                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/128068eff42fe970ada15445409db405/transformed/navigation-ui-2.5.3-api.jar</arg>
+                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/006f3946b313da409d35f1fe3ed6b5d4/transformed/navigation-runtime-2.5.3-api.jar</arg>
+                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/9aa92801851df137c566150176187d12/transformed/navigation-common-ktx-2.5.3-api.jar</arg>
+                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/2d198f3f18f7fe2eda392487817f064e/transformed/navigation-common-2.5.3-api.jar</arg>
+                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/4df82c501f407a0d821dcb1e9da716c3/transformed/jetified-fragment-ktx-1.5.4-api.jar</arg>
                 <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/f3e444c3d9bb423adbf69b8310ffa072/transformed/jetified-activity-ktx-1.5.1-api.jar</arg>
                 <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/52f09de0be310ace3215af22a9844087/transformed/jetified-lifecycle-viewmodel-ktx-2.5.1-api.jar</arg>
+                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/263f64b0d8c7ac715bff06ac075fd8df/transformed/jetified-lifecycle-livedata-ktx-2.5.1-api.jar</arg>
+                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/00ecb25c2c314697342fd7a881fd8c2b/transformed/jetified-firebase-database-ktx-20.1.0-api.jar</arg>
+                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/3231902328f4b2d916e0149b70c86838/transformed/jetified-firebase-common-ktx-20.2.0-api.jar</arg>
+                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/329ec14c54ef64e1e65189ca862ac668/transformed/jetified-kotlinx-coroutines-play-services-1.6.4.jar</arg>
+                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/18b57e1ba24103b6186b70b6591f31b6/transformed/jetified-kotlinx-coroutines-core-jvm-1.6.4.jar</arg>
                 <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/158b11c92141ecdd461d33291b56c02c/transformed/jetified-coil-2.2.2-api.jar</arg>
                 <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/bfe737d58c89b755c03a233cb6c192be/transformed/jetified-coil-base-2.2.2-api.jar</arg>
-                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/5b4df3aa01feca8f411a57235aaf92ca/transformed/material-1.6.1-api.jar</arg>
+                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/7aef253dd3ad389f94e7e559a02f86eb/transformed/material-1.7.0-api.jar</arg>
                 <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/d4289242fad12d87e554665b551a4f3f/transformed/appcompat-1.5.1-api.jar</arg>
                 <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/61c0f856357c7026939218102ad9d8fc/transformed/legacy-support-v4-1.0.0-api.jar</arg>
                 <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/567819e5398956130c2715aaab9a93e6/transformed/jetified-viewpager2-1.0.0-api.jar</arg>
                 <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/b82977bc62c2f1cee37958205517e508/transformed/jetified-firebase-storage-20.1.0-api.jar</arg>
-                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/00ecb25c2c314697342fd7a881fd8c2b/transformed/jetified-firebase-database-ktx-20.1.0-api.jar</arg>
                 <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/17c95efda532452fd34c4077e25c2a68/transformed/jetified-firebase-database-20.1.0-api.jar</arg>
                 <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/fd1fb7708b61218bc8181c782addc2dd/transformed/jetified-firebase-appcheck-interop-16.1.0-api.jar</arg>
                 <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/11849ef6ceaecbb8d1abb7a48464b220/transformed/jetified-firebase-database-collection-18.0.1-api.jar</arg>
                 <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/5b084007aba4537f7f89b22d5c9e3c89/transformed/jetified-play-services-base-18.0.1-api.jar</arg>
                 <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/7c165b40676eb1de66b5630c85e2fd10/transformed/jetified-firebase-auth-interop-19.0.2-api.jar</arg>
-                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/3231902328f4b2d916e0149b70c86838/transformed/jetified-firebase-common-ktx-20.2.0-api.jar</arg>
                 <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/967a9be55ceb9976154d03c93ac949dd/transformed/jetified-firebase-common-20.2.0-api.jar</arg>
-                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/263f64b0d8c7ac715bff06ac075fd8df/transformed/jetified-lifecycle-livedata-ktx-2.5.1-api.jar</arg>
-                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/18b57e1ba24103b6186b70b6591f31b6/transformed/jetified-kotlinx-coroutines-core-jvm-1.6.4.jar</arg>
-                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/329ec14c54ef64e1e65189ca862ac668/transformed/jetified-kotlinx-coroutines-play-services-1.6.4.jar</arg>
                 <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/78c9d228639ecaa1a9276cca50f870c0/transformed/jetified-play-services-tasks-18.0.1-api.jar</arg>
                 <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/7ddff222d54e6126f6b1d5de737328b4/transformed/jetified-play-services-basement-18.1.0-api.jar</arg>
-                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/bce589b0340240531951b859198f4b86/transformed/fragment-1.5.2-api.jar</arg>
+                <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/e7d23681780d6cc43b693f69f4b42f54/transformed/fragment-1.5.4-api.jar</arg>
                 <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/82bd65d6ad83bc1c431b2d3c014645bf/transformed/jetified-activity-1.5.1-api.jar</arg>
                 <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/a15aa25e597a7621bc974f462e3cc3c6/transformed/jetified-lifecycle-viewmodel-savedstate-2.5.1-api.jar</arg>
                 <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/f8750e5e89400f9589d1d7003fe0be14/transformed/jetified-lifecycle-runtime-ktx-2.5.1-api.jar</arg>
@@ -156,6 +155,7 @@
     <content url="file://$MODULE_DIR$/../../../app/build/generated/aidl_source_output_dir/debug/out" />
     <content url="file://$MODULE_DIR$/../../../app/build/generated/ap_generated_sources/debug/out">
       <sourceFolder url="file://$MODULE_DIR$/../../../app/build/generated/ap_generated_sources/debug/out" isTestSource="false" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/../../../app/build/generated/ap_generated_sources/debug/out" isTestSource="false" generated="true" />
     </content>
     <content url="file://$MODULE_DIR$/../../../app/build/generated/renderscript_source_output_dir/debug/out" />
     <content url="file://$MODULE_DIR$/../../../app/build/generated/res/google-services/debug">
@@ -167,11 +167,14 @@
     <content url="file://$MODULE_DIR$/../../../app/build/generated/res/rs/debug" />
     <content url="file://$MODULE_DIR$/../../../app/build/generated/source/buildConfig/debug">
       <sourceFolder url="file://$MODULE_DIR$/../../../app/build/generated/source/buildConfig/debug" isTestSource="false" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/../../../app/build/generated/source/buildConfig/debug" isTestSource="false" generated="true" />
     </content>
     <content url="file://$MODULE_DIR$/../../../app/build/generated/source/kapt/debug">
       <sourceFolder url="file://$MODULE_DIR$/../../../app/build/generated/source/kapt/debug" isTestSource="false" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/../../../app/build/generated/source/kapt/debug" isTestSource="false" generated="true" />
     </content>
     <content url="file://$MODULE_DIR$/../../../app/build/generated/source/kaptKotlin/debug">
+      <sourceFolder url="file://$MODULE_DIR$/../../../app/build/generated/source/kaptKotlin/debug" isTestSource="false" generated="true" />
       <sourceFolder url="file://$MODULE_DIR$/../../../app/build/generated/source/kaptKotlin/debug" isTestSource="false" generated="true" />
     </content>
     <content url="file://$MODULE_DIR$/../../../app/src/debug" />
@@ -226,12 +229,12 @@
     <orderEntry type="library" name="Gradle: androidx.cursoradapter:cursoradapter:1.0.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: androidx.drawerlayout:drawerlayout:1.1.1@aar" level="project" />
     <orderEntry type="library" name="Gradle: androidx.customview:customview:1.1.0@aar" level="project" />
-    <orderEntry type="library" name="Gradle: androidx.fragment:fragment:1.5.2@aar" level="project" />
+    <orderEntry type="library" name="Gradle: androidx.fragment:fragment:1.5.4@aar" level="project" />
     <orderEntry type="library" name="Gradle: androidx.loader:loader:1.0.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: androidx.lifecycle:lifecycle-livedata:2.5.1@aar" level="project" />
     <orderEntry type="library" name="Gradle: androidx.arch.core:core-runtime:2.1.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: androidx.viewpager:viewpager:1.0.0@aar" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.android.material:material:1.6.1@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.android.material:material:1.7.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: androidx.cardview:cardview:1.0.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: androidx.coordinatorlayout:coordinatorlayout:1.1.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: androidx.constraintlayout:constraintlayout:2.1.4@aar" level="project" />
@@ -252,12 +255,12 @@
     <orderEntry type="library" name="Gradle: androidx.slidingpanelayout:slidingpanelayout:1.2.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: androidx.swiperefreshlayout:swiperefreshlayout:1.0.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: androidx.asynclayoutinflater:asynclayoutinflater:1.0.0@aar" level="project" />
-    <orderEntry type="library" name="Gradle: androidx.navigation:navigation-runtime-ktx:2.5.2@aar" level="project" />
-    <orderEntry type="library" name="Gradle: androidx.navigation:navigation-common-ktx:2.5.2@aar" level="project" />
-    <orderEntry type="library" name="Gradle: androidx.navigation:navigation-common:2.5.2@aar" level="project" />
+    <orderEntry type="library" name="Gradle: androidx.navigation:navigation-runtime-ktx:2.5.3@aar" level="project" />
+    <orderEntry type="library" name="Gradle: androidx.navigation:navigation-common-ktx:2.5.3@aar" level="project" />
+    <orderEntry type="library" name="Gradle: androidx.navigation:navigation-common:2.5.3@aar" level="project" />
     <orderEntry type="library" name="Gradle: androidx.lifecycle:lifecycle-runtime-ktx:2.5.1@aar" level="project" />
     <orderEntry type="library" name="Gradle: androidx.savedstate:savedstate-ktx:1.2.0@aar" level="project" />
-    <orderEntry type="library" name="Gradle: androidx.navigation:navigation-runtime:2.5.2@aar" level="project" />
+    <orderEntry type="library" name="Gradle: androidx.navigation:navigation-runtime:2.5.3@aar" level="project" />
     <orderEntry type="library" name="Gradle: androidx.activity:activity-ktx:1.5.1@aar" level="project" />
     <orderEntry type="library" name="Gradle: androidx.multidex:multidex:2.0.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.google.firebase:firebase-storage:20.1.0@aar" level="project" />
@@ -274,10 +277,10 @@
     <orderEntry type="library" name="Gradle: com.google.firebase:firebase-database-collection:18.0.1@aar" level="project" />
     <orderEntry type="library" name="Gradle: io.coil-kt:coil:2.2.2@aar" level="project" />
     <orderEntry type="library" name="Gradle: io.coil-kt:coil-base:2.2.2@aar" level="project" />
-    <orderEntry type="library" name="Gradle: androidx.navigation:navigation-fragment-ktx:2.5.2@aar" level="project" />
-    <orderEntry type="library" name="Gradle: androidx.navigation:navigation-fragment:2.5.2@aar" level="project" />
-    <orderEntry type="library" name="Gradle: androidx.fragment:fragment-ktx:1.5.2@aar" level="project" />
-    <orderEntry type="library" name="Gradle: androidx.navigation:navigation-ui-ktx:2.5.2@aar" level="project" />
-    <orderEntry type="library" name="Gradle: androidx.navigation:navigation-ui:2.5.2@aar" level="project" />
+    <orderEntry type="library" name="Gradle: androidx.navigation:navigation-fragment-ktx:2.5.3@aar" level="project" />
+    <orderEntry type="library" name="Gradle: androidx.navigation:navigation-fragment:2.5.3@aar" level="project" />
+    <orderEntry type="library" name="Gradle: androidx.fragment:fragment-ktx:1.5.4@aar" level="project" />
+    <orderEntry type="library" name="Gradle: androidx.navigation:navigation-ui-ktx:2.5.3@aar" level="project" />
+    <orderEntry type="library" name="Gradle: androidx.navigation:navigation-ui:2.5.3@aar" level="project" />
   </component>
 </module>

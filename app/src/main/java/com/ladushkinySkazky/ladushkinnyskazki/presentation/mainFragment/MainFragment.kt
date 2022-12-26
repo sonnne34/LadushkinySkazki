@@ -1,6 +1,7 @@
 package com.ladushkinySkazky.ladushkinnyskazki.presentation.mainFragment
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -20,7 +21,7 @@ class MainFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
     ): View {
         _binding = FragmentMainBinding.inflate(layoutInflater)
         categoryAdapter = CategoryAdapter(binding.root.context)
@@ -32,6 +33,7 @@ class MainFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding.rvListCategory.adapter = categoryAdapter
         observeViewModel()
+        Log.d("MainFragment", "onViewCreated")
         onClickItem()
         goSnake()
         goInteractive()
@@ -81,5 +83,11 @@ class MainFragment : Fragment() {
                 MainFragmentDirections.actionMainFragmentToSkazkyFragment(true, 0)
             )
         }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        Log.d("MainFragment", "onDestroyView")
+        _binding = null
     }
 }
