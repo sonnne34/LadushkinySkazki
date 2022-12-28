@@ -85,8 +85,8 @@
             android:id="@+id/rv_list_category"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:paddingHorizontal="8dp"
-            android:layout_marginTop="3dp"
+            android:paddingHorizontal="4dp"
+            android:layout_marginTop="4dp"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
     </RelativeLayout>

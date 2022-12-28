@@ -4,7 +4,10 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="2dp"
-    android:backgroundTint="@android:color/transparent">
+    android:backgroundTint="@android:color/transparent"
+    app:cardCornerRadius="4dp"
+    app:cardElevation="1dp"
+    app:cardUseCompatPadding="true">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"

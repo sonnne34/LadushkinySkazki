@@ -14,6 +14,7 @@
           <stringArguments>
             <stringArg name="classpath">
               <args>
+                <arg>$MODULE_DIR$/../../../app/build/intermediates/compile_and_runtime_not_namespaced_r_class_jar/debug/R.jar</arg>
                 <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/7c7bd1097a82444f4374f54a1c846dc5/transformed/jetified-viewbinding-7.2.2-api.jar</arg>
                 <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/9a5fcf5135d41489fdac89eb0379efc1/transformed/navigation-fragment-ktx-2.5.3-api.jar</arg>
                 <arg>$USER_HOME$/Desktop/Sushi/app/gradle/caches/transforms-3/e9d3a79a3da0584edbebac32810d29d8/transformed/navigation-ui-ktx-2.5.3-api.jar</arg>
