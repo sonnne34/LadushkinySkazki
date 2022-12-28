@@ -25,7 +25,7 @@ class SkazkyFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
     ): View {
         _binding = FragmentSkazkyBinding.inflate(layoutInflater)
         skazkiAdapter = SkazkiAdapter(binding.root.context)
@@ -62,10 +62,5 @@ class SkazkyFragment : Fragment() {
                 binding.progress.visibility = View.GONE
             }
         }
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
     }
 }

@@ -84,10 +84,4 @@ class MainFragment : Fragment() {
             )
         }
     }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        Log.d("MainFragment", "onDestroyView")
-        _binding = null
-    }
 }
