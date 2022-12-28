@@ -8,7 +8,6 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.ladushkinySkazky.ladushkinnyskazki.databinding.FragmentInteractiveBinding
-import com.ladushkinySkazky.ladushkinnyskazki.presentation.interactiveFragment.InteractiveFragmentDirections
 
 class InteractiveFragment : Fragment() {
 
@@ -44,7 +43,7 @@ class InteractiveFragment : Fragment() {
             }
             interactiveAdapter
                 .submitList(interactiveList.sortedByDescending { it1 -> it1.DataTime }
-                .filter { it.Check })
+                    .filter { it.Check })
         }
     }
 
@@ -54,10 +53,5 @@ class InteractiveFragment : Fragment() {
                 InteractiveFragmentDirections.actionInteractiveFragmentToInteractiveAddFragment()
             )
         }
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
     }
 }
