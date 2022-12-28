@@ -100,7 +100,7 @@ class SnakeActivity : AppCompatActivity() {
         //кроватка
         bed = ImageView(this)
         bed.layoutParams = FrameLayout.LayoutParams(loadTextHead, loadTextHead)
-        bed.setImageResource(R.drawable.cradle)
+        bed.setImageResource(R.drawable.home)
 
         //поле для игры
         container = binding.containerGame
@@ -486,10 +486,10 @@ class SnakeActivity : AppCompatActivity() {
         AlertDialog.Builder(this)
             .setTitle("Правила игры:")
             .setMessage(
-                "Нужно помочь Понюшке собрать всех ёжиков и отвести их в кроватку.\n" +
+                "Нужно помочь Понюшке собрать всех ёжиков и отвести их домой.\n" +
                         "За пределы поля выходить нельзя.\n" +
                         "В цепочку ёжиков врезаться нельзя.\n" +
-                        "Когда будет собрано 7 ёжиков, кроватка появится.\n" +
+                        "Когда будет собрано 7 ёжиков, домик появится.\n" +
                         "Радоваться успехам - нужно! :)"
             )
             .setPositiveButton("Понятненько)") { _, _ ->
@@ -502,7 +502,7 @@ class SnakeActivity : AppCompatActivity() {
         AlertDialog.Builder(this)
             .setTitle("Вперёд!")
             .setMessage(
-                "Нужно помочь Понюшке собрать всех ёжиков и отведи их в кроватку!\n" +
+                "Нужно помочь Понюшке собрать всех ёжиков и отвести их домой.\n" +
                         "Помни, за пределы поля выходить нельзя, в цепочку ёжиков врезаться нельзя.\n" +
                         "Радоваться успехам - нужно! :)"
             )
@@ -575,6 +575,10 @@ class SnakeActivity : AppCompatActivity() {
             })
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
+    }
 
     companion object {
         const val CELLS_ON_FIELD = 10
