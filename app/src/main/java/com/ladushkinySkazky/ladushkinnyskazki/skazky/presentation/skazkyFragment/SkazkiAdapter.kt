@@ -27,14 +27,11 @@ class SkazkiAdapter(val context: Context) :
     }
 
     override fun onBindViewHolder(viewHolder: RecyclerView.ViewHolder, position: Int) {
-
         val skazkaItem = getItem(position)
-
         if (viewHolder.itemViewType == VIEW_TYPE_CATEGORY) {
             if (viewHolder is CategorySkazkyViewHolder) {
                 viewHolder.category.text = "${skazkaItem.CategoryName}"
             }
-
         } else {
             if (viewHolder is SkazkiViewHolder) {
                 skazkaItem.Items?.BodySkazka = "${skazkaItem.Items?.BodySkazka}"
@@ -56,7 +53,6 @@ class SkazkiAdapter(val context: Context) :
         }
     }
 
-
     override fun getItemViewType(position: Int): Int {
         val item = getItem(position)
         return if (item.CategoryName != null) {
@@ -74,18 +70,12 @@ class SkazkiAdapter(val context: Context) :
         var nameSkazka = itemView.findViewById(R.id.txt_name_skazka) as TextView
         var descriptionSkazka =
             itemView.findViewById(R.id.txt_description_skazka) as TextView
-        var imgSkazka = itemView.findViewById<ImageView>(R.id.img_name_skazka)!!
-        var imgNew = itemView.findViewById<ImageView>(R.id.img_new_skazka)!!
-        var imgEye = itemView.findViewById<ImageView>(R.id.img_eye_skazka)!!
-        var imgLike = itemView.findViewById<ImageView>(R.id.img_like_skazka)!!
+        var imgSkazka = itemView.findViewById(R.id.img_name_skazka) as ImageView
+        var imgNew = itemView.findViewById(R.id.img_new_skazka) as ImageView
     }
 
     companion object {
         const val VIEW_TYPE_CATEGORY = 100
         const val VIEW_TYPE_SKAZKA = 101
-//        const val VIEW_YES = "view yes"
-//        const val VIEW_NO = "view no"
-//        const val LIKE_YES = "like yes"
-//        const val LIKE_NO = "like no"
     }
 }

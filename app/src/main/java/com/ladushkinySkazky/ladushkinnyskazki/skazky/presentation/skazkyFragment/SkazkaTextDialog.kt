@@ -23,7 +23,6 @@ class SkazkaTextDialog {
                 ListPopupWindow.WRAP_CONTENT,
                 ListPopupWindow.WRAP_CONTENT
             )
-
             dialog.setCancelable(true)
             dialog.setCanceledOnTouchOutside(true)
 
@@ -32,7 +31,7 @@ class SkazkaTextDialog {
             val txtBody = dialog.findViewById<TextView>(R.id.txt_body_skazka)
 
             txtName.text = skazkiCatModel.Items?.NameSkazka
-            txtBody.text = skazkiCatModel.Items?.BodySkazka.toString()
+            txtBody.text = skazkiCatModel.Items?.BodySkazka
             img.load(skazkiCatModel.Items?.SkazkaUriPicture) {
                 placeholder(R.drawable.background_image)
                 crossfade(true)

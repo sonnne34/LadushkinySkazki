@@ -20,7 +20,6 @@ class AboutUsMainMenuDialog {
                 ListPopupWindow.WRAP_CONTENT,
                 ListPopupWindow.WRAP_CONTENT
             )
-
             dialog.setCancelable(true)
             dialog.setCanceledOnTouchOutside(true)
 

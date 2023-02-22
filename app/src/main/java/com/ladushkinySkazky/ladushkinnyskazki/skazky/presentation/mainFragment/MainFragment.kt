@@ -25,7 +25,6 @@ class MainFragment : Fragment() {
         _binding = FragmentMainBinding.inflate(layoutInflater)
         categoryAdapter = CategoryAdapter(binding.root.context)
         return binding.root
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

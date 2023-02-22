@@ -60,6 +60,6 @@ class InteractiveAdapter(val context: Context) :
         val yearAuthor = itemView.findViewById(R.id.txt_year_interactive_item) as TextView
         val comment =
             itemView.findViewById(R.id.txt_comment_interactive_item) as TextView
-        val img = itemView.findViewById<ImageView>(R.id.img_interactive_item)!!
+        val img = itemView.findViewById(R.id.img_interactive_item) as ImageView
     }
 }

@@ -15,9 +15,7 @@ class InteractiveFragment : Fragment() {
     private var _binding: FragmentInteractiveBinding? = null
     private val binding: FragmentInteractiveBinding
         get() = _binding ?: throw RuntimeException("FragmentInteractiveBinding == null")
-
     private lateinit var viewModel: InteractiveViewModel
-
     private lateinit var interactiveAdapter: InteractiveAdapter
 
     override fun onCreateView(

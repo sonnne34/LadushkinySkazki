@@ -23,7 +23,6 @@ class InteractiveFullScreenDialog {
                 ListPopupWindow.WRAP_CONTENT,
                 ListPopupWindow.WRAP_CONTENT
             )
-
             dialog.setCancelable(true)
             dialog.setCanceledOnTouchOutside(true)
 
@@ -44,7 +43,6 @@ class InteractiveFullScreenDialog {
                     crossfade(true)
                 }
             }
-
             dialog.show()
         }
     }
