@@ -20,13 +20,11 @@ class SkazkyViewModel(application: Application) : AndroidViewModel(application) 
     val skazkyList: LiveData<List<SkazkiCatModel>>
         get() = _skazkyList
 
-    fun getItemSkazkiList(position: Int) {
-        val item = getSkazkyListUseCase.getSkazkyList(position)
-        _skazkyList.value = item
-    }
-
-    fun getNewItemSkazkiList() {
-        val item = getNewSkazkyListUseCase.getNewSkazkyList()
-        _skazkyList.value = item
+    fun getItemSkazkiList(isNewSkazky: Boolean, position: Int) {
+        val items = when (isNewSkazky) {
+            true -> getNewSkazkyListUseCase.getNewSkazkyList()
+            false -> getSkazkyListUseCase.getSkazkyList(position)
+        }
+        _skazkyList.value = items
     }
 }

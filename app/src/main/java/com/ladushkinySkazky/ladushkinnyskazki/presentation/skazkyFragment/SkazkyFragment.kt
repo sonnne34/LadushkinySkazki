@@ -8,7 +8,6 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.navArgs
 import com.ladushkinySkazky.ladushkinnyskazki.databinding.FragmentSkazkyBinding
-import com.ladushkinySkazky.ladushkinnyskazki.presentation.mainFragment.MainViewModel
 
 class SkazkyFragment : Fragment() {
 
@@ -17,10 +16,8 @@ class SkazkyFragment : Fragment() {
         get() = _binding ?: throw RuntimeException("FragmentSkazkyBinding == null")
 
     private val args by navArgs<SkazkyFragmentArgs>()
-
     private lateinit var skazkiAdapter: SkazkiAdapter
-
-    private lateinit var viewModel: MainViewModel
+    private lateinit var viewModel: SkazkyViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -35,27 +32,15 @@ class SkazkyFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.rvListSkazki.adapter = skazkiAdapter
-        when (args.newSkazky) {
-            true -> observeViewModelTypeNew()
-            false -> observeViewModelTypeCategory()
-        }
-    }
-
-    private fun observeViewModelTypeNew() {
-        viewModel = ViewModelProvider(this.requireActivity())[MainViewModel::class.java]
-        viewModel.getNewItemSkazkiList()
-        viewModel.skazkyList.observe(this.requireActivity()) {
-            skazkiAdapter.submitList(it)
-            if (it.isNotEmpty()) {
-                binding.progress.visibility = View.GONE
-            }
-        }
-    }
-
-    private fun observeViewModelTypeCategory() {
+        val isNewSkazky = args.newSkazky
         val position = args.position
-        viewModel = ViewModelProvider(this.requireActivity())[MainViewModel::class.java]
-        viewModel.getItemSkazkiList(position)
+        observeViewModel(isNewSkazky, position)
+
+    }
+
+        private fun observeViewModel(isNewSkazky: Boolean ,position: Int) {
+        viewModel = ViewModelProvider(this.requireActivity())[SkazkyViewModel::class.java]
+        viewModel.getItemSkazkiList(isNewSkazky, position)
         viewModel.skazkyList.observe(this.requireActivity()) {
             skazkiAdapter.submitList(it)
             if (it.isNotEmpty()) {
