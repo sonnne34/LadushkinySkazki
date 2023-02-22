@@ -4,14 +4,14 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.ladushkinySkazky.ladushkinnyskazki.data.SkazkyListRepositoryImpl
+import com.ladushkinySkazky.ladushkinnyskazki.data.SkazkyRepositoryImpl
 import com.ladushkinySkazky.ladushkinnyskazki.domian.models.SkazkiCatModel
 import com.ladushkinySkazky.ladushkinnyskazki.domian.usecases.GetNewSkazkyListUseCase
 import com.ladushkinySkazky.ladushkinnyskazki.domian.usecases.GetSkazkyListUseCase
 
 class SkazkyViewModel(application: Application) : AndroidViewModel(application) {
 
-    private val repository = SkazkyListRepositoryImpl
+    private val repository = SkazkyRepositoryImpl
     private val getSkazkyListUseCase = GetSkazkyListUseCase(repository)
     private val getNewSkazkyListUseCase = GetNewSkazkyListUseCase(repository)
 

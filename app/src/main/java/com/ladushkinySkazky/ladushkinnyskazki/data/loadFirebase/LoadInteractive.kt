@@ -17,7 +17,6 @@ class LoadInteractive : LiveData<List<InteractiveModel>>() {
             value = dataSnapshot.children.map {
                 it.getValue(InteractiveModel::class.java) ?: InteractiveModel()
             }
-            Log.d("LOAD", "load = ${value.toString()}")
         }
 
         override fun onCancelled(error: DatabaseError) {
