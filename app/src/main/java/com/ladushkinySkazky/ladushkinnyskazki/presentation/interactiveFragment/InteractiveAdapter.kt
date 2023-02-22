@@ -13,7 +13,6 @@ import coil.load
 import com.google.firebase.storage.FirebaseStorage
 import com.ladushkinySkazky.ladushkinnyskazki.R
 import com.ladushkinySkazky.ladushkinnyskazki.domian.models.InteractiveModel
-import com.ladushkinySkazky.ladushkinnyskazki.presentation.dialog.InteractiveFullScreenDialog
 
 
 class InteractiveAdapter(val context: Context) :

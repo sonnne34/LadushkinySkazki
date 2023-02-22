@@ -1,4 +1,4 @@
-package com.ladushkinySkazky.ladushkinnyskazki.presentation.dialog
+package com.ladushkinySkazky.ladushkinnyskazki.presentation.skazkyFragment
 
 import android.app.Dialog
 import android.content.Context

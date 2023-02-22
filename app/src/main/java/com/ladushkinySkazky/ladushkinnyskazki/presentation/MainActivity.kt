@@ -8,8 +8,8 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.ladushkinySkazky.ladushkinnyskazki.R
 import com.ladushkinySkazky.ladushkinnyskazki.domian.NetworkMonitorUtil
-import com.ladushkinySkazky.ladushkinnyskazki.presentation.dialog.AboutUsMainMenuDialog
-import com.ladushkinySkazky.ladushkinnyskazki.presentation.dialog.FeedbackMainMenuDialog
+import com.ladushkinySkazky.ladushkinnyskazki.presentation.mainFragment.AboutUsMainMenuDialog
+import com.ladushkinySkazky.ladushkinnyskazki.presentation.mainFragment.FeedbackMainMenuDialog
 
 class MainActivity : AppCompatActivity() {
 

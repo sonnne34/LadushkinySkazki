@@ -11,21 +11,16 @@ import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.ladushkinySkazky.ladushkinnyskazki.R
 import com.ladushkinySkazky.ladushkinnyskazki.domian.models.SkazkiCatModel
-import com.ladushkinySkazky.ladushkinnyskazki.presentation.dialog.SkazkaTextDialog
 
 class SkazkiAdapter(val context: Context) :
     ListAdapter<SkazkiCatModel, RecyclerView.ViewHolder>(SkazkyItemDiffCallback) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-
+        val layoutInflater = LayoutInflater.from(parent.context)
         return if (viewType == VIEW_TYPE_CATEGORY) {
-            val layoutInflater = LayoutInflater.from(parent.context)
             val itemView = layoutInflater.inflate(R.layout.item_list_category, parent, false)
             CategorySkazkyViewHolder(itemView = itemView)
-
         } else {
-
-            val layoutInflater = LayoutInflater.from(parent.context)
             val itemView = layoutInflater.inflate(R.layout.item_list_skazki, parent, false)
             SkazkiViewHolder(itemView = itemView)
         }
@@ -49,9 +44,11 @@ class SkazkiAdapter(val context: Context) :
                     crossfade(true)
                     placeholder(R.drawable.background_image)
                 }
+
                 if (skazkaItem.Items!!.New) {
                     viewHolder.imgNew.visibility = View.VISIBLE
                 }
+
                 viewHolder.itemView.setOnClickListener {
                     SkazkaTextDialog.openBody(context, skazkaItem)
                 }
