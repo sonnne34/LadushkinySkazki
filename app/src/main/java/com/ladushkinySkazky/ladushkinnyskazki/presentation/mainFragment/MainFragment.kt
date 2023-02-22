@@ -1,7 +1,6 @@
 package com.ladushkinySkazky.ladushkinnyskazki.presentation.mainFragment
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -33,21 +32,48 @@ class MainFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding.rvListCategory.adapter = categoryAdapter
         observeViewModel()
-        Log.d("MainFragment", "onViewCreated")
+        onClickListeners()
+    }
+
+    private fun onClickListeners() {
+        btnGoSnake()
+        btnGoInteractive()
+        btnGoNewSkazky()
         onClickItem()
-        goSnake()
-        goInteractive()
-        goNewSkazky()
     }
 
     private fun observeViewModel() {
-        viewModel = ViewModelProvider(this.requireActivity())[MainViewModel::class.java]
-        viewModel.categoryList.observe(this.requireActivity()) {
+        viewModel = ViewModelProvider(this)[MainViewModel::class.java]
+        viewModel.categoryList.observe(viewLifecycleOwner) {
+            categoryAdapter.submitList(it)
             if (it.isNotEmpty()) {
                 binding.progress.visibility = View.GONE
-                binding.btnNewCategoryMain.visibility = View.VISIBLE
+                binding.llButtonsMain.visibility = View.VISIBLE
             }
-            categoryAdapter.submitList(it)
+        }
+    }
+
+    private fun btnGoSnake() {
+        binding.btnSnakeCategoryMain.setOnClickListener {
+            findNavController().navigate(
+                MainFragmentDirections.actionMainFragmentToSnakeActivity()
+            )
+        }
+    }
+
+    private fun btnGoInteractive() {
+        binding.btnInteractiveCategoryMain.setOnClickListener {
+            findNavController().navigate(
+                MainFragmentDirections.actionMainFragmentToInteractiveFragment()
+            )
+        }
+    }
+
+    private fun btnGoNewSkazky() {
+        binding.btnNewCategoryMain.setOnClickListener {
+            findNavController().navigate(
+                MainFragmentDirections.actionMainFragmentToSkazkyFragment(true, 0)
+            )
         }
     }
 
@@ -61,27 +87,8 @@ class MainFragment : Fragment() {
         }
     }
 
-    private fun goSnake() {
-        binding.btnSnakeCategoryMain.setOnClickListener {
-            findNavController().navigate(
-                MainFragmentDirections.actionMainFragmentToSnakeActivity()
-            )
-        }
-    }
-
-    private fun goInteractive() {
-        binding.btnInteractiveCategoryMain.setOnClickListener {
-            findNavController().navigate(
-                MainFragmentDirections.actionMainFragmentToInteractiveFragment()
-            )
-        }
-    }
-
-    private fun goNewSkazky() {
-        binding.btnNewCategoryMain.setOnClickListener {
-            findNavController().navigate(
-                MainFragmentDirections.actionMainFragmentToSkazkyFragment(true, 0)
-            )
-        }
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
     }
 }

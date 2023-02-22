@@ -38,14 +38,19 @@ class SkazkyFragment : Fragment() {
 
     }
 
-        private fun observeViewModel(isNewSkazky: Boolean ,position: Int) {
-        viewModel = ViewModelProvider(this.requireActivity())[SkazkyViewModel::class.java]
+    private fun observeViewModel(isNewSkazky: Boolean, position: Int) {
+        viewModel = ViewModelProvider(this)[SkazkyViewModel::class.java]
         viewModel.getItemSkazkiList(isNewSkazky, position)
-        viewModel.skazkyList.observe(this.requireActivity()) {
+        viewModel.skazkyList.observe(viewLifecycleOwner) {
             skazkiAdapter.submitList(it)
             if (it.isNotEmpty()) {
                 binding.progress.visibility = View.GONE
             }
         }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
     }
 }

@@ -23,9 +23,11 @@
             app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
             <LinearLayout
+                android:id="@+id/llButtonsMain"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:visibility="invisible" >
 
                 <Button
                     android:id="@+id/btnSnakeCategoryMain"
@@ -61,8 +63,7 @@
                     android:gravity="center"
                     android:text="@string/btn_new"
                     android:textColor="@color/yellow"
-                    android:textStyle="bold"
-                    android:visibility="invisible" />
+                    android:textStyle="bold" />
 
             </LinearLayout>
         </com.google.android.material.appbar.CollapsingToolbarLayout>
