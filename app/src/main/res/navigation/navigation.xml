@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/mainFragment"
-        android:name="com.ladushkinySkazky.ladushkinnyskazki.presentation.mainFragment.MainFragment"
+        android:name="com.ladushkinySkazky.ladushkinnyskazki.skazky.presentation.mainFragment.MainFragment"
         android:label="fragment_main"
         tools:layout="@layout/fragment_main" >
         <action
@@ -26,7 +26,7 @@
     </fragment>
     <fragment
         android:id="@+id/skazkyFragment"
-        android:name="com.ladushkinySkazky.ladushkinnyskazki.presentation.skazkyFragment.SkazkyFragment"
+        android:name="com.ladushkinySkazky.ladushkinnyskazki.skazky.presentation.skazkyFragment.SkazkyFragment"
         android:label="fragment_skazky"
         tools:layout="@layout/fragment_skazky" >
         <argument
@@ -38,7 +38,7 @@
     </fragment>
     <fragment
         android:id="@+id/interactiveFragment"
-        android:name="com.ladushkinySkazky.ladushkinnyskazki.presentation.interactiveFragment.InteractiveFragment"
+        android:name="com.ladushkinySkazky.ladushkinnyskazki.skazky.presentation.interactiveFragment.InteractiveFragment"
         android:label="InteractiveFragment" >
         <action
             android:id="@+id/action_interactiveFragment_to_interactiveAddFragment"
@@ -48,7 +48,7 @@
     </fragment>
     <fragment
         android:id="@+id/interactiveAddFragment"
-        android:name="com.ladushkinySkazky.ladushkinnyskazki.presentation.interactiveAddFragment.InteractiveAddFragment"
+        android:name="com.ladushkinySkazky.ladushkinnyskazki.skazky.presentation.interactiveAddFragment.InteractiveAddFragment"
         android:label="InteractiveAddFragment" />
     <activity
         android:id="@+id/snakeActivity"
