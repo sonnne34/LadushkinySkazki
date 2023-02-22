@@ -42,14 +42,7 @@ class SkazkiAdapter(val context: Context) :
 
         } else {
             if (viewHolder is SkazkiViewHolder) {
-                //FireBase автоматически добавляет "\" к "\n",
-                //поэтому заменяю в тексте тег для отработки отступов
-                val textSkazka = "${skazkaItem.Items?.BodySkazka}"
-                val oldValue = "\\n"
-                val newValue = "\n"
-                val replace = textSkazka.replace(oldValue, newValue)
-                skazkaItem.Items?.BodySkazka = replace
-
+                skazkaItem.Items?.BodySkazka = "${skazkaItem.Items?.BodySkazka}"
                 viewHolder.nameSkazka.text = "${skazkaItem.Items?.NameSkazka}"
                 viewHolder.descriptionSkazka.text = "${skazkaItem.Items?.DescriptionSkazka}"
                 viewHolder.imgSkazka.load(skazkaItem.Items?.SkazkaUriPicture) {

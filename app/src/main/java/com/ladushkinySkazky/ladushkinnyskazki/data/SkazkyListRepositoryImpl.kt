@@ -30,6 +30,11 @@ object SkazkyListRepositoryImpl : SkazkyListRepository {
             skazkyModel.CategoryUriPicture = category.CategoryUriPicture
             skazkyList.add(skazkyModel)
             for (i in category.Items) {
+                val textSkazka = i.value.BodySkazka
+                val oldValue = "\\n"
+                val newValue = "\n"
+                val replaceTextSkazka = textSkazka.replace(oldValue, newValue)
+                i.value.BodySkazka = replaceTextSkazka
                 skazkyList.add(SkazkiCatModel(i.value))
                 skazkyList.sortBy { it.Items?.ID }
             }
