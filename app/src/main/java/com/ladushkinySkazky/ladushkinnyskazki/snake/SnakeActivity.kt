@@ -5,6 +5,7 @@ import android.content.Context
 import android.content.SharedPreferences
 import android.media.MediaPlayer
 import android.os.Bundle
+import android.util.DisplayMetrics
 import android.util.Log
 import android.view.MotionEvent
 import android.widget.FrameLayout
@@ -15,7 +16,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.ladushkinySkazky.ladushkinnyskazki.R
 import com.ladushkinySkazky.ladushkinnyskazki.databinding.ActivitySnakeBinding
-import com.ladushkinySkazky.ladushkinnyskazki.presentation.MainActivity
 import com.ladushkinySkazky.ladushkinnyskazki.snake.SnakeCore.MINIMUM_GAME_SPEED
 import com.ladushkinySkazky.ladushkinnyskazki.snake.SnakeCore.gameSpeed
 import com.ladushkinySkazky.ladushkinnyskazki.snake.SnakeCore.isPlay
@@ -45,12 +45,14 @@ class SnakeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        sizePx()
+
         _binding = ActivitySnakeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         openWelcomeDialog()
 
-        mPreferences = getSharedPreferences(MainActivity.NAME_PREF, MODE_PRIVATE)
+        mPreferences = getSharedPreferences(NAME_PREF, MODE_PRIVATE)
 
         getSharedPreferences()
         setupView()
@@ -58,9 +60,22 @@ class SnakeActivity : AppCompatActivity() {
         onBackPress(this)
     }
 
+    private fun sizePx() {
+        val mPreferences = getSharedPreferences(NAME_PREF, MODE_PRIVATE)
+        if (!mPreferences.contains(SNAKE_WIDTH)) {
+            val displayMetrics: DisplayMetrics = applicationContext.resources.displayMetrics
+            val pxWidth = displayMetrics.widthPixels - 50
+            val sizeHead = pxWidth / SNAKE_CELLS_ON_FIELD
+            mPreferences.edit()
+                .putInt(SNAKE_WIDTH, pxWidth)
+                .putInt(SNAKE_SIZE_HEAD, sizeHead)
+                .apply()
+        }
+    }
+
     private fun getSharedPreferences() {
-        loadTextWidth = mPreferences.getInt(MainActivity.SNAKE_WIDTH, 0)
-        loadTextHead = mPreferences.getInt(MainActivity.SNAKE_SIZE_HEAD, 0)
+        loadTextWidth = mPreferences.getInt(SNAKE_WIDTH, 0)
+        loadTextHead = mPreferences.getInt(SNAKE_SIZE_HEAD, 0)
         isMusic = mPreferences.getBoolean(IS_MUSIC, true)
         isSound = mPreferences.getBoolean(IS_SOUND, true)
     }
@@ -586,5 +601,10 @@ class SnakeActivity : AppCompatActivity() {
         const val FULL = 7
         private const val IS_MUSIC = "isMusic"
         private const val IS_SOUND = "isSound"
+        const val SNAKE_CELLS_ON_FIELD = 10
+        const val SNAKE_WIDTH = "snakeWidth"
+        const val SNAKE_SIZE_HEAD = "snakeSizeHead"
+        const val NAME_PREF = "preference"
+
     }
 }

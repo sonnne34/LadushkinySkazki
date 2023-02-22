@@ -56,10 +56,10 @@ class InteractiveAdapter(val context: Context) :
     }
 
     class InteractiveViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        var nameAuthor = itemView.findViewById(R.id.txt_name_interactive_item) as TextView
-        var yearAuthor = itemView.findViewById(R.id.txt_year_interactive_item) as TextView
-        var comment =
+        val nameAuthor = itemView.findViewById(R.id.txt_name_interactive_item) as TextView
+        val yearAuthor = itemView.findViewById(R.id.txt_year_interactive_item) as TextView
+        val comment =
             itemView.findViewById(R.id.txt_comment_interactive_item) as TextView
-        var img = itemView.findViewById<ImageView>(R.id.img_interactive_item)!!
+        val img = itemView.findViewById<ImageView>(R.id.img_interactive_item)!!
     }
 }

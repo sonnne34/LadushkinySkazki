@@ -70,7 +70,7 @@ class FeedbackMainMenuDialog {
 
                     Toast.makeText(
                         context,
-                        "Спасибочки!",
+                        context.getString(R.string.toast_thanks),
                         Toast.LENGTH_LONG
                     )
                         .show()
@@ -78,7 +78,7 @@ class FeedbackMainMenuDialog {
                 } else {
                     Toast.makeText(
                         context,
-                        "Ой, Вы совсем ничего не написали!)",
+                        context.getString(R.string.toast_empty_message),
                         Toast.LENGTH_LONG
                     )
                         .show()

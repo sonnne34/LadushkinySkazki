@@ -39,10 +39,10 @@ class CategoryAdapter(val context: Context) :
     }
 
     class CategoryViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        var category = itemView.findViewById(R.id.txt_name_category_skazka) as TextView
-        var categoryDescription =
-            itemView.findViewById<TextView>(R.id.txt_description_category)!!
-        var categoryPicture = itemView.findViewById<ImageView>(R.id.img_category_skazka)!!
+        val category = itemView.findViewById(R.id.txt_name_category_skazka) as TextView
+        val categoryDescription =
+            itemView.findViewById(R.id.txt_description_category) as TextView
+        val categoryPicture = itemView.findViewById(R.id.img_category_skazka) as ImageView
     }
 
     interface OnCategoryClickListener {
