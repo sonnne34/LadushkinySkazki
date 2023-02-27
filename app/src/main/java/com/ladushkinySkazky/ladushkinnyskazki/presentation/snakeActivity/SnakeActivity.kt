@@ -1,4 +1,4 @@
-package com.ladushkinySkazky.ladushkinnyskazki.presentation.snake
+package com.ladushkinySkazky.ladushkinnyskazki.presentation.snakeActivity
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -16,10 +16,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.ladushkinySkazky.ladushkinnyskazki.R
 import com.ladushkinySkazky.ladushkinnyskazki.databinding.ActivitySnakeBinding
-import com.ladushkinySkazky.ladushkinnyskazki.presentation.snake.SnakeCore.MINIMUM_GAME_SPEED
-import com.ladushkinySkazky.ladushkinnyskazki.presentation.snake.SnakeCore.gameSpeed
-import com.ladushkinySkazky.ladushkinnyskazki.presentation.snake.SnakeCore.isPlay
-import com.ladushkinySkazky.ladushkinnyskazki.presentation.snake.SnakeCore.startTheGame
+import com.ladushkinySkazky.ladushkinnyskazki.presentation.snakeActivity.SnakeCore.MINIMUM_GAME_SPEED
+import com.ladushkinySkazky.ladushkinnyskazki.presentation.snakeActivity.SnakeCore.gameSpeed
+import com.ladushkinySkazky.ladushkinnyskazki.presentation.snakeActivity.SnakeCore.isPlay
+import com.ladushkinySkazky.ladushkinnyskazki.presentation.snakeActivity.SnakeCore.startTheGame
 
 class SnakeActivity : AppCompatActivity() {
 

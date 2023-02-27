@@ -1,4 +1,4 @@
-package com.ladushkinySkazky.ladushkinnyskazki.presentation.snake
+package com.ladushkinySkazky.ladushkinnyskazki.presentation.snakeActivity
 
 object SnakeCore {
 

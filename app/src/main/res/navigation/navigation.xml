@@ -52,7 +52,7 @@
         android:label="InteractiveAddFragment" />
     <activity
         android:id="@+id/snakeActivity"
-        android:name="com.ladushkinySkazky.ladushkinnyskazki.presentation.snake.SnakeActivity"
+        android:name="com.ladushkinySkazky.ladushkinnyskazki.presentation.snakeActivity.SnakeActivity"
         android:label="activity_snake"
         tools:layout="@layout/activity_snake" />
 </navigation>

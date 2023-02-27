@@ -14,7 +14,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LadushkinnySkazki">
         <activity
-            android:name=".presentation.snake.SnakeActivity"
+            android:name=".presentation.snakeActivity.SnakeActivity"
             android:exported="true"
             android:screenOrientation="portrait"/>
         <activity
