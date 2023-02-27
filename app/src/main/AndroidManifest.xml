@@ -14,11 +14,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LadushkinnySkazki">
         <activity
-            android:name=".snake.SnakeActivity"
+            android:name=".presentation.snake.SnakeActivity"
             android:exported="true"
             android:screenOrientation="portrait"/>
         <activity
-            android:name=".skazky.presentation.MainActivity"
+            android:name=".presentation.MainActivity"
             android:exported="true"
             android:screenOrientation="portrait">
             <intent-filter>
