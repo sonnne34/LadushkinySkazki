@@ -5,9 +5,10 @@ import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.findNavController
 import com.ladushkinySkazky.ladushkinnyskazki.R
 import com.ladushkinySkazky.ladushkinnyskazki.presentation.mainFragment.AboutUsMainMenuDialog
-import com.ladushkinySkazky.ladushkinnyskazki.presentation.mainFragment.FeedbackMainMenuDialog
+import com.ladushkinySkazky.ladushkinnyskazki.presentation.mainFragment.MainFragmentDirections
 
 class MainActivity : AppCompatActivity() {
 
@@ -32,7 +33,9 @@ class MainActivity : AppCompatActivity() {
                 AboutUsMainMenuDialog.openMenu(this)
             }
             R.id.feedback -> {
-                FeedbackMainMenuDialog.openMenu(this)
+                findNavController(R.id.container).navigate(
+                    MainFragmentDirections.actionMainFragmentToFeedbackFragment()
+                )
             }
         }
         return super.onOptionsItemSelected(item)
