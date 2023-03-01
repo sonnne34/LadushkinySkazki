@@ -6,14 +6,19 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.ladushkinySkazky.ladushkinnyskazki.R
+import com.ladushkinySkazky.ladushkinnyskazki.domian.models.CategorySkazkiModel
 import com.ladushkinySkazky.ladushkinnyskazki.domian.models.SkazkiCatModel
+import com.ladushkinySkazky.ladushkinnyskazki.presentation.mainFragment.CategoryAdapter
 
 class SkazkiAdapter(val context: Context) :
     ListAdapter<SkazkiCatModel, RecyclerView.ViewHolder>(SkazkyItemDiffCallback) {
+
+    var onSkazkyClickListener: OnSkazkyClickListener? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
@@ -28,12 +33,11 @@ class SkazkiAdapter(val context: Context) :
 
     override fun onBindViewHolder(viewHolder: RecyclerView.ViewHolder, position: Int) {
         val skazkaItem = getItem(position)
-        if (viewHolder.itemViewType == VIEW_TYPE_CATEGORY) {
-            if (viewHolder is CategorySkazkyViewHolder) {
+        when (viewHolder) {
+            is CategorySkazkyViewHolder -> {
                 viewHolder.category.text = "${skazkaItem.CategoryName}"
             }
-        } else {
-            if (viewHolder is SkazkiViewHolder) {
+            is SkazkiViewHolder -> {
                 skazkaItem.Items?.BodySkazka = "${skazkaItem.Items?.BodySkazka}"
                 viewHolder.nameSkazka.text = "${skazkaItem.Items?.NameSkazka}"
                 viewHolder.descriptionSkazka.text = "${skazkaItem.Items?.DescriptionSkazka}"
@@ -41,14 +45,13 @@ class SkazkiAdapter(val context: Context) :
                     crossfade(true)
                     placeholder(R.drawable.background_image)
                 }
-
-                if (skazkaItem.Items!!.New) {
-                    viewHolder.imgNew.visibility = View.VISIBLE
-                }
-
+                viewHolder.imgNew.isVisible = (skazkaItem.Items?.New == true)
                 viewHolder.itemView.setOnClickListener {
-                    SkazkaTextDialog.openBody(context, skazkaItem)
+                    onSkazkyClickListener?.onSkazkyClick(skazkaItem, position)
                 }
+            }
+            else -> {
+                throw RuntimeException("ItemViewType ${viewHolder.itemViewType} not found")
             }
         }
     }
@@ -72,6 +75,10 @@ class SkazkiAdapter(val context: Context) :
             itemView.findViewById(R.id.txt_description_skazka) as TextView
         var imgSkazka = itemView.findViewById(R.id.img_name_skazka) as ImageView
         var imgNew = itemView.findViewById(R.id.img_new_skazka) as ImageView
+    }
+
+    interface OnSkazkyClickListener {
+        fun onSkazkyClick(skazkiCatModel: SkazkiCatModel, position: Int)
     }
 
     companion object {
