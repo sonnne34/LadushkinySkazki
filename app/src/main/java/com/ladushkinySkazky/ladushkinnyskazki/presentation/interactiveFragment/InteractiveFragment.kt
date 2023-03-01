@@ -34,6 +34,11 @@ class InteractiveFragment : Fragment() {
         observeViewModel()
     }
 
+    override fun onResume() {
+        super.onResume()
+        activity?.invalidateOptionsMenu()
+    }
+
     private fun observeViewModel() {
         viewModel = ViewModelProvider(this)[InteractiveViewModel::class.java]
         viewModel.interactiveList.observe(viewLifecycleOwner) { interactiveList ->

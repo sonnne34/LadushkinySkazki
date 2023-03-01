@@ -19,11 +19,11 @@ class FeedbackFragment : Fragment() {
     private val binding: FragmentFeedbackBinding
         get() = _binding ?: throw RuntimeException("FragmentFeedbackBinding == null")
 
-    lateinit var name: TextView
-    lateinit var feedback: TextView
-    lateinit var contact: TextView
-    lateinit var btnSend: TextView
-    lateinit var btnClose: TextView
+    private lateinit var name: TextView
+    private lateinit var feedback: TextView
+    private lateinit var contact: TextView
+    private lateinit var btnSend: TextView
+    private lateinit var btnClose: TextView
 
     private lateinit var viewModel: FeedbackViewModel
 
@@ -42,6 +42,11 @@ class FeedbackFragment : Fragment() {
         observeViewModel()
         onClickListenerSend()
         onClickListenerClose()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        activity?.invalidateOptionsMenu()
     }
 
     private fun setupViews() {

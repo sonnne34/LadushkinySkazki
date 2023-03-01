@@ -54,6 +54,11 @@ class InteractiveAddFragment : Fragment() {
         observeViewModel()
     }
 
+    override fun onResume() {
+        super.onResume()
+        activity?.invalidateOptionsMenu()
+    }
+
     private fun setupView() {
         with(binding) {
             imageView = imgInteractiveAdd

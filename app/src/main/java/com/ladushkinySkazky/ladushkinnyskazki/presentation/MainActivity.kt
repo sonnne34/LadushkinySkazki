@@ -29,6 +29,9 @@ class MainActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
+            android.R.id.home -> {
+                onBackPressedDispatcher.onBackPressed()
+            }
             R.id.about_us -> {
                 AboutUsMainMenuDialog.openMenu(this)
             }
@@ -39,6 +42,14 @@ class MainActivity : AppCompatActivity() {
             }
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    override fun onPrepareOptionsMenu(menu: Menu?): Boolean {
+        val labelFragment = findNavController(R.id.container).currentDestination?.label.toString()
+        if (labelFragment != "fragment_main") {
+            menu?.clear()
+        }
+        return super.onPrepareOptionsMenu(menu)
     }
 
     private fun networkMonitorResult() {
