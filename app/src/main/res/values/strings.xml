@@ -64,4 +64,5 @@
     <string name="toast_empty_message">Ой, Вы совсем ничего не написали!)</string>
     <string name="toast_thanks">Спасибочки!</string>
     <string name="toast_check_network">Проверьте подключение к интернету</string>
+    <string name="toast_error_send_feedback">Что-то пошло не так, попробуйте повторить отправку позже</string>
 </resources>

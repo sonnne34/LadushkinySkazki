@@ -1,8 +1,8 @@
 package com.ladushkinySkazky.ladushkinnyskazki.data
 
 import androidx.lifecycle.LiveData
-import com.ladushkinySkazky.ladushkinnyskazki.data.loadFirebase.LoadInteractive
-import com.ladushkinySkazky.ladushkinnyskazki.data.loadFirebase.LoadSkazky
+import com.ladushkinySkazky.ladushkinnyskazki.data.firebase.InteractiveLiveData
+import com.ladushkinySkazky.ladushkinnyskazki.data.firebase.SkazkyLiveData
 import com.ladushkinySkazky.ladushkinnyskazki.domian.SkazkyRepository
 import com.ladushkinySkazky.ladushkinnyskazki.domian.models.CategorySkazkiModel
 import com.ladushkinySkazky.ladushkinnyskazki.domian.models.InteractiveModel
@@ -10,7 +10,7 @@ import com.ladushkinySkazky.ladushkinnyskazki.domian.models.SkazkiCatModel
 
 object SkazkyRepositoryImpl : SkazkyRepository {
 
-    private val skazkyLiveDataFB = LoadSkazky()
+    private val skazkyLiveDataFB = SkazkyLiveData()
     private val skazkyList = mutableListOf<SkazkiCatModel>()
     private val mapper = SkazkyMapper()
 
@@ -36,5 +36,5 @@ object SkazkyRepositoryImpl : SkazkyRepository {
             ?: throw RuntimeException("Element with id $itemSkazkaId not found")
     }
 
-    override fun getInteractiveList(): LiveData<List<InteractiveModel>> = LoadInteractive()
+    override fun getInteractiveList(): LiveData<List<InteractiveModel>> = InteractiveLiveData()
 }

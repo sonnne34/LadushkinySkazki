@@ -9,9 +9,8 @@ import android.widget.EditText
 import android.widget.ListPopupWindow
 import android.widget.TextView
 import android.widget.Toast
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
 import com.ladushkinySkazky.ladushkinnyskazki.R
+import com.ladushkinySkazky.ladushkinnyskazki.data.firebase.SendDataFB
 import java.util.*
 
 
@@ -26,69 +25,43 @@ class FeedbackMainMenuDialog {
                 ListPopupWindow.WRAP_CONTENT,
                 ListPopupWindow.WRAP_CONTENT
             )
-
             dialog.setCancelable(true)
             dialog.setCanceledOnTouchOutside(true)
 
-            val btnClose = dialog.findViewById(R.id.btn_close_menu_dialog) as TextView
-            val editSent = dialog.findViewById<EditText>(R.id.edt_feedback_menu_dialog)
             val editName = dialog.findViewById<EditText>(R.id.edt_name_menu_dialog)
+            val editSent = dialog.findViewById<EditText>(R.id.edt_feedback_menu_dialog)
             val editContact = dialog.findViewById<EditText>(R.id.edt_contact_menu_dialog)
             val btnSent = dialog.findViewById<TextView>(R.id.img_btn_send_menu_dialog)
-
-            lateinit var mDataBase: DatabaseReference
-            lateinit var id: String
-            val idRand: UUID = UUID.randomUUID()
-            id = idRand.toString()
+            val btnClose = dialog.findViewById(R.id.btn_close_menu_dialog) as TextView
 
             btnSent.setOnClickListener {
                 if (editSent.length() != 0) {
-
                     val name = "Имя: ${editName.text}"
                     val text = "Отзыв: ${editSent.text}"
                     val contact = "Контакт: ${editContact.text}"
                     val df = DateFormat.format("yyyy-MM-dd hh:mm:ss a", Date())
                     val dataTime = df.toString()
 
-                    mDataBase = FirebaseDatabase.getInstance().getReference("Feedback/$id/ID")
-                    mDataBase.ref.setValue(id)
-
-                    mDataBase = FirebaseDatabase.getInstance().getReference("Feedback/$id/DataTime")
-                    mDataBase.ref.setValue(dataTime)
-
-                    mDataBase =
-                        FirebaseDatabase.getInstance().getReference("Feedback/$id/NameFeedback")
-                    mDataBase.ref.setValue(name)
-
-                    mDataBase =
-                        FirebaseDatabase.getInstance().getReference("Feedback/$id/TextFeedback")
-                    mDataBase.ref.setValue(text)
-
-                    mDataBase =
-                        FirebaseDatabase.getInstance().getReference("Feedback/$id/ContactFeedback")
-                    mDataBase.ref.setValue(contact)
-
-                    Toast.makeText(
-                        context,
-                        context.getString(R.string.toast_thanks),
-                        Toast.LENGTH_LONG
-                    )
-                        .show()
-                    dialog.cancel()
+                    SendDataFB().sendFeedback(dataTime, name, text, contact,
+                        onSuccess = {
+                            showToast(context, context.getString(R.string.toast_thanks))
+                            dialog.cancel()
+                        }, onFail = {
+                            showToast(context, context.getString(R.string.toast_error_send_feedback))
+                            dialog.cancel()
+                        })
                 } else {
-                    Toast.makeText(
-                        context,
-                        context.getString(R.string.toast_empty_message),
-                        Toast.LENGTH_LONG
-                    )
-                        .show()
+                    showToast(context, context.getString(R.string.toast_empty_message))
                 }
             }
-
             btnClose.setOnClickListener {
                 dialog.cancel()
             }
             dialog.show()
+        }
+
+        private fun showToast(context: Context, message: String) {
+            Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
         }
     }
 }

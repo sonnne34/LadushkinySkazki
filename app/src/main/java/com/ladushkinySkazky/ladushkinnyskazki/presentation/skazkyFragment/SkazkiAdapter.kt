@@ -11,9 +11,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.ladushkinySkazky.ladushkinnyskazki.R
-import com.ladushkinySkazky.ladushkinnyskazki.domian.models.CategorySkazkiModel
 import com.ladushkinySkazky.ladushkinnyskazki.domian.models.SkazkiCatModel
-import com.ladushkinySkazky.ladushkinnyskazki.presentation.mainFragment.CategoryAdapter
 
 class SkazkiAdapter(val context: Context) :
     ListAdapter<SkazkiCatModel, RecyclerView.ViewHolder>(SkazkyItemDiffCallback) {

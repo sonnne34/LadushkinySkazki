@@ -27,15 +27,18 @@ class CategoryAdapter(val context: Context) :
 
     override fun onBindViewHolder(holder: CategoryViewHolder, position: Int) {
         val categoryItem = getItem(position)
-        holder.category.text = categoryItem.CategoryName
-        holder.categoryDescription.text = categoryItem.CategoryDescription
-        holder.categoryPicture.load(categoryItem.CategoryUriPicture) {
-            placeholder(R.drawable.background_image)
-            crossfade(true)
+        with(holder) {
+            category.text = categoryItem.CategoryName
+            categoryDescription.text = categoryItem.CategoryDescription
+            categoryPicture.load(categoryItem.CategoryUriPicture) {
+                placeholder(R.drawable.background_image)
+                crossfade(true)
+            }
+            itemView.setOnClickListener {
+                onCategoryClickListener?.onCategoryClick(categoryItem, position)
+            }
         }
-        holder.itemView.setOnClickListener {
-            onCategoryClickListener?.onCategoryClick(categoryItem, position)
-        }
+
     }
 
     class CategoryViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {

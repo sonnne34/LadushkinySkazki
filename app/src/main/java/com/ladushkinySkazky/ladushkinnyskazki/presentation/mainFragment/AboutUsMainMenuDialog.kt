@@ -15,7 +15,7 @@ class AboutUsMainMenuDialog {
             val dialog = Dialog(context, R.style.CustomDialogMenu)
             dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
             dialog.setContentView(R.layout.dialog_about_us)
-            dialog.window?.setGravity(Gravity.TOP)
+            dialog.window?.setGravity(Gravity.CENTER)
             dialog.window?.setLayout(
                 ListPopupWindow.WRAP_CONTENT,
                 ListPopupWindow.WRAP_CONTENT
