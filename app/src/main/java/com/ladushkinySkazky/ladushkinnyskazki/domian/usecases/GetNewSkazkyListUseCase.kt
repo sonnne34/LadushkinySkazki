@@ -5,7 +5,7 @@ import com.ladushkinySkazky.ladushkinnyskazki.domian.models.SkazkiCatModel
 
 class GetNewSkazkyListUseCase(private val skazkyListRepository: SkazkyRepository) {
 
-    fun getNewSkazkyList(): List<SkazkiCatModel> {
-        return skazkyListRepository.getItemNewSkazkyList()
+    fun getNewSkazkyList(position: Int): List<SkazkiCatModel> {
+        return skazkyListRepository.getItemNewSkazkyList(position)
     }
 }

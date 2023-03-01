@@ -11,7 +11,7 @@ interface SkazkyRepository {
 
     fun getItemSkazkyList(position: Int): List<SkazkiCatModel>
 
-    fun getItemNewSkazkyList(): List<SkazkiCatModel>
+    fun getItemNewSkazkyList(position: Int): List<SkazkiCatModel>
 
     fun getItemSkazka(itemSkazkaId: Int): SkazkiCatModel
 

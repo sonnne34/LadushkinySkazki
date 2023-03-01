@@ -20,7 +20,7 @@ class SkazkyViewModel(application: Application) : AndroidViewModel(application) 
 
     fun getItemSkazkiList(isNewSkazky: Boolean, position: Int) {
         val items = when (isNewSkazky) {
-            true -> getNewSkazkyListUseCase.getNewSkazkyList()
+            true -> getNewSkazkyListUseCase.getNewSkazkyList(position)
             false -> getSkazkyListUseCase.getSkazkyList(position)
         }
         _skazkyList.value = items

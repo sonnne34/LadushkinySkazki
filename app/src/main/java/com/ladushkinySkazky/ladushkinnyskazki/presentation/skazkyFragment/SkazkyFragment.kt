@@ -6,8 +6,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.NavController
+import androidx.navigation.Navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.ladushkinySkazky.ladushkinnyskazki.databinding.FragmentSkazkyBinding
+import com.ladushkinySkazky.ladushkinnyskazki.presentation.mainFragment.MainFragmentDirections
 
 class SkazkyFragment : Fragment() {
 
