@@ -1,7 +1,8 @@
 package com.ladushkinySkazky.ladushkinnyskazki.data
 
 import androidx.lifecycle.LiveData
-import com.ladushkinySkazky.ladushkinnyskazki.data.firebase.AddDataFB
+import androidx.lifecycle.MediatorLiveData
+import com.ladushkinySkazky.ladushkinnyskazki.data.firebase.FirebaseRepository
 import com.ladushkinySkazky.ladushkinnyskazki.data.firebase.InteractiveLiveData
 import com.ladushkinySkazky.ladushkinnyskazki.data.firebase.SkazkyLiveData
 import com.ladushkinySkazky.ladushkinnyskazki.domian.SkazkyRepository
@@ -12,9 +13,8 @@ import com.ladushkinySkazky.ladushkinnyskazki.domian.models.SkazkiCatModel
 
 object SkazkyRepositoryImpl : SkazkyRepository {
 
+    private val mapper = Mapper()
     private val skazkyLiveDataFB = SkazkyLiveData()
-    private val skazkyList = mutableListOf<SkazkiCatModel>()
-    private val mapper = SkazkyMapper()
 
     override fun getCategorySkazkyList(): LiveData<List<CategorySkazkiModel>> = skazkyLiveDataFB
 
@@ -34,16 +34,23 @@ object SkazkyRepositoryImpl : SkazkyRepository {
     }
 
     override fun getItemSkazka(itemSkazkaId: Int): SkazkiCatModel {
+        val skazkyList = mutableListOf<SkazkiCatModel>()
         return skazkyList.find { it.Items?.ID == itemSkazkaId }
             ?: throw RuntimeException("Element with id $itemSkazkaId not found")
     }
 
-    override fun getInteractiveList(): LiveData<List<InteractiveModel>> = InteractiveLiveData()
+    override fun getInteractiveList(): LiveData<List<InteractiveModel>> =
+        MediatorLiveData<List<InteractiveModel>>().apply {
+            addSource(InteractiveLiveData()) {
+                value = mapper.mapInteractiveToCheckInteractive(it)
+            }
+        }
+
     override suspend fun addFeedback(
         feedbackModel: FeedbackModel,
         onSuccess: () -> Unit,
-        onFail: (String) -> Unit
+        onFail: (String) -> Unit,
     ) {
-        AddDataFB().addFeedback(feedbackModel, onSuccess, onFail)
+        FirebaseRepository().addFeedback(feedbackModel, onSuccess, onFail)
     }
 }

@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -51,10 +52,8 @@ class MainFragment : Fragment() {
         viewModel = ViewModelProvider(this)[MainViewModel::class.java]
         viewModel.categoryList.observe(viewLifecycleOwner) {
             categoryAdapter.submitList(it)
-            if (it.isNotEmpty()) {
-                binding.progress.visibility = View.GONE
-                binding.llButtonsMain.visibility = View.VISIBLE
-            }
+            binding.progress.isVisible = it.isEmpty()
+            binding.llButtonsMain.isVisible = it.isNotEmpty()
         }
     }
 

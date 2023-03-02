@@ -26,14 +26,12 @@ class SkazkyLiveData : LiveData<List<CategorySkazkiModel>>() {
     })
 
     override fun onActive() {
-        if (value?.isEmpty() == true) {
-            firebaseDatabase.addValueEventListener(listener)
-        }
         super.onActive()
+        firebaseDatabase.addValueEventListener(listener)
     }
 
     override fun onInactive() {
-        firebaseDatabase.removeEventListener(listener)
         super.onInactive()
+        firebaseDatabase.removeEventListener(listener)
     }
 }

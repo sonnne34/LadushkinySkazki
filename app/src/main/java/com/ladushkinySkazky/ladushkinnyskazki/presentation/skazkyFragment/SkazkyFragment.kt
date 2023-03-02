@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.navArgs
@@ -37,7 +38,6 @@ class SkazkyFragment : Fragment() {
         val isNewSkazky = args.newSkazky
         val position = args.position
         observeViewModel(isNewSkazky, position)
-
     }
 
     override fun onResume() {
@@ -50,9 +50,7 @@ class SkazkyFragment : Fragment() {
         viewModel.getItemSkazkiList(isNewSkazky, position)
         viewModel.skazkyList.observe(viewLifecycleOwner) {
             skazkiAdapter.submitList(it)
-            if (it.isNotEmpty()) {
-                binding.progress.visibility = View.GONE
-            }
+            binding.progress.isVisible = it.isEmpty()
         }
     }
 

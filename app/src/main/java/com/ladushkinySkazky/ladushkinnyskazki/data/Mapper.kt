@@ -1,9 +1,13 @@
 package com.ladushkinySkazky.ladushkinnyskazki.data
 
+import android.text.format.DateFormat
 import com.ladushkinySkazky.ladushkinnyskazki.domian.models.CategorySkazkiModel
+import com.ladushkinySkazky.ladushkinnyskazki.domian.models.FeedbackModel
+import com.ladushkinySkazky.ladushkinnyskazki.domian.models.InteractiveModel
 import com.ladushkinySkazky.ladushkinnyskazki.domian.models.SkazkiCatModel
+import java.util.*
 
-class SkazkyMapper {
+class Mapper {
 
     fun mapCategoryListToSkazkyCatList(categoryList: List<CategorySkazkiModel>): List<SkazkiCatModel> {
         val skazkyList = mutableListOf<SkazkiCatModel>()
@@ -39,4 +43,27 @@ class SkazkyMapper {
         val newValue = "\n"
         return textSkazka.replace(oldValue, newValue)
     }
+
+    fun mapInteractiveToCheckInteractive(
+        interactiveList: List<InteractiveModel>,
+    ): List<InteractiveModel> =
+        interactiveList.filter { it.Check }.sortedByDescending { it1 -> it1.DataTime }
+
+    fun mapFeedbackToDataFirebase(
+        idNote: String,
+        feedbackModel: FeedbackModel,
+    ): HashMap<String, Any> {
+        val mapFeedback = HashMap<String, Any>()
+        mapFeedback["ID"] = idNote
+        mapFeedback["DataTime"] = currentDataTime()
+        mapFeedback["NameFeedback"] = "Имя: ${feedbackModel.NameFeedback}"
+        mapFeedback["TextFeedback"] = "Отзыв: ${feedbackModel.TextFeedback}"
+        mapFeedback["ContactFeedback"] = "Контакт: ${feedbackModel.ContactFeedback}"
+        return mapFeedback
+    }
+
+    private fun currentDataTime(): String {
+        return DateFormat.format("yyyy-MM-dd hh:mm:ss a", Date()).toString()
+    }
+
 }
