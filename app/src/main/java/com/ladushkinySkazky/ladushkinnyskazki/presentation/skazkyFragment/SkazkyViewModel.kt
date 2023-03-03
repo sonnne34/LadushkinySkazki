@@ -1,15 +1,14 @@
 package com.ladushkinySkazky.ladushkinnyskazki.presentation.skazkyFragment
 
-import android.app.Application
-import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
 import com.ladushkinySkazky.ladushkinnyskazki.data.SkazkyRepositoryImpl
 import com.ladushkinySkazky.ladushkinnyskazki.domian.models.SkazkiCatModel
 import com.ladushkinySkazky.ladushkinnyskazki.domian.usecases.GetNewSkazkyListUseCase
 import com.ladushkinySkazky.ladushkinnyskazki.domian.usecases.GetSkazkyListUseCase
 
-class SkazkyViewModel(application: Application) : AndroidViewModel(application) {
+class SkazkyViewModel : ViewModel() {
 
     private val repository = SkazkyRepositoryImpl
     private val getSkazkyListUseCase = GetSkazkyListUseCase(repository)

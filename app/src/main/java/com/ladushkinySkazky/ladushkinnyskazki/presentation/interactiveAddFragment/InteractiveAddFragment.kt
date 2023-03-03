@@ -16,6 +16,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import coil.load
+import com.google.android.material.textfield.TextInputLayout
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
@@ -30,15 +31,24 @@ class InteractiveAddFragment : Fragment() {
     private var _binding: FragmentInteractiveAddBinding? = null
     private val binding: FragmentInteractiveAddBinding
         get() = _binding ?: throw RuntimeException("FragmentInteractiveAddBinding == null")
-    private lateinit var viewModel: InteractiveAddViewModel
     private lateinit var imageView: ImageView
-    private lateinit var edtNameAuthor: EditText
+    private lateinit var edtName: EditText
     private lateinit var edtYear: EditText
     private lateinit var edtComment: EditText
+    private lateinit var inputEdtName: TextInputLayout
+    private lateinit var inputEdtYear: TextInputLayout
     private val idRand: UUID = UUID.randomUUID()
     private val id = idRand.toString()
     private var filePath: Uri? = null
     private var storageReference: StorageReference? = null
+
+    private val viewModelFactory by lazy {
+        InteractiveAddViewModelFactory(requireActivity().application)
+    }
+
+    private val viewModel: InteractiveAddViewModel by lazy {
+        ViewModelProvider(this, viewModelFactory)[InteractiveAddViewModel::class.java]
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -51,12 +61,6 @@ class InteractiveAddFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupView()
-        observeViewModel()
-    }
-
-    override fun onResume() {
-        super.onResume()
-        activity?.invalidateOptionsMenu()
     }
 
     private fun setupView() {
@@ -71,15 +75,17 @@ class InteractiveAddFragment : Fragment() {
             }
             imageView.setOnClickListener { launcherImage.launch("image/*") }
 
-            edtNameAuthor = edtNameInteractiveAdd
+            edtName = edtNameInteractiveAdd
             edtYear = edtYearInteractiveAdd
             edtComment = edtCommentInteractiveAdd
+            inputEdtName = inputEdtNameInteractiveAdd
+            inputEdtYear = inputEdtYearInteractiveAdd
+
             btnSendInteractiveAdd.setOnClickListener { checkSend() }
         }
     }
 
     private fun sendImage() {
-        if (filePath != null) {
             val progressDialog = ProgressDialog(requireActivity())
             progressDialog.setTitle("Загрузка...")
             progressDialog.show()
@@ -103,7 +109,7 @@ class InteractiveAddFragment : Fragment() {
                         .show()
                 }
                 .addOnProgressListener { taskSnapshot ->
-                    //оповещение об успешной отправки
+                    //оповещение об успешной отправке
                     val progress = 100.0 * taskSnapshot.bytesTransferred / taskSnapshot
                         .totalByteCount
                     progressDialog.setMessage("Загружено " + progress.toInt() + "%")
@@ -113,36 +119,22 @@ class InteractiveAddFragment : Fragment() {
                 .addOnCompleteListener {
                     openCloseDialog()
                 }
-        } else {
-            Toast.makeText(requireActivity(), "Прикрепите изображение", Toast.LENGTH_SHORT)
-                .show()
-        }
-    }
-
-
-    private fun observeViewModel() {
-        viewModel = ViewModelProvider(this)[InteractiveAddViewModel::class.java]
     }
 
     private fun checkSend() {
-        if (edtNameAuthor.text.isEmpty() || edtYear.text.isEmpty()) {
-            if (edtNameAuthor.text.isEmpty()) {
-                binding.inputEdtNameInteractiveAdd.error = "Обязательное поле"
-            } else {
-                binding.inputEdtNameInteractiveAdd.error = null
-            }
-            if (edtYear.text.isEmpty()) {
-                binding.inputEdtYearInteractiveAdd.error = "Обязательное поле"
-            } else {
-                binding.inputEdtYearInteractiveAdd.error = null
-            }
-        } else {
+        val errorEdtName = viewModel.isEmptyEditText(edtName.text.toString())
+        val errorEdtYear = viewModel.isEmptyEditText(edtYear.text.toString())
+        inputEdtName.error = errorEdtName
+        inputEdtYear.error = errorEdtYear
+        if (errorEdtName == null && errorEdtYear == null && filePath != null) {
             openSendDialog()
+        } else {
+            showToast(getString(R.string.toast_error_image))
         }
     }
 
     private fun sendInteractive() {
-        val nameAuthor = edtNameAuthor.text.toString()
+        val nameAuthor = edtName.text.toString()
         val year = edtYear.text.toString()
         val comment = edtComment.text.toString()
         val image = "gs://skazki-99ce4.appspot.com/Interactive/$id"
@@ -201,5 +193,15 @@ class InteractiveAddFragment : Fragment() {
 
     private fun goInteractive() {
         findNavController().popBackStack()
+    }
+
+    private fun showToast(message: String) {
+        Toast.makeText(activity, message, Toast.LENGTH_SHORT).show()
+    }
+
+
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
     }
 }

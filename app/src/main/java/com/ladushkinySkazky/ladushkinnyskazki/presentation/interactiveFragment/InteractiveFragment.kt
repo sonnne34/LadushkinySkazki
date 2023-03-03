@@ -31,8 +31,8 @@ class InteractiveFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.rvListInteractive.adapter = interactiveAdapter
-        goInteractiveAdd()
         observeViewModel()
+        goInteractiveAdd()
     }
 
     override fun onResume() {

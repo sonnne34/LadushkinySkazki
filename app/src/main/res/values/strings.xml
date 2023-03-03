@@ -65,4 +65,6 @@
     <string name="toast_thanks">Спасибочки!</string>
     <string name="toast_check_network">Проверьте подключение к интернету</string>
     <string name="toast_error_send_feedback">Что-то пошло не так, попробуйте повторить отправку позже</string>
+    <string name="checked_empty">Обязательное поле</string>
+    <string name="toast_error_image">Прикрепите изображение</string>
 </resources>
