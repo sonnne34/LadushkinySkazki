@@ -6,10 +6,7 @@ import com.ladushkinySkazky.ladushkinnyskazki.data.firebase.FirebaseRepository
 import com.ladushkinySkazky.ladushkinnyskazki.data.firebase.InteractiveLiveData
 import com.ladushkinySkazky.ladushkinnyskazki.data.firebase.SkazkyLiveData
 import com.ladushkinySkazky.ladushkinnyskazki.domian.SkazkyRepository
-import com.ladushkinySkazky.ladushkinnyskazki.domian.models.CategorySkazkiModel
-import com.ladushkinySkazky.ladushkinnyskazki.domian.models.FeedbackModel
-import com.ladushkinySkazky.ladushkinnyskazki.domian.models.InteractiveModel
-import com.ladushkinySkazky.ladushkinnyskazki.domian.models.SkazkiCatModel
+import com.ladushkinySkazky.ladushkinnyskazki.domian.models.*
 
 object SkazkyRepositoryImpl : SkazkyRepository {
 
@@ -52,5 +49,14 @@ object SkazkyRepositoryImpl : SkazkyRepository {
         onFail: (String) -> Unit,
     ) {
         FirebaseRepository().addFeedback(feedbackModel, onSuccess, onFail)
+    }
+
+    override suspend fun addInteractive(
+        addInteractiveModel: AddInteractiveModel,
+        onProgress: (Int) -> Unit,
+        onSuccess: () -> Unit,
+        onFailure: (String) -> Unit,
+    ) {
+        FirebaseRepository().addInteractive(addInteractiveModel, onProgress, onSuccess, onFailure)
     }
 }

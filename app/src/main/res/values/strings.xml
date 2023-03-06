@@ -67,4 +67,13 @@
     <string name="toast_error_send_feedback">Что-то пошло не так, попробуйте повторить отправку позже</string>
     <string name="checked_empty">Обязательное поле</string>
     <string name="toast_error_image">Прикрепите изображение</string>
+    <string name="toast_fail">Упс! Произошла ошибка: %s</string>
+    <string name="dialog_send_title_add_interactive">Отправить художество?</string>
+    <string name="dialog_send_title_on_susses">Большое спасибо!</string>
+    <string name="dialog_send_message_on_susses">"Мы проверим корректность художества, затем добавим его в галерею!"</string>
+    <string name="dialog_great">Отлично!</string>
+    <string name="dialog_yes">Да!</string>
+    <string name="dialog_no">Ой, Нет!</string>
+    <string name="tv_send_progress">Отправка художества…</string>
+    <string name="toast_wait_load">Дождитесь завершения загрузки Вашего художества…</string>
 </resources>

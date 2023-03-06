@@ -1,10 +1,7 @@
 package com.ladushkinySkazky.ladushkinnyskazki.data
 
 import android.text.format.DateFormat
-import com.ladushkinySkazky.ladushkinnyskazki.domian.models.CategorySkazkiModel
-import com.ladushkinySkazky.ladushkinnyskazki.domian.models.FeedbackModel
-import com.ladushkinySkazky.ladushkinnyskazki.domian.models.InteractiveModel
-import com.ladushkinySkazky.ladushkinnyskazki.domian.models.SkazkiCatModel
+import com.ladushkinySkazky.ladushkinnyskazki.domian.models.*
 import java.util.*
 
 class Mapper {
@@ -44,23 +41,37 @@ class Mapper {
         return textSkazka.replace(oldValue, newValue)
     }
 
-    fun mapInteractiveToCheckInteractive(
-        interactiveList: List<InteractiveModel>,
-    ): List<InteractiveModel> =
-        interactiveList.filter { it.Check }.sortedByDescending { it1 -> it1.DataTime }
-
     fun mapFeedbackToDataFirebase(
-        idNote: String,
+        idFeedback: String,
         feedbackModel: FeedbackModel,
     ): HashMap<String, Any> {
         val mapFeedback = HashMap<String, Any>()
-        mapFeedback["ID"] = idNote
+        mapFeedback["ID"] = idFeedback
         mapFeedback["DataTime"] = currentDataTime()
         mapFeedback["NameFeedback"] = "Имя: ${feedbackModel.NameFeedback}"
         mapFeedback["TextFeedback"] = "Отзыв: ${feedbackModel.TextFeedback}"
         mapFeedback["ContactFeedback"] = "Контакт: ${feedbackModel.ContactFeedback}"
         return mapFeedback
     }
+
+    fun mapInteractiveToDataFirebase(
+        idInteractive: String,
+        addInteractiveModel: AddInteractiveModel,
+    ): HashMap<String, Any> {
+        val mapInteractive = HashMap<String, Any>()
+        mapInteractive["ID"] = idInteractive
+        mapInteractive["DataTime"] = currentDataTime()
+        mapInteractive["Check"] = addInteractiveModel.Check
+        mapInteractive["Name"] = addInteractiveModel.nameAuthor
+        mapInteractive["Year"] = addInteractiveModel.year
+        mapInteractive["Comment"] = addInteractiveModel.comment
+        mapInteractive["Image"] = "gs://skazki-99ce4.appspot.com/Interactive/$idInteractive"
+        return mapInteractive
+    }
+    fun mapInteractiveToCheckInteractive(
+        interactiveList: List<InteractiveModel>,
+    ): List<InteractiveModel> =
+        interactiveList.filter { it.Check }.sortedByDescending { it1 -> it1.DataTime }
 
     private fun currentDataTime(): String {
         return DateFormat.format("yyyy-MM-dd hh:mm:ss a", Date()).toString()

@@ -1,10 +1,7 @@
 package com.ladushkinySkazky.ladushkinnyskazki.domian
 
 import androidx.lifecycle.LiveData
-import com.ladushkinySkazky.ladushkinnyskazki.domian.models.CategorySkazkiModel
-import com.ladushkinySkazky.ladushkinnyskazki.domian.models.FeedbackModel
-import com.ladushkinySkazky.ladushkinnyskazki.domian.models.InteractiveModel
-import com.ladushkinySkazky.ladushkinnyskazki.domian.models.SkazkiCatModel
+import com.ladushkinySkazky.ladushkinnyskazki.domian.models.*
 
 interface SkazkyRepository {
 
@@ -22,6 +19,13 @@ interface SkazkyRepository {
         feedbackModel: FeedbackModel,
         onSuccess: () -> Unit,
         onFail: (String) -> Unit
+    )
+
+    suspend fun addInteractive(
+        addInteractiveModel: AddInteractiveModel,
+        onProgress: (Int) -> Unit,
+        onSuccess: () -> Unit,
+        onFailure: (String) -> Unit
     )
 
 }

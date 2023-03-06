@@ -1,7 +1,6 @@
 package com.ladushkinySkazky.ladushkinnyskazki.presentation.feedbackFragment
 
-import android.app.Application
-import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.ladushkinySkazky.ladushkinnyskazki.data.SkazkyRepositoryImpl
 import com.ladushkinySkazky.ladushkinnyskazki.domian.models.FeedbackModel
@@ -9,7 +8,7 @@ import com.ladushkinySkazky.ladushkinnyskazki.domian.usecases.AddFeedbackUseCase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class FeedbackViewModel(application: Application) : AndroidViewModel(application) {
+class FeedbackViewModel : ViewModel() {
     private val repository = SkazkyRepositoryImpl
     private val addFeedbackUseCase = AddFeedbackUseCase(repository)
 

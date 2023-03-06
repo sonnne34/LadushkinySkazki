@@ -1,124 +1,150 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/blackTrans">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_interactive_add"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <TextView
-            android:id="@+id/txt_header_interactive_add"
+        <ProgressBar
+            android:id="@+id/interactive_add_determinate_bar"
+            style="@android:style/Widget.ProgressBar.Horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/font_first_time_writing"
-            android:gravity="center"
-            android:padding="16dp"
-            android:text="@string/txt_header_interactive_add"
-            android:textColor="@color/yellow"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <ImageView
-            android:id="@+id/img_interactive_add"
-            android:layout_width="match_parent"
-            android:layout_height="250dp"
+            android:layout_height="50dp"
             android:layout_margin="16dp"
-            android:contentDescription="@string/description_image_choice"
-            android:src="@drawable/ic_add_image"
+            android:progress="25"
+            android:progressBackgroundTint="@color/white"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txt_header_interactive_add" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:visibility="visible" />
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/input_edt_name_interactive_add"
+        <TextView
+            android:id="@+id/interactive_add_determinate_bar_text_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="16dp"
-            android:layout_marginTop="8dp"
+            android:layout_margin="16dp"
+            android:gravity="center_horizontal"
+            android:text="@string/tv_send_progress"
+            android:textSize="20sp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/img_interactive_add">
+            app:layout_constraintTop_toTopOf="parent"
+            tools:visibility="visible" />
 
-            <EditText
-                android:id="@+id/edt_name_interactive_add"
+        <LinearLayout
+            android:id="@+id/ll_interactive_add"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/txt_header_interactive_add"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/font_first_time_writing"
+                android:gravity="center"
+                android:padding="16dp"
+                android:text="@string/txt_header_interactive_add"
+                android:textColor="@color/yellow"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/img_interactive_add"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:layout_margin="16dp"
+                android:contentDescription="@string/description_image_choice"
+                android:src="@drawable/ic_add_image" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/input_edt_name_interactive_add"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="8dp">
+
+                <EditText
+                    android:id="@+id/edt_name_interactive_add"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:autofillHints=""
+                    android:background="@color/white"
+                    android:fontFamily="@font/font_first_time_writing"
+                    android:gravity="center"
+                    android:hint="@string/edt_name"
+                    android:imeOptions="actionDone"
+                    android:inputType="text"
+                    android:textColor="@color/blackTrans"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/input_edt_year_interactive_add"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="8dp">
+
+                <EditText
+                    android:id="@+id/edt_year_interactive_add"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:autofillHints=""
+                    android:background="@color/white"
+                    android:fontFamily="@font/font_first_time_writing"
+                    android:gravity="center"
+                    android:hint="@string/edt_year"
+                    android:imeOptions="actionDone"
+                    android:inputType="number"
+                    android:textColor="@color/blackTrans"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <EditText
+                android:id="@+id/edt_comment_interactive_add"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="8dp"
                 android:autofillHints=""
                 android:background="@color/white"
                 android:fontFamily="@font/font_first_time_writing"
                 android:gravity="center"
-                android:hint="@string/edt_name"
+                android:hint="@string/comment_interactive"
                 android:imeOptions="actionDone"
-                android:inputType="text"
+                android:inputType="textMultiLine"
+                android:padding="16dp"
                 android:textColor="@color/blackTrans"
                 android:textSize="16sp"
                 android:textStyle="bold" />
-        </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/input_edt_year_interactive_add"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="16dp"
-            android:layout_marginTop="8dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/input_edt_name_interactive_add">
-
-            <EditText
-                android:id="@+id/edt_year_interactive_add"
-                android:layout_width="match_parent"
+            <Button
+                android:id="@+id/btn_send_interactive_add"
+                android:layout_width="200dp"
                 android:layout_height="wrap_content"
-                android:autofillHints=""
-                android:background="@color/white"
-                android:fontFamily="@font/font_first_time_writing"
-                android:gravity="center"
-                android:hint="@string/edt_year"
-                android:imeOptions="actionDone"
-                android:inputType="number"
-                android:textColor="@color/blackTrans"
-                android:textSize="16sp"
-                android:textStyle="bold" />
-        </com.google.android.material.textfield.TextInputLayout>
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="20dp"
+                android:backgroundTint="@color/yellow"
+                android:text="@string/send"
+                android:textColor="@color/blackTrans" />
 
-        <EditText
-            android:id="@+id/edt_comment_interactive_add"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="16dp"
-            android:layout_marginTop="8dp"
-            android:autofillHints=""
-            android:background="@color/white"
-            android:fontFamily="@font/font_first_time_writing"
-            android:gravity="center"
-            android:hint="@string/comment_interactive"
-            android:imeOptions="actionDone"
-            android:inputType="textMultiLine"
-            android:padding="16dp"
-            android:textColor="@color/blackTrans"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/input_edt_year_interactive_add" />
-
-        <Button
-            android:id="@+id/btn_send_interactive_add"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:layout_margin="20dp"
-            android:backgroundTint="@color/yellow"
-            android:text="@string/send"
-            android:textColor="@color/blackTrans"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/edt_comment_interactive_add" />
-
+        </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
