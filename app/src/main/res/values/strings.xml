@@ -75,6 +75,6 @@
     <string name="dialog_yes">Да!</string>
     <string name="dialog_no">Ой, Нет!</string>
     <string name="tv_send_progress">Отправка художества…</string>
-    <string name="toast_wait_load">Дождитесь завершения загрузки Вашего художества…</string>
+    <string name="toast_wait_load">Пожалуйста, дождитесь завершения загрузки Вашего художества…</string>
     <string name="dialog_close_app">Закрыть приложение?</string>
 </resources>
