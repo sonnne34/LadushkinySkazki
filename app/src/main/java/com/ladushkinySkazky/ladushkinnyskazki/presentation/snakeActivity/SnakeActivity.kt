@@ -46,15 +46,12 @@ class SnakeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         sizePx()
-
+        getSharedPreferences()
         _binding = ActivitySnakeBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
         openWelcomeDialog()
-
         mPreferences = getSharedPreferences(NAME_PREF, MODE_PRIVATE)
 
-        getSharedPreferences()
         setupView()
         setupOnClick()
         onBackPress(this)
@@ -88,23 +85,15 @@ class SnakeActivity : AppCompatActivity() {
     }
 
     private fun setupView() {
+        val icMusicResource = if (isMusic) R.drawable.ic_music_on else R.drawable.ic_music_off
+        binding.icMusic.setImageResource(icMusicResource)
 
-        if (isMusic) {
-            binding.icMusic.setImageResource(R.drawable.ic_music_on)
-        } else {
-            binding.icMusic.setImageResource(R.drawable.ic_music_off)
-        }
-
-        if (isSound) {
-            binding.icSound.setImageResource(R.drawable.ic_sound_on)
-        } else {
-            binding.icSound.setImageResource(R.drawable.ic_sound_off)
-        }
+        val icSoundResource = if (isMusic) R.drawable.ic_sound_on else R.drawable.ic_sound_off
+        binding.icSound.setImageResource(icSoundResource)
 
         //появляющиеся объекты ("еда" змейки)
         animal = ImageView(this)
-        animal.layoutParams =
-            FrameLayout.LayoutParams(loadTextHead, loadTextHead)
+        animal.layoutParams = FrameLayout.LayoutParams(loadTextHead, loadTextHead)
         animal.setImageResource(R.drawable.hedgehog_two)
 
         //голова змейки
@@ -422,7 +411,7 @@ class SnakeActivity : AppCompatActivity() {
     //проверка врезания в хвост и выхода за размеры игрового поля
     private fun checkIfSnakeSmash(): Boolean {
         for (talePart in allTale) {
-            if (allTale.size != 0 && talePart.viewCoordinate.left == head.left && talePart.viewCoordinate.top == head.top) {
+            if (talePart.viewCoordinate.left == head.left && talePart.viewCoordinate.top == head.top) {
                 return true
             }
         }

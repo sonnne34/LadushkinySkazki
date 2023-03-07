@@ -4,11 +4,14 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.OnBackPressedCallback
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import com.ladushkinySkazky.ladushkinnyskazki.R
 import com.ladushkinySkazky.ladushkinnyskazki.databinding.FragmentMainBinding
 import com.ladushkinySkazky.ladushkinnyskazki.domian.models.CategorySkazkiModel
 
@@ -32,6 +35,7 @@ class MainFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.rvListCategory.adapter = categoryAdapter
+        onBackPress()
         observeViewModel()
         onClickListeners()
     }
@@ -65,6 +69,7 @@ class MainFragment : Fragment() {
         }
     }
 
+
     private fun btnGoInteractive() {
         binding.btnInteractiveCategoryMain.setOnClickListener {
             findNavController().navigate(
@@ -94,6 +99,23 @@ class MainFragment : Fragment() {
     override fun onStop() {
         super.onStop()
         (activity as AppCompatActivity).supportActionBar?.setDisplayHomeAsUpEnabled(true)
+    }
+
+    private fun onBackPress() {
+        requireActivity().onBackPressedDispatcher.addCallback(
+            viewLifecycleOwner,
+            object : OnBackPressedCallback(true) {
+                override fun handleOnBackPressed() {
+                    AlertDialog.Builder(requireActivity())
+                        .setTitle(getString(R.string.dialog_close_app))
+                        .setPositiveButton(getString(R.string.dialog_yes)) { _, _ ->
+                            requireActivity().finish()
+                        }
+                        .setNegativeButton(getString(R.string.dialog_no)) { _, _ -> }
+                        .create()
+                        .show()
+                }
+            })
     }
 
     override fun onDestroy() {
