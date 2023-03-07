@@ -5,6 +5,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AlphaAnimation
+import android.view.animation.Animation
 import android.widget.*
 import androidx.activity.addCallback
 import androidx.activity.result.contract.ActivityResultContracts
@@ -121,17 +123,7 @@ class InteractiveAddFragment : Fragment() {
             comment = comment,
             image = image
         ),
-            onProgress = { progressLoad ->
-                linearLayout.visibility = View.INVISIBLE
-                textProgressBar.visibility = View.VISIBLE
-                imageProgressBar.apply {
-                    visibility = View.VISIBLE
-                    progress = progressLoad
-                }
-                requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner) {
-                    showToast(getString(R.string.toast_wait_load))
-                }
-            },
+            onProgress = { showProgress(it) },
             onSuccess = { openOnSussesDialog() },
             onFailure = { error ->
                 showToast(String.format(getString(R.string.toast_fail), error))
@@ -153,6 +145,28 @@ class InteractiveAddFragment : Fragment() {
 
     private fun showToast(message: String) {
         Toast.makeText(activity, message, Toast.LENGTH_SHORT).show()
+    }
+
+    private fun showProgress(progressLoad: Int) {
+        linearLayout.visibility = View.INVISIBLE
+        textProgressBar.visibility = View.VISIBLE
+        imageProgressBar.apply {
+            startAnimation(getCustomAnimation())
+            visibility = View.VISIBLE
+            progress = progressLoad
+        }
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner) {
+            showToast(getString(R.string.toast_wait_load))
+        }
+    }
+
+    private fun getCustomAnimation(): Animation {
+        return AlphaAnimation(0.7f, 1.0f).apply {
+            duration = 1000
+            startOffset = 50
+            repeatMode = Animation.REVERSE
+            repeatCount = Animation.INFINITE
+        }
     }
 
     override fun onDestroy() {
