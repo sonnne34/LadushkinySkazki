@@ -13,3 +13,5 @@
 .app/google-services
 .app/release
 /app/google-services.json
+.app/src/main/java/com/ladushkinySkazky/ladushkinnyskazki/data/Utils.kt
+/app/src/main/java/com/ladushkinySkazky/ladushkinnyskazki/data/Utils.kt

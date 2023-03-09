@@ -65,16 +65,17 @@ class Mapper {
         mapInteractive["Name"] = addInteractiveModel.nameAuthor
         mapInteractive["Year"] = addInteractiveModel.year
         mapInteractive["Comment"] = addInteractiveModel.comment
-        mapInteractive["Image"] = "gs://skazki-99ce4.appspot.com/Interactive/$idInteractive"
+        mapInteractive["Image"] = IMAGE_INTERACTIVE_SK + idInteractive
         return mapInteractive
     }
+
     fun mapInteractiveToCheckInteractive(
         interactiveList: List<InteractiveModel>,
     ): List<InteractiveModel> =
         interactiveList.filter { it.Check }.sortedByDescending { it1 -> it1.DataTime }
 
     private fun currentDataTime(): String {
-        return DateFormat.format("yyyy-MM-dd hh:mm:ss a", Date()).toString()
+        return DateFormat.format(DATA_FORMAT, Date()).toString()
     }
 
 }

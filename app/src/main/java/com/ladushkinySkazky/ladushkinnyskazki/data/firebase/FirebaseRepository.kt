@@ -5,6 +5,8 @@ import com.google.firebase.storage.FirebaseStorage
 import com.ladushkinySkazky.ladushkinnyskazki.data.Mapper
 import com.ladushkinySkazky.ladushkinnyskazki.domian.models.AddInteractiveModel
 import com.ladushkinySkazky.ladushkinnyskazki.domian.models.FeedbackModel
+import com.ladushkinySkazky.ladushkinnyskazki.data.FEEDBACK_SK
+import com.ladushkinySkazky.ladushkinnyskazki.data.INTERACTIVE_SK
 
 class FirebaseRepository {
 
@@ -16,7 +18,7 @@ class FirebaseRepository {
         onSuccess: () -> Unit,
         onFail: (String) -> Unit,
     ) {
-        val dataBaseFeedback = dataBaseInstance.getReference("Feedback")
+        val dataBaseFeedback = dataBaseInstance.getReference(FEEDBACK_SK)
         val idFeedback = dataBaseFeedback.push().key.toString()
         dataBaseFeedback.child(idFeedback)
             .updateChildren(mapper.mapFeedbackToDataFirebase(idFeedback, feedbackModel))
@@ -30,11 +32,11 @@ class FirebaseRepository {
         onSuccess: () -> Unit,
         onFailure: (String) -> Unit,
     ) {
-        val dataBaseInteractive = dataBaseInstance.getReference("Interactive")
+        val dataBaseInteractive = dataBaseInstance.getReference(INTERACTIVE_SK)
         val idInteractive = dataBaseInteractive.push().key.toString()
 
         val firebaseStorage =
-            FirebaseStorage.getInstance().reference.child("Interactive/$idInteractive")
+            FirebaseStorage.getInstance().reference.child("$INTERACTIVE_SK/$idInteractive")
         firebaseStorage.putFile(addInteractiveModel.image)
             .addOnProgressListener { onProgress((100.0 * it.bytesTransferred / it.totalByteCount).toInt()) }
             .addOnSuccessListener {

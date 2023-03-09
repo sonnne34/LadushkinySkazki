@@ -6,11 +6,12 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
+import com.ladushkinySkazky.ladushkinnyskazki.data.SKAZKA_SK
 import com.ladushkinySkazky.ladushkinnyskazki.domian.models.CategorySkazkiModel
 
 class SkazkyLiveData : LiveData<List<CategorySkazkiModel>>() {
 
-    private val firebaseDatabase = FirebaseDatabase.getInstance().getReference("Skazka")
+    private val firebaseDatabase = FirebaseDatabase.getInstance().getReference(SKAZKA_SK)
     private val listener = firebaseDatabase.addValueEventListener(object : ValueEventListener {
 
         override fun onDataChange(dataSnapshot: DataSnapshot) {
