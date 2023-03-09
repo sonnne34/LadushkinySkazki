@@ -10,3 +10,5 @@
 .cxx
 /app/google-services
 /app/release
+.app/google-services
+.app/release
