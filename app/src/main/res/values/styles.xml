@@ -1,10 +1,19 @@
 <resources>
+
     <style name="Widget.Theme.LadushkinnySkazki.ButtonBar.Fullscreen" parent="">
         <item name="android:background">@color/black_overlay</item>
         <item name="android:buttonBarStyle">?android:attr/buttonBarStyle</item>
     </style>
 
+    \\стиль окна изображения на весь экран
+
+    <style name="CustomDialogInteractiveFullScreen" parent="@android:style/Theme.Dialog">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
+
     \\стиль диалогового окна (текст сказки)
+
     <style name="CustomDialogBodySkazka" parent="@android:style/Theme.Dialog">
         <item name="android:windowAnimationStyle">@style/CustomDialogAnimationBodySkazka</item>
         <item name="android:windowNoTitle">true</item>
@@ -12,22 +21,30 @@
     </style>
 
     \\подстиль диалогового окна (текст сказки)
+
     <style name="CustomDialogAnimationBodySkazka">
         <item name="android:windowEnterAnimation">@anim/slide_in_right</item>
         <item name="android:windowExitAnimation">@anim/slide_out_left</item>
     </style>
 
     \\стиль диалогового окна (меню)
+
     <style name="CustomDialogMenu" parent="@android:style/Theme.Dialog">
-        <item name="android:windowAnimationStyle">@style/CustomDialogAnimationMenu</item>
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowBackground">@drawable/round_menu</item>
     </style>
 
     \\подстиль диалогового окна (меню)
+
     <style name="CustomDialogAnimationMenu">
         <item name="android:windowEnterAnimation">@anim/translate_left_side</item>
         <item name="android:windowExitAnimation">@anim/translate_right_side</item>
+    </style>
+
+    <style name="ToolbarTheme" parent="ThemeOverlay.AppCompat.Light">
+        <item name="android:fontFamily">@font/font_lobster</item>
+        <item name="colorControlNormal">@color/yellow</item>
+        <item name="android:textColorPrimary">@color/yellow</item>
     </style>
 
 </resources>

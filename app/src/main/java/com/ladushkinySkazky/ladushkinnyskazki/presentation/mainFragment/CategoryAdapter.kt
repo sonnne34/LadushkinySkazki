@@ -8,12 +8,15 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import coil.load
 import com.ladushkinySkazky.ladushkinnyskazki.R
-import com.ladushkinySkazky.ladushkinnyskazki.data.loadFirebase.LoadImage
 import com.ladushkinySkazky.ladushkinnyskazki.domian.models.CategorySkazkiModel
 
 class CategoryAdapter(val context: Context) :
-    ListAdapter<CategorySkazkiModel, CategoryAdapter.CategoryViewHolder>(CategoryItemDiffCallback()) {
+    ListAdapter<CategorySkazkiModel,
+            CategoryAdapter.CategoryViewHolder>(CategoryItemDiffCallback) {
+
+    var onCategoryClickListener: OnCategoryClickListener? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoryViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
@@ -24,15 +27,28 @@ class CategoryAdapter(val context: Context) :
 
     override fun onBindViewHolder(holder: CategoryViewHolder, position: Int) {
         val categoryItem = getItem(position)
-        holder.category.text = categoryItem.CategoryName
-        holder.categoryDescription.text = categoryItem.CategoryDescription
-        LoadImage().loadImageCategorySkazka(context, categoryItem, holder.categoryPicture)
+        with(holder) {
+            category.text = categoryItem.CategoryName
+            categoryDescription.text = categoryItem.CategoryDescription
+            categoryPicture.load(categoryItem.CategoryUriPicture) {
+                placeholder(R.drawable.background_image)
+                crossfade(true)
+            }
+            itemView.setOnClickListener {
+                onCategoryClickListener?.onCategoryClick(categoryItem, position)
+            }
+        }
+
     }
 
     class CategoryViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        var category = itemView.findViewById(R.id.txt_name_category_skazka) as TextView
-        var categoryDescription =
-            itemView.findViewById<TextView>(R.id.txt_description_category)!!
-        var categoryPicture = itemView.findViewById<ImageView>(R.id.img_category_skazka)!!
+        val category = itemView.findViewById(R.id.txt_name_category_skazka) as TextView
+        val categoryDescription =
+            itemView.findViewById(R.id.txt_description_category) as TextView
+        val categoryPicture = itemView.findViewById(R.id.img_category_skazka) as ImageView
+    }
+
+    interface OnCategoryClickListener {
+        fun onCategoryClick(categorySkazkiModel: CategorySkazkiModel, position: Int)
     }
 }

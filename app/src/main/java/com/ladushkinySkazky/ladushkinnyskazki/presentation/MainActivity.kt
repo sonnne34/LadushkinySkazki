@@ -1,136 +1,67 @@
 package com.ladushkinySkazky.ladushkinnyskazki.presentation
 
-import android.content.Context
-import android.content.SharedPreferences
 import android.os.Bundle
-import android.util.DisplayMetrics
-import android.util.Log
-import android.widget.ImageButton
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.Toast
-import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.findNavController
 import com.ladushkinySkazky.ladushkinnyskazki.R
-import com.ladushkinySkazky.ladushkinnyskazki.domian.ConnectionType
-import com.ladushkinySkazky.ladushkinnyskazki.domian.NetworkMonitorUtil
-import com.ladushkinySkazky.ladushkinnyskazki.presentation.dialog.MainMenuDialog
-import com.ladushkinySkazky.ladushkinnyskazki.presentation.mainFragment.MainFragment
-import kotlin.system.exitProcess
+import com.ladushkinySkazky.ladushkinnyskazki.presentation.mainFragment.AboutUsMainMenuDialog
+import com.ladushkinySkazky.ladushkinnyskazki.presentation.mainFragment.MainFragmentDirections
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var btnMenu: ImageButton
     private val networkMonitor = NetworkMonitorUtil(this)
-
-    private lateinit var mPreferences: SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        mPreferences = getSharedPreferences(NAME_PREF, MODE_PRIVATE)
-
-        if (savedInstanceState == null) {
-            supportFragmentManager.beginTransaction()
-                .replace(R.id.container, MainFragment.newInstance())
-                .commitNow()
-        }
-
-        btnMenu = findViewById(R.id.img_btn_menu_main)
-
-        btnMenu.setOnClickListener {
-            MainMenuDialog.openMenu(this)
-        }
-
-        //проверка подключения к интернету
         networkMonitorResult()
-
-        //вычисление размеров объектов для змейки
-        sizePx()
+        setSupportActionBar(findViewById(R.id.my_toolbar))
     }
 
-    private fun setWidth(pxWidth: Int) {
-        mPreferences.edit()
-            .putString(WIDTH, pxWidth.toString())
-            .apply()
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.main_menu, menu)
+        return true
     }
 
-    private fun setSizeHead(sizeHead: Int) {
-        mPreferences.edit()
-            .putString(SIZE_HEAD, sizeHead.toString())
-            .apply()
-    }
-
-    //Вычисление размеров объектов
-    private fun sizePx() {
-        if (getSize() == "") {
-            val displayMetrics: DisplayMetrics = applicationContext.resources.displayMetrics
-            val pxWidth = displayMetrics.widthPixels - 50
-            val sizeHead = pxWidth / CELLS_ON_FIELD
-            setSizeHead(sizeHead)
-            setWidth(pxWidth)
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            android.R.id.home -> {
+                onBackPressedDispatcher.onBackPressed()
+            }
+            R.id.about_us -> {
+                AboutUsMainMenuDialog.openMenu(this)
+            }
+            R.id.feedback -> {
+                findNavController(R.id.container).navigate(
+                    MainFragmentDirections.actionMainFragmentToFeedbackFragment()
+                )
+            }
         }
+        return super.onOptionsItemSelected(item)
     }
 
-    private fun getSize(): String {
-        return mPreferences.getString(SIZE_HEAD, "").toString()
-    }
-
-    //диалоговое окно перед выходом из приложения
-    private fun openExitDialog(context: Context) {
-        val quitDialog = AlertDialog.Builder(
-            context
-        )
-        quitDialog.setTitle("Выход")
-        quitDialog.setTitle("Вы уверенны, что хотите закрыть приложение?")
-        quitDialog.setPositiveButton(
-            "Да"
-        ) { _, _ ->
-            onDestroy()
+    override fun onPrepareOptionsMenu(menu: Menu?): Boolean {
+        val labelFragment = findNavController(R.id.container).currentDestination?.label.toString()
+        if (labelFragment != "fragment_main") {
+            menu?.clear()
         }
-        quitDialog.setNegativeButton(
-            "Ой, нет!"
-        ) { _, _ -> }
-        quitDialog.show()
+        return super.onPrepareOptionsMenu(menu)
     }
 
-    //переопределения метода для обработки возвращения к фрагментам
-    override fun onBackPressed() {
-        //проверяем наличие фрагментов в стеке
-        val count = supportFragmentManager.backStackEntryCount
-        if (count == 0) {
-            //открывем диалог о выходе
-            openExitDialog(this)
-        } else {
-            //возвращаемся к пред. фрагменту
-            supportFragmentManager.popBackStack()
-        }
-    }
-
-    //проверка подключения к интернету
     private fun networkMonitorResult() {
-        networkMonitor.result = { isAvailable, type ->
+        networkMonitor.result = { isAvailable, _ ->
             runOnUiThread {
-                when (isAvailable) {
-                    true -> {
-                        when (type) {
-                            ConnectionType.Wifi -> {
-                                Log.i("NETWORK_MONITOR_STATUS", "Wifi Connection")
-                            }
-                            ConnectionType.Cellular -> {
-                                Log.i("NETWORK_MONITOR_STATUS", "Cellular Connection")
-                            }
-                            else -> {}
-                        }
-                    }
-                    false -> {
-                        Log.i("NETWORK_MONITOR_STATUS", "No Connection")
-                        Toast.makeText(
-                            applicationContext,
-                            "Проверьте подключение к интернету",
-                            Toast.LENGTH_LONG
-                        )
-                            .show()
-                    }
+                if (!isAvailable) {
+                    Toast.makeText(
+                        applicationContext,
+                        getString(R.string.toast_check_network),
+                        Toast.LENGTH_LONG
+                    )
+                        .show()
                 }
             }
         }
@@ -138,27 +69,11 @@ class MainActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        //проверка подключения к интернету
         networkMonitor.register()
-
     }
 
     override fun onPause() {
         super.onPause()
-        //остановка проверки подключения к интернету
         networkMonitor.unregister()
-    }
-
-    override fun onDestroy() {
-        moveTaskToBack(true)
-        super.onDestroy()
-        exitProcess(0)
-    }
-
-    companion object {
-        const val CELLS_ON_FIELD = 10
-        const val WIDTH = "pxWidth"
-        const val SIZE_HEAD = "sizeHead"
-        const val NAME_PREF = "preference"
     }
 }

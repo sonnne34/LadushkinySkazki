@@ -1,33 +1,27 @@
 package com.ladushkinySkazky.ladushkinnyskazki.presentation.interactiveFragment
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.ladushkinySkazky.ladushkinnyskazki.R
+import androidx.navigation.fragment.findNavController
 import com.ladushkinySkazky.ladushkinnyskazki.databinding.FragmentInteractiveBinding
-import com.ladushkinySkazky.ladushkinnyskazki.presentation.interactiveAddFragment.InteractiveAddFragment
+
 
 class InteractiveFragment : Fragment() {
 
     private var _binding: FragmentInteractiveBinding? = null
     private val binding: FragmentInteractiveBinding
         get() = _binding ?: throw RuntimeException("FragmentInteractiveBinding == null")
-
     private lateinit var viewModel: InteractiveViewModel
-
     private lateinit var interactiveAdapter: InteractiveAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
     ): View {
         _binding = FragmentInteractiveBinding.inflate(layoutInflater)
         interactiveAdapter = InteractiveAdapter(binding.root.context)
@@ -36,47 +30,34 @@ class InteractiveFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        rvSetup()
-        goInteractiveAdd()
+        binding.rvListInteractive.adapter = interactiveAdapter
         observeViewModel()
+        goInteractiveAdd()
     }
 
-    private fun rvSetup() {
-        with(binding.rvListInteractive) {
-            adapter = interactiveAdapter
-            layoutManager = LinearLayoutManager(
-                binding.root.context,
-                RecyclerView.VERTICAL, false
-            )
-            setHasFixedSize(true)
-            recycledViewPool.setMaxRecycledViews(50, 50)
-            setItemViewCacheSize(50)
+    override fun onResume() {
+        super.onResume()
+        activity?.invalidateOptionsMenu()
+    }
+
+    private fun observeViewModel() {
+        viewModel = ViewModelProvider(this)[InteractiveViewModel::class.java]
+        viewModel.interactiveList.observe(viewLifecycleOwner) { interactiveList ->
+            binding.progressInteractive.isVisible = interactiveList.isEmpty()
+            interactiveAdapter.submitList(interactiveList)
         }
     }
 
     private fun goInteractiveAdd() {
         binding.btnSendInteractive.setOnClickListener {
-            val interactiveAddFragment = InteractiveAddFragment.newInstance()
-            val manager = (activity as AppCompatActivity).supportFragmentManager
-            manager.beginTransaction()
-                .replace(R.id.container, interactiveAddFragment)
-                .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
-                .addToBackStack(InteractiveFragment.toString())
-                .commit()
+            findNavController().navigate(
+                InteractiveFragmentDirections.actionInteractiveFragmentToInteractiveAddFragment()
+            )
         }
     }
 
-    private fun observeViewModel() {
-        viewModel = ViewModelProvider(this)[InteractiveViewModel::class.java]
-        viewModel.interactiveList.observe(viewLifecycleOwner) {
-            interactiveAdapter.submitList(it.sortedByDescending { it1 -> it1.DataTime })
-            Log.d("LOAD", "interactiveAdapter = $it" )
-        }
-    }
-
-    companion object {
-        fun newInstance(): InteractiveFragment {
-            return InteractiveFragment()
-        }
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
     }
 }

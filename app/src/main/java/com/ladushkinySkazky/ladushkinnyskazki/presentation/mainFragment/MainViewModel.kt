@@ -1,13 +1,13 @@
 package com.ladushkinySkazky.ladushkinnyskazki.presentation.mainFragment
 
-import android.app.Application
-import androidx.lifecycle.AndroidViewModel
-import com.ladushkinySkazky.ladushkinnyskazki.data.SkazkyListRepositoryImpl
+import androidx.lifecycle.ViewModel
+import com.ladushkinySkazky.ladushkinnyskazki.data.SkazkyRepositoryImpl
 import com.ladushkinySkazky.ladushkinnyskazki.domian.usecases.GetCategoryListUseCase
 
-class MainViewModel(application: Application) : AndroidViewModel(application) {
+class MainViewModel : ViewModel() {
 
-    private val repository = SkazkyListRepositoryImpl
+    private val repository = SkazkyRepositoryImpl
     private val getCategoryListUseCase = GetCategoryListUseCase(repository)
     val categoryList = getCategoryListUseCase.getCategorySkazkyList()
+
 }

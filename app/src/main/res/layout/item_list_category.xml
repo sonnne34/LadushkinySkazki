@@ -8,10 +8,12 @@
         android:id="@+id/category_item_skazki"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/font_trouble_side"
+        android:textStyle="bold"
+        android:fontFamily="@font/font_first_time_writing"
         android:gravity="center"
         android:padding="7dp"
         android:text="@string/category_name"
+        android:textAllCaps="true"
         android:textColor="@color/yellowLight"
         android:textSize="16sp" />
 

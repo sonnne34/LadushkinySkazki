@@ -4,12 +4,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
+import androidx.navigation.fragment.navArgs
 import com.ladushkinySkazky.ladushkinnyskazki.databinding.FragmentSkazkyBinding
-import com.ladushkinySkazky.ladushkinnyskazki.presentation.mainFragment.MainFragment
+import com.ladushkinySkazky.ladushkinnyskazki.domian.models.SkazkiCatModel
 
 class SkazkyFragment : Fragment() {
 
@@ -17,70 +17,53 @@ class SkazkyFragment : Fragment() {
     private val binding: FragmentSkazkyBinding
         get() = _binding ?: throw RuntimeException("FragmentSkazkyBinding == null")
 
+    private val args by navArgs<SkazkyFragmentArgs>()
     private lateinit var skazkiAdapter: SkazkiAdapter
-
     private lateinit var viewModel: SkazkyViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
     ): View {
         _binding = FragmentSkazkyBinding.inflate(layoutInflater)
         skazkiAdapter = SkazkiAdapter(binding.root.context)
+        onClickItem()
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        rvSetup()
-
-        when (arguments?.getString(MainFragment.TYPE)!!) {
-            MainFragment.CATEGORY -> observeViewModelTypeCategory()
-            MainFragment.NEW -> observeViewModelTypeNew()
-        }
+        binding.rvListSkazki.adapter = skazkiAdapter
+        val isNewSkazky = args.newSkazky
+        val position = args.position
+        observeViewModel(isNewSkazky, position)
     }
 
-    private fun rvSetup() {
-        with(binding.rvListSkazki) {
-            adapter = skazkiAdapter
-            layoutManager = LinearLayoutManager(
-                binding.root.context,
-                RecyclerView.VERTICAL, false
-            )
-            setHasFixedSize(true)
-            recycledViewPool.setMaxRecycledViews(50, 50)
-            setItemViewCacheSize(50)
-        }
+    override fun onResume() {
+        super.onResume()
+        activity?.invalidateOptionsMenu()
     }
 
-    private fun observeViewModelTypeCategory() {
-        val position = arguments?.getInt("pos")!!
+    private fun observeViewModel(isNewSkazky: Boolean, position: Int) {
         viewModel = ViewModelProvider(this)[SkazkyViewModel::class.java]
-        viewModel.getItemSkazkiList(position)
+        viewModel.getItemSkazkiList(isNewSkazky, position)
         viewModel.skazkyList.observe(viewLifecycleOwner) {
             skazkiAdapter.submitList(it)
-            if (it.isNotEmpty()) {
-                binding.progress.visibility = View.GONE
+            binding.progress.isVisible = it.isEmpty()
+        }
+    }
+
+    private fun onClickItem() {
+        skazkiAdapter.onSkazkyClickListener = object : SkazkiAdapter.OnSkazkyClickListener {
+            override fun onSkazkyClick(skazkiCatModel: SkazkiCatModel, position: Int) {
+                SkazkaTextDialog.openBody(requireActivity(), skazkiCatModel)
             }
         }
     }
 
-    private fun observeViewModelTypeNew() {
-        viewModel = ViewModelProvider(this)[SkazkyViewModel::class.java]
-        viewModel.getNewItemSkazkiList()
-        viewModel.skazkyList.observe(viewLifecycleOwner) {
-            skazkiAdapter.submitList(it)
-            if (it.isNotEmpty()) {
-                binding.progress.visibility = View.GONE
-            }
-        }
-    }
-
-    companion object {
-        fun newInstance(): SkazkyFragment {
-            return SkazkyFragment()
-        }
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
     }
 }

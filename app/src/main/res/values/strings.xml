@@ -10,7 +10,7 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="body_skazka">Текст сказки</string>
     <string name="btn_go_snake">🌟 МИНИ-ИГРА 🌟</string>
-    <string name="txt_snake">Помоги Понюшке уложить спать всех ёжиков!</string>
+    <string name="txt_snake">Долгий путь в кроватку…</string>
     <string name="comment_interactive">здесь можешь рассказать\nо себе, о рисунке, о чём угодно!</string>
     <string name="description_button_menu">button menu</string>
     <string name="description_button_play_up">button play up</string>
@@ -19,16 +19,22 @@
     <string name="description_button_play_right">button play right</string>
     <string name="description_button_play_play_pause">button play pause or play</string>
     <string name="description_icon_logo">icon logo</string>
-    <string name="txt_author_sk">Автор сказок: Лада Светочева</string>
-    <string name="txt_res">Иконки, звёздный фон:\nhttps://www.freepik.com</string>
-    <string name="txt_feedback">Будем рады Вашим отзывам!</string>
-    <string name="txt_feedback_two">Автор сказок так-же на связи 😊</string>
-    <string name="txt_e_mail">Наш e-mail:</string>
-    <string name="txt_address_email">sonne-34@yandex.ru</string>
+    <string name="txt_text_sk">
+        Автор сказок: Лада Светочева\n
+        Иконки, звёздный фон:\n
+        https://www.freepik.com\n
+        Наш e-mail:
+    </string>
+    <string name="txt_text_feedback">
+        Будем рады Вашим отзывам!\n
+        Автор сказок так-же на связи 😊\n
+        Наш e-mail:
+    </string>
+    <string name="txt_address_email"><u>sonne-34@yandex.ru</u></string>
     <string name="txt_feedback_here">или напишите нам прямо здесь:</string>
     <string name="txt_your_name">Ваше имя</string>
     <string name="txt_your_feedback">Ваш отзыв / пожелание\n(обязательное поле)</string>
-    <string name="txt_contact">Ваш телефон, e-mail или др.</string>
+    <string name="txt_contact">Ваш телефон, e-mail или др.\n (необязательно поле)</string>
     <string name="send">Отправить</string>
     <string name="close">Закрыть</string>
     <string name="description_image_sk">Картинка для сказки</string>
@@ -49,4 +55,26 @@
     <string name="description_view_skazka">Иконка просмотрена ли сказка</string>
     <string name="description_like_skazka">Иконка \"нравится сказка\"</string>
     <string name="btn_new">✨ Новинки ✨</string>
+    <string name="description_question">Правила игры</string>
+    <string name="description_btn_music">Включение/отключение музыки</string>
+    <string name="description_btn_sound">Включение/отключение звуков</string>
+    <string name="about_us">О нас</string>
+    <string name="txt_menu_feedback">Оставить отзыв</string>
+    <string name="txt_dialog_star">контактные данные нужно указывать только при случае, если Вы хотите, чтобы мы с Вами связались.</string>
+    <string name="toast_empty_message">Ой, Вы совсем ничего не написали!)</string>
+    <string name="toast_thanks">Спасибочки!</string>
+    <string name="toast_check_network">Проверьте подключение к интернету</string>
+    <string name="toast_error_send_feedback">Что-то пошло не так, попробуйте повторить отправку позже</string>
+    <string name="checked_empty">Обязательное поле</string>
+    <string name="toast_error_image">Прикрепите изображение</string>
+    <string name="toast_fail">Упс! Произошла ошибка: %s</string>
+    <string name="dialog_send_title_add_interactive">Отправить художество?</string>
+    <string name="dialog_send_title_on_susses">Большое спасибо!</string>
+    <string name="dialog_send_message_on_susses">"Мы проверим корректность художества, затем добавим его в галерею!"</string>
+    <string name="dialog_great">Отлично!</string>
+    <string name="dialog_yes">Да!</string>
+    <string name="dialog_no">Ой, Нет!</string>
+    <string name="tv_send_progress">Отправка художества…</string>
+    <string name="toast_wait_load">Пожалуйста, дождитесь завершения загрузки Вашего художества…</string>
+    <string name="dialog_close_app">Закрыть приложение?</string>
 </resources>
