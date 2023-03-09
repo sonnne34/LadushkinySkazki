@@ -30,7 +30,6 @@
     \\стиль диалогового окна (меню)
 
     <style name="CustomDialogMenu" parent="@android:style/Theme.Dialog">
-        <item name="android:windowAnimationStyle">@style/CustomDialogAnimationMenu</item>
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowBackground">@drawable/round_menu</item>
     </style>

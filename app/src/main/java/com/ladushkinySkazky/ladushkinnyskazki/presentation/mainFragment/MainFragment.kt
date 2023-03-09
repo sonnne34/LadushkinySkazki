@@ -1,13 +1,17 @@
 package com.ladushkinySkazky.ladushkinnyskazki.presentation.mainFragment
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.OnBackPressedCallback
+import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import com.ladushkinySkazky.ladushkinnyskazki.R
 import com.ladushkinySkazky.ladushkinnyskazki.databinding.FragmentMainBinding
 import com.ladushkinySkazky.ladushkinnyskazki.domian.models.CategorySkazkiModel
 
@@ -26,28 +30,59 @@ class MainFragment : Fragment() {
         _binding = FragmentMainBinding.inflate(layoutInflater)
         categoryAdapter = CategoryAdapter(binding.root.context)
         return binding.root
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.rvListCategory.adapter = categoryAdapter
+        onBackPress()
         observeViewModel()
-        Log.d("MainFragment", "onViewCreated")
+        onClickListeners()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        (activity as AppCompatActivity).supportActionBar?.setDisplayHomeAsUpEnabled(false)
+    }
+
+    private fun onClickListeners() {
+        btnGoSnake()
+        btnGoInteractive()
+        btnGoNewSkazky()
         onClickItem()
-        goSnake()
-        goInteractive()
-        goNewSkazky()
     }
 
     private fun observeViewModel() {
-        viewModel = ViewModelProvider(this.requireActivity())[MainViewModel::class.java]
-        viewModel.categoryList.observe(this.requireActivity()) {
-            if (it.isNotEmpty()) {
-                binding.progress.visibility = View.GONE
-                binding.btnNewCategoryMain.visibility = View.VISIBLE
-            }
+        viewModel = ViewModelProvider(this)[MainViewModel::class.java]
+        viewModel.categoryList.observe(viewLifecycleOwner) {
             categoryAdapter.submitList(it)
+            binding.progress.isVisible = it.isEmpty()
+            binding.llButtonsMain.isVisible = it.isNotEmpty()
+        }
+    }
+
+    private fun btnGoSnake() {
+        binding.btnSnakeCategoryMain.setOnClickListener {
+            findNavController().navigate(
+                MainFragmentDirections.actionMainFragmentToSnakeActivity()
+            )
+        }
+    }
+
+
+    private fun btnGoInteractive() {
+        binding.btnInteractiveCategoryMain.setOnClickListener {
+            findNavController().navigate(
+                MainFragmentDirections.actionMainFragmentToInteractiveFragment()
+            )
+        }
+    }
+
+    private fun btnGoNewSkazky() {
+        binding.btnNewCategoryMain.setOnClickListener {
+            findNavController().navigate(
+                MainFragmentDirections.actionMainFragmentToSkazkyFragment(true, 0)
+            )
         }
     }
 
@@ -61,27 +96,30 @@ class MainFragment : Fragment() {
         }
     }
 
-    private fun goSnake() {
-        binding.btnSnakeCategoryMain.setOnClickListener {
-            findNavController().navigate(
-                MainFragmentDirections.actionMainFragmentToSnakeActivity()
-            )
-        }
+    override fun onStop() {
+        super.onStop()
+        (activity as AppCompatActivity).supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
 
-    private fun goInteractive() {
-        binding.btnInteractiveCategoryMain.setOnClickListener {
-            findNavController().navigate(
-                MainFragmentDirections.actionMainFragmentToInteractiveFragment()
-            )
-        }
+    private fun onBackPress() {
+        requireActivity().onBackPressedDispatcher.addCallback(
+            viewLifecycleOwner,
+            object : OnBackPressedCallback(true) {
+                override fun handleOnBackPressed() {
+                    AlertDialog.Builder(requireActivity())
+                        .setTitle(getString(R.string.dialog_close_app))
+                        .setPositiveButton(getString(R.string.dialog_yes)) { _, _ ->
+                            requireActivity().finish()
+                        }
+                        .setNegativeButton(getString(R.string.dialog_no)) { _, _ -> }
+                        .create()
+                        .show()
+                }
+            })
     }
 
-    private fun goNewSkazky() {
-        binding.btnNewCategoryMain.setOnClickListener {
-            findNavController().navigate(
-                MainFragmentDirections.actionMainFragmentToSkazkyFragment(true, 0)
-            )
-        }
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
     }
 }

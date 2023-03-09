@@ -4,19 +4,19 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.ladushkinySkazky.ladushkinnyskazki.databinding.FragmentInteractiveBinding
+
 
 class InteractiveFragment : Fragment() {
 
     private var _binding: FragmentInteractiveBinding? = null
     private val binding: FragmentInteractiveBinding
         get() = _binding ?: throw RuntimeException("FragmentInteractiveBinding == null")
-
     private lateinit var viewModel: InteractiveViewModel
-
     private lateinit var interactiveAdapter: InteractiveAdapter
 
     override fun onCreateView(
@@ -31,19 +31,20 @@ class InteractiveFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.rvListInteractive.adapter = interactiveAdapter
-        goInteractiveAdd()
         observeViewModel()
+        goInteractiveAdd()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        activity?.invalidateOptionsMenu()
     }
 
     private fun observeViewModel() {
         viewModel = ViewModelProvider(this)[InteractiveViewModel::class.java]
         viewModel.interactiveList.observe(viewLifecycleOwner) { interactiveList ->
-            if (interactiveList.isNotEmpty()) {
-                binding.progressInteractive.visibility = View.GONE
-            }
-            interactiveAdapter
-                .submitList(interactiveList.sortedByDescending { it1 -> it1.DataTime }
-                    .filter { it.Check })
+            binding.progressInteractive.isVisible = interactiveList.isEmpty()
+            interactiveAdapter.submitList(interactiveList)
         }
     }
 
@@ -53,5 +54,10 @@ class InteractiveFragment : Fragment() {
                 InteractiveFragmentDirections.actionInteractiveFragmentToInteractiveAddFragment()
             )
         }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
     }
 }

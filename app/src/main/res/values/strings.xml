@@ -34,7 +34,7 @@
     <string name="txt_feedback_here">или напишите нам прямо здесь:</string>
     <string name="txt_your_name">Ваше имя</string>
     <string name="txt_your_feedback">Ваш отзыв / пожелание\n(обязательное поле)</string>
-    <string name="txt_contact">Ваш телефон, e-mail или др.*</string>
+    <string name="txt_contact">Ваш телефон, e-mail или др.\n (необязательно поле)</string>
     <string name="send">Отправить</string>
     <string name="close">Закрыть</string>
     <string name="description_image_sk">Картинка для сказки</string>
@@ -60,5 +60,21 @@
     <string name="description_btn_sound">Включение/отключение звуков</string>
     <string name="about_us">О нас</string>
     <string name="txt_menu_feedback">Оставить отзыв</string>
-    <string name="txt_dialog_star">*контактные данные нужны только при случае, если Вы хотите, чтобы мы с Вами связались.</string>
+    <string name="txt_dialog_star">контактные данные нужно указывать только при случае, если Вы хотите, чтобы мы с Вами связались.</string>
+    <string name="toast_empty_message">Ой, Вы совсем ничего не написали!)</string>
+    <string name="toast_thanks">Спасибочки!</string>
+    <string name="toast_check_network">Проверьте подключение к интернету</string>
+    <string name="toast_error_send_feedback">Что-то пошло не так, попробуйте повторить отправку позже</string>
+    <string name="checked_empty">Обязательное поле</string>
+    <string name="toast_error_image">Прикрепите изображение</string>
+    <string name="toast_fail">Упс! Произошла ошибка: %s</string>
+    <string name="dialog_send_title_add_interactive">Отправить художество?</string>
+    <string name="dialog_send_title_on_susses">Большое спасибо!</string>
+    <string name="dialog_send_message_on_susses">"Мы проверим корректность художества, затем добавим его в галерею!"</string>
+    <string name="dialog_great">Отлично!</string>
+    <string name="dialog_yes">Да!</string>
+    <string name="dialog_no">Ой, Нет!</string>
+    <string name="tv_send_progress">Отправка художества…</string>
+    <string name="toast_wait_load">Пожалуйста, дождитесь завершения загрузки Вашего художества…</string>
+    <string name="dialog_close_app">Закрыть приложение?</string>
 </resources>

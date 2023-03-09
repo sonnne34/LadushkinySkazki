@@ -78,7 +78,7 @@
             android:layout_margin="10dp"
             android:contentDescription="@string/description_new_skazka"
             android:src="@drawable/ic_new"
-            android:visibility="invisible"
+            android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 

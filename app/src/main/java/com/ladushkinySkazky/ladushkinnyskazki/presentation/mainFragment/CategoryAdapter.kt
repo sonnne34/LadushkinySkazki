@@ -27,22 +27,25 @@ class CategoryAdapter(val context: Context) :
 
     override fun onBindViewHolder(holder: CategoryViewHolder, position: Int) {
         val categoryItem = getItem(position)
-        holder.category.text = categoryItem.CategoryName
-        holder.categoryDescription.text = categoryItem.CategoryDescription
-        holder.categoryPicture.load(categoryItem.CategoryUriPicture) {
-            placeholder(R.drawable.background_image)
-            crossfade(true)
+        with(holder) {
+            category.text = categoryItem.CategoryName
+            categoryDescription.text = categoryItem.CategoryDescription
+            categoryPicture.load(categoryItem.CategoryUriPicture) {
+                placeholder(R.drawable.background_image)
+                crossfade(true)
+            }
+            itemView.setOnClickListener {
+                onCategoryClickListener?.onCategoryClick(categoryItem, position)
+            }
         }
-        holder.itemView.setOnClickListener {
-            onCategoryClickListener?.onCategoryClick(categoryItem, position)
-        }
+
     }
 
     class CategoryViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        var category = itemView.findViewById(R.id.txt_name_category_skazka) as TextView
-        var categoryDescription =
-            itemView.findViewById<TextView>(R.id.txt_description_category)!!
-        var categoryPicture = itemView.findViewById<ImageView>(R.id.img_category_skazka)!!
+        val category = itemView.findViewById(R.id.txt_name_category_skazka) as TextView
+        val categoryDescription =
+            itemView.findViewById(R.id.txt_description_category) as TextView
+        val categoryPicture = itemView.findViewById(R.id.img_category_skazka) as ImageView
     }
 
     interface OnCategoryClickListener {
