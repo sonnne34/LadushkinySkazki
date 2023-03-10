@@ -60,7 +60,7 @@
     <string name="description_btn_sound">Включение/отключение звуков</string>
     <string name="about_us">О нас</string>
     <string name="txt_menu_feedback">Оставить отзыв</string>
-    <string name="txt_dialog_star">контактные данные нужно указывать только при случае, если Вы хотите, чтобы мы с Вами связались.</string>
+    <string name="txt_dialog_star">*контактные данные нужно указывать только при случае, если Вы хотите, чтобы мы с Вами связались.</string>
     <string name="toast_empty_message">Ой, Вы совсем ничего не написали!)</string>
     <string name="toast_thanks">Спасибочки!</string>
     <string name="toast_check_network">Проверьте подключение к интернету</string>

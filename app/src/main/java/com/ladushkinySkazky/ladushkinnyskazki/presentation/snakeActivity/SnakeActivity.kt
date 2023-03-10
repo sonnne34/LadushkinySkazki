@@ -45,12 +45,13 @@ class SnakeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        sizePx()
-        getSharedPreferences()
+
         _binding = ActivitySnakeBinding.inflate(layoutInflater)
         setContentView(binding.root)
         openWelcomeDialog()
         mPreferences = getSharedPreferences(NAME_PREF, MODE_PRIVATE)
+        sizePx()
+        getSharedPreferences()
 
         setupView()
         setupOnClick()
