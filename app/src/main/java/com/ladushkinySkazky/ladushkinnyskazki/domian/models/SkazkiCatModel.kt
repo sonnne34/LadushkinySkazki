@@ -5,6 +5,5 @@ data class SkazkiCatModel(
     var CategoryName: String? = null,
     var CategoryDescription: String? = null,
     var CategoryUriPicture: String? = null,
-) {
-    var isHeader = false
-}
+    var isHeader: Boolean = false
+)

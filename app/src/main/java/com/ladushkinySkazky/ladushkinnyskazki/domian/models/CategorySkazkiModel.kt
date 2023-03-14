@@ -5,7 +5,6 @@ data class CategorySkazkiModel(
     var CategoryName: String = String(),
     var CategoryDescription: String = String(),
     var CategoryUriPicture: String = String(),
-) {
-    var isHeader = false
+    var isHeader: Boolean = false,
     var Items: HashMap<String, SkazkiModel> = HashMap()
-}
+)
